@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/11 | Fisherman</title>
+  <title>发散思维-不用四则做加法 | Fisherman</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Fisherman">
-<meta property="og:url" content="http://yoursite.com/archives/2017/11/page/2/index.html">
+  <meta name="description" content="不用四则做加法直接上代码：">
+<meta name="keywords" content="java,算法,数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="发散思维-不用四则做加法">
+<meta property="og:url" content="http://yoursite.com/2017/08/25/发散思维-不用四则做加法/index.html">
 <meta property="og:site_name" content="Fisherman">
+<meta property="og:description" content="不用四则做加法直接上代码：">
+<meta property="og:updated_time" content="2017-11-30T02:02:46.228Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fisherman">
+<meta name="twitter:title" content="发散思维-不用四则做加法">
+<meta name="twitter:description" content="不用四则做加法直接上代码：">
   
   
     <link rel="icon" href="/favicon.png">
@@ -137,221 +142,209 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-发散思维-不用四则做加法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/30/mysql decimal类型与decimal长度用法详解/" class="archive-article-date">
-  	<time datetime="2017-11-30T01:36:39.706Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-30</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/30/mysql decimal类型与decimal长度用法详解/">mysql decimal类型与decimal长度用法详解</a>
+    <h1 class="article-title" itemprop="name">
+      发散思维-不用四则做加法
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/08/25/发散思维-不用四则做加法/" class="archive-article-date">
+  	<time datetime="2017-08-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="不用四则做加法"><a href="#不用四则做加法" class="headerlink" title="不用四则做加法"></a>不用四则做加法</h5><p>直接上代码：<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class Add &#123;</span><br><span class="line">	public static int Add(int num1, int num2) &#123;</span><br><span class="line">		while (num2 != 0) &#123;</span><br><span class="line">			int temp = num1 ^ num2;</span><br><span class="line">			System.out.println(&quot;temp=&quot; + temp);</span><br><span class="line">			System.out.println(&quot;num1&amp;num2=&quot; + (num1 &amp; num2));</span><br><span class="line">			num2 = (num1 &amp; num2) &lt;&lt; 1;</span><br><span class="line">			System.out.println(&quot;(num1 &amp; num2) &lt;&lt; 1 =&quot; + num2);</span><br><span class="line">			num1 = temp;</span><br><span class="line">            System.out.print(num1);</span><br><span class="line">		&#125;</span><br><span class="line">		return num1;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Add(3, 6);</span><br><span class="line">		//2  :0010</span><br><span class="line">		//3  :0011</span><br><span class="line">		//2^3=0001  =1    异或运算符，用符号(^)表示，其运算规则是：两个操作数的位中，相同则结果为0，不同则结果为1。</span><br><span class="line"> 	  //2&amp;3=0010  =2    位与运算符，都为1则为1，否则为0。</span><br><span class="line">		//2&lt;&lt;2=4                      右移运算符，num &lt;&lt; 1,相当于num乘以2</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="思路解读："><a href="#思路解读：" class="headerlink" title="思路解读："></a>思路解读：</h5><blockquote>
+<p>解析：<br>首先看十进制是如何做的： 5+7=12，三步走<br>第一步：相加各位的值，不算进位，得到2。<br>第二步：计算进位值，得到10. 如果这一步的进位值为0，那么第一步得到的值就是最终结果。<br>第三步：重复上述两步，只是相加的值变成上述两步的得到的结果2和10，得到12。</p>
+<p>同样我们可以用三步走的方式计算二进制值相加： 5-101，7-111<br>第一步：相加各位的值，不算进位，得到010，二进制每位相加就相当于各位做异或操作，101^111。<br>第二步：计算进位值，得到1010，相当于各位做与操作得到101，再向左移一位得到1010，(101&amp;111)&lt;&lt;1。<br>第三步重复上述两步， 各位相加 010^1010=1000，进位值为100=(010&amp;1010)&lt;&lt;1。<br>     继续重复上述两步：1000^100 = 1100，进位值为0，跳出循环，1100为最终结果。</p>
+</blockquote>
+<h5 id="延伸："><a href="#延伸：" class="headerlink" title="延伸："></a>延伸：</h5><ol>
+<li>位异或运算（^）</li>
+</ol>
+<p>运算规则是：两个数转为二进制，然后从高位开始比较，如果相同则为0，不相同则为1。<br>比如：8^11.</p>
+<p>8转为二进制是1000，11转为二进制是1011.从高位开始比较得到的是：0011.然后二进制转为十进制，就是Integer.parseInt(“0011”,2)=3;</p>
+<ol>
+<li>位与运算符（&amp;）</li>
+</ol>
+<p>运算规则：两个数都转为二进制，然后从高位开始比较，如果两个数都为1则为1，否则为0。<br>比如：129&amp;128.</p>
+<p>129转换成二进制就是10000001，128转换成二进制就是10000000。从高位开始比较得到，得到10000000，即128.</p>
+<ol>
+<li>位或运算符（|）</li>
+</ol>
+<p>运算规则：两个数都转为二进制，然后从高位开始比较，两个数只要有一个为1则为1，否则就为0。</p>
+<p>比如：129|128.</p>
+<p>129转换成二进制就是10000001，128转换成二进制就是10000000。从高位开始比较得到，得到10000001，即129.</p>
+<ol>
+<li>位非运算符（~）</li>
+</ol>
+<p>运算规则：如果位为0，结果是1，如果位为1，结果是0.</p>
+<p>比如：~37</p>
+<p>在Java中，所有数据的表示方法都是以补码的形式表示，如果没有特殊说明，Java中的数据类型默认是int,int数据类型的长度是8位，一位是四个字节，就是32字节，32bit.</p>
+<p>8转为二进制是100101.</p>
+<p>补码后为： 00000000 00000000 00000000 00100101</p>
+<p>取反为：    11111111 11111111 11111111 11011010</p>
+<p>因为高位是1，所以原码为负数，负数的补码是其绝对值的原码取反，末尾再加1。</p>
+<p>因此，我们可将这个二进制数的补码进行还原： 首先，末尾减1得反码：11111111 11111111 11111111 11011001 其次，将各位取反得原码：</p>
+<p>00000000 00000000 00000000 00100110，此时二进制转原码为38</p>
+<h2 id="所以-37-38"><a href="#所以-37-38" class="headerlink" title="所以~37 = -38."></a>所以~37 = -38.</h2><p>关于java 原码、反码、补码<br>(<a href="http://blog.csdn.net/u010841296/article/details/52850307" target="_blank" rel="noopener">http://blog.csdn.net/u010841296/article/details/52850307</a>)</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/30/Spring常用注解/" class="archive-article-date">
-  	<time datetime="2017-11-30T01:36:39.706Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/30/Spring常用注解/">Spring常用注解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">javaweb</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/30/String相关/" class="archive-article-date">
-  	<time datetime="2017-11-30T01:36:39.706Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/30/String相关/">String s1 = new String(&quot;abc&quot;)和String s2 = &quot;abc&quot;的区别</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/25/发散思维-不用四则做加法/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/30/SQL truncate/delete/drop区别/" class="archive-article-date">
-  	<time datetime="2017-11-30T01:36:39.706Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-30</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/30/SQL truncate/delete/drop区别/">SQL truncate/delete/drop 区别</a>
-    </h1>
+    <a href="/2017/11/30/Dao层、Service层、Controller层、View层/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Dao层、Service层、Controller层、View层
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/30/Linux/" class="archive-article-date">
-  	<time datetime="2017-11-30T01:36:39.706Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/30/Linux/">linux安装jdk以及远程访问服务</a>
-    </h1>
+  <div id="SOHUCS" sid="发散思维-不用四则做加法" style="padding: 0px 30px 0px 46px;"></div>
+<script type="text/javascript"> 
+(function(){ 
+var appid = "cyt5SKUGd"; 
+var conf = "prod_00a669d182fff165253ce5b608f2f8e8"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2017/11/">&laquo; Prev</a><a class="page-number" href="/archives/2017/11/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2017/11/page/3/">3</a><a class="page-number" href="/archives/2017/11/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2017/11/page/6/">6</a><a class="extend next" rel="next" href="/archives/2017/11/page/3/">Next &raquo;</a>
-    </nav>
-  
-
 
           </div>
         </div>
@@ -379,8 +372,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
