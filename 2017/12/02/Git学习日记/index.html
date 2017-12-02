@@ -6,19 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>React中export和export default | Ignite</title>
+  <title>Git学习日记 | Ignite</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这几天正在学习React，目前是React小白~， 所以要狠狠补一下基础语法，有空记录一下！ 一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用。组件导出的关键字是:  exprot default">
-<meta name="keywords" content="React">
+  <meta name="description" content="提交如果遇到冲突的话，有两种解决方式，git merge和 git rebase。 首先来了解一下git pull：  将远程存储库中的更改合并到当前分支中。在默认模式下，git pull 是git fetch后跟git merge FETCH_HEAD的缩写。 更准确地说，git pull使用给定的参数运行git f">
+<meta name="keywords" content="git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React中export和export default">
-<meta property="og:url" content="http://yoursite.com/2017/11/22/react相关/index.html">
+<meta property="og:title" content="Git学习日记">
+<meta property="og:url" content="http://yoursite.com/2017/12/02/Git学习日记/index.html">
 <meta property="og:site_name" content="Ignite">
-<meta property="og:description" content="这几天正在学习React，目前是React小白~， 所以要狠狠补一下基础语法，有空记录一下！ 一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用。组件导出的关键字是:  exprot default">
-<meta property="og:updated_time" content="2017-12-02T03:37:51.632Z">
+<meta property="og:description" content="提交如果遇到冲突的话，有两种解决方式，git merge和 git rebase。 首先来了解一下git pull：  将远程存储库中的更改合并到当前分支中。在默认模式下，git pull 是git fetch后跟git merge FETCH_HEAD的缩写。 更准确地说，git pull使用给定的参数运行git fetch，并调用git merge将检索到的分支头合并到当前分支中。 也就是说g">
+<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/02.png">
+<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/03.png">
+<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/04.png">
+<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/05.png">
+<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/06.png">
+<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/07.png">
+<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/08.png">
+<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/09.png">
+<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/10.png">
+<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/11.png">
+<meta property="og:updated_time" content="2017-12-02T10:20:11.018Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React中export和export default">
-<meta name="twitter:description" content="这几天正在学习React，目前是React小白~， 所以要狠狠补一下基础语法，有空记录一下！ 一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用。组件导出的关键字是:  exprot default">
+<meta name="twitter:title" content="Git学习日记">
+<meta name="twitter:description" content="提交如果遇到冲突的话，有两种解决方式，git merge和 git rebase。 首先来了解一下git pull：  将远程存储库中的更改合并到当前分支中。在默认模式下，git pull 是git fetch后跟git merge FETCH_HEAD的缩写。 更准确地说，git pull使用给定的参数运行git fetch，并调用git merge将检索到的分支头合并到当前分支中。 也就是说g">
+<meta name="twitter:image" content="http://oziqlv1ur.bkt.clouddn.com/02.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -142,69 +153,68 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-react相关" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Git学习日记" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      React中export和export default
+      Git学习日记
     </h1>
   
 
         
-        <a href="/2017/11/22/react相关/" class="archive-article-date">
-  	<time datetime="2017-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-22</time>
+        <a href="/2017/12/02/Git学习日记/" class="archive-article-date">
+  	<time datetime="2017-12-02T10:20:11.018Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这几天正在学习React，目前是React小白~， 所以要狠狠补一下基础语法，有空记录一下！</p>
-<p>一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用。<br>组件导出的关键字是:</p>
-<blockquote>
-<p>exprot default</p>
-<a id="more"></a>
-</blockquote>
-<p>没有加default时，例如：</p>
-<blockquote>
-<p>export class Template{}</p>
-</blockquote>
-<p>当然，你可以在单个js文件里声明多个组件，例如Templates.js</p>
-<blockquote>
-<p>export class Template{}<br>export class AnotherTemplate{}</p>
-</blockquote>
-<p>这样在其他文件引用时，需要使用{}符号，且名称必须和class名称一样，like this：</p>
-<blockquote>
-<p>import {Template,AnotherTemplate} from ‘./components/Templates’;</p>
-</blockquote>
-<p>而加default时，例如：</p>
-<blockquote>
-<p>export default class Template{}</p>
-</blockquote>
-<p>然后在其他文件引用，像这样：</p>
-<blockquote>
-<p>import Template from ‘./components/Templates’;</p>
-</blockquote>
-<p>你也可以为这个组件另起一个别名，</p>
-<blockquote>
-<p>import TheTemplate from ‘./components/Templates’;</p>
-</blockquote>
-<p>但是每个文件里只能有一个default组件，可以包含其他非default组件：</p>
-<blockquote>
-<p>export default class Template{}<br>export class AnotherTemplate{}</p>
-</blockquote>
-<p>然后引用的时候，如下：</p>
-<blockquote>
-<p>import Template,{AnotherTemplate} from ‘./components/Templates’;</p>
-</blockquote>
-<p>总结：</p>
-<ul>
-<li>有default和没有default的区别在于：有default在引用时可以自定义名称，而没有default时需要使用{}括起来且名称必需和class名称一致</li>
-<li>每个文件里只能有一个default组件，但可以有多个非default组件</li>
-</ul>
+        <pre><code>提交如果遇到冲突的话，有两种解决方式，git merge和 git rebase。
+首先来了解一下git pull：
+
+将远程存储库中的更改合并到当前分支中。在默认模式下，git pull 是git fetch后跟git merge FETCH_HEAD的缩写。
+更准确地说，git pull使用给定的参数运行git fetch，并调用git merge将检索到的分支头合并到当前分支中。
+也就是说git pull 分为两步，一步是git fetch，一步是git merge。
+
+目前提交代码，先是git commit 到本地  然后 merge 或者 rebase。
+
+遇到冲突之git base解决
+</code></pre><ol>
+<li><p>首先查看所有分支：</p>
+<pre><code>git branch -r
+
+![查看所有分支](http://oziqlv1ur.bkt.clouddn.com/01.png)
+</code></pre></li>
+<li><p>检出一个分支：<br>  git checkout -b root<br>  <img src="http://oziqlv1ur.bkt.clouddn.com/02.png" alt="检出分支"><br>3、当自己修改了本地分支之后</p>
+<p> git push –set-upstream origin root<br> 作用：推送当前分支并建立与远程上游的跟踪</p>
+</li>
+</ol>
+<p>4、试图去拉当前服务器上的分支,因为在要向服务器提交代码时，首先要拉服务器的代码<br>    git pull</p>
+<pre><code>会有提示 ：（因为当时还没有commit到本地仓库）
+</code></pre><p><img src="http://oziqlv1ur.bkt.clouddn.com/03.png" alt="提示"><br>   提交到本地仓库：<br>   git add .<br>   git commit -m test<br><img src="http://oziqlv1ur.bkt.clouddn.com/04.png" alt="提交到本地仓库"></p>
+<p>5、使用git pull –rebase</p>
+<p><img src="http://oziqlv1ur.bkt.clouddn.com/05.png" alt="rebase命令"></p>
+<p><img src="http://oziqlv1ur.bkt.clouddn.com/06.png" alt="命令"></p>
+<p>6、使用git status 查看到哪一个文件有错误</p>
+<p><img src="http://oziqlv1ur.bkt.clouddn.com/07.png" alt="Routers.jsx报错"></p>
+<p>7、修改后(保留服务器的代码)：</p>
+<p><img src="http://oziqlv1ur.bkt.clouddn.com/08.png" alt="服务器代码"></p>
+<p>其中&lt;&lt;&lt;&lt;HEAD 下 ====上是远程分支上的代码</p>
+<p>====下  &gt;&gt;&gt;&gt;&gt;111 上是本地代码  （111是提交时候的注释）</p>
+<h5 id="情况一：需要Git-服务器上的代码"><a href="#情况一：需要Git-服务器上的代码" class="headerlink" title="情况一：需要Git 服务器上的代码"></a>情况一：需要Git 服务器上的代码</h5><p><img src="http://oziqlv1ur.bkt.clouddn.com/09.png" alt="提交"></p>
+<p>此处就不需要再git commit了，因为你所要提交的代码是和远程分支上一样的。</p>
+<h5 id="情况二：保留本地代码"><a href="#情况二：保留本地代码" class="headerlink" title="情况二：保留本地代码"></a>情况二：保留本地代码</h5><p>就需要git commit -m xxx</p>
+<p>————&gt;我们这里演示的是保留远程分支上的代码：</p>
+<p>所以执行     git rebase –continue  会出现以下情况：</p>
+<p><img src="http://oziqlv1ur.bkt.clouddn.com/10.png" alt="git rebase"></p>
+<p>命令的作用是：  git会继续应用(apply)余下的补丁,因为已经git add .  过了<br>所以跳过此补丁</p>
+<p>另外：在任何时候，都可以用git rebase –abort参数来终止rebase的行动，分支会回到rebase开始前的状态.</p>
+<p>8、最后根据提示来执行命令：</p>
+<p><img src="http://oziqlv1ur.bkt.clouddn.com/11.png" alt="最后的命令"></p>
 
       
 
@@ -244,7 +254,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
         		</li>
       		
 		</ul>
@@ -300,7 +310,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/11/22/react相关/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/12/02/Git学习日记/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -314,18 +324,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/11/22/Linux/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          linux安装jdk以及远程访问服务
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/10/27/MySQL中MAX函数与Group By一起使用的注意事项/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">MySQL中MAX函数与Group By一起使用的注意事项</div>
+    <a href="/2017/11/30/SQL truncate/delete/drop区别/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SQL truncate/delete/drop 区别</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -340,7 +341,7 @@
   
 
   
-  <div id="SOHUCS" sid="React中export和export default" style="padding: 0px 30px 0px 46px;"></div>
+  <div id="SOHUCS" sid="Git学习日记" style="padding: 0px 30px 0px 46px;"></div>
 <script type="text/javascript"> 
 (function(){ 
 var appid = "cyt5SKUGd"; 

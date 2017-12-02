@@ -139,6 +139,105 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Git学习日记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/02/Git学习日记/">Git学习日记</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/02/Git学习日记/" class="archive-article-date">
+  	<time datetime="2017-12-02T10:20:11.018Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>提交如果遇到冲突的话，有两种解决方式，git merge和 git rebase。
+首先来了解一下git pull：
+
+将远程存储库中的更改合并到当前分支中。在默认模式下，git pull 是git fetch后跟git merge FETCH_HEAD的缩写。
+更准确地说，git pull使用给定的参数运行git fetch，并调用git merge将检索到的分支头合并到当前分支中。
+也就是说git pull 分为两步，一步是git fetch，一步是git merge。
+
+目前提交代码，先是git commit 到本地  然后 merge 或者 rebase。
+
+遇到冲突之git base解决
+</code></pre><ol>
+<li><p>首先查看所有分支：</p>
+<pre><code>git branch -r
+
+![查看所有分支](http://oziqlv1ur.bkt.clouddn.com/01.png)
+</code></pre></li>
+<li><p>检出一个分支：<br>  git checkout -b root<br>  <img src="http://oziqlv1ur.bkt.clouddn.com/02.png" alt="检出分支"><br>3、当自己修改了本地分支之后</p>
+<p> git push –set-upstream origin root<br> 作用：推送当前分支并建立与远程上游的跟踪</p>
+</li>
+</ol>
+<p>4、试图去拉当前服务器上的分支,因为在要向服务器提交代码时，首先要拉服务器的代码<br>    git pull</p>
+<pre><code>会有提示 ：（因为当时还没有commit到本地仓库）
+</code></pre><p><img src="http://oziqlv1ur.bkt.clouddn.com/03.png" alt="提示"><br>   提交到本地仓库：<br>   git add .<br>   git commit -m test<br><img src="http://oziqlv1ur.bkt.clouddn.com/04.png" alt="提交到本地仓库"></p>
+<p>5、使用git pull –rebase</p>
+<p><img src="http://oziqlv1ur.bkt.clouddn.com/05.png" alt="rebase命令"></p>
+<p><img src="http://oziqlv1ur.bkt.clouddn.com/06.png" alt="命令"></p>
+<p>6、使用git status 查看到哪一个文件有错误</p>
+<p><img src="http://oziqlv1ur.bkt.clouddn.com/07.png" alt="Routers.jsx报错"></p>
+<p>7、修改后(保留服务器的代码)：</p>
+<p><img src="http://oziqlv1ur.bkt.clouddn.com/08.png" alt="服务器代码"></p>
+<p>其中&lt;&lt;&lt;&lt;HEAD 下 ====上是远程分支上的代码</p>
+<p>====下  &gt;&gt;&gt;&gt;&gt;111 上是本地代码  （111是提交时候的注释）</p>
+<h5 id="情况一：需要Git-服务器上的代码"><a href="#情况一：需要Git-服务器上的代码" class="headerlink" title="情况一：需要Git 服务器上的代码"></a>情况一：需要Git 服务器上的代码</h5><p><img src="http://oziqlv1ur.bkt.clouddn.com/09.png" alt="提交"></p>
+<p>此处就不需要再git commit了，因为你所要提交的代码是和远程分支上一样的。</p>
+<h5 id="情况二：保留本地代码"><a href="#情况二：保留本地代码" class="headerlink" title="情况二：保留本地代码"></a>情况二：保留本地代码</h5><p>就需要git commit -m xxx</p>
+<p>————&gt;我们这里演示的是保留远程分支上的代码：</p>
+<p>所以执行     git rebase –continue  会出现以下情况：</p>
+<p><img src="http://oziqlv1ur.bkt.clouddn.com/10.png" alt="git rebase"></p>
+<p>命令的作用是：  git会继续应用(apply)余下的补丁,因为已经git add .  过了<br>所以跳过此补丁</p>
+<p>另外：在任何时候，都可以用git rebase –abort参数来终止rebase的行动，分支会回到rebase开始前的状态.</p>
+<p>8、最后根据提示来执行命令：</p>
+<p><img src="http://oziqlv1ur.bkt.clouddn.com/11.png" alt="最后的命令"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/02/Git学习日记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+  
     <article id="post-SQL truncate/delete/drop区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -386,67 +485,6 @@
 
 
   
-    <article id="post-sleep和wait的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/19/sleep和wait的区别/">sleep和wait的区别</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/19/sleep和wait的区别/" class="archive-article-date">
-  	<time datetime="2017-10-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>Java中sleep和wait的区别<br>① 这两个方法来自不同的类分别是，sleep来自Thread类，和wait来自Object类。<br>sleep是Thread的静态类方法，谁调用的谁去睡觉，即使在a线程里调用b的sleep方法，实际上还是a去睡觉，要让b线程睡觉要在b的代码中调用sleep。
-        
-          <a class="article-more-a" href="/2017/10/19/sleep和wait的区别/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/19/sleep和wait的区别/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -573,15 +611,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">

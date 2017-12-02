@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>React中export和export default | Ignite</title>
+  <title>Tag: git | Ignite</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这几天正在学习React，目前是React小白~， 所以要狠狠补一下基础语法，有空记录一下！ 一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用。组件导出的关键字是:  exprot default">
-<meta name="keywords" content="React">
-<meta property="og:type" content="article">
-<meta property="og:title" content="React中export和export default">
-<meta property="og:url" content="http://yoursite.com/2017/11/22/react相关/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Ignite">
+<meta property="og:url" content="http://yoursite.com/tags/git/index.html">
 <meta property="og:site_name" content="Ignite">
-<meta property="og:description" content="这几天正在学习React，目前是React小白~， 所以要狠狠补一下基础语法，有空记录一下！ 一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用。组件导出的关键字是:  exprot default">
-<meta property="og:updated_time" content="2017-12-02T03:37:51.632Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React中export和export default">
-<meta name="twitter:description" content="这几天正在学习React，目前是React小白~， 所以要狠狠补一下基础语法，有空记录一下！ 一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用。组件导出的关键字是:  exprot default">
+<meta name="twitter:title" content="Ignite">
   
   
     <link rel="icon" href="/favicon.png">
@@ -142,215 +137,61 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-react相关" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      React中export和export default
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/12/02/Git学习日记/" class="archive-article-date">
+  	<time datetime="2017-12-02T10:20:11.018Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-02</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/12/02/Git学习日记/">Git学习日记</a>
     </h1>
   
 
-        
-        <a href="/2017/11/22/react相关/" class="archive-article-date">
-  	<time datetime="2017-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这几天正在学习React，目前是React小白~， 所以要狠狠补一下基础语法，有空记录一下！</p>
-<p>一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用。<br>组件导出的关键字是:</p>
-<blockquote>
-<p>exprot default</p>
-<a id="more"></a>
-</blockquote>
-<p>没有加default时，例如：</p>
-<blockquote>
-<p>export class Template{}</p>
-</blockquote>
-<p>当然，你可以在单个js文件里声明多个组件，例如Templates.js</p>
-<blockquote>
-<p>export class Template{}<br>export class AnotherTemplate{}</p>
-</blockquote>
-<p>这样在其他文件引用时，需要使用{}符号，且名称必须和class名称一样，like this：</p>
-<blockquote>
-<p>import {Template,AnotherTemplate} from ‘./components/Templates’;</p>
-</blockquote>
-<p>而加default时，例如：</p>
-<blockquote>
-<p>export default class Template{}</p>
-</blockquote>
-<p>然后在其他文件引用，像这样：</p>
-<blockquote>
-<p>import Template from ‘./components/Templates’;</p>
-</blockquote>
-<p>你也可以为这个组件另起一个别名，</p>
-<blockquote>
-<p>import TheTemplate from ‘./components/Templates’;</p>
-</blockquote>
-<p>但是每个文件里只能有一个default组件，可以包含其他非default组件：</p>
-<blockquote>
-<p>export default class Template{}<br>export class AnotherTemplate{}</p>
-</blockquote>
-<p>然后引用的时候，如下：</p>
-<blockquote>
-<p>import Template,{AnotherTemplate} from ‘./components/Templates’;</p>
-</blockquote>
-<p>总结：</p>
-<ul>
-<li>有default和没有default的区别在于：有default在引用时可以自定义名称，而没有default时需要使用{}括起来且名称必需和class名称一致</li>
-<li>每个文件里只能有一个default组件，但可以有多个非default组件</li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/weixin.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/11/22/react相关/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/11/22/Linux/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          linux安装jdk以及远程访问服务
-        
-      </div>
-    </a>
   
   
-    <a href="/2017/10/27/MySQL中MAX函数与Group By一起使用的注意事项/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">MySQL中MAX函数与Group By一起使用的注意事项</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-  
-  
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="React中export和export default" style="padding: 0px 30px 0px 46px;"></div>
-<script type="text/javascript"> 
-(function(){ 
-var appid = "cyt5SKUGd"; 
-var conf = "prod_00a669d182fff165253ce5b608f2f8e8"; 
-var width = window.innerWidth || document.documentElement.clientWidth; 
-if (width < 960) { 
-window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
-  
+    
 
-  
 
           </div>
         </div>
@@ -378,9 +219,9 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
