@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Git学习日记 | Ignite</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="提交如果遇到冲突的话，有两种解决方式，git merge和 git rebase。 首先来了解一下git pull：  将远程存储库中的更改合并到当前分支中。在默认模式下，git pull 是git fetch后跟git merge FETCH_HEAD的缩写。 更准确地说，git pull使用给定的参数运行git f">
+  <meta name="description" content="提交如果遇到冲突的话，有两种解决方式，git merge和 git rebase。首先来了解一下git pull： 将远程存储库中的更改合并到当前分支中。在默认模式下，git pull 是git fetch后跟git merge FETCH_HEAD的缩写。更准确地说，git pull使用给定的参数运行git fetc">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git学习日记">
 <meta property="og:url" content="http://yoursite.com/2017/12/02/Git学习日记/index.html">
 <meta property="og:site_name" content="Ignite">
-<meta property="og:description" content="提交如果遇到冲突的话，有两种解决方式，git merge和 git rebase。 首先来了解一下git pull：  将远程存储库中的更改合并到当前分支中。在默认模式下，git pull 是git fetch后跟git merge FETCH_HEAD的缩写。 更准确地说，git pull使用给定的参数运行git fetch，并调用git merge将检索到的分支头合并到当前分支中。 也就是说g">
+<meta property="og:description" content="提交如果遇到冲突的话，有两种解决方式，git merge和 git rebase。首先来了解一下git pull： 将远程存储库中的更改合并到当前分支中。在默认模式下，git pull 是git fetch后跟git merge FETCH_HEAD的缩写。更准确地说，git pull使用给定的参数运行git fetch，并调用git merge将检索到的分支头合并到当前分支中。也就是说git p">
 <meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/02.png">
 <meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/03.png">
 <meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/04.png">
@@ -25,10 +25,10 @@
 <meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/09.png">
 <meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/10.png">
 <meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/11.png">
-<meta property="og:updated_time" content="2017-12-02T10:22:14.474Z">
+<meta property="og:updated_time" content="2017-12-02T13:37:21.464Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git学习日记">
-<meta name="twitter:description" content="提交如果遇到冲突的话，有两种解决方式，git merge和 git rebase。 首先来了解一下git pull：  将远程存储库中的更改合并到当前分支中。在默认模式下，git pull 是git fetch后跟git merge FETCH_HEAD的缩写。 更准确地说，git pull使用给定的参数运行git fetch，并调用git merge将检索到的分支头合并到当前分支中。 也就是说g">
+<meta name="twitter:description" content="提交如果遇到冲突的话，有两种解决方式，git merge和 git rebase。首先来了解一下git pull： 将远程存储库中的更改合并到当前分支中。在默认模式下，git pull 是git fetch后跟git merge FETCH_HEAD的缩写。更准确地说，git pull使用给定的参数运行git fetch，并调用git merge将检索到的分支头合并到当前分支中。也就是说git p">
 <meta name="twitter:image" content="http://oziqlv1ur.bkt.clouddn.com/02.png">
   
   
@@ -166,22 +166,16 @@
 
         
         <a href="/2017/12/02/Git学习日记/" class="archive-article-date">
-  	<time datetime="2017-12-02T10:22:14.474Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-02</time>
+  	<time datetime="2017-12-02T13:37:21.464Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <pre><code>提交如果遇到冲突的话，有两种解决方式，git merge和 git rebase。
-首先来了解一下git pull：
-
-将远程存储库中的更改合并到当前分支中。在默认模式下，git pull 是git fetch后跟git merge FETCH_HEAD的缩写。
-更准确地说，git pull使用给定的参数运行git fetch，并调用git merge将检索到的分支头合并到当前分支中。
-也就是说git pull 分为两步，一步是git fetch，一步是git merge。
-
-目前提交代码，先是git commit 到本地  然后 merge 或者 rebase。
-</code></pre><a id="more"></a>
+        <p>提交如果遇到冲突的话，有两种解决方式，git merge和 git rebase。<br>首先来了解一下git pull：</p>
+<p>将远程存储库中的更改合并到当前分支中。在默认模式下，git pull 是git fetch后跟git merge FETCH_HEAD的缩写。<br>更准确地说，git pull使用给定的参数运行git fetch，并调用git merge将检索到的分支头合并到当前分支中。<br>也就是说git pull 分为两步，一步是git fetch，一步是git merge。</p>
+<p>目前提交代码，先是git commit 到本地  然后 merge 或者 rebase。<br><a id="more"></a></p>
 <h5 id="遇到冲突之git-base解决"><a href="#遇到冲突之git-base解决" class="headerlink" title="遇到冲突之git base解决"></a>遇到冲突之git base解决</h5><ol>
 <li><p>首先查看所有分支：</p>
 <pre><code>git branch -r
@@ -472,7 +466,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -480,15 +474,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
