@@ -139,19 +139,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-MySQL中MAX函数与Group By一起使用的注意事项" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-mysql decimal类型与decimal长度用法详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/30/MySQL中MAX函数与Group By一起使用的注意事项/">MySQL中MAX函数与Group By一起使用的注意事项</a>
+      <a class="article-title" href="/2017/11/30/mysql decimal类型与decimal长度用法详解/">mysql decimal类型与decimal长度用法详解</a>
     </h1>
   
 
         
-        <a href="/2017/11/30/MySQL中MAX函数与Group By一起使用的注意事项/" class="archive-article-date">
+        <a href="/2017/11/30/mysql decimal类型与decimal长度用法详解/" class="archive-article-date">
   	<time datetime="2017-11-30T01:36:39.706Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-30</time>
 </a>
         
@@ -159,9 +159,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select * from test;  </span><br><span class="line">+----+-------+------+-------+  </span><br><span class="line">| id | name  | age  | class |  </span><br><span class="line">+----+-------+------+-------+  </span><br><span class="line">|  1 | qiu   |   22 |     1 |   </span><br><span class="line">|  2 | liu   |   42 |     1 |   </span><br><span class="line">|  4 | zheng |   20 |     2 |   </span><br><span class="line">|  3 | qian  |   20 |     2 |   </span><br><span class="line">|  0 | wang  |   11 |     3 |   </span><br><span class="line">|  6 | li    |   33 |     3 |   </span><br><span class="line">+----+-------+------+-------+  </span><br><span class="line">6 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+        <h5 id="float-double-decimal三者的区别介绍"><a href="#float-double-decimal三者的区别介绍" class="headerlink" title="float,double,decimal三者的区别介绍"></a>float,double,decimal三者的区别介绍</h5>
         
-          <a class="article-more-a" href="/2017/11/30/MySQL中MAX函数与Group By一起使用的注意事项/#more">more >></a>
+          <a class="article-more-a" href="/2017/11/30/mysql decimal类型与decimal长度用法详解/#more">more >></a>
         
       
 
@@ -185,7 +185,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/30/MySQL中MAX函数与Group By一起使用的注意事项/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/11/30/mysql decimal类型与decimal长度用法详解/">展开全文 >></a>
         </p>
       
 
@@ -199,29 +199,159 @@
 
 
   
-    <article id="post-java基础巩固一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-JavaScript学习笔记(一)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/30/java基础巩固一/">java基础巩固</a>
+      <a class="article-title" href="/2017/11/30/JavaScript学习笔记(一)/">JavaScript学习笔记（一）</a>
     </h1>
   
 
         
-        <a href="/2017/11/30/java基础巩固一/" class="archive-article-date">
-  	<time datetime="2017-11-30T01:36:39.706Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-30</time>
+        <a href="/2017/11/30/JavaScript学习笔记(一)/" class="archive-article-date">
+  	<time datetime="2017-11-30T01:36:39.702Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>  关于java基础的一些概念性、理论性的东西，好久没碰了，现在回过头来看看，有助于自己更深层次的提高，所以在此总结一下。<br>
+        <pre><code>javaScript数组的遍历，在项目中遇到的是这个问题：
+上图：
+</code></pre><h5 id="主要针对数组的遍历有一下方法："><a href="#主要针对数组的遍历有一下方法：" class="headerlink" title="主要针对数组的遍历有一下方法："></a>主要针对数组的遍历有一下方法：</h5><p>传统方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr=[1,2,3,4,5,6];</span><br><span class="line">for(var i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">    console.log(arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
         
-          <a class="article-more-a" href="/2017/11/30/java基础巩固一/#more">more >></a>
+          <a class="article-more-a" href="/2017/11/30/JavaScript学习笔记(一)/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/30/JavaScript学习笔记(一)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+  
+    <article id="post-发散思维-不用四则做加法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/25/发散思维-不用四则做加法/">发散思维-不用四则做加法</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/25/发散思维-不用四则做加法/" class="archive-article-date">
+  	<time datetime="2017-08-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="不用四则做加法"><a href="#不用四则做加法" class="headerlink" title="不用四则做加法"></a>不用四则做加法</h5><p>直接上代码：<br>
+        
+          <a class="article-more-a" href="/2017/08/25/发散思维-不用四则做加法/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/25/发散思维-不用四则做加法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+  
+    <article id="post-内部类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/23/内部类/">内部类</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/23/内部类/" class="archive-article-date">
+  	<time datetime="2017-08-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这是我学习Java内部类的笔记<br>1.为什么使用内部类?<br>使用内部类最吸引人的原因是：每个内部类都能独立地继承一个（接口的）实现，所以无论外围类是否已经继承了某个（接口的）实现，<br>对于内部类都没有影响<br>
+        
+          <a class="article-more-a" href="/2017/08/23/内部类/#more">more >></a>
         
       
 
@@ -245,7 +375,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/30/java基础巩固一/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/23/内部类/">展开全文 >></a>
         </p>
       
 
@@ -259,29 +389,29 @@
 
 
   
-    <article id="post-java基础巩固三" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-java中单链表的实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/30/java基础巩固三/">java基础巩固三</a>
+      <a class="article-title" href="/2017/08/23/java中单链表的实现/">java中单链表的实现</a>
     </h1>
   
 
         
-        <a href="/2017/11/30/java基础巩固三/" class="archive-article-date">
-  	<time datetime="2017-11-30T01:36:39.706Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-30</time>
+        <a href="/2017/08/23/java中单链表的实现/" class="archive-article-date">
+  	<time datetime="2017-08-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>  好几天的java基础知识都写在了前两篇里，感觉有些多和杂，今天再写新的一篇，每天做30道java的题目，感觉自己的基础知识就得好好巩固一下。<br>
+        <p>Java中我们使用的ArrayList，其实现原理是数组。而LinkedList的实现原理就是链表了。链表在进行循环遍历时效率不高，但是插入和删除时优势明显。下面对单向链表做一个介绍。<br>
         
-          <a class="article-more-a" href="/2017/11/30/java基础巩固三/#more">more >></a>
+          <a class="article-more-a" href="/2017/08/23/java中单链表的实现/#more">more >></a>
         
       
 
@@ -305,128 +435,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/30/java基础巩固三/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-  
-    <article id="post-Mysql Decimal数据类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/30/Mysql Decimal数据类型/">Mysql Decimal数据类型</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/30/Mysql Decimal数据类型/" class="archive-article-date">
-  	<time datetime="2017-11-30T01:36:39.706Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p> 最近忙着复习，更新的速度有些慢。在一次面试中，面试官问我，mysql里金额用什么存，我只用过普通的double，float，但回来一查，金额应该用Decimal 来存。受教了~</p>
-<p>mysql里Decimal表示 128 位数据类型。double相比，decimal 类型具有更高的精度和更小的范围，它适合于财务和货币计<br>
-        
-          <a class="article-more-a" href="/2017/11/30/Mysql Decimal数据类型/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/30/Mysql Decimal数据类型/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-  
-    <article id="post-java基础巩固二" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/30/java基础巩固二/">java基础巩固二</a>
-    </h1>
-  
-
-        
-        <a href="/2017/11/30/java基础巩固二/" class="archive-article-date">
-  	<time datetime="2017-11-30T01:36:39.706Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Java基础第二天打卡：每天都过一点java基础，这些看似可以忽略的往往最不可以忽略。<br>
-        
-          <a class="article-more-a" href="/2017/11/30/java基础巩固二/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/30/java基础巩固二/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/23/java中单链表的实现/">展开全文 >></a>
         </p>
       
 
@@ -554,14 +563,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
@@ -570,7 +571,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -582,7 +583,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -598,7 +599,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">远方</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -606,7 +607,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">远方</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
               </li>
             
             <div class="clearfix"></div>
