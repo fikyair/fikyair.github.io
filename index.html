@@ -152,7 +152,7 @@
 
         
         <a href="/2017/12/02/Git学习日记/" class="archive-article-date">
-  	<time datetime="2017-12-02T14:16:54.159Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-02</time>
+  	<time datetime="2017-12-02T15:01:54.933Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-02</time>
 </a>
         
       </header>
@@ -325,19 +325,19 @@
 
 
   
-    <article id="post-react相关" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-react学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/22/react相关/">React中export和export default</a>
+      <a class="article-title" href="/2017/11/22/react学习笔记/">react学习笔记</a>
     </h1>
   
 
         
-        <a href="/2017/11/22/react相关/" class="archive-article-date">
+        <a href="/2017/11/22/react学习笔记/" class="archive-article-date">
   	<time datetime="2017-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-22</time>
 </a>
         
@@ -345,12 +345,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这几天正在学习React，目前是React小白~， 所以要狠狠补一下基础语法，有空记录一下！</p>
-<p>一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用。<br>组件导出的关键字是:</p>
+        <p>这几天正在学习React，有空记录一下！<br>就比如：</p>
+<h5 id="export和export-default"><a href="#export和export-default" class="headerlink" title="export和export default"></a>export和export default</h5><p>一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用。<br>组件导出的关键字是:</p>
 <blockquote>
 <p>exprot default</p>
+</blockquote>
+<p>没有加default时，例如：</p>
+<blockquote>
+<p>export class Template{}</p>
+</blockquote>
+<p>当然，你可以在单个js文件里声明多个组件，例如Templates.js</p>
+<blockquote>
+<p>export class Template{}<br>export class AnotherTemplate{}</p>
+</blockquote>
+<p>这样在其他文件引用时，需要使用{}符号，且名称必须和class名称一样，like this：</p>
+<blockquote>
+<p>import {Template,AnotherTemplate} from ‘./components/Templates’;</p>
+</blockquote>
+<p>而加default时，例如：<br>
         
-          <a class="article-more-a" href="/2017/11/22/react相关/#more">more >></a>
+          <a class="article-more-a" href="/2017/11/22/react学习笔记/#more">more >></a>
         
       
 
@@ -374,7 +388,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/22/react相关/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/11/22/react学习笔记/">展开全文 >></a>
         </p>
       
 
@@ -554,7 +568,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">javaweb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,15 +592,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">javaweb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -590,14 +612,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
              
@@ -606,15 +620,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">远方</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
             
             <div class="clearfix"></div>

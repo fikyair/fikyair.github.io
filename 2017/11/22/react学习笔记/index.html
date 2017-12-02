@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>MySQL中MAX函数与Group By一起使用的注意事项 | Ignite</title>
+  <title>react学习笔记 | Ignite</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="123456789101112mysql&amp;gt; select * from test;  +----+-------+------+-------+  | id | name  | age  | class |  +----+-------+------+-------+  |  1 | qiu   |   ">
-<meta name="keywords" content="mysql">
+  <meta name="description" content="这几天正在学习React，有空记录一下！就比如： export和export default一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用。组件导出的关键字是:  exprot default  没有加default时，例如：  export class Template{}  当然，你可以在">
+<meta name="keywords" content="React">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL中MAX函数与Group By一起使用的注意事项">
-<meta property="og:url" content="http://yoursite.com/2017/10/27/MySQL中MAX函数与Group By一起使用的注意事项/index.html">
+<meta property="og:title" content="react学习笔记">
+<meta property="og:url" content="http://yoursite.com/2017/11/22/react学习笔记/index.html">
 <meta property="og:site_name" content="Ignite">
-<meta property="og:description" content="123456789101112mysql&amp;gt; select * from test;  +----+-------+------+-------+  | id | name  | age  | class |  +----+-------+------+-------+  |  1 | qiu   |   22 |     1 |   |  2 | liu   |   42 |     1 |">
-<meta property="og:updated_time" content="2017-12-02T03:35:48.621Z">
+<meta property="og:description" content="这几天正在学习React，有空记录一下！就比如： export和export default一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用。组件导出的关键字是:  exprot default  没有加default时，例如：  export class Template{}  当然，你可以在单个js文件里声明多个组件，例如Templates.js  export cla">
+<meta property="og:updated_time" content="2017-12-02T15:07:35.827Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL中MAX函数与Group By一起使用的注意事项">
-<meta name="twitter:description" content="123456789101112mysql&amp;gt; select * from test;  +----+-------+------+-------+  | id | name  | age  | class |  +----+-------+------+-------+  |  1 | qiu   |   22 |     1 |   |  2 | liu   |   42 |     1 |">
+<meta name="twitter:title" content="react学习笔记">
+<meta name="twitter:description" content="这几天正在学习React，有空记录一下！就比如： export和export default一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用。组件导出的关键字是:  exprot default  没有加default时，例如：  export class Template{}  当然，你可以在单个js文件里声明多个组件，例如Templates.js  export cla">
   
   
     <link rel="icon" href="/favicon.png">
@@ -142,34 +142,72 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-MySQL中MAX函数与Group By一起使用的注意事项" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-react学习笔记" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      MySQL中MAX函数与Group By一起使用的注意事项
+      react学习笔记
     </h1>
   
 
         
-        <a href="/2017/10/27/MySQL中MAX函数与Group By一起使用的注意事项/" class="archive-article-date">
-  	<time datetime="2017-10-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-27</time>
+        <a href="/2017/11/22/react学习笔记/" class="archive-article-date">
+  	<time datetime="2017-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select * from test;  </span><br><span class="line">+----+-------+------+-------+  </span><br><span class="line">| id | name  | age  | class |  </span><br><span class="line">+----+-------+------+-------+  </span><br><span class="line">|  1 | qiu   |   22 |     1 |   </span><br><span class="line">|  2 | liu   |   42 |     1 |   </span><br><span class="line">|  4 | zheng |   20 |     2 |   </span><br><span class="line">|  3 | qian  |   20 |     2 |   </span><br><span class="line">|  0 | wang  |   11 |     3 |   </span><br><span class="line">|  6 | li    |   33 |     3 |   </span><br><span class="line">+----+-------+------+-------+  </span><br><span class="line">6 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>如果想找到每个class里面的最大的age，则需要使用group by和max。<br>如下的sql语句，则输出结果有错误：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select id,name,max(age),class from test group by class;  </span><br><span class="line">+----+-------+----------+-------+  </span><br><span class="line">| id | name  | max(age) | class |  </span><br><span class="line">+----+-------+----------+-------+  </span><br><span class="line">|  1 | qiu   |       42 |     1 |   </span><br><span class="line">|  4 | zheng |       20 |     2 |   </span><br><span class="line">|  0 | wang  |       33 |     3 |   </span><br><span class="line">+----+-------+----------+-------+  </span><br><span class="line">3 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
-<p>虽然找到的age是最大的age，但是与之匹配的用户信息却不是真实的信息，而是group by分组后的第一条记录的基本信息。<br>如果我使用以下的语句进行查找，则可以返回真实的结果。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select * from (  </span><br><span class="line">    -&gt; select * from test order by age desc) as b  </span><br><span class="line">    -&gt; group by class;  </span><br><span class="line">+----+-------+------+-------+  </span><br><span class="line">| id | name  | age  | class |  </span><br><span class="line">+----+-------+------+-------+  </span><br><span class="line">|  2 | liu   |   42 |     1 |   </span><br><span class="line">|  4 | zheng |   20 |     2 |   </span><br><span class="line">|  6 | li    |   33 |     3 |   </span><br><span class="line">+----+-------+------+-------+  </span><br><span class="line">3 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
-<p>方法2：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from test t where t.age = (select max(age) from test where t.class = class) order by class;</span><br></pre></td></tr></table></figure>
+        <p>这几天正在学习React，有空记录一下！<br>就比如：</p>
+<h5 id="export和export-default"><a href="#export和export-default" class="headerlink" title="export和export default"></a>export和export default</h5><p>一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用。<br>组件导出的关键字是:</p>
+<blockquote>
+<p>exprot default</p>
+</blockquote>
+<p>没有加default时，例如：</p>
+<blockquote>
+<p>export class Template{}</p>
+</blockquote>
+<p>当然，你可以在单个js文件里声明多个组件，例如Templates.js</p>
+<blockquote>
+<p>export class Template{}<br>export class AnotherTemplate{}</p>
+</blockquote>
+<p>这样在其他文件引用时，需要使用{}符号，且名称必须和class名称一样，like this：</p>
+<blockquote>
+<p>import {Template,AnotherTemplate} from ‘./components/Templates’;</p>
+</blockquote>
+<p>而加default时，例如：<br><a id="more"></a></p>
+<blockquote>
+<p>export default class Template{}</p>
+</blockquote>
+<p>然后在其他文件引用，像这样：</p>
+<blockquote>
+<p>import Template from ‘./components/Templates’;</p>
+</blockquote>
+<p>你也可以为这个组件另起一个别名，</p>
+<blockquote>
+<p>import TheTemplate from ‘./components/Templates’;</p>
+</blockquote>
+<p>但是每个文件里只能有一个default组件，可以包含其他非default组件：</p>
+<blockquote>
+<p>export default class Template{}<br>export class AnotherTemplate{}</p>
+</blockquote>
+<p>然后引用的时候，如下：</p>
+<blockquote>
+<p>import Template,{AnotherTemplate} from ‘./components/Templates’;</p>
+</blockquote>
+<p>总结：</p>
+<ul>
+<li>有default和没有default的区别在于：有default在引用时可以自定义名称，而没有default时需要使用{}括起来且名称必需和class名称一致</li>
+<li>每个文件里只能有一个default组件，但可以有多个非default组件</li>
+</ul>
+<hr>
+<h5 id="FormItem"><a href="#FormItem" class="headerlink" title="FormItem"></a>FormItem</h5><p>使用initValue 属性的时候，需要在提交“弹出框表单时”（CollectionCreateForm）</p>
+<p>用form.resetFields() 方法重置表单数据，</p>
+<p>如果缺少的话，点击修改某条数据是会回显上次表单修改后的值。</p>
 
       
 
@@ -209,7 +247,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
         		</li>
       		
 		</ul>
@@ -265,7 +303,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/27/MySQL中MAX函数与Group By一起使用的注意事项/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/11/22/react学习笔记/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -279,18 +317,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/11/22/react学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/11/22/Linux/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          react学习笔记
+          linux安装jdk以及远程访问服务
         
       </div>
     </a>
   
   
-    <a href="/2017/10/19/sleep和wait的区别/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">sleep和wait的区别</div>
+    <a href="/2017/10/27/MySQL中MAX函数与Group By一起使用的注意事项/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MySQL中MAX函数与Group By一起使用的注意事项</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -305,7 +343,7 @@
   
 
   
-  <div id="SOHUCS" sid="MySQL中MAX函数与Group By一起使用的注意事项" style="padding: 0px 30px 0px 46px;"></div>
+  <div id="SOHUCS" sid="react学习笔记" style="padding: 0px 30px 0px 46px;"></div>
 <script type="text/javascript"> 
 (function(){ 
 var appid = "cyt5SKUGd"; 
