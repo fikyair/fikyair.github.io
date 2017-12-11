@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>react子组件与父组件传值 | Ignite</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="处理 React 组件之间的交流方式，主要取决于组件之间的关系，  然而这些关系的约定人就是你。  React 组件之间交流的方式，可以分为以下 3 种： - 【父组件】向【子组件】传值； - 【子组件】向【父组件】传值； - 没有任何嵌套关系的组件之间传值（PS：比如：兄弟组件之间传值） #####　这是我定义的父组">
+  <meta name="description" content="处理 React 组件之间的交流方式，主要取决于组件之间的关系，  然而这些关系的约定人就是你。  React 组件之间交流的方式，可以分为以下 3 种： - 【父组件】向【子组件】传值； - 【子组件】向【父组件】传值； - 没有任何嵌套关系的组件之间传值（PS：比如：兄弟组件之间传值） 这是我定义的父组件：">
 <meta name="keywords" content="react">
 <meta property="og:type" content="article">
 <meta property="og:title" content="react子组件与父组件传值">
 <meta property="og:url" content="http://yoursite.com/2017/12/10/react子组件与父组件传值/index.html">
 <meta property="og:site_name" content="Ignite">
-<meta property="og:description" content="处理 React 组件之间的交流方式，主要取决于组件之间的关系，  然而这些关系的约定人就是你。  React 组件之间交流的方式，可以分为以下 3 种： - 【父组件】向【子组件】传值； - 【子组件】向【父组件】传值； - 没有任何嵌套关系的组件之间传值（PS：比如：兄弟组件之间传值） #####　这是我定义的父组件：">
-<meta property="og:updated_time" content="2017-12-11T12:27:06.479Z">
+<meta property="og:description" content="处理 React 组件之间的交流方式，主要取决于组件之间的关系，  然而这些关系的约定人就是你。  React 组件之间交流的方式，可以分为以下 3 种： - 【父组件】向【子组件】传值； - 【子组件】向【父组件】传值； - 没有任何嵌套关系的组件之间传值（PS：比如：兄弟组件之间传值） 这是我定义的父组件：">
+<meta property="og:updated_time" content="2017-12-11T12:29:11.011Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react子组件与父组件传值">
-<meta name="twitter:description" content="处理 React 组件之间的交流方式，主要取决于组件之间的关系，  然而这些关系的约定人就是你。  React 组件之间交流的方式，可以分为以下 3 种： - 【父组件】向【子组件】传值； - 【子组件】向【父组件】传值； - 没有任何嵌套关系的组件之间传值（PS：比如：兄弟组件之间传值） #####　这是我定义的父组件：">
+<meta name="twitter:description" content="处理 React 组件之间的交流方式，主要取决于组件之间的关系，  然而这些关系的约定人就是你。  React 组件之间交流的方式，可以分为以下 3 种： - 【父组件】向【子组件】传值； - 【子组件】向【父组件】传值； - 没有任何嵌套关系的组件之间传值（PS：比如：兄弟组件之间传值） 这是我定义的父组件：">
   
   
     <link rel="icon" href="/favicon.png">
@@ -182,11 +182,9 @@
 <pre><code>- 【父组件】向【子组件】传值；
 - 【子组件】向【父组件】传值；
 - 没有任何嵌套关系的组件之间传值（PS：比如：兄弟组件之间传值）
-</code></pre><p>#####　这是我定义的父组件：</p>
-<a id="more"></a>
+</code></pre><h5 id="这是我定义的父组件："><a href="#这是我定义的父组件：" class="headerlink" title="这是我定义的父组件："></a>这是我定义的父组件：</h5><a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">@Form.create()　//装饰器，将NewLimitModel作为Ｆｏｒｍ的一个子组件</span><br><span class="line">export default class NewLimitModel  extends React.Component&#123;</span><br><span class="line"></span><br><span class="line">  state = &#123;</span><br><span class="line">      list: [],</span><br><span class="line">      flag: false,          &lt;---</span><br><span class="line">  &#125;</span><br><span class="line">  .....</span><br><span class="line"></span><br><span class="line">  getData(list) &#123;</span><br><span class="line">    //这里省略了判断ｌｉｓｔ是否为空的代码</span><br><span class="line">    this.setState(&#123;list: list, flag: true&#125;)</span><br><span class="line">&#125;</span><br><span class="line">  render()&#123;</span><br><span class="line">     return(</span><br><span class="line">       &lt;div&gt;</span><br><span class="line">           &lt;Form className=&quot;form-body&quot; layout=&quot;inline&quot;&gt;    </span><br><span class="line">               &lt;Card title=&quot;配置商户&quot;</span><br><span class="line">                     noHovering=&#123;true&#125;</span><br><span class="line">               &gt;</span><br><span class="line">                   &lt;Row&gt;</span><br><span class="line"></span><br><span class="line">                       &#123;getFieldDecorator(&apos;mainPartValue&apos;)(</span><br><span class="line">                           &lt;Input disabled=&#123;this.state.flag&#125; placeholder=&quot;请输入&quot;</span><br><span class="line">                                  addonBefore=&#123;(</span><br><span class="line">                                      &lt;span style=&#123;&#123;minWidth: &apos;70px&apos;, display: &apos;inline-block&apos;&#125;&#125;&gt;配置商户&lt;/span&gt;)&#125;</span><br><span class="line">                                  style=&#123;&#123;width: &apos;200px&apos;, margin: &apos;10px&apos;&#125;&#125;/&gt;</span><br><span class="line">                       )&#125;</span><br><span class="line">                       &lt;FormItem</span><br><span class="line">                           label=&quot;备注&quot;</span><br><span class="line">                       &gt;</span><br><span class="line">                           &#123;getFieldDecorator(&apos;remark&apos;)(&lt;TextArea disabled=&#123;this.state.flag&#125;&gt;&lt;/TextArea&gt;)&#125;</span><br><span class="line"></span><br><span class="line">                       &lt;/FormItem&gt;</span><br><span class="line">                       &lt;Button style=&#123;&#123;margin: &apos;10px&apos;, verticalAlign: &apos;top&apos;&#125;&#125;</span><br><span class="line">                               onClick=&#123;() =&gt; this.props.history.push(&apos;/merchantlimit&apos;)&#125;&gt;取消&lt;/Button&gt;</span><br><span class="line">                       &lt;Button htmlType=&quot;submit&quot; style=&#123;&#123;margin: &apos;10px&apos;, verticalAlign: &apos;top&apos;&#125;&#125;</span><br><span class="line">                               onClick=&#123;() =&gt; this.handleSubmit()&#125;&gt;保存&lt;/Button&gt;</span><br><span class="line">                   &lt;/Row&gt;</span><br><span class="line">                   &lt;Row&gt;</span><br><span class="line">      子组件    ---&gt;         &lt;ExtracData data=&#123;this.props.form.getFieldsValue()&#125; getData=&#123;this.getData.bind(this)&#125;/&gt;</span><br><span class="line">                   &lt;/Row&gt;</span><br><span class="line">               &lt;/Card&gt;</span><br><span class="line">           &lt;/Form&gt;</span><br><span class="line">       &lt;/div&gt;     </span><br><span class="line">       )             </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>#####　这是我定义的子组件：</p>
-<extracdata>
+<h5 id="这是我定义的子组件："><a href="#这是我定义的子组件：" class="headerlink" title="这是我定义的子组件："></a>这是我定义的子组件：</h5><extracdata>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">constructor(props) &#123;</span><br><span class="line">        super(props);</span><br><span class="line">        this.state = &#123;</span><br><span class="line">            data: [], 　</span><br><span class="line">        &#125;；</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">handleFile(e)&#123;</span><br><span class="line">  ....</span><br><span class="line">    this.props.getData(list)</span><br><span class="line">  ....</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">check()&#123;</span><br><span class="line">     const &#123;mainPartValue,remark&#125;=this.props.data;</span><br><span class="line"></span><br><span class="line">     if(mainPartValue || remark)&#123;</span><br><span class="line">         message.warning(&apos;请清空商户配置或备注输入框&apos;);</span><br><span class="line">     &#125;else &#123;</span><br><span class="line">         this.showModal()</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">render() &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">               &#123;/* &lt;a href=&quot;javascript:;&quot; className=&quot;file&quot;&gt;批量导入</span><br><span class="line">                    &lt;input type=&quot;file&quot; id=&quot;extract&quot; onChange=&#123;() =&gt; this.showModal()&#125;/&gt;</span><br><span class="line">                &lt;/a&gt;*/&#125;</span><br><span class="line">                &lt;Button className=&quot;file&quot;  onClick=&#123;()=&gt;this.check()&#125;&gt;批量配置商户&lt;/Button&gt;</span><br><span class="line">                &lt;div style=&#123;&#123;display: this.state.display&#125;&#125; &gt;&lt;span&gt;添加商户成功&lt;/span&gt;&lt;/div&gt;</span><br><span class="line">                &lt;Modal</span><br><span class="line">                title=&#123;&quot;批量配置商户&quot;&#125;</span><br><span class="line">                visible=&#123;this.state.visible&#125;</span><br><span class="line">                onOk=&#123;this.handleOk&#125;</span><br><span class="line">                onCancel=&#123;this.handleCancel&#125;</span><br><span class="line">                footer=&#123;null&#125;</span><br><span class="line">                &gt;</span><br><span class="line">                    &lt;div className=&#123;&quot;import-file&quot;&#125;&gt;</span><br><span class="line">                        &lt;a href=&quot;/stencil.xlsx&quot; download=&quot;模版&quot;  className=&quot;file &quot;&gt;下载模版&lt;/a&gt;</span><br><span class="line">                        &lt;a href=&quot;javascript:;&quot; className=&quot;file&quot;&gt;批量导入</span><br><span class="line">                            &lt;input type=&quot;file&quot; id=&quot;extract&quot; onChange=&#123;(e) =&gt; this.handleFile(e)&#125;/&gt;</span><br><span class="line">                        &lt;/a&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/Modal&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <h5 id="子组件传父组件："><a href="#子组件传父组件：" class="headerlink" title="子组件传父组件："></a>子组件传父组件：</h5><p>  对于<newlimitmodel>和<extracdata>的父子组件：</extracdata></newlimitmodel></p>
@@ -436,11 +434,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -452,7 +446,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -464,19 +470,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -489,14 +495,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
             
             <div class="clearfix"></div>
