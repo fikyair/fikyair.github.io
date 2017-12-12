@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/12/10/react子组件与父组件传值/index.html">
 <meta property="og:site_name" content="Ignite">
 <meta property="og:description" content="处理 React 组件之间的交流方式，主要取决于组件之间的关系，  然而这些关系的约定人就是你。  React 组件之间交流的方式，可以分为以下 3 种：  【父组件】向【子组件】传值； 【子组件】向【父组件】传值； 没有任何嵌套关系的组件之间传值（PS：比如：兄弟组件之间传值）  这是我定义的父组件：">
-<meta property="og:updated_time" content="2017-12-12T01:20:44.929Z">
+<meta property="og:updated_time" content="2017-12-12T01:22:17.796Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react子组件与父组件传值">
 <meta name="twitter:description" content="处理 React 组件之间的交流方式，主要取决于组件之间的关系，  然而这些关系的约定人就是你。  React 组件之间交流的方式，可以分为以下 3 种：  【父组件】向【子组件】传值； 【子组件】向【父组件】传值； 没有任何嵌套关系的组件之间传值（PS：比如：兄弟组件之间传值）  这是我定义的父组件：">
@@ -193,10 +193,11 @@
 <p>　在子组件中 <code>this.props.getData(list)</code>　变相的向父组件传值，这里的list就是，意思是将Excel文件里的，多条数据装入list中，然后</p>
 <p>  传给后台，后台可以用ArrayList来接，然后对一条条数据做解析，然后插入数据库。　父组件获取到值之后，就将flag设置为true，　进而</p>
 <p>  通过<code>disabled={this.state.flag}</code>　设置为不可用。</p>
-<h5 id="父组件传子组件："><a href="#父组件传子组件：" class="headerlink" title="父组件传子组件："></a>父组件传子组件：</h5><p>　　　对于<code>&lt;Form&gt;</code>和<code>&lt;NewLimitModel/&gt;</code>的父子组件，在父组件中，通过 <code>data={this.props.form.getFieldsValue()}</code>,而</p>
-<p>　<code>&lt;NewLimitModel/&gt;</code>作为<code>&lt;Form&gt;</code>的一个子组件,子组件<code>&lt;NewLimitModel/&gt;</code>通</p>
-<p>过props获取父组件Form里面的值，然后给data，在<code>&lt;NewLimitModel/&gt;</code>与<code>&lt;ExtracData/&gt;</code>的父子组件中，对于子组件，通过 <code>const{mainPartValue,remark}=this.props.data;</code>　获取父组件的值，并解构赋</p>
-<p>值，再去使用。父组件向子组件传值，用props来传。反之用函数来传。</p>
+<h5 id="父组件传子组件："><a href="#父组件传子组件：" class="headerlink" title="父组件传子组件："></a>父组件传子组件：</h5><p>　　　对于<code>&lt;Form&gt;</code>和<code>&lt;NewLimitModel/&gt;</code>的父子组件，在父组件中，通过<code>data={this.props.form.getFieldsValue()}</code>,而</p>
+<p><code>&lt;NewLimitModel/&gt;</code>作为<code>&lt;Form&gt;</code>的一个子组件,子组件<code>&lt;NewLimitModel/&gt;</code>通</p>
+<p>过props获取父组件Form里面的值，然后给data，在<code>&lt;NewLimitModel/&gt;</code>与<code>&lt;ExtracData/&gt;</code>的父子组件中</p>
+<p>，对于子组件，通过 <code>const{mainPartValue,remark}=this.props.data;</code>　获取</p>
+<p>父组件的值，并解构赋<br>值，再去使用。父组件向子组件传值，用props来传。反之用函数来传。</p>
 
       
 
@@ -446,11 +447,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -474,11 +475,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
