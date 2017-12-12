@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/12/12/react和redux数据流向/index.html">
 <meta property="og:site_name" content="Ignite">
 <meta property="og:description" content="使用 action 来描述“发生了什么”，和使用 reducers 来根据 action 更新 state 的用法。Store 就是把它们联系到一起的对象 用，然后在这个123action中包含请求的请求方式:- 查询请求action export const getSelectDdata = (data) =&amp;gt; ActionCreator(API_INIT_POST_MODEL,/api/">
-<meta property="og:updated_time" content="2017-12-12T08:40:51.837Z">
+<meta property="og:updated_time" content="2017-12-12T08:45:20.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="reac和redux数据流向">
 <meta name="twitter:description" content="使用 action 来描述“发生了什么”，和使用 reducers 来根据 action 更新 state 的用法。Store 就是把它们联系到一起的对象 用，然后在这个123action中包含请求的请求方式:- 查询请求action export const getSelectDdata = (data) =&amp;gt; ActionCreator(API_INIT_POST_MODEL,/api/">
@@ -171,7 +171,7 @@
 
         
         <a href="/2017/12/12/react和redux数据流向/" class="archive-article-date">
-  	<time datetime="2017-12-12T08:40:51.837Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-12</time>
+  	<time datetime="2017-12-12T08:45:20.279Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-12</time>
 </a>
         
       </header>
@@ -181,7 +181,7 @@
         <p>使用 action 来描述“发生了什么”，和使用 reducers 来根据 action 更新 state 的用法。<br>Store 就是把它们联系到一起的对象</p>
 <p>用<figure class="highlight plain"><figcaption><span>，然后在这个</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">action中包含请求的请求方式:</span><br><span class="line"></span><br><span class="line">- 查询请求action</span><br></pre></td></tr></table></figure></p>
 <p>export const getSelectDdata = (data) =&gt; ActionCreator(API_INIT_POST_MODEL,<br><code>/api/rcslmodelcascade/propertylist${queryData(data)}</code>, ‘GET’)()</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--more--&gt;</span><br><span class="line"></span><br><span class="line">- 修改请求action</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--more--&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- 修改请求action</span><br></pre></td></tr></table></figure>
 <p>export const editPersional = (data) =&gt; ActionCreator(API_UPDATE_PERSONAL_LIMIT, <code>/api/rcslmodelprivate</code>, ‘PUT’, data)();</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 删除请求action</span><br></pre></td></tr></table></figure>
 <p>export const detelePersionalLimit = (data) =&gt; ActionCreator(API_DELETE_PERSIONAL_MODEL, <code>/api/rcslmodelprivate/${data}</code>, ‘DELETE’)();</p>
@@ -190,9 +190,12 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">这时，我们还需要添加一个action Type，来表示用户完成任务的动作。于是在</span><br><span class="line">```ActionType.jsx```中就有好多　　</span><br><span class="line">形如：```export const API_INIT_POST_MODEL = [&apos;REQUEST&apos;, &apos;POST_MODEL_SUCCESS&apos;, &apos;FAILURE&apos;];</span><br></pre></td></tr></table></figure>
 <p>然后到reducer  , reducer 就是一个纯函数，接收旧的 state 和 action，返回新的 state。在reducer里，你可以<br>用switch定义数据的形式，用来和后台对接。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">case API_INIT_POST_MODEL[1]:</span><br><span class="line">  return &#123;</span><br><span class="line">      ...state,</span><br><span class="line">      selectData:</span><br><span class="line">       ＿.map(actions.data, (v, k) =&gt; &#123;</span><br><span class="line">                    return &#123;</span><br><span class="line">                        value: v.value.map((v, k) =&gt; &#123;</span><br><span class="line">                            return &#123;</span><br><span class="line">                                labelName: v.name,</span><br><span class="line">                                optionVal: v.value.map(data =&gt; &#123;</span><br><span class="line">                                    return &#123;value: data.code, name: data.name&#125;</span><br><span class="line">                                &#125;),</span><br><span class="line">                                key: v.code,</span><br><span class="line">                                type: &apos;select&apos;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;),</span><br><span class="line">                        name: v.name,</span><br><span class="line">                        code: v.code,</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;),</span><br><span class="line"></span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
-<p>然后返回新的state给store,在store.jsx文件中，根据已有的 reducer 来创建 store 是非常容易的。我们使用 <figure class="highlight plain"><figcaption><span>将多个 reducer 合并成为一个。并通过中间件</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">```const finalCreateStore = composeWithDevTools(applyMiddleware(promiseMiddleware))(createStore)</span><br></pre></td></tr></table></figure></p>
-<p>，创建store.。<br>　Redux store 保存了根 reducer 返回的完整 state 树。然后返回给<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> &lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">    &lt;Router history=&#123;history&#125; &gt;</span><br><span class="line">      &#123;routes&#125;</span><br><span class="line">    &lt;/Router&gt;</span><br><span class="line">  &lt;/Provider&gt;</span><br><span class="line">）,document.getElementById(&apos;content&apos;)</span><br></pre></td></tr></table></figure></p>
-<p>根节点，然后重新渲染数据</p>
+<p>然后返回新的state给store,在store.jsx文件中，<br>根据已有的 reducer 来创建 store 是非常容易的。我们使用</p>
+ <figure class="highlight plain"><figcaption><span>将多个 reducer 合并成为一个。并通过中间件 ```applyMiddleware``` 创建store。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p> const finalCreateStore = composeWithDevTools(applyMiddleware(promiseMiddleware))(createStore)</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Redux store 保存了根 reducer 返回的完整 state 树。然后返回给</span><br></pre></td></tr></table></figure>
+<p>ReactDom.render(<br> <provider store="{store}"><br>    <router history="{history}"><br>      {routes}<br>    </router><br>  </provider><br>）,document.getElementById(‘content’)</p>
+<p>```<br>根节点，然后重新渲染数据</p>
 
       
 
