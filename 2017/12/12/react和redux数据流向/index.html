@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/12/12/react和redux数据流向/index.html">
 <meta property="og:site_name" content="Ignite">
 <meta property="og:description" content="使用 action 来描述“发生了什么”，和使用 reducers 来根据 action 更新 state 的用法。Store 就是把它们联系到一起的对象用  this.props.dispath  (在页面.jsx文件中)去找一个action(在  Action.jsx  ) ，然后在这个action中包含请求的请求方式:">
-<meta property="og:updated_time" content="2017-12-12T09:01:02.115Z">
+<meta property="og:updated_time" content="2017-12-12T09:01:51.460Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react和redux数据流向">
 <meta name="twitter:description" content="使用 action 来描述“发生了什么”，和使用 reducers 来根据 action 更新 state 的用法。Store 就是把它们联系到一起的对象用  this.props.dispath  (在页面.jsx文件中)去找一个action(在  Action.jsx  ) ，然后在这个action中包含请求的请求方式:">
@@ -171,7 +171,7 @@
 
         
         <a href="/2017/12/12/react和redux数据流向/" class="archive-article-date">
-  	<time datetime="2017-12-12T09:01:02.115Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-12</time>
+  	<time datetime="2017-12-12T09:01:51.460Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-12</time>
 </a>
         
       </header>
@@ -203,9 +203,7 @@
 <li>然后返回新的state给store,在store.jsx文件中，<br>根据已有的 reducer 来创建 store 是非常容易的。我们使用combineReducers() 将多个 reducer 合并成为一个。并通过中间件applyMiddleware 创建store。</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const finalCreateStore=composeWithDevTools(applyMiddleware(promiseMiddleware))(createStore)</span><br></pre></td></tr></table></figure>
-<blockquote>
 <p>Redux store 保存了根 reducer 返回的完整 state 树。然后返回给<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ReactDom.render(</span><br><span class="line"> &lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">    &lt;Router history=&#123;history&#125; &gt;</span><br><span class="line">      &#123;routes&#125;</span><br><span class="line">    &lt;/Router&gt;</span><br><span class="line">  &lt;/Provider&gt;</span><br><span class="line">）,document.getElementById(&apos;content&apos;)</span><br></pre></td></tr></table></figure></p>
-</blockquote>
 <p>根节点，然后重新渲染数据</p>
 
       
@@ -452,6 +450,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -497,10 +499,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
             
             <div class="clearfix"></div>
