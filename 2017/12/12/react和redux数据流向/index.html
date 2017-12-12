@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>reac和redux数据流向 | Ignite</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="使用 action 来描述“发生了什么”，和使用 reducers 来根据 action 更新 state 的用法。Store 就是把它们联系到一起的对象 用 (在页面.jsx文件中)去找一个action(在 ```Action.jsx``` ) ，然后在这个1234567action中包含请求的请求方式:&amp;l">
+  <meta name="description" content="使用 action 来描述“发生了什么”，和使用 reducers 来根据 action 更新 state 的用法。Store 就是把它们联系到一起的对象用 ``` (在页面.jsx文件中)去找一个action(在 ``` Action.jsx ``` ) ，然后在这个1234567action中包含请求的请求方式:&">
 <meta name="keywords" content="React">
 <meta property="og:type" content="article">
 <meta property="og:title" content="reac和redux数据流向">
 <meta property="og:url" content="http://yoursite.com/2017/12/12/react和redux数据流向/index.html">
 <meta property="og:site_name" content="Ignite">
-<meta property="og:description" content="使用 action 来描述“发生了什么”，和使用 reducers 来根据 action 更新 state 的用法。Store 就是把它们联系到一起的对象 用 (在页面.jsx文件中)去找一个action(在 ```Action.jsx``` ) ，然后在这个1234567action中包含请求的请求方式:&amp;lt;!--more--&amp;gt;- 查询请求action export const get">
-<meta property="og:updated_time" content="2017-12-12T08:47:01.640Z">
+<meta property="og:description" content="使用 action 来描述“发生了什么”，和使用 reducers 来根据 action 更新 state 的用法。Store 就是把它们联系到一起的对象用 ``` (在页面.jsx文件中)去找一个action(在 ``` Action.jsx ``` ) ，然后在这个1234567action中包含请求的请求方式:&amp;lt;!--more--&amp;gt;- 查询请求action export cons">
+<meta property="og:updated_time" content="2017-12-12T08:47:55.054Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="reac和redux数据流向">
-<meta name="twitter:description" content="使用 action 来描述“发生了什么”，和使用 reducers 来根据 action 更新 state 的用法。Store 就是把它们联系到一起的对象 用 (在页面.jsx文件中)去找一个action(在 ```Action.jsx``` ) ，然后在这个1234567action中包含请求的请求方式:&amp;lt;!--more--&amp;gt;- 查询请求action export const get">
+<meta name="twitter:description" content="使用 action 来描述“发生了什么”，和使用 reducers 来根据 action 更新 state 的用法。Store 就是把它们联系到一起的对象用 ``` (在页面.jsx文件中)去找一个action(在 ``` Action.jsx ``` ) ，然后在这个1234567action中包含请求的请求方式:&amp;lt;!--more--&amp;gt;- 查询请求action export cons">
   
   
     <link rel="icon" href="/favicon.png">
@@ -171,15 +171,14 @@
 
         
         <a href="/2017/12/12/react和redux数据流向/" class="archive-article-date">
-  	<time datetime="2017-12-12T08:47:01.640Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-12</time>
+  	<time datetime="2017-12-12T08:47:55.054Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>使用 action 来描述“发生了什么”，和使用 reducers 来根据 action 更新 state 的用法。<br>Store 就是把它们联系到一起的对象</p>
-<p>用 <figure class="highlight plain"><figcaption><span>(在页面.jsx文件中)去找一个action(在 ```Action.jsx``` ) ，然后在这个</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">action中包含请求的请求方式:</span><br><span class="line"></span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- 查询请求action</span><br></pre></td></tr></table></figure></p>
+        <p>使用 action 来描述“发生了什么”，和使用 reducers 来根据 action 更新 state 的用法。<br>Store 就是把它们联系到一起的对象<br>用 <figure class="highlight plain"><figcaption><span>``` (在页面.jsx文件中)去找一个action(在 ``` Action.jsx ``` ) ，然后在这个</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">action中包含请求的请求方式:</span><br><span class="line"></span><br><span class="line">&lt;!--more--&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- 查询请求action</span><br></pre></td></tr></table></figure></p>
 <p>export const getSelectDdata = (data) =&gt; ActionCreator(API_INIT_POST_MODEL,<br><code>/api/rcslmodelcascade/propertylist${queryData(data)}</code>, ‘GET’)()</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 修改请求action</span><br></pre></td></tr></table></figure>
 <p>export const editPersional = (data) =&gt; ActionCreator(API_UPDATE_PERSONAL_LIMIT, <code>/api/rcslmodelprivate</code>, ‘PUT’, data)();</p>
@@ -445,15 +444,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
