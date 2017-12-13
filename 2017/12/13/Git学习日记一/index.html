@@ -6,26 +6,31 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>盒子模型 | Ignite</title>
+  <title>Git学习日记 | Ignite</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天来聊聊box-sizing 盒模型：当你设置了元素的宽度，实际展现的元素超出你的设置：这是因为元素的边框和内边距会撑开元素。看下面的例子，两个相同宽度的元素显示的实际宽度却不一样。    以前有一个代代相传的解决方案是通过数学计算。CSS开发者需要用比他们实际想要的宽度小一点的宽度，需要减去内边距和边框的宽度。值得">
-<meta name="keywords" content="CSS">
+  <meta name="description" content="提交如果遇到冲突的话，有两种解决方式，git merge和 git rebase。首先来了解一下git pull： 将远程存储库中的更改合并到当前分支中。在默认模式下，git pull 是git fetch后跟git merge FETCH_HEAD的缩写。更准确地说，git pull使用给定的参数运行git fetc">
+<meta name="keywords" content="git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="盒子模型">
-<meta property="og:url" content="http://yoursite.com/2017/09/02/盒子模型/index.html">
+<meta property="og:title" content="Git学习日记">
+<meta property="og:url" content="http://yoursite.com/2017/12/13/Git学习日记一/index.html">
 <meta property="og:site_name" content="Ignite">
-<meta property="og:description" content="今天来聊聊box-sizing 盒模型：当你设置了元素的宽度，实际展现的元素超出你的设置：这是因为元素的边框和内边距会撑开元素。看下面的例子，两个相同宽度的元素显示的实际宽度却不一样。    以前有一个代代相传的解决方案是通过数学计算。CSS开发者需要用比他们实际想要的宽度小一点的宽度，需要减去内边距和边框的宽度。值得庆幸是你不需要再这么做了… Box-sizing 人们慢慢地意识到传统的盒子模型">
-<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/%E5%AD%A6%E4%B9%A0CSS%E5%B8%83%E5%B1%8001.png">
-<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/%E5%AD%A6%E4%B9%A0CSS%E5%B8%83%E5%B1%8002.png">
-<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/%E5%AD%A6%E4%B9%A0CSS%E5%B8%83%E5%B1%8003.png">
-<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/%E5%AD%A6%E4%B9%A0CSS%E5%B8%83%E5%B1%8004.png">
-<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/%E5%AD%A6%E4%B9%A0CSS%E5%B8%83%E5%B1%8005.png">
-<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/%E5%AD%A6%E4%B9%A0CSS%E5%B8%83%E5%B1%8006.png">
-<meta property="og:updated_time" content="2017-12-02T14:57:15.039Z">
+<meta property="og:description" content="提交如果遇到冲突的话，有两种解决方式，git merge和 git rebase。首先来了解一下git pull： 将远程存储库中的更改合并到当前分支中。在默认模式下，git pull 是git fetch后跟git merge FETCH_HEAD的缩写。更准确地说，git pull使用给定的参数运行git fetch，并调用git merge将检索到的分支头合并到当前分支中。也就是说git p">
+<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/01.png">
+<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/02.png">
+<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/03.png">
+<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/04.png">
+<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/05.png">
+<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/06.png">
+<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/07.png">
+<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/08.png">
+<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/09.png">
+<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/continue.png">
+<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/11.png">
+<meta property="og:updated_time" content="2017-12-02T15:01:54.933Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="盒子模型">
-<meta name="twitter:description" content="今天来聊聊box-sizing 盒模型：当你设置了元素的宽度，实际展现的元素超出你的设置：这是因为元素的边框和内边距会撑开元素。看下面的例子，两个相同宽度的元素显示的实际宽度却不一样。    以前有一个代代相传的解决方案是通过数学计算。CSS开发者需要用比他们实际想要的宽度小一点的宽度，需要减去内边距和边框的宽度。值得庆幸是你不需要再这么做了… Box-sizing 人们慢慢地意识到传统的盒子模型">
-<meta name="twitter:image" content="http://oziqlv1ur.bkt.clouddn.com/%E5%AD%A6%E4%B9%A0CSS%E5%B8%83%E5%B1%8001.png">
+<meta name="twitter:title" content="Git学习日记">
+<meta name="twitter:description" content="提交如果遇到冲突的话，有两种解决方式，git merge和 git rebase。首先来了解一下git pull： 将远程存储库中的更改合并到当前分支中。在默认模式下，git pull 是git fetch后跟git merge FETCH_HEAD的缩写。更准确地说，git pull使用给定的参数运行git fetch，并调用git merge将检索到的分支头合并到当前分支中。也就是说git p">
+<meta name="twitter:image" content="http://oziqlv1ur.bkt.clouddn.com/01.png">
   
   
     <link rel="icon" href="/favicon.png">
@@ -165,41 +170,67 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-盒子模型" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Git学习日记一" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      盒子模型
+      Git学习日记
     </h1>
   
 
         
-        <a href="/2017/09/02/盒子模型/" class="archive-article-date">
-  	<time datetime="2017-09-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-02</time>
+        <a href="/2017/12/13/Git学习日记一/" class="archive-article-date">
+  	<time datetime="2017-12-13T11:37:35.846Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天来聊聊box-sizing</p>
-<p>盒模型：<br>当你设置了元素的宽度，实际展现的元素超出你的设置：<br>这是因为元素的边框和内边距会撑开元素。看下面的例子，<br>两个相同宽度的元素显示的实际宽度却不一样。</p>
-<p><img src="http://oziqlv1ur.bkt.clouddn.com/%E5%AD%A6%E4%B9%A0CSS%E5%B8%83%E5%B1%8001.png" alt="代码"></p>
-<p><img src="http://oziqlv1ur.bkt.clouddn.com/%E5%AD%A6%E4%B9%A0CSS%E5%B8%83%E5%B1%8002.png" alt="我小一些"></p>
-<p><img src="http://oziqlv1ur.bkt.clouddn.com/%E5%AD%A6%E4%B9%A0CSS%E5%B8%83%E5%B1%8003.png" alt="我大一些"></p>
-<p>以前有一个代代相传的解决方案是通过数学计算。CSS开发者需要用比他们实际想要的宽度小一点的宽度，需要减去内边距和边框的宽度。<br>值得庆幸是你不需要再这么做了…</p>
-<p>Box-sizing</p>
-<p>人们慢慢地意识到传统的盒子模型不直接，所以他们新增了一个叫做box-sizing</p>
-<p>的css属性。当你设置一个元素为box-sizings: border-box;时此元素的内边距和边框不会再增加它的宽度。<br>这里有一个与前一页相同的例子，唯一的区别是两个元素都设置了box-sizing：border-box;</p>
-<p><img src="http://oziqlv1ur.bkt.clouddn.com/%E5%AD%A6%E4%B9%A0CSS%E5%B8%83%E5%B1%8004.png" alt="boxSize代码"></p>
-<p>效果：</p>
-<p><img src="http://oziqlv1ur.bkt.clouddn.com/%E5%AD%A6%E4%B9%A0CSS%E5%B8%83%E5%B1%8005.png" alt="效果"><br>既然没有比这更好的方法，一些CSS开发者想要页面上的元素都有如此的表现。所以开发者们，都把以下代码放在他们的页面上：</p>
-<p><img src="http://oziqlv1ur.bkt.clouddn.com/%E5%AD%A6%E4%B9%A0CSS%E5%B8%83%E5%B1%8006.png" alt="直观的方式"></p>
-<p>这样可以确保所有的元素都会用这种更直观的方式排版。</p>
-<p>不过box-sizing是个很新的属性，目前你还应该像上面例子中那样使用 -webkit-<br>和-moz- 前缀。  这可以这个启用特定浏览器实验中的特性。同时记住它是支持IE8+的</p>
+        <p>提交如果遇到冲突的话，有两种解决方式，git merge和 git rebase。<br>首先来了解一下git pull：</p>
+<p>将远程存储库中的更改合并到当前分支中。在默认模式下，git pull 是git fetch后跟git merge FETCH_HEAD的缩写。<br>更准确地说，git pull使用给定的参数运行git fetch，并调用git merge将检索到的分支头合并到当前分支中。<br>也就是说git pull 分为两步，一步是git fetch，一步是git merge。</p>
+<p>目前提交代码，先是git commit 到本地  然后 merge 或者 rebase。<br><a id="more"></a></p>
+<h5 id="遇到冲突之git-base解决"><a href="#遇到冲突之git-base解决" class="headerlink" title="遇到冲突之git base解决"></a>遇到冲突之git base解决</h5><ol>
+<li><p>首先查看所有分支：<br>git branch -r<br><img src="http://oziqlv1ur.bkt.clouddn.com/01.png" alt="查看所有分支"></p>
+</li>
+<li><p>检出一个分支：<br>git checkout -b root<br><img src="http://oziqlv1ur.bkt.clouddn.com/02.png" alt="检出分支"></p>
+</li>
+<li><p>当自己修改了本地分支之后<br> git push –set-upstream origin root<br> 作用：推送当前分支并建立与远程上游的跟踪</p>
+</li>
+<li><p>试图去拉当前服务器上的分支,因为在要向服务器提交代码时，首先要拉服务器的代码<br>git pull<br>会有提示 ：（因为当时还没有commit到本地仓库）<br><img src="http://oziqlv1ur.bkt.clouddn.com/03.png" alt="提示"><br>提交到本地仓库：<br>git add .<br>git commit -m test<br><img src="http://oziqlv1ur.bkt.clouddn.com/04.png" alt="提交到本地仓库"></p>
+</li>
+<li><p>使用git pull –rebase</p>
+</li>
+</ol>
+<p><img src="http://oziqlv1ur.bkt.clouddn.com/05.png" alt="rebase命令"></p>
+<p><img src="http://oziqlv1ur.bkt.clouddn.com/06.png" alt="命令"></p>
+<ol>
+<li>使用git status 查看到哪一个文件有错误</li>
+</ol>
+<p><img src="http://oziqlv1ur.bkt.clouddn.com/07.png" alt="Routers.jsx报错"></p>
+<ol>
+<li>修改后(保留服务器的代码)：</li>
+</ol>
+<p><img src="http://oziqlv1ur.bkt.clouddn.com/08.png" alt="服务器代码"></p>
+<p>其中&lt;&lt;&lt;&lt;HEAD 下 ====上是远程分支上的代码</p>
+<p>====下  &gt;&gt;&gt;&gt;&gt;111 上是本地代码  （111是提交时候的注释）</p>
+<h5 id="情况一：需要Git-服务器上的代码"><a href="#情况一：需要Git-服务器上的代码" class="headerlink" title="情况一：需要Git 服务器上的代码"></a>情况一：需要Git 服务器上的代码</h5><p><img src="http://oziqlv1ur.bkt.clouddn.com/09.png" alt="提交"></p>
+<p>此处就不需要再git commit了，因为你所要提交的代码是和远程分支上一样的。</p>
+<h5 id="情况二：保留本地代码"><a href="#情况二：保留本地代码" class="headerlink" title="情况二：保留本地代码"></a>情况二：保留本地代码</h5><p>就需要git commit -m xxx</p>
+<p>————&gt;我们这里演示的是保留远程分支上的代码：</p>
+<p>所以执行     git rebase –continue  会出现以下情况：</p>
+<p><img src="http://oziqlv1ur.bkt.clouddn.com/continue.png" alt="continue"></p>
+<p>命令的作用是：  git会继续应用(apply)余下的补丁,因为已经git add .  过了<br>所以跳过此补丁</p>
+<p>另外：在任何时候，都可以用git rebase –abort参数来终止rebase的行动，分支会回到rebase开始前的状态.</p>
+<ol>
+<li>最后根据提示来执行命令：<br><img src="http://oziqlv1ur.bkt.clouddn.com/11.png" alt="最后的命令"></li>
+</ol>
+<p>使用git需要养成的习惯～～</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">经常commit，然后pull —reabase , 最后 push</span><br><span class="line"></span><br><span class="line">养成良好操作，尽量保持Master提交记录是一条线  利于code review</span><br></pre></td></tr></table></figure>
+<p>git reabse 与git merge 区别<br>(<a href="https://www.cnblogs.com/kevingrace/p/5896706.html" target="_blank" rel="noopener">https://www.cnblogs.com/kevingrace/p/5896706.html</a>)</p>
 
       
 
@@ -239,7 +270,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
         		</li>
       		
 		</ul>
@@ -295,7 +326,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/02/盒子模型/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/12/13/Git学习日记一/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -309,18 +340,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/09/29/一首小诗/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/12/13/Git学习日记二/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          一首小诗
+          Git学习日记二
         
       </div>
     </a>
   
   
-    <a href="/2017/09/02/罗胖教学时间/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">罗胖教学时间</div>
+    <a href="/2017/12/12/react和redux数据流向/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">react和redux数据流向</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -335,7 +366,7 @@
   
 
   
-  <div id="SOHUCS" sid="盒子模型" style="padding: 0px 30px 0px 46px;"></div>
+  <div id="SOHUCS" sid="Git学习日记" style="padding: 0px 30px 0px 46px;"></div>
 <script type="text/javascript"> 
 (function(){ 
 var appid = "cyt5SKUGd"; 
