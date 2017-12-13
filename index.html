@@ -168,7 +168,7 @@
 
         
         <a href="/2017/12/13/Git学习日记二/" class="archive-article-date">
-  	<time datetime="2017-12-13T12:31:25.769Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-13</time>
+  	<time datetime="2017-12-13T12:34:08.476Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-13</time>
 </a>
         
       </header>
@@ -177,13 +177,9 @@
       
         <p>　　最近在开发项目的过程中，我所在一个叫dev的分支开发，正开发到一半，头儿让我去master分支<br>修改一个bug，所以我必须先把正在改的代码暂存起来或者提交，才可以去切换分支开发。<br>在这个场景下：有三种方法去解决：</p>
 <h5 id="及时commit代码"><a href="#及时commit代码" class="headerlink" title="及时commit代码"></a>及时commit代码</h5><p>在dev分支上把已经开发完成的部分代码commit掉,不push，然后切换到master分支上修改代码,<br>做完了commit,所有分支互不影响，当然勤commit是一个好习惯。</p>
-<h5 id="使用git-stash"><a href="#使用git-stash" class="headerlink" title="使用git stash"></a>使用git stash</h5><p>　在dev分支上，我可以<figure class="highlight plain"><figcaption><span>stash```或者```git stash save “修改的信息"```这样的话，你的代码就回到上一个commit了,直接git stash也行，git stash 栈会给你一个hash值</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">作为版本的说明，但我觉得最好自己写说明比较明朗。</span><br><span class="line">然后你到master分支之后，完成了头二交给的任务，你就可以回到dev分支，然后输入：```git stash pop``` 或```git stash list</span><br></pre></td></tr></table></figure></p>
-<p>就可以回到刚才修改时候的版本了。这就相当于，压栈出栈的过程，将旧版本代码压栈，然后<br>切换分支开发，然后回到原先分支，出栈获得之前正在修改的代码。</p>
-<p>而<figure class="highlight plain"><figcaption><span>stash apply stash@&#123;0&#125;```的作用是可以指定栈中的一个版本，</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">通过```git stash list```可以看到所有的版本信息:</span><br></pre></td></tr></table></figure></p>
+<h5 id="使用git-stash"><a href="#使用git-stash" class="headerlink" title="使用git stash"></a>使用git stash</h5><p>在dev分支上，我可以<figure class="highlight plain"><figcaption><span>stash```或者```git stash save “修改的信息"```这样的话，你的代码就回到上一个commit了,直接git stash也行，git stash 栈会给你一个hash值</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">作为版本的说明，但我觉得最好自己写说明比较明朗。</span><br><span class="line">然后你到master分支之后，完成了头二交给的任务，你就可以回到dev分支，然后输入：```git stash pop``` 或```git stash list```就可以回到刚才修改时候的版本了。这就相当于，压栈出栈的过程，将旧版本代码压栈，然后</span><br><span class="line">切换分支开发，然后回到原先分支，出栈获得之前正在修改的代码。</span><br><span class="line"></span><br><span class="line">而```git stash apply stash@&#123;0&#125;```的作用是可以指定栈中的一个版本，</span><br><span class="line">通过```git stash list```可以看到所有的版本信息:</span><br></pre></td></tr></table></figure></p>
 <p>stash@{0}: On master: Uncommitted changes before rebase</p>
-<p>stash@{1}: On master: Uncommitted changes before Checkout</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">然后你可以选择一个你需要的版本执行：``` git stash apply stash@&#123;0&#125;</span><br></pre></td></tr></table></figure>
-<p>然后你的代码就回来了。</p>
+<p>stash@{1}: On master: Uncommitted changes before Checkout<br><code>然后你可以选择一个你需要的版本执行：</code> git stash apply stash@{0} ```然后你的代码就回来了。</p>
 <h5 id="用IDE工具的shelve的功能"><a href="#用IDE工具的shelve的功能" class="headerlink" title="用IDE工具的shelve的功能"></a>用IDE工具的shelve的功能</h5><p>我用的webStorm有shelve功能，shelve的意思是“将…搁在一边”，即把还没写完的代码先搁在一边。</p>
 <p>首先在IDE的底部找到<code>Version Control</code>，点开会有local的选项卡，选中你要搁置的代码，点击右键，选择“Shelve Changes”，在提交的输入框中输入你的注释，以便回来的时候识别你需要的版本，点击“Shelve Changes”键即可。这时选项卡上会多一个“Shelf”的选项卡，里面就有你搁置的代码。</p>
 <p>这时候你可以去master分支修改代码，改完了之后回到dev分支，到“Shelf”选项卡下选择你要恢复的代码或者版本，点击右键选择“Unshelve Changes”，你的搁置的代码就回来了。</p>
