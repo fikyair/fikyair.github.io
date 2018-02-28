@@ -155,6 +155,69 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-新建分支并提交到远程分支" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/28/新建分支并提交到远程分支/">新建分支并提交到远程分支</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/28/新建分支并提交到远程分支/" class="archive-article-date">
+  	<time datetime="2018-02-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="新建分支并提交到远程分支"><a href="#新建分支并提交到远程分支" class="headerlink" title="新建分支并提交到远程分支"></a>新建分支并提交到远程分支</h5><ol>
+<li><code>git checkout -b phase</code> 新建分支phase 并切换到phase</li>
+<li><code>git push origin phase:phase</code> 推送到远程分支</li>
+<li><code>git branch</code> 查看本地分支</li>
+<li><code>git branch -r</code> 查看远程分支<br>如果远程分支上有phase，说明提交成功，就可以在分支上开发了!</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/28/新建分支并提交到远程分支/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+  
     <article id="post-Git学习日记三" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -339,19 +402,19 @@
 
 
   
-    <article id="post-react子组件与父组件传值" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-react子组件与父组件传值(副本 2)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/10/react子组件与父组件传值/">react子组件与父组件传值</a>
+      <a class="article-title" href="/2017/12/10/react子组件与父组件传值(副本 2)/">react子组件与父组件传值</a>
     </h1>
   
 
         
-        <a href="/2017/12/10/react子组件与父组件传值/" class="archive-article-date">
+        <a href="/2017/12/10/react子组件与父组件传值(副本 2)/" class="archive-article-date">
   	<time datetime="2017-12-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-10</time>
 </a>
         
@@ -367,7 +430,7 @@
 </ul>
 <h5 id="这是我定义的父组件："><a href="#这是我定义的父组件：" class="headerlink" title="这是我定义的父组件："></a>这是我定义的父组件：</h5>
         
-          <a class="article-more-a" href="/2017/12/10/react子组件与父组件传值/#more">more >></a>
+          <a class="article-more-a" href="/2017/12/10/react子组件与父组件传值(副本 2)/#more">more >></a>
         
       
 
@@ -391,69 +454,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/10/react子组件与父组件传值/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-  
-    <article id="post-Git学习日记一" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/01/Git学习日记一/">Git学习日记一</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/01/Git学习日记一/" class="archive-article-date">
-  	<time datetime="2017-11-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>提交如果遇到冲突的话，有两种解决方式，git merge和 git rebase。<br>首先来了解一下git pull：</p>
-<p>将远程存储库中的更改合并到当前分支中。在默认模式下，git pull 是git fetch后跟git merge FETCH_HEAD的缩写。<br>更准确地说，git pull使用给定的参数运行git fetch，并调用git merge将检索到的分支头合并到当前分支中。<br>也就是说git pull 分为两步，一步是git fetch，一步是git merge。</p>
-<p>目前提交代码，先是git commit 到本地  然后 merge 或者 rebase。<br>
-        
-          <a class="article-more-a" href="/2017/12/01/Git学习日记一/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/01/Git学习日记一/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/12/10/react子组件与父组件传值(副本 2)/">展开全文 >></a>
         </p>
       
 
@@ -469,7 +470,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -569,15 +570,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">牛客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color3">牛客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Javaweb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -589,15 +594,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Javaweb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -610,10 +611,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">React</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -630,6 +627,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
