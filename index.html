@@ -207,50 +207,9 @@
 </li>
 </ol>
 <p>注： 详细更新请看 <a href="https://juejin.im/post/5a951bf851882524d842ec8b" target="_blank" rel="noopener">webpack更新日志</a></p>
-<h3 id="升级过程如下："><a href="#升级过程如下：" class="headerlink" title="升级过程如下："></a>升级过程如下：</h3><ol>
-<li><p>首先卸载原来的webpack版本，安装最新4.0.1版本</p>
-<ul>
-<li>卸载命令<br><code>npm uninstall webpack -g</code></li>
-<li>安装命令<br><code>npm install webpack@4.0.1 -g</code> 或者<br><code>yarn add webpack@4.0.1</code></li>
-</ul>
-</li>
-<li><p>添加optimization,这时会报错： Cannot find module ‘webpack/bin/config-yargs’</p>
-<ul>
-<li>需要安装<br><code>webpack-dev-server</code></li>
-<li>首先卸载<br><code>npm uninstall webpack-dev-server -g</code></li>
-<li>然后再安装<br><code>yarn add webpack-dev-server@3.0.1-beta.0</code></li>
-</ul>
-</li>
-<li><p>启动项目 <code>yarn run dev</code></p>
-<ul>
-<li>发现提示需要安装<br><code>webpack-cli</code> (用来启动webpack)</li>
-<li>安装<br><code>yarn add webpack-cli -D</code></li>
-</ul>
-</li>
-<li><p>然后启动项目你会发现错误信息:<code>...please use config.optimization.splitChunks instead</code>和<br><img src="http://oziqlv1ur.bkt.clouddn.com/instead.png" alt="错误信息"></p>
-</li>
-</ol>
-<p><code>compilation.mainTemplate.applyPluginsWaterfall is not a function</code></p>
-<p>此时需要,在webpack.config中添加<code>optimization</code></p>
-<p><img src="http://oziqlv1ur.bkt.clouddn.com/optimization.png" alt="optimization"></p>
-<p>运行命令： <code>yarn add webpack-contrib/html-webpack-plugin -D</code></p>
-<ol>
-<li><p>然后启动项目会出现编译警告:<code>The mode option has not been set...</code>,<br><img src="http://oziqlv1ur.bkt.clouddn.com/mode.png" alt="错误信息"><br>这时</p>
-<ul>
-<li>需要在 <code>package.json</code> 里”dev”和”build”添加<br>  <code>--mode development</code><br>  <code>--mode production</code></li>
-</ul>
-</li>
-<li><p><code>yarn run dev</code> 启动项目</p>
-</li>
-</ol>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考:"></a>参考:</h3><p><a href="https://doc.webpack-china.org/concepts/" target="_blank" rel="noopener">webpack中文文档</a></p>
-<p><a href="https://doc.webpack-china.org/plugins" target="_blank" rel="noopener">以及插件列表</a></p>
-<h3 id="升级效果："><a href="#升级效果：" class="headerlink" title="升级效果："></a>升级效果：</h3><ul>
-<li>升级前<br><img src="http://oziqlv1ur.bkt.clouddn.com/%E5%8D%87%E7%BA%A7%E5%89%8D.png" alt="升级前"></li>
-<li>升级后<br><img src="http://oziqlv1ur.bkt.clouddn.com/%E5%8D%87%E7%BA%A7%E5%90%8E.png" alt="升级后"><br>风控限额项目由原来的webpack3.10.0升级到4.0.1,</li>
-</ul>
-<p>打包速度由原来的 41424ms 提升到 36396ms,减少了5秒</p>
-
+        
+          <a class="article-more-a" href="/2018/03/04/webpack4.0升级/#more">more >></a>
+        
       
 
       
@@ -688,15 +647,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Webpack</a>
               </li>
              
               <li class="article-tag-list-item">
