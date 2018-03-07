@@ -223,18 +223,17 @@
 </li>
 </ol>
 <ol>
-<li>启动项目 <code>yarn run dev</code><ul>
+<li><p>启动项目 <code>yarn run dev</code></p>
+<ul>
 <li>发现提示需要安装<br>  <code>webpack-cli</code> (用来启动webpack)</li>
 <li>安装<br>  <code>yarn add webpack-cli -D</code></li>
 </ul>
 </li>
+<li><p>然后启动项目你会发现错误信息:<code>...please use config.optimization.splitChunks instead</code>和<br><img src="http://oziqlv1ur.bkt.clouddn.com/instead.png" alt="错误信息"></p>
+</li>
 </ol>
-<ol>
-<li>然后启动项目你会发现错误信息:<pre><code>`...please use config.optimization.splitChunks instead`和
-</code></pre><img src="http://oziqlv1ur.bkt.clouddn.com/instead.png" alt="错误信息"><pre><code>`compilation.mainTemplate.applyPluginsWaterfall is not a function`
- 此时需要,在webpack.config中添加`optimization`
-</code></pre></li>
-</ol>
+<p><code>compilation.mainTemplate.applyPluginsWaterfall is not a function</code></p>
+<p>此时需要,在webpack.config中添加<code>optimization</code></p>
 <p><img src="http://oziqlv1ur.bkt.clouddn.com/optimization.png" alt="optimization"></p>
 <p>运行命令： <code>yarn add webpack-contrib/html-webpack-plugin -D</code></p>
 <ol>
@@ -253,7 +252,6 @@
 <li>升级后<br><img src="http://oziqlv1ur.bkt.clouddn.com/%E5%8D%87%E7%BA%A7%E5%90%8E.png" alt="升级后"><br>风控限额项目由原来的webpack3.10.0升级到4.0.1,</li>
 </ul>
 <p>打包速度由原来的 41424ms 提升到 36396ms,减少了5秒</p>
-<hr>
 
       
 
@@ -644,18 +642,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Javaweb</a>
               </li>
              
@@ -664,11 +650,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -676,7 +662,23 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -684,7 +686,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Webpack</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -696,11 +698,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color3">Webpack</a>
               </li>
              
               <li class="article-tag-list-item">
