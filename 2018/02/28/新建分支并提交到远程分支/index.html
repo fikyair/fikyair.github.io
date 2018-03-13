@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/02/28/新建分支并提交到远程分支/index.html">
 <meta property="og:site_name" content="Ignite">
 <meta property="og:description" content="新建分支并提交到远程分支 git checkout -b phase 新建分支phase 并切换到phase git push origin phase:phase 推送到远程分支 git branch 查看本地分支 git branch -r 查看远程分支如果远程分支上有phase，说明提交成功，就可以在分支上开发了!">
-<meta property="og:updated_time" content="2018-02-28T10:50:06.671Z">
+<meta property="og:updated_time" content="2018-03-13T09:34:07.247Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="新建分支并提交到远程分支">
 <meta name="twitter:description" content="新建分支并提交到远程分支 git checkout -b phase 新建分支phase 并切换到phase git push origin phase:phase 推送到远程分支 git branch 查看本地分支 git branch -r 查看远程分支如果远程分支上有phase，说明提交成功，就可以在分支上开发了!">
@@ -184,6 +184,23 @@
 <li><code>git branch</code> 查看本地分支</li>
 <li><code>git branch -r</code> 查看远程分支<br>如果远程分支上有phase，说明提交成功，就可以在分支上开发了!</li>
 </ol>
+<a id="more"></a>
+<hr>
+<p>在master分支上：</p>
+<ol>
+<li><code>git fetch</code> 远程跟踪分支已更新(Git术语叫做commit)，需要将这些更新取回本地</li>
+<li><code>git status</code> 查询一下状态</li>
+<li>若提示落后于<code>origin/master</code></li>
+<li><code>git merge origin/master</code> 将远端master分支的代码merge进本地分支</li>
+<li><code>git status</code> 再次确认</li>
+<li><code>git checkout -b test</code> 新建分支test 并且换到test</li>
+</ol>
+<p>其他git命令：</p>
+<p><code>git reset –hard origin/master</code> 将本地的状态回退到和远程的一样</p>
+<p><code>git rest</code> 在git的一般使用中，如果发现错误的将不想暂存的文件被git add进入索引之后，</p>
+<p>想回退取消，则可以使用命令： <code>git reset HEAD &lt;file&gt;</code></p>
+<p><code>git reset [--hard|soft|mixed|merge|keep] [&lt;commit&gt;或HEAD]</code>：</p>
+<p>将当前的分支重设<code>(reset)</code>到指定的<code>&lt;commit&gt;</code>或者<code>HEAD</code>(默认，如果不显示指定<code>&lt;commit&gt;</code>，默认是<code>HEAD</code>，即最新的一次提交)，</p>
 
       
 
@@ -426,19 +443,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">牛客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Javaweb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
+                <a href="javascript:void(0)" class="js-tag color3">牛客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -450,7 +459,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color3">Javaweb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -462,11 +475,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Android</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -474,7 +487,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">Webpack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -486,7 +499,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Webpack</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
               </li>
              
               <li class="article-tag-list-item">
