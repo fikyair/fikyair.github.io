@@ -6,19 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>袋鼠过河 | Ignite</title>
+  <title>Ignite</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近忙着复习，博客更新频率少低了，现在就先把觉得重要的算法题记录一下，在牛客网上做到的最简单的动态规划问题，当然这道题的变形在leetCode上也有（jumpGame）。">
-<meta name="keywords" content="动态规划">
+  <meta name="description" content="如果一个组件的渲染只一俩与外界传进去的 props 和自己的 state，而且并不依赖于其他外界的任何数据，类似于纯函数，给他什么，他就渲染什么，这种组件的复用性是最强的，别人使用的时候只要看 PropTypes能接受什么参数就好了，这种组件叫做  Dumb Component  ,这样的组件会提高 组件本身的可复用性">
 <meta property="og:type" content="article">
-<meta property="og:title" content="袋鼠过河">
-<meta property="og:url" content="http://yoursite.com/2017/08/23/newCoder袋鼠过河/index.html">
+<meta property="og:title" content="Ignite">
+<meta property="og:url" content="http://yoursite.com/2018/04/09/Redux学习/index.html">
 <meta property="og:site_name" content="Ignite">
-<meta property="og:description" content="最近忙着复习，博客更新频率少低了，现在就先把觉得重要的算法题记录一下，在牛客网上做到的最简单的动态规划问题，当然这道题的变形在leetCode上也有（jumpGame）。">
-<meta property="og:updated_time" content="2017-12-02T03:36:08.900Z">
+<meta property="og:description" content="如果一个组件的渲染只一俩与外界传进去的 props 和自己的 state，而且并不依赖于其他外界的任何数据，类似于纯函数，给他什么，他就渲染什么，这种组件的复用性是最强的，别人使用的时候只要看 PropTypes能接受什么参数就好了，这种组件叫做  Dumb Component  ,这样的组件会提高 组件本身的可复用性。 react-redux  用高阶组件包裹Dumb 组件，用高阶组件从cont">
+<meta property="og:updated_time" content="2018-04-09T11:08:40.582Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="袋鼠过河">
-<meta name="twitter:description" content="最近忙着复习，博客更新频率少低了，现在就先把觉得重要的算法题记录一下，在牛客网上做到的最简单的动态规划问题，当然这道题的变形在leetCode上也有（jumpGame）。">
+<meta name="twitter:title" content="Ignite">
+<meta name="twitter:description" content="如果一个组件的渲染只一俩与外界传进去的 props 和自己的 state，而且并不依赖于其他外界的任何数据，类似于纯函数，给他什么，他就渲染什么，这种组件的复用性是最强的，别人使用的时候只要看 PropTypes能接受什么参数就好了，这种组件叫做  Dumb Component  ,这样的组件会提高 组件本身的可复用性。 react-redux  用高阶组件包裹Dumb 组件，用高阶组件从cont">
   
   
     <link rel="icon" href="/favicon.png">
@@ -158,40 +157,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-newCoder袋鼠过河" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Redux学习" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      袋鼠过河
-    </h1>
-  
-
-        
-        <a href="/2017/08/23/newCoder袋鼠过河/" class="archive-article-date">
-  	<time datetime="2017-08-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-23</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近忙着复习，博客更新频率少低了，现在就先把觉得重要的算法题记录一下，在牛客网上做到的最简单的动态规划问题，当然这道题的变形在leetCode上也有（jumpGame）。<br><a id="more"></a></p>
-<h5 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h5><blockquote>
-<p>一只袋鼠要从河这边跳到河对岸，河很宽，但是河中间打了很多桩子，每隔一米就有一个，每个桩子上都有一个弹簧，袋鼠跳到弹簧上就可以跳的更远。每个弹簧力量不同，用一个数字代表它的力量，如果弹簧力量为5，就代表袋鼠下一跳最多能够跳5米，如果为0，就会陷进去无法继续跳跃。河流一共N米宽，袋鼠初始位置就在第一个弹簧上面，要跳到最后一个弹簧之后就算过河了，给定每个弹簧的力量，求袋鼠最少需要多少跳能够到达对岸。如果无法到达输出-1</p>
-</blockquote>
-<h5 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述:"></a>输入描述:</h5><blockquote>
-<p>输入分两行，第一行是数组长度N (1 ≤ N ≤ 10000)，第二行是每一项的值，用空格分隔。</p>
-</blockquote>
-<h5 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述:"></a>输出描述:</h5><blockquote>
-<p>输出最少的跳数，无法到达输出-1</p>
-</blockquote>
-<h5 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h5><blockquote>
-<p>输入<br>5<br>2 0 1 1 1<br>输出<br>4</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public class Jump &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Scanner sc = new Scanner(System.in);</span><br><span class="line">		int N = sc.nextInt();</span><br><span class="line">		int[] nums = new int[N + 1];</span><br><span class="line">		int[] dp = new int[N + 1];</span><br><span class="line">		for (int i = 0; i &lt; N; i++)</span><br><span class="line">			nums[i] = sc.nextInt();</span><br><span class="line"></span><br><span class="line">		for (int i = 0; i &lt;=N; i++)</span><br><span class="line">			dp[i] = 100000;</span><br><span class="line">		nums[N] = 1;</span><br><span class="line">		dp[0] = 0;</span><br><span class="line">		for (int i = 1; i &lt;= N; i++) &#123;</span><br><span class="line">			if (nums[i] == 0)</span><br><span class="line">				continue;</span><br><span class="line">			for (int j = 0; j &lt; i; j++) &#123;</span><br><span class="line">				if (nums[j] &gt;= i - j)</span><br><span class="line">					dp[i] = Math.min(dp[j] + 1, dp[i]);</span><br><span class="line">				System.out.println(&quot;i=&quot; + i + &quot;,&quot; + &quot;j=&quot; + j + &quot;  &quot; + &quot;dp[&quot; + i + &quot;]: &quot; + dp[i]);</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println((dp[N] == 100000) ? -1 : dp[N]);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>如果一个组件的渲染只一俩与外界传进去的 props 和自己的 state，而且并不依赖于其他外界的任何数据，类似于纯函数，给他什么，他就渲染什么，这种组件的复用性是最强的，别人使用的时候只要看 PropTypes能接受什么参数就好了，这种组件叫做  Dumb Component  ,这样的组件会提高 组件本身的可复用性。</p>
+<p>react-redux  用高阶组件包裹Dumb 组件，用高阶组件从context 取数据，然后高阶组件和 context 打交道， 把数据取出来通过props 传给 Dumb 组件。 这个高阶组件 就叫 connect  </p>
+<p>但是每个传进去的组件需要 store 里面的数据都不一样的，所以除了给高阶组件传入 Dumb 组件以外，还需要告诉高级组件我们需要什么数据，高阶组件才能正确地去取数据。为了解决这个问题，我们可以给高阶组件传入<br>mapStateToProps函数<br>这个函数会接受 store.getState() 的结果作为参数，然后返回一个对象，这个对象是根据 state 生成的。mapStateTopProps 相当于告知了 Connect 应该如何去 store 里面取数据，</p>
 
       
 
@@ -226,17 +199,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -287,7 +249,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/23/newCoder袋鼠过河/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/04/09/Redux学习/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -301,18 +263,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/08/25/发散思维-不用四则做加法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          发散思维-不用四则做加法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/08/23/java中单链表的实现/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">java中单链表的实现</div>
+    <a href="/2018/04/09/react子组件与父组件传值(副本 2)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -327,7 +280,7 @@
   
 
   
-  <div id="SOHUCS" sid="袋鼠过河" style="padding: 0px 30px 0px 46px;"></div>
+  <div id="SOHUCS" sid="" style="padding: 0px 30px 0px 46px;"></div>
 <script type="text/javascript"> 
 (function(){ 
 var appid = "cyt5SKUGd"; 
