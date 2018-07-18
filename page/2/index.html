@@ -54,9 +54,9 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔">随笔</a></li>
+				<li><a href="/tags/随笔">生活</a></li>
 	        
-				<li><a href="/archives/">归档</a></li>
+				<li><a href="/archives/">分类</a></li>
 	        
 			</ul>
 		</nav>
@@ -132,9 +132,9 @@
 				
 					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/随笔">生活</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/archives/">归档</a></li>
+					<li style="width: 33.333333333333336%"><a href="/archives/">分类</a></li>
 		        
 				</ul>
 			</nav>
@@ -174,7 +174,7 @@
         <p>　　最近在开发项目的过程中，我所在一个叫dev的分支开发，正开发到一半，头儿让我去master分支<br>修改一个bug，所以我必须先把正在改的代码暂存起来或者提交，才可以去切换分支开发。<br>在这个场景下：有三种方法去解决：</p>
 <h5 id="及时commit代码"><a href="#及时commit代码" class="headerlink" title="及时commit代码"></a>及时commit代码</h5><p>在dev分支上把已经开发完成的部分代码commit掉,不push，然后切换到master分支上修改代码,<br>做完了commit,所有分支互不影响，当然勤commit是一个好习惯。</p>
         
-          <a class="article-more-a" href="/2017/12/13/Git学习日记二/#more">more >></a>
+          <a class="article-more-a" href="/2017/12/13/Git学习日记二/#more">更多 >></a>
         
       
 
@@ -235,7 +235,7 @@
         <p>简单描述一下action 、reducer、store 三者的关系：</p>
 <p>使用 action 来描述“发生了什么”，和使用 reducers 来根据 action 更新 state 的用法。<br>store 就是把它们联系到一起的对象<br>用  this.props.dispath  (在页面.jsx文件中)去找一个action(在  Action.jsx  ) ，然后在这个<br>action中包含请求的请求方式:</p>
         
-          <a class="article-more-a" href="/2017/12/12/react和redux数据流向/#more">more >></a>
+          <a class="article-more-a" href="/2017/12/12/react和redux数据流向/#more">更多 >></a>
         
       
 
@@ -301,7 +301,7 @@
 </ul>
 <h5 id="这是我定义的父组件："><a href="#这是我定义的父组件：" class="headerlink" title="这是我定义的父组件："></a>这是我定义的父组件：</h5>
         
-          <a class="article-more-a" href="/2017/12/10/react子组件与父组件传值/#more">more >></a>
+          <a class="article-more-a" href="/2017/12/10/react子组件与父组件传值/#more">更多 >></a>
         
       
 
@@ -363,7 +363,7 @@
 <p>将远程存储库中的更改合并到当前分支中。在默认模式下，git pull 是git fetch后跟git merge FETCH_HEAD的缩写。<br>更准确地说，git pull使用给定的参数运行git fetch，并调用git merge将检索到的分支头合并到当前分支中。<br>也就是说git pull 分为两步，一步是git fetch，一步是git merge。</p>
 <p>目前提交代码，先是git commit 到本地  然后 merge 或者 rebase。<br>
         
-          <a class="article-more-a" href="/2017/12/01/Git学习日记一/#more">more >></a>
+          <a class="article-more-a" href="/2017/12/01/Git学习日记一/#more">更多 >></a>
         
       
 
@@ -401,19 +401,19 @@
 
 
   
-    <article id="post-react学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Linux" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/22/react学习笔记/">react学习笔记</a>
+      <a class="article-title" href="/2017/11/22/Linux/">linux安装jdk以及远程访问服务</a>
     </h1>
   
 
         
-        <a href="/2017/11/22/react学习笔记/" class="archive-article-date">
+        <a href="/2017/11/22/Linux/" class="archive-article-date">
   	<time datetime="2017-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-22</time>
 </a>
         
@@ -421,26 +421,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这几天正在学习React，有空记录一下！<br>就比如：</p>
-<h5 id="export和export-default"><a href="#export和export-default" class="headerlink" title="export和export default"></a>export和export default</h5><p>一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用。<br>组件导出的关键字是:</p>
-<blockquote>
-<p>exprot default</p>
-</blockquote>
-<p>没有加default时，例如：</p>
-<blockquote>
-<p>export class Template{}</p>
-</blockquote>
-<p>当然，你可以在单个js文件里声明多个组件，例如Templates.js</p>
-<blockquote>
-<p>export class Template{}<br>export class AnotherTemplate{}</p>
-</blockquote>
-<p>这样在其他文件引用时，需要使用{}符号，且名称必须和class名称一样，like this：</p>
-<blockquote>
-<p>import {Template,AnotherTemplate} from ‘./components/Templates’;</p>
-</blockquote>
-<p>而加default时，例如：<br>
+        <p>在windows下，下载jdk-8u25-linux-64.tar.gz<br>Xshell5p.exe  用来访问远程面板<br>
         
-          <a class="article-more-a" href="/2017/11/22/react学习笔记/#more">more >></a>
+          <a class="article-more-a" href="/2017/11/22/Linux/#more">更多 >></a>
         
       
 
@@ -454,7 +437,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
@@ -464,7 +447,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/22/react学习笔记/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/11/22/Linux/">展开全文 >></a>
         </p>
       
 
@@ -592,11 +575,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">

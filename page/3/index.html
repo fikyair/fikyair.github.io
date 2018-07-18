@@ -54,9 +54,9 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔">随笔</a></li>
+				<li><a href="/tags/随笔">生活</a></li>
 	        
-				<li><a href="/archives/">归档</a></li>
+				<li><a href="/archives/">分类</a></li>
 	        
 			</ul>
 		</nav>
@@ -132,9 +132,9 @@
 				
 					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/随笔">生活</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/archives/">归档</a></li>
+					<li style="width: 33.333333333333336%"><a href="/archives/">分类</a></li>
 		        
 				</ul>
 			</nav>
@@ -151,19 +151,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Linux" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-react学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/22/Linux/">linux安装jdk以及远程访问服务</a>
+      <a class="article-title" href="/2017/11/22/react学习笔记/">react学习笔记</a>
     </h1>
   
 
         
-        <a href="/2017/11/22/Linux/" class="archive-article-date">
+        <a href="/2017/11/22/react学习笔记/" class="archive-article-date">
   	<time datetime="2017-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-22</time>
 </a>
         
@@ -171,9 +171,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在windows下，下载jdk-8u25-linux-64.tar.gz<br>Xshell5p.exe  用来访问远程面板<br>
+        <p>这几天正在学习React，有空记录一下！<br>就比如：</p>
+<h5 id="export和export-default"><a href="#export和export-default" class="headerlink" title="export和export default"></a>export和export default</h5><p>一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用。<br>组件导出的关键字是:</p>
+<blockquote>
+<p>exprot default</p>
+</blockquote>
+<p>没有加default时，例如：</p>
+<blockquote>
+<p>export class Template{}</p>
+</blockquote>
+<p>当然，你可以在单个js文件里声明多个组件，例如Templates.js</p>
+<blockquote>
+<p>export class Template{}<br>export class AnotherTemplate{}</p>
+</blockquote>
+<p>这样在其他文件引用时，需要使用{}符号，且名称必须和class名称一样，like this：</p>
+<blockquote>
+<p>import {Template,AnotherTemplate} from ‘./components/Templates’;</p>
+</blockquote>
+<p>而加default时，例如：<br>
         
-          <a class="article-more-a" href="/2017/11/22/Linux/#more">more >></a>
+          <a class="article-more-a" href="/2017/11/22/react学习笔记/#more">更多 >></a>
         
       
 
@@ -187,7 +204,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
         		</li>
       		
 		</ul>
@@ -197,7 +214,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/22/Linux/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/11/22/react学习笔记/">展开全文 >></a>
         </p>
       
 
@@ -233,7 +250,7 @@
       
         <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select * from test;  </span><br><span class="line">+----+-------+------+-------+  </span><br><span class="line">| id | name  | age  | class |  </span><br><span class="line">+----+-------+------+-------+  </span><br><span class="line">|  1 | qiu   |   22 |     1 |   </span><br><span class="line">|  2 | liu   |   42 |     1 |   </span><br><span class="line">|  4 | zheng |   20 |     2 |   </span><br><span class="line">|  3 | qian  |   20 |     2 |   </span><br><span class="line">|  0 | wang  |   11 |     3 |   </span><br><span class="line">|  6 | li    |   33 |     3 |   </span><br><span class="line">+----+-------+------+-------+  </span><br><span class="line">6 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2017/10/27/MySQL中MAX函数与Group By一起使用的注意事项/#more">more >></a>
+          <a class="article-more-a" href="/2017/10/27/MySQL中MAX函数与Group By一起使用的注意事项/#more">更多 >></a>
         
       
 
@@ -294,7 +311,7 @@
         <ol>
 <li>Java中sleep和wait的区别<br>① 这两个方法来自不同的类分别是，sleep来自Thread类，和wait来自Object类。<br>sleep是Thread的静态类方法，谁调用的谁去睡觉，即使在a线程里调用b的sleep方法，实际上还是a去睡觉，要让b线程睡觉要在b的代码中调用sleep。
         
-          <a class="article-more-a" href="/2017/10/19/sleep和wait的区别/#more">more >></a>
+          <a class="article-more-a" href="/2017/10/19/sleep和wait的区别/#more">更多 >></a>
         
       
 
@@ -354,7 +371,7 @@
       
         <p>MYSQL 获取当前日期及日期格式话</p>
         
-          <a class="article-more-a" href="/2017/10/18/mysql获取当前日期并格式化/#more">more >></a>
+          <a class="article-more-a" href="/2017/10/18/mysql获取当前日期并格式化/#more">更多 >></a>
         
       
 
@@ -415,7 +432,7 @@
         <p> 最近忙着复习，更新的速度有些慢。在一次面试中，面试官问我，mysql里金额用什么存，我只用过普通的double，float，但回来一查，金额应该用Decimal 来存。受教了~</p>
 <p>mysql里Decimal表示 128 位数据类型。double相比，decimal 类型具有更高的精度和更小的范围，它适合于财务和货币计<br>
         
-          <a class="article-more-a" href="/2017/10/17/Mysql Decimal数据类型/#more">more >></a>
+          <a class="article-more-a" href="/2017/10/17/Mysql Decimal数据类型/#more">更多 >></a>
         
       
 
@@ -567,11 +584,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
