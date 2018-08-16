@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.4.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Android的动画分为3种，具体如下所示： 帧动画：也就是我们说的 Frame 动画。 Frame 动画是一系列图片按照一定的顺序展示的过程，和放电影的机制相似，它的原理是在一定的时间段内切换多张有细微差异的图片从而达到动画的效果。由于是一帧一帧加载，所以需要较多的图片。从而增大 APK 的大小，不过 Frame 动画可以实现一些比较难的效果，例如：等待的环形进度。所涉及到的Java对象有：An">
+<meta name="keywords" content="牛客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你不知道的Android">
+<meta property="og:url" content="http://yoursite.com/2017/07/07/你不知道的Android/index.html">
+<meta property="og:site_name" content="Ignite">
+<meta property="og:description" content="Android的动画分为3种，具体如下所示： 帧动画：也就是我们说的 Frame 动画。 Frame 动画是一系列图片按照一定的顺序展示的过程，和放电影的机制相似，它的原理是在一定的时间段内切换多张有细微差异的图片从而达到动画的效果。由于是一帧一帧加载，所以需要较多的图片。从而增大 APK 的大小，不过 Frame 动画可以实现一些比较难的效果，例如：等待的环形进度。所涉及到的Java对象有：An">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-08-08T12:46:05.838Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你不知道的Android">
+<meta name="twitter:description" content="Android的动画分为3种，具体如下所示： 帧动画：也就是我们说的 Frame 动画。 Frame 动画是一系列图片按照一定的顺序展示的过程，和放电影的机制相似，它的原理是在一定的时间段内切换多张有细微差异的图片从而达到动画的效果。由于是一帧一帧加载，所以需要较多的图片。从而增大 APK 的大小，不过 Frame 动画可以实现一些比较难的效果，例如：等待的环形进度。所涉及到的Java对象有：An">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/07/你不知道的Android/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>你不知道的Android | Ignite</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Ignite</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一枚前端小生</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-schedule">
+    <a href="/schedule/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />Schedule</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+    <a href="/sitemap.xml" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />Sitemap</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-commonweal">
+    <a href="/404/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />Commonweal 404</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/07/你不知道的Android/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ignite">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ignite">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">你不知道的Android
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-07-07 00:00:00" itemprop="dateCreated datePublished" datetime="2017-07-07T00:00:00+08:00">2017-07-07</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-08 20:46:05" itemprop="dateModified" datetime="2018-08-08T20:46:05+08:00">2018-08-08</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="Android的动画分为3种，具体如下所示："><a href="#Android的动画分为3种，具体如下所示：" class="headerlink" title="Android的动画分为3种，具体如下所示："></a>Android的动画分为3种，具体如下所示：</h5><ul>
+<li>帧动画：也就是我们说的 Frame 动画。 Frame 动画是一系列图片按照一定的顺序展示的过程，<br>和放电影的机制相似，它的原理是在一定的时间段内切换多张有细微差异的图片从而达到动画的<br>效果。由于是一帧一帧加载，所以需要较多的图片。从而增大 APK 的大小，不过 Frame 动画<br>可以实现一些比较难的效果，例如：等待的环形进度。所涉及到的Java对象有：AnimationDrawable。<a id="more"></a></li>
+<li>补间动画：也就是 Tween 动画，是操作某一个控件让其展现出旋转、渐变、移动、缩放的一种转换<br>过程。是一种视觉上的变化，不是真正位置上的变化。只能运用在 View 对象上，并且功能相对来说<br>较为局限。例如：旋转动画只能够在 x 、 y 轴进行，而不能在z 轴放心进行旋转。因此，补间动画<br>通常用于执行一些比较简单的动画。所涉及到的Java对象有：AlphaAnimation（渐变动画）、<br>ScaleAnimation（缩放动画）、TranslateAnimation（位移动画）、RotateAnimation（旋转动画）。</li>
+<li>属性动画：是 Android 3.0 之后推出的，其机制不再是针对 View 来设计的，也不限于只能实现<br>移动、缩放、旋转和淡入这几种简单的动画操作，同时也不再只是一种视觉上的动画效果。属性动画<br>实际上是一种在一定时间段内不断修改某个对象的某个属性值的机制。所涉及到的Java对象有：<br>ValueAnimator、ObjectAnimator。<h5 id="APK程序的两种模式：-调试模式-debug-mode-和发布模式-release-mode"><a href="#APK程序的两种模式：-调试模式-debug-mode-和发布模式-release-mode" class="headerlink" title="APK程序的两种模式：　调试模式(debug mode)和发布模式(release mode)"></a>APK程序的两种模式：　调试模式(debug mode)和发布模式(release mode)</h5></li>
+</ul>
+<ol>
+<li>调试模式(debug mode)  ：  在调试模式下， ADT会自动的使用debug密钥为应用程序签名，因此我们可以直接运行程序。</li>
+<li>发布模式(release mode) ：  当要发布程序时，开发者就需要使用自己的数字证书给apk包签名</li>
+</ol>
+<hr>
+<p> ContentResolver和 ContentProvider是一对。一个运行在提供数据端(provider),一个运行在调用端(resolver)。使用的时候利用resolver来调用provider的方法(query,insert,update等)，然后provider再进行数据查询</p>
+<hr>
+<p>在android 中主线程是ui线程一切的界面操作都是在主线中完成的，如果在非主线程中操作ui将会报错。<br>          B 同时执行多个AsyncTask默认是串行执行的。<br>          C AsyncTask必须在UI线程中创建。<br>          D 内部默认的线程是由 SerialExecutor创建 。</p>
+<hr>
+<ol>
+<li>BroadcastReceiver 是对发送出来的广播进行过滤接收并响应的一类组件</li>
+<li>每次广播被接收后会重新创建BroadcastReceiver对象，并在onReceiver方法中执行完时销毁</li>
+<li>定义广播接收器类需要继承BroadcastReceiver基类，并且必须要重写onReceive()方法</li>
+</ol>
+<hr>
+<p>NotificationManager 清除消息的方法是:cancel,cancelAll</p>
+<hr>
+<ol>
+<li>应用运行时，Main线程进行了耗时操作  产生ANR，程序没有响应，有可能程序会再次响应</li>
+<li>应用运行时抛出了OutOfMemoryError  程序抛出异常，会强制退出</li>
+<li>应用运行时抛出了RuntimeException  程序抛出异常，会强制退出</li>
+<li>应用运行时，用户操作过于频繁  产生ANR，程序没有响应，有可能程序会再次响应</li>
+</ol>
+<hr>
+<p>在Android中，如果需要对数据进行存储，则可以使用（ ）方式<br>sharedpreference  \数据库\文件\Content Provider</p>
+<hr>
+<p>A. Message提供了消息池，有静态方法Obtain从消息池中取对象；<br>B. Thread默认不提供资源池，除非使用线程池ThreadPool管理；<br>C. AsynTask是线程池改造的，池里 默认提供（核数+1）个线程进行并发操作，最大支持（核数  * 2 + 1）个线程，超过后会丢弃其他任务；<br>D. Looper，每个Looper创建时创建一个消息队列和线程对象，也不是资源池；</p>
+<hr>
+<p>下面关于Android中定义style和theme的描述正确的是？<br>style可以作用在Activity上<br>官方解释：A style is a collection of properties that specify the look and format for a View or window<br>A theme is a style applied to an entire Activity or application<br>补充一句：style和theme本质上就是同一个东西，xml格式完全相同，只是我用在activity上我就叫他theme，我用在view上我就叫他style。唯一的区别就是style里头控制的各个属性了，某些属性是只有针对Activity才能生效的（你view有标题栏嘛有状态栏有导航栏吗嘛？但是反过来Activity内部却有一个继承自View的Decorview） 。所以style可以作用在activity上，但是theme却不能反过来作用在view上</p>
+<hr>
+<p>在Tween动画下，下面哪个方法可以构建一个渐变尺寸伸缩动画</p>
+<ul>
+<li>AlphaAnimation 透明度渐变</li>
+<li>ScaleAnimation 透明度渐变</li>
+<li>TranslateAnimation 坐标变化</li>
+<li>RotateAnimation 旋转变换</li>
+</ul>
+<hr>
+<p>前台进程是Android系统中最重要的进程，在Andriod系统中包含</p>
+<ul>
+<li>Activity正在与用户进行交互</li>
+<li>进程服务正在执行声明中的回调函数</li>
+<li>进程的BroadCastRecevier在执行onRecevie()函数  </li>
+</ul>
+<p>activity被遮挡时属于可见进程，可见进程的优先级在前台进程之下。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/牛客/" rel="tag"># 牛客</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/06/面试题/" rel="next" title="面试干货分享">
+                <i class="fa fa-chevron-left"></i> 面试干货分享
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/09/你不知道的Java（一）/" rel="prev" title="你不知道的Java（一）">
+                你不知道的Java（一） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Ignite</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Android的动画分为3种，具体如下所示："><span class="nav-number">1.</span> <span class="nav-text">Android的动画分为3种，具体如下所示：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#APK程序的两种模式：-调试模式-debug-mode-和发布模式-release-mode"><span class="nav-number">2.</span> <span class="nav-text">APK程序的两种模式：　调试模式(debug mode)和发布模式(release mode)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ignite</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
