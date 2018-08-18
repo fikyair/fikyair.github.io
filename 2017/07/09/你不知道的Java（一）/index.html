@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.4.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="关于java基础的一些概念性、理论性的东西，好久没碰了，现在回过头来看看，有助于自己更深层次的提高，所以在此总结一下。">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你不知道的Java（一）">
+<meta property="og:url" content="http://yoursite.com/2017/07/09/你不知道的Java（一）/index.html">
+<meta property="og:site_name" content="Ignite">
+<meta property="og:description" content="关于java基础的一些概念性、理论性的东西，好久没碰了，现在回过头来看看，有助于自己更深层次的提高，所以在此总结一下。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-08T12:37:17.536Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你不知道的Java（一）">
+<meta name="twitter:description" content="关于java基础的一些概念性、理论性的东西，好久没碰了，现在回过头来看看，有助于自己更深层次的提高，所以在此总结一下。">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/09/你不知道的Java（一）/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>你不知道的Java（一） | Ignite</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Ignite</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一枚前端小生</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/09/你不知道的Java（一）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ignite">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ignite">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">你不知道的Java（一）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2017-07-09 00:00:00" itemprop="dateCreated datePublished" datetime="2017-07-09T00:00:00+08:00">2017-07-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-08 20:37:17" itemprop="dateModified" datetime="2018-08-08T20:37:17+08:00">2018-08-08</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/07/09/你不知道的Java（一）/#SOHUCS" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/07/09/你不知道的Java（一）/" itemprop="commentsCount"></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+<div>
+
+<div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+
+</div>
+
+
+</div>
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>  关于java基础的一些概念性、理论性的东西，好久没碰了，现在回过头来看看，有助于自己更深层次的提高，所以在此总结一下。<br><a id="more"></a></p>
+<h5 id="方法的重写"><a href="#方法的重写" class="headerlink" title="方法的重写"></a>方法的重写</h5><ol>
+<li>概念：子父类出了同名的函数，这个我们就称作为方法的重写。</li>
+<li>方法重写的前提： 必须要存在继承的关系。</li>
+<li>什么是时候要使用方法的重写：父类的功能无法满足子类的需求时。</li>
+<li>方法重写要注意的事项：(“两同两小一大”)<ul>
+<li>方法重写时，方法名与形参列表必须一致。(“两同”)</li>
+<li>方法重写时，子类的返回值类型必须要小于或者等于父类的返回值类型(“小”)</li>
+<li>方法重写时，子类抛出的异常类型要小于或者等于父类抛出的异常类型(“小”)</li>
+<li>方法重写时，子类的权限修饰符必须要大于或者等于父类的权限修饰符(“一大”)</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Exception(最坏)</span><br><span class="line">RuntimeException(小坏)</span><br></pre></td></tr></table></figure>
+<h5 id="方法的重载"><a href="#方法的重载" class="headerlink" title="方法的重载"></a>方法的重载</h5><ol>
+<li>概念：在一个类中 存在两个或者两个 以上的同名函数,称作为方法重载。</li>
+<li>方法重载的要求<ul>
+<li>函数名要一致</li>
+<li>形参列表不一致（形参个数或形参的类型不一致）</li>
+<li>与返回值类型无关</li>
+</ul>
+</li>
+</ol>
+<h5 id="java运算符优先级助记口诀"><a href="#java运算符优先级助记口诀" class="headerlink" title="java运算符优先级助记口诀"></a>java运算符优先级助记口诀</h5><p>单目乘除为关系，逻辑三目后赋值。</p>
+<ul>
+<li>单目：单目运算符+ –(负数) ++ – 等</li>
+<li>乘除：算数运算符* / % + -</li>
+<li>为：位移运算符&lt;&lt; &gt;&gt;</li>
+<li>关系：关系运算符&gt; &lt; &gt;= &lt;= == !=</li>
+<li>逻辑：逻辑运算符&amp;&amp; || &amp; | ^</li>
+<li>三目：三目运算符A &gt; B ? X : Y</li>
+<li>后：无意义，仅仅为了凑字数</li>
+<li>赋值：赋值=</li>
+</ul>
+<h5 id="java的四种访问权限"><a href="#java的四种访问权限" class="headerlink" title="java的四种访问权限"></a>java的四种访问权限</h5><table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center">public</th>
+<th style="text-align:right">protected</th>
+<th style="text-align:right">default(包权限)</th>
+<th style="text-align:right">private</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>同一类中的成员</td>
+<td style="text-align:center">是</td>
+<td style="text-align:right">是</td>
+<td style="text-align:right">是</td>
+<td style="text-align:right">是</td>
+</tr>
+<tr>
+<td>同一包中的成员</td>
+<td style="text-align:center">是</td>
+<td style="text-align:right">是</td>
+<td style="text-align:right">是</td>
+<td style="text-align:right">否</td>
+</tr>
+<tr>
+<td>不同包的子类</td>
+<td style="text-align:center">是</td>
+<td style="text-align:right">是</td>
+<td style="text-align:right">否</td>
+<td style="text-align:right">否</td>
+</tr>
+<tr>
+<td>不同包的非子类</td>
+<td style="text-align:center">是</td>
+<td style="text-align:right">否</td>
+<td style="text-align:right">否</td>
+<td style="text-align:right">否</td>
+</tr>
+</tbody>
+</table>
+<p>protected可以修饰数据成员，构造方法，方法成员，不能修饰类（此处指外部类，不考虑内部类）。被protected修饰的成员，能在定义它们的类中，同包的类中被调用。如果有不同包的类想调用它们，那么这个类必须是定义它们的类的子类(即有继承关系)。<br>表格解释:</p>
+<ol>
+<li>public：任何地方均可访问；</li>
+<li>private：只限类的内部访问；</li>
+<li>protected：受保护的，类的内部可访问；同一个包下的不管是否有继承关系均可访问；不同包下只有有继承关系的才可访问；</li>
+<li>默认（default）：类的内部可访问；同一个包下不管是否有继承关系均可访问；不同包下不管有没有继承关系都不能访问。<h5 id="java并发之原子性、可见性与有序性"><a href="#java并发之原子性、可见性与有序性" class="headerlink" title="java并发之原子性、可见性与有序性"></a>java并发之原子性、可见性与有序性</h5></li>
+</ol>
+<ol>
+<li>原子性<br>原子是世界上的最小单位，具有不可分割性。比如 a=0；（a非long和double类型） 这个操作是不可分割的，那么我们说这个操作时原子操作。再比如：a++； 这个操作实际是a = a + 1；是可分割的，所以他不是一个原子操作。非原子操作都会存在线程安全问题，需要我们使用同步技术（sychronized）来让它变成一个原子操作。一个操作是原子操作，那么我们称它具有原子性。Java的concurrent包下提供了一些原子类，我们可以通过阅读API来了解这些原子类的用法。比如：AtomicInteger、AtomicLong、AtomicReference等。</li>
+<li>可见性<br>可见性，是指线程之间的可见性，一个线程修改的状态对另一个线程是可见的。也就是一个线程修改的结果。另一个线程马上就能看到。比如：用volatile修饰的变量，就会具有可见性。volatile修饰的变量不允许线程内部缓存和重排序，即直接修改内存。所以对其他线程是可见的。但是这里需要注意一个问题，volatile只能让被他修饰内容具有可见性，但不能保证它具有原子性。比如 volatile int a = 0；之后有一个操作 a++；这个变量a具有可见性，但是a++ 依然是一个非原子操作，也就这这个操作同样存在线程安全问题。</li>
+<li>有序性<br>volatile。JVM规定，在volatile之前的操作，不能重排序到volatile之后。</li>
+</ol>
+<p>synchronized。同步代码块对于不同线程来说串行进入的。</p>
+<h5 id="线程的创建方式"><a href="#线程的创建方式" class="headerlink" title="线程的创建方式"></a>线程的创建方式</h5><ol>
+<li>继承Thread类，重写run()方法，该run方法的方法体，代表了线程需要完成的任务</li>
+<li>实现Runnable接口，重写该接口的run()方法，run()方法也为线程执行体</li>
+</ol>
+<h5 id="其他小知识"><a href="#其他小知识" class="headerlink" title="其他小知识"></a>其他小知识</h5><p>在java7中下列说法：<br>(1)Arrays.asList()将一个数组转化为一个List对象，这个方法会返回一个ArrayList类型的对象， 这个ArrayList类并非java.util.ArrayList类，而是Arrays类的静态内部类！用这个对象对列表进行添加删除更新操作，就会报UnsupportedOperationException异常。</p>
+<p>(2) ConcurrentHashMap使用segment来分段和管理锁，segment继承自ReentrantLock，因此ConcurrentHashMap使用ReentrantLock来保证线程安全。</p>
+<p>(3)抽象类和接口都不能实例化；抽象类可以不包含抽象方法，但是包含了抽象方法一定要声明为抽象类；抽象类可以继承抽象类</p>
+<p>(4) Spring Framework是一个开源的Java／Java EE全功能栈（full-stack）的应用程序框架，Spring中包含的关键特性:<br>1.强大的基于JavaBeans的采用控制翻转（Inversion of Control，IoC）原则的配置管理，使得应用程序的组建更加快捷简易。<br>2.一个可用于从applet到Java EE等不同运行环境的核心Bean工厂。<br>数据库事务的一般化抽象层，允许声明式（Declarative）事务管理器，简化事务的划分使之与底层无关。<br>3.内建的针对JTA和单个JDBC数据源的一般化策略，使Spring的事务支持不要求Java EE环境，这与一般的JTA或者EJB CMT相反。<br>4.JDBC 抽象层提供了有针对性的异常等级（不再从SQL异常中提取原始代码），简化了错误处理，大大减少了程序员的编码量。再次利用JDBC时，你无需再写出另一个’终止’（finally）模块。并且面向JDBC的异常与Spring通用数据访问对象（Data Access Object）异常等级相一致。<br>5.以资源容器，DAO实现和事务策略等形式与Hibernate，JDO和iBATIS SQL Maps集成。利用众多的翻转控制方便特性来全面支持，解决了许多典型的Hibernate集成问题。所有这些全部遵从Spring通用事务处理和通用数据访问对象异常等级规范。<br>6.灵活的基于核心Spring功能的MVC网页应用程序框架。开发者通过策略接口将拥有对该框架的高度控制，因而该框架将适应于多种呈现（View）技术，例如JSP、FreeMarker、Velocity、Tiles、iText以及POI。值得注意的是，Spring中间层可以轻易地结合于任何基于MVC框架的网页层，例如Struts、WebWork或Tapestry。<br>7.提供诸如事务管理等服务的面向方面编程框架。</p>
+<p>另外，Spring并没有提供日志系统，我们需要使用AOP（面向方面编程）的方式，借助Spring与日志系统log4j实现我们自己的日志系统。</p>
+<p>(5)SpringMVC的原理：<br>    SpringMVC是Spring中的模块，它实现了mvc设计模式的web框架，首先用户发出请求，请求到达SpringMVC的前端控制器（DispatcherServlet）,前端控制器根据用户的url请求处理器映射器查找匹配该url的handler，并返回一个执行链，前端控制器再请求处理器适配器调用相应的handler进行处理并返回给前端控制器一个modelAndView，前端控制器再请求视图解析器对返回的逻辑视图进行解析，最后前端控制器将返回的视图进行渲染并把数据装入到request域，返回给用户。<br>DispatcherServlet作为springMVC的前端控制器，负责接收用户的请求并根据用户的请求返回相应的视图给用户。<br>实现业务操作时在service层</p>
+<p>(6) java8中，忽略内部接口的情况，不能用来修饰interface里的方法的有<br>private  protected</p>
+<p>(7)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Integer s=new Integer(9);</span><br><span class="line">Integer t=new Integer(9);</span><br><span class="line">Long u=new Long(9);</span><br></pre></td></tr></table></figure></p>
+<p>(s==t) ， s 是指向一个 9 的引用，而 t 也是一个指向 9 的引用，虽然都是指向 9 ，但却是指向不同的 9 ，即是两个不同的引用。因此 == 比较返回的是假。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(s.equals(t)) ， Integer 的 equals 方法如下：</span><br><span class="line">    public boolean equals(Object obj) &#123;</span><br><span class="line">        if (obj instanceof Integer) &#123;</span><br><span class="line">            return value == ((Integer)obj).intValue();</span><br><span class="line">        &#125;</span><br><span class="line">        return false ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>是 Integer 的实例且 value 值也相等的情况下返回真，其他返回假。<br>在这里， s 和 t 都是 Integer 类型且值都为 9 ，因此结果为真。</p>
+<p>(s.equals(9)) , 在进行 equals 比较之前，会对 9 调用 Integer.valueOf 方法，进行自动装箱 , 由于 IntegerCache 中已经存在 9 ，所以，直接返回其引用，引用相同， equals 就自然相同了。所以结果为真</p>
+<p>(s.equals( new Integer(9)) ，直接创建了一个新的 Integer 实例，但且值也为 9 ，所以，满足条件，返回真。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/07/你不知道的Android/" rel="next" title="你不知道的Android">
+                <i class="fa fa-chevron-left"></i> 你不知道的Android
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/14/你不知道的Java（三）/" rel="prev" title="你不知道的Java（三）">
+                你不知道的Java（三） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="SOHUCS"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Ignite</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">36</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">categories</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#方法的重写"><span class="nav-number">1.</span> <span class="nav-text">方法的重写</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#方法的重载"><span class="nav-number">2.</span> <span class="nav-text">方法的重载</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#java运算符优先级助记口诀"><span class="nav-number">3.</span> <span class="nav-text">java运算符优先级助记口诀</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#java的四种访问权限"><span class="nav-number">4.</span> <span class="nav-text">java的四种访问权限</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#java并发之原子性、可见性与有序性"><span class="nav-number">5.</span> <span class="nav-text">java并发之原子性、可见性与有序性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#线程的创建方式"><span class="nav-number">6.</span> <span class="nav-text">线程的创建方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#其他小知识"><span class="nav-number">7.</span> <span class="nav-text">其他小知识</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ignite</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Mist</a> v6.4.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+    <script type="text/javascript">
+    (function(){
+      var appid = 'cyt5SKUGd';
+      var conf = 'prod_00a669d182fff165253ce5b608f2f8e8';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){
+        window.changyan.api.config({appid:appid,conf:conf})});
+      }
+    })();
+    </script>
+    <script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
