@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="今天在看JVM的时候突然想到这样一个问题，即1234String s1 = new String(&amp;quot;abc&amp;quot;);String s2 = &amp;quot;abc&amp;quot;;System.out.println(s1 == s2);//答案是false 问题有两个： String s2 = “abc”时发生了什么？String s1 = new String(“abc”）时又做了什么">
+  <meta name="description" content="¶今天在看JVM的时候突然想到这样一个问题，即 1234String s1 = new String(&amp;quot;abc&amp;quot;);String s2 = &amp;quot;abc&amp;quot;;System.out.println(s1 == s2);//答案是false 问题有两个： String s2 = “abc”时发生了什么？ String s1 = new String(“abc”）时又做">
 <meta name="keywords" content="Mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="String s1 = new String(&quot;abc&quot;)和String s2 = &quot;abc&quot;的区别">
 <meta property="og:url" content="http://yoursite.com/2017/10/15/String相关/index.html">
 <meta property="og:site_name" content="Ignite">
-<meta property="og:description" content="今天在看JVM的时候突然想到这样一个问题，即1234String s1 = new String(&amp;quot;abc&amp;quot;);String s2 = &amp;quot;abc&amp;quot;;System.out.println(s1 == s2);//答案是false 问题有两个： String s2 = “abc”时发生了什么？String s1 = new String(“abc”）时又做了什么">
+<meta property="og:description" content="¶今天在看JVM的时候突然想到这样一个问题，即 1234String s1 = new String(&amp;quot;abc&amp;quot;);String s2 = &amp;quot;abc&amp;quot;;System.out.println(s1 == s2);//答案是false 问题有两个： String s2 = “abc”时发生了什么？ String s1 = new String(“abc”）时又做">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-08-18T05:42:40.053Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="String s1 = new String(&quot;abc&quot;)和String s2 = &quot;abc&quot;的区别">
-<meta name="twitter:description" content="今天在看JVM的时候突然想到这样一个问题，即1234String s1 = new String(&amp;quot;abc&amp;quot;);String s2 = &amp;quot;abc&amp;quot;;System.out.println(s1 == s2);//答案是false 问题有两个： String s2 = “abc”时发生了什么？String s1 = new String(“abc”）时又做了什么">
+<meta name="twitter:description" content="¶今天在看JVM的时候突然想到这样一个问题，即 1234String s1 = new String(&amp;quot;abc&amp;quot;);String s2 = &amp;quot;abc&amp;quot;;System.out.println(s1 == s2);//答案是false 问题有两个： String s2 = “abc”时发生了什么？ String s1 = new String(“abc”）时又做">
 
 
 
@@ -431,31 +431,43 @@
       
 
       
-        <h5 id="今天在看JVM的时候突然想到这样一个问题，即"><a href="#今天在看JVM的时候突然想到这样一个问题，即" class="headerlink" title="今天在看JVM的时候突然想到这样一个问题，即"></a>今天在看JVM的时候突然想到这样一个问题，即</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String s1 = new String(&quot;abc&quot;);</span><br><span class="line">String s2 = &quot;abc&quot;;</span><br><span class="line"></span><br><span class="line">System.out.println(s1 == s2);//答案是false</span><br></pre></td></tr></table></figure>
+        <h5 id="今天在看jvm的时候突然想到这样一个问题-即"><a class="header-anchor" href="#今天在看jvm的时候突然想到这样一个问题-即">¶</a>今天在看JVM的时候突然想到这样一个问题，即</h5>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String s1 = new String(&quot;abc&quot;);</span><br><span class="line">String s2 = &quot;abc&quot;;</span><br><span class="line"></span><br><span class="line">System.out.println(s1 == s2);//答案是false</span><br></pre></td></tr></table></figure>
 <p>问题有两个：</p>
-<p>String s2 = “abc”时发生了什么？<br>String s1 = new String(“abc”）时又做了什么？<br>第二个问题是比较好回答的，根据官方文档：<br><a id="more"></a></p>
+<p>String s2 = “abc”时发生了什么？<br>
+String s1 = new String(“abc”）时又做了什么？<br>
+第二个问题是比较好回答的，根据官方文档：</p>
+<a id="more"></a>
 <p>以下讨论在jdk1.6中，常量池放在方法区中。（jdk1.7中常量池放在堆内存中，jdk1.8放在元空间里面，和堆相对独立，所以导致string的intern方法因为以上变化在不同版本会有不同表现。）</p>
 <blockquote>
-<p>new String(“abc”);<br>Initializes a newly created String object so that it represents the same sequence of characters as the argument; in other words, the newly created string is a copy of the argument string. Unless an explicit copy of original is needed, use of this constructor is unnecessary since Strings are immutable.</p>
+<p>new String(“abc”);<br>
+Initializes a newly created String object so that it represents the same sequence of characters as the argument; in other words, the newly created string is a copy of the argument string. Unless an explicit copy of original is needed, use of this constructor is unnecessary since Strings are immutable.</p>
 </blockquote>
 <p>简单解释一下：</p>
 <blockquote>
 <p>初始化一个新创建的String对象，换句话说，新创建的字符串是参数字符串的一个副本。除非确实需要一份副本，否则这种方法是不必要的，因为String是不可变的</p>
 </blockquote>
 <p>这句话实际上透露出两个意思，</p>
-<p>在编译器编译的时候，当编译器注意到参数为字符串常量时，即将字符串作为常量放在class文件中的常量区，并在类加载时放入运行时常量池中。<br>在new操作符被调用时，在java堆中创建一个新的对象，然后对象的内容为常量池里面对应字符串的一个拷贝。<br>而在String s2 = “abc”被编译的时候，先检查class文件中是否包含该字符串常量，如果包含，直接返回常量池中的对象。</p>
-<p>因此，在调用new操作时，对象始终存在于堆中，而直接字符串赋值时对象实际上是存在于常量池中的，<br>所以比较结果肯定是false</p>
+<p>在编译器编译的时候，当编译器注意到参数为字符串常量时，即将字符串作为常量放在class文件中的常量区，并在类加载时放入运行时常量池中。<br>
+在new操作符被调用时，在java堆中创建一个新的对象，然后对象的内容为常量池里面对应字符串的一个拷贝。<br>
+而在String s2 = “abc”被编译的时候，先检查class文件中是否包含该字符串常量，如果包含，直接返回常量池中的对象。</p>
+<p>因此，在调用new操作时，对象始终存在于堆中，而直接字符串赋值时对象实际上是存在于常量池中的，<br>
+所以比较结果肯定是false</p>
 <p>String s = new String(“hello”);</p>
-<h5 id="Generally-speaking"><a href="#Generally-speaking" class="headerlink" title="Generally speaking,"></a>Generally speaking,</h5><ul>
-<li>jdk1.6中: 首先”hello”字符串对象保存在 方法区的字符串常量池中， 在虚拟机栈中开辟空间 用来存放String 类型的变量s，在堆中开辟空间<br>存放 s 引用的对象，然后将常量池中的“hello” 拷贝一个副本给堆中的String。</li>
-<li>jdk1.7中:首先”hello”字符串对象保存在堆内存的字符串常量池中<ul>
+<h5 id="generally-speaking"><a class="header-anchor" href="#generally-speaking">¶</a>Generally speaking,</h5>
+<ul>
+<li>jdk1.6中: 首先&quot;hello&quot;字符串对象保存在 方法区的字符串常量池中， 在虚拟机栈中开辟空间 用来存放String 类型的变量s，在堆中开辟空间<br>
+存放 s 引用的对象，然后将常量池中的“hello” 拷贝一个副本给堆中的String。</li>
+<li>jdk1.7中:首先&quot;hello&quot;字符串对象保存在堆内存的字符串常量池中
+<ul>
 <li>1】在栈中开辟空间存放 s</li>
-<li>2】在堆中开辟空间存放新建的String 对象”hello”</li>
+<li>2】在堆中开辟空间存放新建的String 对象&quot;hello&quot;</li>
 <li>3】引用s指向堆中新建的String对象“hello”。</li>
 </ul>
 </li>
 </ul>
-<p>参考文章1、（<a href="http://blog.csdn.net/weixin_35663229/article/details/52796157?locationNum=15）" target="_blank" rel="noopener">http://blog.csdn.net/weixin_35663229/article/details/52796157?locationNum=15）</a><br>参考文章2、（<a href="http://blog.csdn.net/u010644448/article/details/51980370）" target="_blank" rel="noopener">http://blog.csdn.net/u010644448/article/details/51980370）</a></p>
+<p>参考文章1、（<a href="http://blog.csdn.net/weixin_35663229/article/details/52796157?locationNum=15%EF%BC%89" target="_blank" rel="noopener">http://blog.csdn.net/weixin_35663229/article/details/52796157?locationNum=15）</a><br>
+参考文章2、（<a href="http://blog.csdn.net/u010644448/article/details/51980370%EF%BC%89" target="_blank" rel="noopener">http://blog.csdn.net/u010644448/article/details/51980370）</a></p>
 
       
     </div>
@@ -498,8 +510,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/15/Mysql decimal类型与decimal长度用法详解/" rel="next" title="Mysql decimal类型与decimal长度用法详解">
-                <i class="fa fa-chevron-left"></i> Mysql decimal类型与decimal长度用法详解
+              <a href="/2017/09/02/听罗胖聊天/" rel="next" title="听罗胖聊天">
+                <i class="fa fa-chevron-left"></i> 听罗胖聊天
               </a>
             
           </div>
@@ -508,8 +520,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/10/17/Mysql Decimal数据类型/" rel="prev" title="Mysql Decimal数据类型">
-                Mysql Decimal数据类型 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/15/Mysql decimal类型与decimal长度用法详解/" rel="prev" title="Mysql decimal类型与decimal长度用法详解">
+                Mysql decimal类型与decimal长度用法详解 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -601,8 +613,6 @@
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
                     
-                    
-                      
                     
                       
                     
@@ -714,7 +724,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#今天在看JVM的时候突然想到这样一个问题，即"><span class="nav-number">1.</span> <span class="nav-text">今天在看JVM的时候突然想到这样一个问题，即</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Generally-speaking"><span class="nav-number">2.</span> <span class="nav-text">Generally speaking,</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#今天在看jvm的时候突然想到这样一个问题-即"><span class="nav-number">1.</span> <span class="nav-text">¶今天在看JVM的时候突然想到这样一个问题，即</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#generally-speaking"><span class="nav-number">2.</span> <span class="nav-text">¶Generally speaking,</span></a></li></ol></div>
             
 
           </div>

@@ -108,13 +108,13 @@
 
 
 
-  <meta name="description" content="在windows下，下载jdk-8u25-linux-64.tar.gzXshell5p.exe  用来访问远程面板">
+  <meta name="description" content="在windows下，下载jdk-8u25-linux-64.tar.gz Xshell5p.exe  用来访问远程面板">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux安装jdk以及远程访问服务">
 <meta property="og:url" content="http://yoursite.com/2017/11/22/Linux/index.html">
 <meta property="og:site_name" content="Ignite">
-<meta property="og:description" content="在windows下，下载jdk-8u25-linux-64.tar.gzXshell5p.exe  用来访问远程面板">
+<meta property="og:description" content="在windows下，下载jdk-8u25-linux-64.tar.gz Xshell5p.exe  用来访问远程面板">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/clipboard.png">
 <meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/clipboard2.png">
@@ -122,7 +122,7 @@
 <meta property="og:updated_time" content="2018-08-18T05:40:42.008Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux安装jdk以及远程访问服务">
-<meta name="twitter:description" content="在windows下，下载jdk-8u25-linux-64.tar.gzXshell5p.exe  用来访问远程面板">
+<meta name="twitter:description" content="在windows下，下载jdk-8u25-linux-64.tar.gz Xshell5p.exe  用来访问远程面板">
 <meta name="twitter:image" content="http://oziqlv1ur.bkt.clouddn.com/clipboard.png">
 
 
@@ -435,13 +435,18 @@
       
 
       
-        <p>在windows下，下载jdk-8u25-linux-64.tar.gz<br>Xshell5p.exe  用来访问远程面板<br><a id="more"></a></p>
+        <p>在windows下，下载jdk-8u25-linux-64.tar.gz<br>
+Xshell5p.exe  用来访问远程面板</p>
+<a id="more"></a>
 <ol>
 <li>在windows下面下好 tar.gz</li>
 <li>上传文件 rz</li>
 <li>解压文件 tar -xzvf jdk-8u25-linux-x64.tar.gz</li>
 <li>进入当前用户目录  cd home/fisherman</li>
-<li>vi .bash -profile  编辑文件<br>‘JAVA_HOME=”/home/fisherman/jdk1.8.0_25”<br>CLASSPATH=”$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib”<br>PATH=”$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOMR/bin”</li>
+<li>vi .bash -profile  编辑文件<br>
+’JAVA_HOME=&quot;/home/fisherman/jdk1.8.0_25&quot;<br>
+CLASSPATH=&quot;$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib&quot;<br>
+PATH=&quot;$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOMR/bin&quot;</li>
 <li>:wq退出</li>
 <li>source .bash_profile 命令生效</li>
 <li>java -version 查询java版本</li>
@@ -453,14 +458,16 @@
 </ol>
 <p>tar zcvf secu.tar.gz tt</p>
 <p>将文件压缩到tt目录</p>
-<ol>
+<ol start="2">
 <li>每天一个linux命令：</li>
 </ol>
 <p><a href="http://www.cnblogs.com/peida/archive/2012/12/05/2803591.html" target="_blank" rel="noopener">http://www.cnblogs.com/peida/archive/2012/12/05/2803591.html</a></p>
 <ul>
-<li>vim 中翻页：向上查找和向下查找字符串的命令是<ul>
-<li>j –向下</li>
-<li>k– 向上</li>
+<li>
+<p>vim 中翻页：向上查找和向下查找字符串的命令是</p>
+<ul>
+<li>j --向下</li>
+<li>k-- 向上</li>
 <li>h–向左</li>
 <li>l–向右</li>
 <li>ctrlb–向上移动一屏</li>
@@ -468,17 +475,28 @@
 <li>上下左右箭头也可以</li>
 </ul>
 </li>
-<li>启动linuxshell的时候，stdin.stdout,stderr,三个文件描述符会自动打开，他们的值分别是：标准输入，标准输出、标准错误</li>
-<li>为脚本程序添加执行权限的命令及参数：chmod a+x filename</li>
-<li><p>用八进制表示权限：</p>
+<li>
+<p>启动linuxshell的时候，stdin.stdout,stderr,三个文件描述符会自动打开，他们的值分别是：标准输入，标准输出、标准错误</p>
+</li>
+<li>
+<p>为脚本程序添加执行权限的命令及参数：chmod a+x filename</p>
+</li>
+<li>
+<p>用八进制表示权限：</p>
 <ul>
-<li><p>r–4 w–2  x–1</p>
-<p>   eg::<br>r–r–r–   444</p>
-<p>drw——   600</p>
+<li>
+<p>r–4 w–2  x–1</p>
+<p>eg::<br>
+r–r--r--   444</p>
 </li>
 </ul>
+<p>drw------   600</p>
 </li>
-<li>对权限的参考博文：<br> <a href="http://blog.csdn.net/sinat_35209943/article/details/52449743" target="_blank" rel="noopener">http://blog.csdn.net/sinat_35209943/article/details/52449743</a><br>一 、 xshell 连到 远程服务器</li>
+<li>
+<p>对权限的参考博文：<br>
+<a href="http://blog.csdn.net/sinat_35209943/article/details/52449743" target="_blank" rel="noopener">http://blog.csdn.net/sinat_35209943/article/details/52449743</a><br>
+一 、 xshell 连到 远程服务器</p>
+</li>
 </ul>
 <p><img src="http://oziqlv1ur.bkt.clouddn.com/clipboard.png" alt="连接远程服务器"></p>
 <ul>
@@ -489,8 +507,10 @@
 <li>输入用户名和密码，就登录成功了</li>
 </ul>
 <p><img src="http://oziqlv1ur.bkt.clouddn.com/clipboard3.png" alt="填写自己的用户名"></p>
-<p>  然后可以  修改用户名密码：<br>  useradd fisherman &amp;&amp; echo 123456 | passwd –stdin fisherman</p>
-<p>  fisherman–自己的用户名：<br>   mark</p>
+<p>然后可以  修改用户名密码：<br>
+useradd fisherman &amp;&amp; echo 123456 | passwd --stdin fisherman</p>
+<p>fisherman–自己的用户名：<br>
+mark</p>
 
       
     </div>
@@ -627,8 +647,6 @@
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
                     
-                    
-                      
                     
                       
                     

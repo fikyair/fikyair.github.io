@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="进程优先级当系统的内存不足时，android系统将根据进程优先级选择杀死一些不太重要的进程，进程优先级从高到底分别为：  前台进程： 进程中处于前台的正与用户交互的activity 进程中包含与前台activity绑定的service 进程中包含调用了startForeground方法的service 进程中包含正在执行的onCreate(),onStart()或onDestory()方法的ser">
+  <meta name="description" content="¶进程优先级 当系统的内存不足时，android系统将根据进程优先级选择杀死一些不太重要的进程，进程优先级从高到底分别为：  前台进程：  进程中处于前台的正与用户交互的activity 进程中包含与前台activity绑定的service 进程中包含调用了startForeground方法的service 进程中包含正在执行的onCreate(),onStart()或onDestory()方法的">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android进程优先级悉知">
 <meta property="og:url" content="http://yoursite.com/2017/08/01/Android进程优先级悉知/index.html">
 <meta property="og:site_name" content="Ignite">
-<meta property="og:description" content="进程优先级当系统的内存不足时，android系统将根据进程优先级选择杀死一些不太重要的进程，进程优先级从高到底分别为：  前台进程： 进程中处于前台的正与用户交互的activity 进程中包含与前台activity绑定的service 进程中包含调用了startForeground方法的service 进程中包含正在执行的onCreate(),onStart()或onDestory()方法的ser">
+<meta property="og:description" content="¶进程优先级 当系统的内存不足时，android系统将根据进程优先级选择杀死一些不太重要的进程，进程优先级从高到底分别为：  前台进程：  进程中处于前台的正与用户交互的activity 进程中包含与前台activity绑定的service 进程中包含调用了startForeground方法的service 进程中包含正在执行的onCreate(),onStart()或onDestory()方法的">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-08-18T05:39:58.563Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android进程优先级悉知">
-<meta name="twitter:description" content="进程优先级当系统的内存不足时，android系统将根据进程优先级选择杀死一些不太重要的进程，进程优先级从高到底分别为：  前台进程： 进程中处于前台的正与用户交互的activity 进程中包含与前台activity绑定的service 进程中包含调用了startForeground方法的service 进程中包含正在执行的onCreate(),onStart()或onDestory()方法的ser">
+<meta name="twitter:description" content="¶进程优先级 当系统的内存不足时，android系统将根据进程优先级选择杀死一些不太重要的进程，进程优先级从高到底分别为：  前台进程：  进程中处于前台的正与用户交互的activity 进程中包含与前台activity绑定的service 进程中包含调用了startForeground方法的service 进程中包含正在执行的onCreate(),onStart()或onDestory()方法的">
 
 
 
@@ -431,9 +431,11 @@
       
 
       
-        <h4 id="进程优先级"><a href="#进程优先级" class="headerlink" title="进程优先级"></a>进程优先级</h4><p>当系统的内存不足时，android系统将根据进程优先级选择杀死一些不太重要的进程，进程优先级从高到底分别为：</p>
+        <h4 id="进程优先级"><a class="header-anchor" href="#进程优先级">¶</a>进程优先级</h4>
+<p>当系统的内存不足时，android系统将根据进程优先级选择杀死一些不太重要的进程，进程优先级从高到底分别为：</p>
 <ul>
-<li>前台进程：<ul>
+<li>前台进程：
+<ul>
 <li>进程中处于前台的正与用户交互的activity</li>
 <li>进程中包含与前台activity绑定的service</li>
 <li>进程中包含调用了startForeground方法的service</li>
@@ -445,18 +447,26 @@
 <a id="more"></a>
 <p>系统中前台进程的数量很少，前台进程几乎不会被杀死，只有内存低到不能保证所有前台进程同时运行时才会选择杀死某个前台进程</p>
 <ul>
-<li>可视进程<ul>
-<li>进程中包含未处于前台但仍然可见的activity(调用了activity的onPause()方法，但没有调用onStop()方法)<br>，典型的情况是运行activity是弹出对话框，此时的activity虽然不是前台activity，但仍然可见</li>
-<li>进程中包含与可见activity绑定的service<br>可视进程不会被系统杀死，除非为了保证前台进程不得已而为之</li>
+<li>可视进程
+<ul>
+<li>进程中包含未处于前台但仍然可见的activity(调用了activity的onPause()方法，但没有调用onStop()方法)<br>
+，典型的情况是运行activity是弹出对话框，此时的activity虽然不是前台activity，但仍然可见</li>
+<li>进程中包含与可见activity绑定的service<br>
+可视进程不会被系统杀死，除非为了保证前台进程不得已而为之</li>
 </ul>
 </li>
-<li>服务进程<ul>
+<li>服务进程
+<ul>
 <li>进程中包含已启动的service</li>
 </ul>
 </li>
-<li>后台进程<br>  进程中包含不可见的activity(onStop()方法调用后的activity)，后台进程不会直接影响用户体验，为了保证前台进程/可视进程/服务进程的运行，系统随时都可能杀死一个后台进程，一个正确的实现了生命周期方法的activity处于后台时被系统杀死，可以在用户重新启动它时恢复之前的运行状态</li>
-<li>空进程<br>不包含任何处于活动状态的进程是一个空进程，系统进程杀死空进程。这不会造成任何影响，空进程存在的唯一理由是为了缓存一些启动数据，以便下次更快的启动。<h3 id="进程优先级的额外说明"><a href="#进程优先级的额外说明" class="headerlink" title="进程优先级的额外说明"></a>进程优先级的额外说明</h3>1.系统会赋予进程尽可能高的优先级. 例如一个进程既包含已启动的service, 也包含前台activity, 则这个进程会被视为前台进程。<br></li>
+<li>后台进程<br>
+进程中包含不可见的activity(onStop()方法调用后的activity)，后台进程不会直接影响用户体验，为了保证前台进程/可视进程/服务进程的运行，系统随时都可能杀死一个后台进程，一个正确的实现了生命周期方法的activity处于后台时被系统杀死，可以在用户重新启动它时恢复之前的运行状态</li>
+<li>空进程<br>
+不包含任何处于活动状态的进程是一个空进程，系统进程杀死空进程。这不会造成任何影响，空进程存在的唯一理由是为了缓存一些启动数据，以便下次更快的启动。</li>
 </ul>
+<h3 id="进程优先级的额外说明"><a class="header-anchor" href="#进程优先级的额外说明">¶</a>进程优先级的额外说明</h3>
+<p>1.系统会赋予进程尽可能高的优先级. 例如一个进程既包含已启动的service, 也包含前台activity, 则这个进程会被视为前台进程。<br></p>
 <p>2.由于组件之间的依赖性, 进程的优先级有可能被提高. 假如进程A服务于进程B, 则进程A的优先级不能低于进程B. 比如, 进程A的ContentProvider组件正在服务于进程B的某个组件, 或者进程A的service组件和进程B的某个组件绑定等, 这些情况下, 进程A的优先级都不会低于进程B(如果按照优先级规则, 进程A的优先级确实低于进程B, 则系统会选择提高进程A的优先级到和进程B相同)。<br></p>
 <p>3.由于服务进程的优先级高于后台进程, 因此如果activity需要执行耗时操作, 最好还是启动一个service来完成. 当然, 在activity中启动子线程完成耗时操作也可以, 但是这样做的缺点在于, 一旦activity不再可见, activity所在的进程成为后台进程, 而内存不足时后台进程随时都有可能被系统杀死(但是启动service完成耗时操作会带来数据交互的问题, 比如耗时操作需要实时更新UI控件的状态的话, service就不是一个好的选择). 基于同样的考虑, 在BroadcastReceiver中也不应该执行耗时操作, 而应该启动service来完成(当然, BroadcastReceiver的生命周期过于短暂, 也决定了不能在其中执行耗时操作).</p>
 
@@ -611,8 +621,6 @@
                     
                       
                     
-                      
-                    
                     <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
@@ -717,7 +725,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#进程优先级"><span class="nav-number">1.</span> <span class="nav-text">进程优先级</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程优先级的额外说明"><span class="nav-number"></span> <span class="nav-text">进程优先级的额外说明</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#进程优先级"><span class="nav-number">1.</span> <span class="nav-text">¶进程优先级</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进程优先级的额外说明"><span class="nav-number"></span> <span class="nav-text">¶进程优先级的额外说明</span></a></div>
             
 
           </div>

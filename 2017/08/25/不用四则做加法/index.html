@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="不用四则做加法直接上代码：">
+  <meta name="description" content="¶不用四则做加法 直接上代码：">
 <meta name="keywords" content="算法,数据结构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="不用四则做加法">
 <meta property="og:url" content="http://yoursite.com/2017/08/25/不用四则做加法/index.html">
 <meta property="og:site_name" content="Ignite">
-<meta property="og:description" content="不用四则做加法直接上代码：">
+<meta property="og:description" content="¶不用四则做加法 直接上代码：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-08-18T05:33:33.677Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="不用四则做加法">
-<meta name="twitter:description" content="不用四则做加法直接上代码：">
+<meta name="twitter:description" content="¶不用四则做加法 直接上代码：">
 
 
 
@@ -431,28 +431,45 @@
       
 
       
-        <h5 id="不用四则做加法"><a href="#不用四则做加法" class="headerlink" title="不用四则做加法"></a>不用四则做加法</h5><p>直接上代码：<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class Add &#123;</span><br><span class="line">	public static int Add(int num1, int num2) &#123;</span><br><span class="line">		while (num2 != 0) &#123;</span><br><span class="line">			int temp = num1 ^ num2;</span><br><span class="line">			System.out.println(&quot;temp=&quot; + temp);</span><br><span class="line">			System.out.println(&quot;num1&amp;num2=&quot; + (num1 &amp; num2));</span><br><span class="line">			num2 = (num1 &amp; num2) &lt;&lt; 1;</span><br><span class="line">			System.out.println(&quot;(num1 &amp; num2) &lt;&lt; 1 =&quot; + num2);</span><br><span class="line">			num1 = temp;</span><br><span class="line">            System.out.print(num1);</span><br><span class="line">		&#125;</span><br><span class="line">		return num1;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Add(3, 6);</span><br><span class="line">		//2  :0010</span><br><span class="line">		//3  :0011</span><br><span class="line">		//2^3=0001  =1    异或运算符，用符号(^)表示，其运算规则是：两个操作数的位中，相同则结果为0，不同则结果为1。</span><br><span class="line"> 	  //2&amp;3=0010  =2    位与运算符，都为1则为1，否则为0。</span><br><span class="line">		//2&lt;&lt;2=4                      右移运算符，num &lt;&lt; 1,相当于num乘以2</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h5 id="思路解读："><a href="#思路解读：" class="headerlink" title="思路解读："></a>思路解读：</h5><blockquote>
-<p>解析：<br>首先看十进制是如何做的： 5+7=12，三步走<br>第一步：相加各位的值，不算进位，得到2。<br>第二步：计算进位值，得到10. 如果这一步的进位值为0，那么第一步得到的值就是最终结果。<br>第三步：重复上述两步，只是相加的值变成上述两步的得到的结果2和10，得到12。</p>
-<p>同样我们可以用三步走的方式计算二进制值相加： 5-101，7-111<br>第一步：相加各位的值，不算进位，得到010，二进制每位相加就相当于各位做异或操作，101^111。<br>第二步：计算进位值，得到1010，相当于各位做与操作得到101，再向左移一位得到1010，(101&amp;111)&lt;&lt;1。<br>第三步重复上述两步， 各位相加 010^1010=1000，进位值为100=(010&amp;1010)&lt;&lt;1。<br>     继续重复上述两步：1000^100 = 1100，进位值为0，跳出循环，1100为最终结果。</p>
+        <h5 id="不用四则做加法"><a class="header-anchor" href="#不用四则做加法">¶</a>不用四则做加法</h5>
+<p>直接上代码：</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class Add &#123;</span><br><span class="line">	public static int Add(int num1, int num2) &#123;</span><br><span class="line">		while (num2 != 0) &#123;</span><br><span class="line">			int temp = num1 ^ num2;</span><br><span class="line">			System.out.println(&quot;temp=&quot; + temp);</span><br><span class="line">			System.out.println(&quot;num1&amp;num2=&quot; + (num1 &amp; num2));</span><br><span class="line">			num2 = (num1 &amp; num2) &lt;&lt; 1;</span><br><span class="line">			System.out.println(&quot;(num1 &amp; num2) &lt;&lt; 1 =&quot; + num2);</span><br><span class="line">			num1 = temp;</span><br><span class="line">            System.out.print(num1);</span><br><span class="line">		&#125;</span><br><span class="line">		return num1;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Add(3, 6);</span><br><span class="line">		//2  :0010</span><br><span class="line">		//3  :0011</span><br><span class="line">		//2^3=0001  =1    异或运算符，用符号(^)表示，其运算规则是：两个操作数的位中，相同则结果为0，不同则结果为1。</span><br><span class="line"> 	  //2&amp;3=0010  =2    位与运算符，都为1则为1，否则为0。</span><br><span class="line">		//2&lt;&lt;2=4                      右移运算符，num &lt;&lt; 1,相当于num乘以2</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="思路解读："><a class="header-anchor" href="#思路解读：">¶</a>思路解读：</h5>
+<blockquote>
+<p>解析：<br>
+首先看十进制是如何做的： 5+7=12，三步走<br>
+第一步：相加各位的值，不算进位，得到2。<br>
+第二步：计算进位值，得到10. 如果这一步的进位值为0，那么第一步得到的值就是最终结果。<br>
+第三步：重复上述两步，只是相加的值变成上述两步的得到的结果2和10，得到12。</p>
 </blockquote>
-<h5 id="延伸："><a href="#延伸：" class="headerlink" title="延伸："></a>延伸：</h5><ol>
+<blockquote>
+<p>同样我们可以用三步走的方式计算二进制值相加： 5-101，7-111<br>
+第一步：相加各位的值，不算进位，得到010，二进制每位相加就相当于各位做异或操作，101^111。<br>
+第二步：计算进位值，得到1010，相当于各位做与操作得到101，再向左移一位得到1010，(101&amp;111)&lt;&lt;1。<br>
+第三步重复上述两步， 各位相加 010^1010=1000，进位值为100=(010&amp;1010)&lt;&lt;1。<br>
+继续重复上述两步：1000^100 = 1100，进位值为0，跳出循环，1100为最终结果。</p>
+</blockquote>
+<h5 id="延伸："><a class="header-anchor" href="#延伸：">¶</a>延伸：</h5>
+<ol>
 <li>位异或运算（^）</li>
 </ol>
-<p>运算规则是：两个数转为二进制，然后从高位开始比较，如果相同则为0，不相同则为1。<br>比如：8^11.</p>
+<p>运算规则是：两个数转为二进制，然后从高位开始比较，如果相同则为0，不相同则为1。<br>
+比如：8^11.</p>
 <p>8转为二进制是1000，11转为二进制是1011.从高位开始比较得到的是：0011.然后二进制转为十进制，就是Integer.parseInt(“0011”,2)=3;</p>
-<ol>
+<ol start="2">
 <li>位与运算符（&amp;）</li>
 </ol>
-<p>运算规则：两个数都转为二进制，然后从高位开始比较，如果两个数都为1则为1，否则为0。<br>比如：129&amp;128.</p>
+<p>运算规则：两个数都转为二进制，然后从高位开始比较，如果两个数都为1则为1，否则为0。<br>
+比如：129&amp;128.</p>
 <p>129转换成二进制就是10000001，128转换成二进制就是10000000。从高位开始比较得到，得到10000000，即128.</p>
-<ol>
+<ol start="3">
 <li>位或运算符（|）</li>
 </ol>
 <p>运算规则：两个数都转为二进制，然后从高位开始比较，两个数只要有一个为1则为1，否则就为0。</p>
 <p>比如：129|128.</p>
 <p>129转换成二进制就是10000001，128转换成二进制就是10000000。从高位开始比较得到，得到10000001，即129.</p>
-<ol>
+<ol start="4">
 <li>位非运算符（~）</li>
 </ol>
 <p>运算规则：如果位为0，结果是1，如果位为1，结果是0.</p>
@@ -464,7 +481,9 @@
 <p>因为高位是1，所以原码为负数，负数的补码是其绝对值的原码取反，末尾再加1。</p>
 <p>因此，我们可将这个二进制数的补码进行还原： 首先，末尾减1得反码：11111111 11111111 11111111 11011001 其次，将各位取反得原码：</p>
 <p>00000000 00000000 00000000 00100110，此时二进制转原码为38</p>
-<h2 id="所以-37-38"><a href="#所以-37-38" class="headerlink" title="所以~37 = -38."></a>所以~37 = -38.</h2><p>关于java 原码、反码、补码<br>(<a href="http://blog.csdn.net/u010841296/article/details/52850307" target="_blank" rel="noopener">http://blog.csdn.net/u010841296/article/details/52850307</a>)</p>
+<h2 id="所以-37-38"><a class="header-anchor" href="#所以-37-38">¶</a>所以~37 = -38.</h2>
+<p>关于java 原码、反码、补码<br>
+(<a href="http://blog.csdn.net/u010841296/article/details/52850307" target="_blank" rel="noopener">http://blog.csdn.net/u010841296/article/details/52850307</a>)</p>
 
       
     </div>
@@ -519,8 +538,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/09/02/盒子模型/" rel="prev" title="盒子模型">
-                盒子模型 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/09/02/你不知道的JS(一)/" rel="prev" title="你不知道的JS(一)">
+                你不知道的JS(一) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -612,8 +631,6 @@
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
                     
-                    
-                      
                     
                       
                     
@@ -725,7 +742,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#不用四则做加法"><span class="nav-number">1.</span> <span class="nav-text">不用四则做加法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#思路解读："><span class="nav-number">2.</span> <span class="nav-text">思路解读：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#延伸："><span class="nav-number">3.</span> <span class="nav-text">延伸：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#所以-37-38"><span class="nav-number"></span> <span class="nav-text">所以~37 = -38.</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#不用四则做加法"><span class="nav-number">1.</span> <span class="nav-text">¶不用四则做加法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#思路解读："><span class="nav-number">2.</span> <span class="nav-text">¶思路解读：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#延伸："><span class="nav-number">3.</span> <span class="nav-text">¶延伸：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#所以-37-38"><span class="nav-number"></span> <span class="nav-text">¶所以~37 = -38.</span></a></div>
             
 
           </div>

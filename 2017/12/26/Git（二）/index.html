@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="最近在开发项目的过程中，我所在一个叫dev的分支开发，正开发到一半，头儿让我去master分支修改一个bug，所以我必须先把正在改的代码暂存起来或者提交，才可以去切换分支开发。在这个场景下：有三种方法去解决： 及时commit代码在dev分支上把已经开发完成的部分代码commit掉,不push，然后切换到master分支上修改代码,做完了commit,所有分支互不影响，当然勤commit是一个">
+  <meta name="description" content="最近在开发项目的过程中，我所在一个叫dev的分支开发，正开发到一半，头儿让我去master分支 修改一个bug，所以我必须先把正在改的代码暂存起来或者提交，才可以去切换分支开发。 在这个场景下：有三种方法去解决： ¶及时commit代码 在dev分支上把已经开发完成的部分代码commit掉,不push，然后切换到master分支上修改代码, 做完了commit,所有分支互不影响，当然勤commit">
 <meta name="keywords" content="Git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git（二）">
 <meta property="og:url" content="http://yoursite.com/2017/12/26/Git（二）/index.html">
 <meta property="og:site_name" content="Ignite">
-<meta property="og:description" content="最近在开发项目的过程中，我所在一个叫dev的分支开发，正开发到一半，头儿让我去master分支修改一个bug，所以我必须先把正在改的代码暂存起来或者提交，才可以去切换分支开发。在这个场景下：有三种方法去解决： 及时commit代码在dev分支上把已经开发完成的部分代码commit掉,不push，然后切换到master分支上修改代码,做完了commit,所有分支互不影响，当然勤commit是一个">
+<meta property="og:description" content="最近在开发项目的过程中，我所在一个叫dev的分支开发，正开发到一半，头儿让我去master分支 修改一个bug，所以我必须先把正在改的代码暂存起来或者提交，才可以去切换分支开发。 在这个场景下：有三种方法去解决： ¶及时commit代码 在dev分支上把已经开发完成的部分代码commit掉,不push，然后切换到master分支上修改代码, 做完了commit,所有分支互不影响，当然勤commit">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-08-18T05:40:19.075Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git（二）">
-<meta name="twitter:description" content="最近在开发项目的过程中，我所在一个叫dev的分支开发，正开发到一半，头儿让我去master分支修改一个bug，所以我必须先把正在改的代码暂存起来或者提交，才可以去切换分支开发。在这个场景下：有三种方法去解决： 及时commit代码在dev分支上把已经开发完成的部分代码commit掉,不push，然后切换到master分支上修改代码,做完了commit,所有分支互不影响，当然勤commit是一个">
+<meta name="twitter:description" content="最近在开发项目的过程中，我所在一个叫dev的分支开发，正开发到一半，头儿让我去master分支 修改一个bug，所以我必须先把正在改的代码暂存起来或者提交，才可以去切换分支开发。 在这个场景下：有三种方法去解决： ¶及时commit代码 在dev分支上把已经开发完成的部分代码commit掉,不push，然后切换到master分支上修改代码, 做完了commit,所有分支互不影响，当然勤commit">
 
 
 
@@ -431,22 +431,30 @@
       
 
       
-        <p>　　最近在开发项目的过程中，我所在一个叫dev的分支开发，正开发到一半，头儿让我去master分支<br>修改一个bug，所以我必须先把正在改的代码暂存起来或者提交，才可以去切换分支开发。<br>在这个场景下：有三种方法去解决：</p>
-<h5 id="及时commit代码"><a href="#及时commit代码" class="headerlink" title="及时commit代码"></a>及时commit代码</h5><p>在dev分支上把已经开发完成的部分代码commit掉,不push，然后切换到master分支上修改代码,<br>做完了commit,所有分支互不影响，当然勤commit是一个好习惯。</p>
+        <p>最近在开发项目的过程中，我所在一个叫dev的分支开发，正开发到一半，头儿让我去master分支<br>
+修改一个bug，所以我必须先把正在改的代码暂存起来或者提交，才可以去切换分支开发。<br>
+在这个场景下：有三种方法去解决：</p>
+<h5 id="及时commit代码"><a class="header-anchor" href="#及时commit代码">¶</a>及时commit代码</h5>
+<p>在dev分支上把已经开发完成的部分代码commit掉,不push，然后切换到master分支上修改代码,<br>
+做完了commit,所有分支互不影响，当然勤commit是一个好习惯。</p>
 <a id="more"></a>
-<h5 id="使用git-stash"><a href="#使用git-stash" class="headerlink" title="使用git stash"></a>使用git stash</h5><p>在dev分支上，我可以</p>
+<h5 id="使用git-stash"><a class="header-anchor" href="#使用git-stash">¶</a>使用git stash</h5>
+<p>在dev分支上，我可以</p>
 <blockquote>
-<p>git stash或者 git stash save “修改的信息”</p>
+<p>git stash或者 git stash save “修改的信息&quot;</p>
 </blockquote>
 <p>这样的话，你的代码就回到上一个commit了,直接git stash也行，git stash 栈会给你一个hash值作为版本的说明，但我觉得最好自己写说明比较明朗。然后你到master分支之后，完成了头二交给的任务，你就可以回到dev分支，然后输入：</p>
 <blockquote>
 <p>git stash pop或git stash list</p>
 </blockquote>
-<p>就可以回到刚才修改时候的版本了。这就相当于，压栈出栈的过程，将旧版本代码压栈，然后<br>切换分支开发，然后回到原先分支，出栈获得之前正在修改的代码。<br>而</p>
+<p>就可以回到刚才修改时候的版本了。这就相当于，压栈出栈的过程，将旧版本代码压栈，然后<br>
+切换分支开发，然后回到原先分支，出栈获得之前正在修改的代码。<br>
+而</p>
 <blockquote>
 <p>git stash apply stash@{0}</p>
 </blockquote>
-<p>的作用是可以指定栈中的一个版本，<br>通过</p>
+<p>的作用是可以指定栈中的一个版本，<br>
+通过</p>
 <blockquote>
 <p>git stash list 可以看到所有的版本信息:</p>
 </blockquote>
@@ -456,7 +464,8 @@
 <p>git stash apply stash@{0}</p>
 </blockquote>
 <p>然后你的代码就回来了。</p>
-<h5 id="用IDE工具的shelve的功能"><a href="#用IDE工具的shelve的功能" class="headerlink" title="用IDE工具的shelve的功能"></a>用IDE工具的shelve的功能</h5><p>我用的webStorm有shelve功能，shelve的意思是“将…搁在一边”，即把还没写完的代码先搁在一边。</p>
+<h5 id="用ide工具的shelve的功能"><a class="header-anchor" href="#用ide工具的shelve的功能">¶</a>用IDE工具的shelve的功能</h5>
+<p>我用的webStorm有shelve功能，shelve的意思是“将…搁在一边”，即把还没写完的代码先搁在一边。</p>
 <p>首先在IDE的底部找到<code>Version Control</code>，点开会有local的选项卡，选中你要搁置的代码，点击右键，选择“Shelve Changes”，在提交的输入框中输入你的注释，以便回来的时候识别你需要的版本，点击“Shelve Changes”键即可。这时选项卡上会多一个“Shelf”的选项卡，里面就有你搁置的代码。</p>
 <p>这时候你可以去master分支修改代码，改完了之后回到dev分支，到“Shelf”选项卡下选择你要恢复的代码或者版本，点击右键选择“Unshelve Changes”，你的搁置的代码就回来了。</p>
 
@@ -611,8 +620,6 @@
                     
                       
                     
-                      
-                    
                     <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">categories</span>
                   </a>
@@ -717,7 +724,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#及时commit代码"><span class="nav-number">1.</span> <span class="nav-text">及时commit代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用git-stash"><span class="nav-number">2.</span> <span class="nav-text">使用git stash</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#用IDE工具的shelve的功能"><span class="nav-number">3.</span> <span class="nav-text">用IDE工具的shelve的功能</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#及时commit代码"><span class="nav-number">1.</span> <span class="nav-text">¶及时commit代码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用git-stash"><span class="nav-number">2.</span> <span class="nav-text">¶使用git stash</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#用ide工具的shelve的功能"><span class="nav-number">3.</span> <span class="nav-text">¶用IDE工具的shelve的功能</span></a></li></ol></div>
             
 
           </div>

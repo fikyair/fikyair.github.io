@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="float,double,decimal三者的区别介绍">
+  <meta name="description" content="¶float,double,decimal三者的区别介绍">
 <meta name="keywords" content="Mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mysql decimal类型与decimal长度用法详解">
 <meta property="og:url" content="http://yoursite.com/2017/10/15/Mysql decimal类型与decimal长度用法详解/index.html">
 <meta property="og:site_name" content="Ignite">
-<meta property="og:description" content="float,double,decimal三者的区别介绍">
+<meta property="og:description" content="¶float,double,decimal三者的区别介绍">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-08-18T05:40:46.132Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql decimal类型与decimal长度用法详解">
-<meta name="twitter:description" content="float,double,decimal三者的区别介绍">
+<meta name="twitter:description" content="¶float,double,decimal三者的区别介绍">
 
 
 
@@ -431,17 +431,34 @@
       
 
       
-        <h5 id="float-double-decimal三者的区别介绍"><a href="#float-double-decimal三者的区别介绍" class="headerlink" title="float,double,decimal三者的区别介绍"></a>float,double,decimal三者的区别介绍</h5><a id="more"></a>
-<p>float:浮点型，含字节数为4，32bit，数值范围为-3.4E38~3.4E38（7个有效位）<br>double:双精度实型，含字节数为8，64bit数值范围-1.7E308~1.7E308（15个有效位）<br>decimal:数字型，128bit，不存在精度损失，常用于银行帐目计算。（28个有效位）</p>
-<h5 id="按存储的范围进行排序"><a href="#按存储的范围进行排序" class="headerlink" title="按存储的范围进行排序"></a>按存储的范围进行排序</h5><p>float（real）<br>double<br>decimal（numeric）</p>
-<h5 id="decimal的详细介绍"><a href="#decimal的详细介绍" class="headerlink" title="decimal的详细介绍"></a>decimal的详细介绍</h5><p>decimal(a,b)</p>
-<h5 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h5><p>a指定指定小数点左边和右边可以存储的十进制数字的最大个数，最大精度38。<br>b指定小数点右边可以存储的十进制数字的最大个数。小数位数必须是从 0 到 a之间的值。默认小数位数是 0。</p>
-<h5 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h5><p>DECIMAL数据类型用于要求非常高的精确度的计算中，这些类型允许指定数值的精确度和计数方法作为选择参数。精确度在这里是指为这个值保存的有效数字的总个数，而计数方法表示小数点后数字的个数。例如，语句DECIMAL (5,2)规定了存储的值将不会超过5位数字，开且小数点后面有2位数字。</p>
-<h5 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h5><blockquote>
-<p>float f = 345.98756f;–结果显示为345.9876，只显示7个有效位，对最后一位数四舍五入。<br>double d=345.975423578631442d;–结果显示为345.975423578631，只显示15个有效位，对最后一位四舍五入。<br>–注：float和double的相乘操作，数字溢出不会报错，会有精度的损失。<br>decimal dd=345.545454879…..–可以支持28位，对最后一位四舍五入。<br>–：当对decimal类型进行操作时，数值会因溢出而报错。</p>
+        <h5 id="float-double-decimal三者的区别介绍"><a class="header-anchor" href="#float-double-decimal三者的区别介绍">¶</a>float,double,decimal三者的区别介绍</h5>
+<a id="more"></a>
+<p>float:浮点型，含字节数为4，32bit，数值范围为-3.4E38~3.4E38（7个有效位）<br>
+double:双精度实型，含字节数为8，64bit数值范围-1.7E308~1.7E308（15个有效位）<br>
+decimal:数字型，128bit，不存在精度损失，常用于银行帐目计算。（28个有效位）</p>
+<h5 id="按存储的范围进行排序"><a class="header-anchor" href="#按存储的范围进行排序">¶</a>按存储的范围进行排序</h5>
+<p>float（real）<br>
+double<br>
+decimal（numeric）</p>
+<h5 id="decimal的详细介绍"><a class="header-anchor" href="#decimal的详细介绍">¶</a>decimal的详细介绍</h5>
+<p>decimal(a,b)</p>
+<h5 id="参数说明"><a class="header-anchor" href="#参数说明">¶</a>参数说明</h5>
+<p>a指定指定小数点左边和右边可以存储的十进制数字的最大个数，最大精度38。<br>
+b指定小数点右边可以存储的十进制数字的最大个数。小数位数必须是从 0 到 a之间的值。默认小数位数是 0。</p>
+<h5 id="备注"><a class="header-anchor" href="#备注">¶</a>备注</h5>
+<p>DECIMAL数据类型用于要求非常高的精确度的计算中，这些类型允许指定数值的精确度和计数方法作为选择参数。精确度在这里是指为这个值保存的有效数字的总个数，而计数方法表示小数点后数字的个数。例如，语句DECIMAL (5,2)规定了存储的值将不会超过5位数字，开且小数点后面有2位数字。</p>
+<h5 id="实例"><a class="header-anchor" href="#实例">¶</a>实例</h5>
+<blockquote>
+<p>float f = 345.98756f;–结果显示为345.9876，只显示7个有效位，对最后一位数四舍五入。<br>
+double d=345.975423578631442d;–结果显示为345.975423578631，只显示15个有效位，对最后一位四舍五入。<br>
+–注：float和double的相乘操作，数字溢出不会报错，会有精度的损失。<br>
+decimal dd=345.545454879…–可以支持28位，对最后一位四舍五入。<br>
+–：当对decimal类型进行操作时，数值会因溢出而报错。</p>
 </blockquote>
-<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><p>数值存储范围越小的精度越高，存储数值范围越大，精度就越不准确，如果存储正常金额的情况下，使用money，好处在于可以存储不指定的小数点位数的数值，比较真实。如果对于既要求精度，又固定小数点位数的数值存储，采用decimal（numeric），优点在于可以自定义小数点位数，精度高。如特殊情况，如数值范围巨大只能用float（real）类型了，此类型一般不提倡使用</p>
-<p>链接(<a href="http://blog.csdn.net/zhanghao143lina/article/details/53816884" target="_blank" rel="noopener">http://blog.csdn.net/zhanghao143lina/article/details/53816884</a>)<br>mysql数据类型(<a href="http://www.cnblogs.com/zbseoag/archive/2013/03/19/2970004.html" target="_blank" rel="noopener">http://www.cnblogs.com/zbseoag/archive/2013/03/19/2970004.html</a>)</p>
+<h5 id="总结"><a class="header-anchor" href="#总结">¶</a>总结</h5>
+<p>数值存储范围越小的精度越高，存储数值范围越大，精度就越不准确，如果存储正常金额的情况下，使用money，好处在于可以存储不指定的小数点位数的数值，比较真实。如果对于既要求精度，又固定小数点位数的数值存储，采用decimal（numeric），优点在于可以自定义小数点位数，精度高。如特殊情况，如数值范围巨大只能用float（real）类型了，此类型一般不提倡使用</p>
+<p>链接(<a href="http://blog.csdn.net/zhanghao143lina/article/details/53816884" target="_blank" rel="noopener">http://blog.csdn.net/zhanghao143lina/article/details/53816884</a>)<br>
+mysql数据类型(<a href="http://www.cnblogs.com/zbseoag/archive/2013/03/19/2970004.html" target="_blank" rel="noopener">http://www.cnblogs.com/zbseoag/archive/2013/03/19/2970004.html</a>)</p>
 
       
     </div>
@@ -484,8 +501,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/02/听罗胖聊天/" rel="next" title="听罗胖聊天">
-                <i class="fa fa-chevron-left"></i> 听罗胖聊天
+              <a href="/2017/10/15/String相关/" rel="next" title="String s1 = new String("abc")和String s2 = "abc"的区别">
+                <i class="fa fa-chevron-left"></i> String s1 = new String("abc")和String s2 = "abc"的区别
               </a>
             
           </div>
@@ -494,8 +511,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/10/15/String相关/" rel="prev" title="String s1 = new String("abc")和String s2 = "abc"的区别">
-                String s1 = new String("abc")和String s2 = "abc"的区别 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/17/Mysql Decimal数据类型/" rel="prev" title="Mysql Decimal数据类型">
+                Mysql Decimal数据类型 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -587,8 +604,6 @@
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
                     
-                    
-                      
                     
                       
                     
@@ -700,7 +715,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#float-double-decimal三者的区别介绍"><span class="nav-number">1.</span> <span class="nav-text">float,double,decimal三者的区别介绍</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#按存储的范围进行排序"><span class="nav-number">2.</span> <span class="nav-text">按存储的范围进行排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#decimal的详细介绍"><span class="nav-number">3.</span> <span class="nav-text">decimal的详细介绍</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#参数说明"><span class="nav-number">4.</span> <span class="nav-text">参数说明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#备注"><span class="nav-number">5.</span> <span class="nav-text">备注</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实例"><span class="nav-number">6.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#float-double-decimal三者的区别介绍"><span class="nav-number">1.</span> <span class="nav-text">¶float,double,decimal三者的区别介绍</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#按存储的范围进行排序"><span class="nav-number">2.</span> <span class="nav-text">¶按存储的范围进行排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#decimal的详细介绍"><span class="nav-number">3.</span> <span class="nav-text">¶decimal的详细介绍</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#参数说明"><span class="nav-number">4.</span> <span class="nav-text">¶参数说明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#备注"><span class="nav-number">5.</span> <span class="nav-text">¶备注</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实例"><span class="nav-number">6.</span> <span class="nav-text">¶实例</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">¶总结</span></a></li></ol></div>
             
 
           </div>

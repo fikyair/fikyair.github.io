@@ -433,16 +433,20 @@
       
         <p>MYSQL 获取当前日期及日期格式话</p>
 <a id="more"></a>
-<p>获取系统日期： NOW()<br>格式化日期： DATE_FORMAT(date, format)<br>注： date：时间字段<br>format：日期格式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">返回系统日期,输出 2009-12-25 14:38:59</span><br><span class="line">select now();</span><br></pre></td></tr></table></figure></p>
+<p>获取系统日期： NOW()<br>
+格式化日期： DATE_FORMAT(date, format)<br>
+注： date：时间字段<br>
+format：日期格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">返回系统日期,输出 2009-12-25 14:38:59</span><br><span class="line">select now();</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输出 09-12-25</span><br><span class="line">select date_format(now(),&apos;%y-%m-%d&apos;);</span><br></pre></td></tr></table></figure>
 <p>根据format字符串格式化date值:</p>
 <ul>
 <li>%U 周（0, 1, 52），其中Sunday 为周中的第一天</li>
 <li>%u 周（0, 1, 52），其中Monday 为周中的第一天</li>
 <li>%M 月名（January, February, …, December）</li>
-<li>%b 缩写的月名（ January, February,…., December）</li>
+<li>%b 缩写的月名（ January, February,…, December）</li>
 <li>%m 两位数字表示的月份（01, 02, …, 12）</li>
-<li>%c 数字表示的月份（1, 2, …., 12）</li>
+<li>%c 数字表示的月份（1, 2, …, 12）</li>
 <li>%Y 四位数字表示的年份</li>
 <li>%y 两位数字表示的年份</li>
 <li>%% 直接值“%”</li>
@@ -463,7 +467,8 @@
 <li>%w 以数字形式表示周中的天数（ 0 = Sunday, 1=Monday, …, 6=Saturday）</li>
 <li>%j 以三位数字表示年中的天数（ 001, 002, …, 366）</li>
 </ul>
-<p>还有一些实现日期的函数，或者是返回月份中的最后一天 等<br>eg:MySQL last_day() 函数：返回月份中的最后一天。</p>
+<p>还有一些实现日期的函数，或者是返回月份中的最后一天 等<br>
+eg:MySQL last_day() 函数：返回月份中的最后一天。</p>
 <p>详见：(<a href="http://blog.csdn.net/kangbrother/article/details/7030304" target="_blank" rel="noopener">http://blog.csdn.net/kangbrother/article/details/7030304</a>)</p>
 
       
@@ -601,8 +606,6 @@
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
                     
-                    
-                      
                     
                       
                     

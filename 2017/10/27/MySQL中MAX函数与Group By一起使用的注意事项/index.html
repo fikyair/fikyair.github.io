@@ -433,9 +433,11 @@
       
         <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select * from test;  </span><br><span class="line">+----+-------+------+-------+  </span><br><span class="line">| id | name  | age  | class |  </span><br><span class="line">+----+-------+------+-------+  </span><br><span class="line">|  1 | qiu   |   22 |     1 |   </span><br><span class="line">|  2 | liu   |   42 |     1 |   </span><br><span class="line">|  4 | zheng |   20 |     2 |   </span><br><span class="line">|  3 | qian  |   20 |     2 |   </span><br><span class="line">|  0 | wang  |   11 |     3 |   </span><br><span class="line">|  6 | li    |   33 |     3 |   </span><br><span class="line">+----+-------+------+-------+  </span><br><span class="line">6 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>如果想找到每个class里面的最大的age，则需要使用group by和max。<br>如下的sql语句，则输出结果有错误：</p>
+<p>如果想找到每个class里面的最大的age，则需要使用group by和max。<br>
+如下的sql语句，则输出结果有错误：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select id,name,max(age),class from test group by class;  </span><br><span class="line">+----+-------+----------+-------+  </span><br><span class="line">| id | name  | max(age) | class |  </span><br><span class="line">+----+-------+----------+-------+  </span><br><span class="line">|  1 | qiu   |       42 |     1 |   </span><br><span class="line">|  4 | zheng |       20 |     2 |   </span><br><span class="line">|  0 | wang  |       33 |     3 |   </span><br><span class="line">+----+-------+----------+-------+  </span><br><span class="line">3 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
-<p>虽然找到的age是最大的age，但是与之匹配的用户信息却不是真实的信息，而是group by分组后的第一条记录的基本信息。<br>如果我使用以下的语句进行查找，则可以返回真实的结果。</p>
+<p>虽然找到的age是最大的age，但是与之匹配的用户信息却不是真实的信息，而是group by分组后的第一条记录的基本信息。<br>
+如果我使用以下的语句进行查找，则可以返回真实的结果。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select * from (  </span><br><span class="line">    -&gt; select * from test order by age desc) as b  </span><br><span class="line">    -&gt; group by class;  </span><br><span class="line">+----+-------+------+-------+  </span><br><span class="line">| id | name  | age  | class |  </span><br><span class="line">+----+-------+------+-------+  </span><br><span class="line">|  2 | liu   |   42 |     1 |   </span><br><span class="line">|  4 | zheng |   20 |     2 |   </span><br><span class="line">|  6 | li    |   33 |     3 |   </span><br><span class="line">+----+-------+------+-------+  </span><br><span class="line">3 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
 <p>方法2：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from test t where t.age = (select max(age) from test where t.class = class) order by class;</span><br></pre></td></tr></table></figure>
@@ -575,8 +577,6 @@
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
                     
-                    
-                      
                     
                       
                     

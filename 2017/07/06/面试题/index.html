@@ -108,13 +108,13 @@
 
 
 
-  <meta name="description" content="Switch 能否用String做参数在 Java 7 之前， switch 只能支持 byte 、 short 、 char 、 int 或者其对应的封装类以及 Enum 类型。在 Java 7 中， String 支持被加上了。关于java中的枚举类型（http://blog.csdn.net/wgw335363240/article/details/6359614） equals与==的区">
+  <meta name="description" content="Switch 能否用String做参数 在 Java 7 之前， switch 只能支持 byte 、 short 、 char 、 int 或者其对应的 封装类以及 Enum 类型。在 Java 7 中， String 支持被加上了。 关于java中的枚举类型（http://blog.csdn.net/wgw335363240/article/details/6359614） equals与=">
 <meta name="keywords" content="Android,牛客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面试干货分享">
 <meta property="og:url" content="http://yoursite.com/2017/07/06/面试题/index.html">
 <meta property="og:site_name" content="Ignite">
-<meta property="og:description" content="Switch 能否用String做参数在 Java 7 之前， switch 只能支持 byte 、 short 、 char 、 int 或者其对应的封装类以及 Enum 类型。在 Java 7 中， String 支持被加上了。关于java中的枚举类型（http://blog.csdn.net/wgw335363240/article/details/6359614） equals与==的区">
+<meta property="og:description" content="Switch 能否用String做参数 在 Java 7 之前， switch 只能支持 byte 、 short 、 char 、 int 或者其对应的 封装类以及 Enum 类型。在 Java 7 中， String 支持被加上了。 关于java中的枚举类型（http://blog.csdn.net/wgw335363240/article/details/6359614） equals与=">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2017/07/06/images/activity.jpg">
 <meta property="og:image" content="http://yoursite.com/2017/07/06/images/touch.jpg">
@@ -122,7 +122,7 @@
 <meta property="og:updated_time" content="2018-08-18T05:37:15.670Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试干货分享">
-<meta name="twitter:description" content="Switch 能否用String做参数在 Java 7 之前， switch 只能支持 byte 、 short 、 char 、 int 或者其对应的封装类以及 Enum 类型。在 Java 7 中， String 支持被加上了。关于java中的枚举类型（http://blog.csdn.net/wgw335363240/article/details/6359614） equals与==的区">
+<meta name="twitter:description" content="Switch 能否用String做参数 在 Java 7 之前， switch 只能支持 byte 、 short 、 char 、 int 或者其对应的 封装类以及 Enum 类型。在 Java 7 中， String 支持被加上了。 关于java中的枚举类型（http://blog.csdn.net/wgw335363240/article/details/6359614） equals与=">
 <meta name="twitter:image" content="http://yoursite.com/2017/07/06/images/activity.jpg">
 
 
@@ -436,37 +436,59 @@
 
       
         <ol>
-<li>Switch 能否用String做参数<br>在 Java 7 之前， switch 只能支持 byte 、 short 、 char 、 int 或者其对应的<br>封装类以及 Enum 类型。在 Java 7 中， String 支持被加上了。<br>关于java中的枚举类型（<a href="http://blog.csdn.net/wgw335363240/article/details/6359614）" target="_blank" rel="noopener">http://blog.csdn.net/wgw335363240/article/details/6359614）</a></li>
-<li>equals与==的区别：<br>==是判断两个变量或实例是不是指向同一个内存空间 equals是判断两个变量或实例所指向的内存<br>空间的值是不是相同<a id="more"></a></li>
-<li>Object有哪些公用的方法<ul>
+<li>Switch 能否用String做参数<br>
+在 Java 7 之前， switch 只能支持 byte 、 short 、 char 、 int 或者其对应的<br>
+封装类以及 Enum 类型。在 Java 7 中， String 支持被加上了。<br>
+关于java中的枚举类型（<a href="http://blog.csdn.net/wgw335363240/article/details/6359614%EF%BC%89" target="_blank" rel="noopener">http://blog.csdn.net/wgw335363240/article/details/6359614）</a></li>
+<li>equals与==的区别：<br>
+==是判断两个变量或实例是不是指向同一个内存空间 equals是判断两个变量或实例所指向的内存<br>
+空间的值是不是相同</li>
+</ol>
+<a id="more"></a>
+<ol start="3">
+<li>Object有哪些公用的方法</li>
+</ol>
+<ul>
 <li>方法equals测试的是两个对象是否相等</li>
 <li>方法clone进行对象拷贝</li>
 <li>方法getClass返回和当前对象相关的Class对象</li>
 <li>方法notify,notifyall,wait都是用来对给定对象进行线程同步的</li>
 </ul>
-</li>
-<li>实际开发中软引用或者弱引用的使用场景：<br>利用软引用和弱引用解决OOM问题：<br>用一个HashMap来保存图片的路径和相应图片对象关联的软引用之间的映射关系,在内存不足时,JVM会自动回收这些缓存图片对象所占用的空间,从而有效地避免了OOM的问题通过软可及对象重获方法实现Java对象的高速缓存:比如我们创建了一Employee的类,如果每次需要查询一个雇员的信息。哪怕是几秒中之前刚刚查询过的,都要重新构建一个实例，这是需要消耗很多时间的。我们可以通过软引用和HashMap的结合，先是保存引用方面：以软引用的方式对一个Employee对象的实例进行引用并保存该引用到HashMap 上，key 为此雇员的 id,value为这个对象的软引用,另一方面是取出引用,缓存中是否有该Employee实例的软引用,如果有,从软引用中取得。如果没有软引用,或者从软引用中得到的实例是null,重新构建一个实例,并保存对这个新建实例，并保存对这个新建实例的软引用</li>
-<li>Hashcode的作用，与 equal 有什么区别：<br>同样用于鉴定2个对象是否相等的，java集合中有 list 和 set 两类，其中 set不允许元素重复实现，那个这个不允许重复实现的方法，如果用 equal 去比较的话，如果存在1000个元素，你 new 一个新的元素出来，需要去调用1000次 equal 去逐个和他们比较是否是同一个对象，这样会大大降低效率。hashcode实际上是返回对象的存储地址，如果这个位置上没有元素，就把元素直接存储在上面，如果这个位置上已经存在元素，这个时候才去调用equal方法与新元素进行比较，相同的话就不存了，散列到其他地址上</li>
-<li>String、StringBuffer与StringBuilder的区别<br>String 类型和 StringBuffer 类型的主要性能区别其实在于 String 是不可变的对象 StringBuffer和StringBuilder底层是 char[]数组实现的 StringBuffer是线程安全的，而StringBuilder是线程不安全的</li>
-<li>Override和Overload的含义区别<br>Overload顾名思义是重新加载，它可以表现类的多态性，可以是函数里面可以有相同的函数名但是参数名、返回值、类型不能相同；或者说可以改变参数、类型、返回值但是函数名字依然不变。 Override顾名思义就是ride(重写)的意思，在子类继承父类的时候子类中可以定义某方法与其父类有相同的名称和参数，当子类在调用这一函数时自动调用子类的方法，而父类相当于被覆盖（重写）了。</li>
-<li>抽象类和接口的区别<br>一个类只能继承单个类，但是可以实现多个接口 接口强调特定功能的实现，而抽象类强调所属关系 抽象类中的所有方法并不一定要是抽象的，你可以选择在抽象类中实现一些基本的方法。而接口要求所有的方法都必须是抽象的</li>
-<li>解析XML的几种方式的原理与特点：DOM、SAX、PULL<ul>
+<ol start="4">
+<li>实际开发中软引用或者弱引用的使用场景：<br>
+利用软引用和弱引用解决OOM问题：<br>
+用一个HashMap来保存图片的路径和相应图片对象关联的软引用之间的映射关系,在内存不足时,JVM会自动回收这些缓存图片对象所占用的空间,从而有效地避免了OOM的问题通过软可及对象重获方法实现Java对象的高速缓存:比如我们创建了一Employee的类,如果每次需要查询一个雇员的信息。哪怕是几秒中之前刚刚查询过的,都要重新构建一个实例，这是需要消耗很多时间的。我们可以通过软引用和HashMap的结合，先是保存引用方面：以软引用的方式对一个Employee对象的实例进行引用并保存该引用到HashMap 上，key 为此雇员的 id,value为这个对象的软引用,另一方面是取出引用,缓存中是否有该Employee实例的软引用,如果有,从软引用中取得。如果没有软引用,或者从软引用中得到的实例是null,重新构建一个实例,并保存对这个新建实例，并保存对这个新建实例的软引用</li>
+<li>Hashcode的作用，与 equal 有什么区别：<br>
+同样用于鉴定2个对象是否相等的，java集合中有 list 和 set 两类，其中 set不允许元素重复实现，那个这个不允许重复实现的方法，如果用 equal 去比较的话，如果存在1000个元素，你 new 一个新的元素出来，需要去调用1000次 equal 去逐个和他们比较是否是同一个对象，这样会大大降低效率。hashcode实际上是返回对象的存储地址，如果这个位置上没有元素，就把元素直接存储在上面，如果这个位置上已经存在元素，这个时候才去调用equal方法与新元素进行比较，相同的话就不存了，散列到其他地址上</li>
+<li>String、StringBuffer与StringBuilder的区别<br>
+String 类型和 StringBuffer 类型的主要性能区别其实在于 String 是不可变的对象 StringBuffer和StringBuilder底层是 char[]数组实现的 StringBuffer是线程安全的，而StringBuilder是线程不安全的</li>
+<li>Override和Overload的含义区别<br>
+Overload顾名思义是重新加载，它可以表现类的多态性，可以是函数里面可以有相同的函数名但是参数名、返回值、类型不能相同；或者说可以改变参数、类型、返回值但是函数名字依然不变。 Override顾名思义就是ride(重写)的意思，在子类继承父类的时候子类中可以定义某方法与其父类有相同的名称和参数，当子类在调用这一函数时自动调用子类的方法，而父类相当于被覆盖（重写）了。</li>
+<li>抽象类和接口的区别<br>
+一个类只能继承单个类，但是可以实现多个接口 接口强调特定功能的实现，而抽象类强调所属关系 抽象类中的所有方法并不一定要是抽象的，你可以选择在抽象类中实现一些基本的方法。而接口要求所有的方法都必须是抽象的</li>
+<li>解析XML的几种方式的原理与特点：DOM、SAX、PULL</li>
+</ol>
+<ul>
 <li>DOM：消耗内存：先把xml文档都读到内存中，然后再用DOM API来访问树形结构，并获取数据。这个写起来很简单，但是很消耗内存。要是数据过大，手机不够牛逼，可能手机直接死机</li>
 <li>SAX：解析效率高，占用内存少，基于事件驱动的：更加简单地说就是对文档进行顺序扫描，当扫描到文档(document)开始与结束、元素(element)开始与结束、文档(document)结束等地方时通知事件处理函数，由事件处理函数做相应动作，然后继续同样的扫描，直至文档结束。</li>
 <li>SAX：与 SAX 类似，也是基于事件驱动，我们可以调用它的next（）方法，来获取下一个解析事件（就是开始文档，结束文档，开始标签，结束标签），当处于某个元素时可以调用XmlPullParser的getAttributte()方法来获取属性的值，也可调用它的nextText()获取本节点的值。</li>
 </ul>
-</li>
-<li>wait()和sleep()的区别<ul>
+<ol start="10">
+<li>wait()和sleep()的区别</li>
+</ol>
+<ul>
 <li>sleep来自Thread类，和wait来自Object类</li>
 <li>调用sleep()方法的过程中，线程不会释放对象锁。而 调用 wait 方法线程会释放对象锁</li>
 <li>sleep睡眠后不出让系统资源，wait让出系统资源其他线程可以占用CPU</li>
 <li>sleep(milliseconds)需要指定一个睡眠时间，时间一到会自动唤醒</li>
 </ul>
-</li>
-<li><p>java 多态实现原理</p>
+<ol start="11">
+<li>java 多态实现原理</li>
+</ol>
 <p>抽象的来讲，多态的意思就是同一消息可以根据发送对象的不同而采用多种不同的行为方式。（发送消息就是函数调用） 实现的原理是动态绑定，程序调用的方法在运行期才动态绑定，追溯源码可以发现，JVM 通过参数的自动转型来找到合适的办法。</p>
-</li>
-<li><p>java 垃圾回收与内存分配策略</p>
+<ol start="12">
+<li>java 垃圾回收与内存分配策略</li>
+</ol>
 <p>12.1 垃圾回收是什么</p>
 <p>就是释放那些不再持有引用的对象的内存</p>
 <p>12.2 怎么判断一个对象是否需要收集？</p>
@@ -494,11 +516,12 @@
 <li>基本数据类型比变量和对象的引用都是在栈分配的</li>
 <li>堆内存用来存放由new创建的对象和数组</li>
 <li>类变量（static修饰的变量），程序在一加载的时候就在堆中为类变量分配内存，堆中的内存地址存放在栈中</li>
-<li>实例变量：当你使用java关键字new的时候，系统在堆中开辟并不一定是连续的空间分配给变量，是根据零散的堆内存地址，通过哈希算法换算为一长串数字以表征这个变量在堆中的”物理位置”,实例变量的生命周期–当实例变量的引用丢失后，将被GC（垃圾回收器）列入可回收“名单”中，但并不是马上就释放堆中内存</li>
+<li>实例变量：当你使用java关键字new的时候，系统在堆中开辟并不一定是连续的空间分配给变量，是根据零散的堆内存地址，通过哈希算法换算为一长串数字以表征这个变量在堆中的&quot;物理位置”,实例变量的生命周期–当实例变量的引用丢失后，将被GC（垃圾回收器）列入可回收“名单”中，但并不是马上就释放堆中内存</li>
 <li>局部变量: 由声明在某方法，或某代码段里（比如for循环），执行到它的时候在栈中开辟内存，当局部变量一但脱离作用域，内存立即释放</li>
 </ul>
-</li>
-<li><p>Java 集合系列问题</p>
+<ol start="13">
+<li>Java 集合系列问题</li>
+</ol>
 <p>13.1 ArrayList、LinkedList、Vector的区别</p>
 <ul>
 <li>ArrayList 和Vector底层是采用数组方式存储数据，Vector由于使用了synchronized方法（线程安全）所以性能上比ArrayList要差</li>
@@ -506,15 +529,18 @@
 <li>HashMap的底层源码实现：当我们往HashMap中put元素的时候，先根据key的hashCode重新计算hash值，根据hash值得到这个元素在数组中的位置（即下标），如果数组该位置上已经存放有其他元素了，那么在这个位置上的元素将以链表的形式存放，新加入的放在链头，最先加入的放在链尾。如果数组该位置上没有元素，就直接将该元素放到此数组中的该位置上。</li>
 <li>Fail-Fast机制:在使用迭代器的过程中有其他线程修改了map，那么将抛出ConcurrentModificationException，这就是所谓fail-fast机制。这一机制在源码中的实现是通过modCount域，modCount顾名思义就是修改次数，对HashMap内容的修改都将增加这个值，那么在迭代器初始化过程中会将这个值赋给迭代器的expectedModCount。在迭代过程中，判断modCount跟expectedModCount是否相等，如果不相等就表示已经有其他线程修改了Map</li>
 </ul>
-<p>13.2 HashMap和 HashTable 的区别<br>HashTable比较老，是基于Dictionary 类实现的，HashTable 则是基于 Map接口实现的 HashTable 是线程安全的， HashMap 则是线程不安全的 HashMap可以让你将空值作为一个表的条目的key或value</p>
-</li>
+<p>13.2 HashMap和 HashTable 的区别<br>
+HashTable比较老，是基于Dictionary 类实现的，HashTable 则是基于 Map接口实现的 HashTable 是线程安全的， HashMap 则是线程不安全的 HashMap可以让你将空值作为一个表的条目的key或value</p>
+<ol start="14">
 <li>什么是反射，在哪里需要用到</li>
-<li><p>什么是线程池，线程池的作用是什么</p>
+<li>什么是线程池，线程池的作用是什么</li>
+</ol>
 <p>1.答：线程池的基本思想还是一种对象池的思想，开辟一块内存空间，里面存放了众多(未死亡)的线程，池中线程执行调度由池管理器来处理。当有线程任务时，从池中取一个，执行完成后线程对象归池，这样可以避免反复创建线程对象所带来的性能开销，节省了系统的资源。就好比原来去食堂打饭是每个人看谁抢的赢，谁先抢到谁先吃，有了线程吃之后，就是排好队形，今天我跟你关系好，你先来吃饭。比如：一个应用要和网络打交道，有很多步骤需要访问网络，为了不阻塞主线程，每个步骤都创建个线程，在线程中和网络交互，用线程池就变的简单，线程池是对线程的一种封装，让线程用起来更加简便，只需要创一个线程池，把这些步骤像任务一样放进线程池，在程序销毁时只要调用线程池的销毁函数即可。</p>
 <p>单个线程的弊端：a. 每次new Thread新建对象性能差b. 线程缺乏统一管理，可能无限制新建线程，相互之间竞争，及可能占用过多系统资源导致死机或者OOM,c. 缺乏更多功能，如定时执行、定期执行、线程中断。</p>
 <p>java提供的四种线程池的好处在于：a. 重用存在的线程，减少对象创建、消亡的开销，性能佳。b. 可有效控制最大并发线程数，提高系统资源的使用率，同时避免过多资源竞争，避免堵塞。c. 提供定时执行、定期执行、单线程、并发数控制等功能。</p>
 <p>2.Java线程池</p>
-<p>Java通过Executors提供四种线程池，分别为：<br>newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程。</p>
+<p>Java通过Executors提供四种线程池，分别为：<br>
+newCachedThreadPool创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程。</p>
 <p>newFixedThreadPool 创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待。</p>
 <p>newScheduledThreadPool 创建一个定长线程池，支持定时及周期性任务执行。</p>
 <p>newSingleThreadExecutor 创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺序(FIFO, LIFO, 优先级)执行。</p>
@@ -526,37 +552,42 @@
 <p>创建一个定长线程池，支持定时及周期性任务执行。ScheduledExecutorService比Timer更安全，功能更强大</p>
 <p>(4) newSingleThreadExecutor</p>
 <p>创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺序(FIFO, LIFO, 优先级)执行</p>
-</li>
-</ol>
-<h4 id="Android部分（重点部分）"><a href="#Android部分（重点部分）" class="headerlink" title="Android部分（重点部分）"></a>Android部分（重点部分）</h4><h6 id="1-Activity系列问题"><a href="#1-Activity系列问题" class="headerlink" title="1. Activity系列问题"></a>1. Activity系列问题</h6><p> 1.1 Activity生命周期流图</p>
+<h4 id="android部分-重点部分"><a class="header-anchor" href="#android部分-重点部分">¶</a>Android部分（重点部分）</h4>
+<h6 id="1-activity系列问题"><a class="header-anchor" href="#1-activity系列问题">¶</a>1. Activity系列问题</h6>
+<p>1.1 Activity生命周期流图</p>
 <p><img src="../images/activity.jpg" alt=" activity"></p>
-<p> 1.2 介绍下不同场景下Activity生命周期的变化过程</p>
+<p>1.2 介绍下不同场景下Activity生命周期的变化过程</p>
 <ul>
 <li>启动Activity： onCreate()—&gt;onStart()—&gt;onResume()，Activity进入运行状态。</li>
 <li>Activity退居后台： 当前Activity转到新的Activity界面或按Home键回到主屏： onPause()—&gt;onStop()，进入停滞状态。</li>
 <li>Activity返回前台： onRestart()—&gt;onStart()—&gt;onResume()，再次回到运行状态。</li>
 <li>Activity退居后台，且系统内存不足， 系统会杀死这个后台状态的Activity，若再次回到这个Activity,则会走onCreate()–&gt;onStart()—&gt;onResume()</li>
-<li><p>锁定屏与解锁屏幕 只会调用onPause()，而不会调用onStop方法，开屏后则调用onResume()</p>
+<li>锁定屏与解锁屏幕 只会调用onPause()，而不会调用onStop方法，开屏后则调用onResume()</li>
+</ul>
 <p>1.3 内存不足时系统会杀掉后台的Activity，若需要进行一些临时状态的保存，在哪个方法进行？</p>
 <p>Activity的 onSaveInstanceState() 和 onRestoreInstanceState()并不是生命周期方法，它们不同于 onCreate()、onPause()等生命周期方法，它们并不一定会被触发。当应用遇到意外情况（如：内存不足、用户直接按Home键）由系统销毁一个Activity，onSaveInstanceState() 会被调用。但是当用户主动去销毁一个Activity时，例如在应用中按返回键，onSaveInstanceState()就不会被调用。除非该activity是被用户主动销毁的，通常onSaveInstanceState()只适合用于保存一些临时性的状态，而onPause()适合用于数据的持久化保存。</p>
 <p>1.4 onSaveInstanceState()被执行的场景有哪些：</p>
 <p>系统不知道你按下HOME后要运行多少其他的程序，自然也不知道activity A是否会被销毁，因此系统都会调用onSaveInstanceState()，让用户有机会保存某些非永久性的数据。以下几种情况的分析都遵循该原则</p>
 <ul>
-<li><p>当用户按下HOME键时</p>
+<li>
+<p>当用户按下HOME键时</p>
 </li>
-<li><p>长按HOME键，选择运行其他的程序时</p>
+<li>
+<p>长按HOME键，选择运行其他的程序时</p>
 </li>
-<li><p>锁屏时</p>
+<li>
+<p>锁屏时</p>
 </li>
-<li><p>从activity A中启动一个新的activity时</p>
+<li>
+<p>从activity A中启动一个新的activity时</p>
 </li>
-<li><p>屏幕方向切换时</p>
+<li>
+<p>屏幕方向切换时</p>
 </li>
 </ul>
 <p>1.5  介绍Activity的几中启动模式，并简单说说自己的理解或者使用场景</p>
-</li>
-</ul>
-<h6 id="2-Service系列问题"><a href="#2-Service系列问题" class="headerlink" title="2. Service系列问题"></a>2. Service系列问题</h6><p>2.1 注册Service需要注意什么</p>
+<h6 id="2-service系列问题"><a class="header-anchor" href="#2-service系列问题">¶</a>2. Service系列问题</h6>
+<p>2.1 注册Service需要注意什么</p>
 <p>Service还是运行在主线程当中的，所以如果需要执行一些复杂的逻辑操作，最好在服务的内部手动创建子线程进行处理，否则会出现UI线程被阻塞的问题</p>
 <p>2.2 Service与Activity怎么实现通信</p>
 <p>方法一：</p>
@@ -579,14 +610,16 @@
 <li>IntentService不会阻塞UI线程，而普通Serveice会导致ANR异常</li>
 <li>ntentservice若未执行完成上一次的任务，将不会新开一个线程，是等待之前的任务完成后，再执行新的任务，等任务完成后再次调用stopSelf()</li>
 </ul>
-<h6 id="3-Handle系列问题"><a href="#3-Handle系列问题" class="headerlink" title="3. Handle系列问题"></a>3. Handle系列问题</h6><p>3.1 介绍Handle的机制</p>
+<h6 id="3-handle系列问题"><a class="header-anchor" href="#3-handle系列问题">¶</a>3. Handle系列问题</h6>
+<p>3.1 介绍Handle的机制</p>
 <ul>
 <li>Handler通过调用sendmessage方法把消息放在消息队列MessageQueue中，Looper负责把消息从消息队列中取出来，重新再交给Handler进行处理，三者形成一个循环</li>
 <li>通过构建一个消息队列，把所有的Message进行统一的管理，当Message不用了，并不作为垃圾回收，而是放入消息队列中，供下次handler创建消息时候使用，提高了消息对象的复用，减少系统垃圾回收的次数</li>
 <li>每一个线程，都会单独对应的一个looper，这个looper通过ThreadLocal来创建，保证每个线程只创建一个looper，looper初始化后就会调用looper.loop创建一个MessageQueue，这个方法在UI线程初始化的时候就会完成，我们不需要手动创建</li>
 </ul>
 <p>3.2 谈谈对HandlerThread的理解</p>
-<h6 id="ListView系列问题"><a href="#ListView系列问题" class="headerlink" title="ListView系列问题"></a>ListView系列问题</h6><p>4.1 ListView卡顿的原因与性能优化，越多越好</p>
+<h6 id="listview系列问题"><a class="header-anchor" href="#listview系列问题">¶</a>ListView系列问题</h6>
+<p>4.1 ListView卡顿的原因与性能优化，越多越好</p>
 <ul>
 <li>重用converView： 通过复用converview来减少不必要的view的创建，另外Infalte操作会把xml文件实例化成相应的View实例，属于IO操作，是耗时操作。</li>
 <li>减少findViewById()操作： 将xml文件中的元素封装成viewholder静态类，通过converview的setTag和getTag方法将view与相应的holder对象绑定在一起，避免不必要的findviewbyid操作</li>
@@ -601,43 +634,61 @@
 <p>4.2 怎么实现一个部分更新的 ListView？</p>
 <p>4.3 怎么实现ListView多种布局？</p>
 <p>4.4 ListView与数据库绑定的实现</p>
-<h6 id="5-JNI系列问题"><a href="#5-JNI系列问题" class="headerlink" title="5. JNI系列问题"></a>5. JNI系列问题</h6><p>5.1 如何使用JNI</p>
+<h6 id="5-jni系列问题"><a class="header-anchor" href="#5-jni系列问题">¶</a>5. JNI系列问题</h6>
+<p>5.1 如何使用JNI</p>
 <ol>
-<li><p>JAVA中声明native 方法如private native String printJNI(String inputStr);</p>
+<li>
+<p>JAVA中声明native 方法如private native String printJNI(String inputStr);</p>
 </li>
-<li><p>使用javah工具生成.h头文件这时候头文件中就会自动生成对应的函数JNIEXPORT jstring JNICALL Java_com_wenming_HelloWorld_printJNI</p>
+<li>
+<p>使用javah工具生成.h头文件这时候头文件中就会自动生成对应的函数JNIEXPORT jstring JNICALL Java_com_wenming_HelloWorld_printJNI</p>
 </li>
-<li><p>实现JNI原生函数源文件，新建HelloWorld.c文件，对刚才自动生成的函数进行具体的逻辑书写，例如返回一个java叫做HelloWorld的字符串等</p>
+<li>
+<p>实现JNI原生函数源文件，新建HelloWorld.c文件，对刚才自动生成的函数进行具体的逻辑书写，例如返回一个java叫做HelloWorld的字符串等</p>
 </li>
-<li>编译生成动态链接so文件**</li>
-<li>Java中调用Sysytem.load方法把刚才的so库加载进来，就可以调用native方法了</li>
+<li>
+<p>编译生成动态链接so文件**</p>
+</li>
+<li>
+<p>Java中调用Sysytem.load方法把刚才的so库加载进来，就可以调用native方法了</p>
+</li>
 </ol>
 <p>5.2 如何通过JNI传递String对象</p>
 <p>Java的String和C++的string是不能对等起来的，所以当我们拿到.h文件下面的jstring对象，会做一次转换我们把jstring转换为C下面的char*类型， 获取值</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">constchar* str;</span><br><span class="line">str = env-&gt;GetStringUTFChars(prompt,false);</span><br></pre></td></tr></table></figure>
 <p>赋予值</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">char* tmpstr =&quot;return string succeeded&quot;;</span><br><span class="line">jstring rtstr = env-&gt;NewStringUTF(tmpstr);</span><br></pre></td></tr></table></figure>
-<h6 id="6-OOM系列问题"><a href="#6-OOM系列问题" class="headerlink" title="6.OOM系列问题"></a>6.OOM系列问题</h6><p>6.1 什么OOM？</p>
+<h6 id="6-oom系列问题"><a class="header-anchor" href="#6-oom系列问题">¶</a>6.OOM系列问题</h6>
+<p>6.1 什么OOM？</p>
 <p>OOM全称是Out Of Merrory，Android系统的每一个应用程序都设置一个硬性的Dalvik Heap Size最大限制阈值，如果申请的内存资源超过这个限制，系统就会抛出OOM错误</p>
 <p>6.2 内存泄漏有哪些场景以及解决方法</p>
 <ul>
-<li>类的静态变量持有大数据对象 静态变量长期维持到大数据对象的引用，阻止垃圾回收。</li>
-<li>非静态内部类存在静态实例 非静态内部类会维持一个到外部类实例的引用，如果非静态内部类的实例是静态的，就会间接长期维持着外部类的引用，阻止被回收掉。</li>
-<li>资源对象未关闭 资源性对象比如（Cursor，File文件等）往往都用了一些缓冲，我们在不使用的时候，应该及时关闭它们，以便它们的缓冲及时回收内存。它们的缓冲不仅存在于java虚拟机内，还存在于java虚拟机外。 如果我们仅仅是把它的引用设置为null,而不关闭它们，往往会造成内存泄露。 解决办法： 比如SQLiteCursor（在析构函数finalize（）,如果我们没有关闭它，它自己会调close()关闭）， 如果我们没有关闭它，系统在回收它时也会关闭它，但是这样的效率太低了。 因此对于资源性对象在不使用的时候，应该调用它的close()函数，将其关闭掉，然后才置为null. 在我们的程序退出时一定要确保我们的资源性对象已经关闭。程序中经常会进行查询数据库的操作，但是经常会有使用完毕Cursor后没有关闭的情况。如果我们的查询结果集比较小，对内存的消耗不容易被发现，只有在常时间大量操作的情况下才会复现内存问题，这样就会给以后的测试和问题排查带来困难和风险，记得try catch后，在finally方法中关闭连接</li>
-<li><p>Handler内存泄漏  Handler作为内部类存在于Activity中，但是Handler生命周期与Activity生命周期往往并不是相同的，比如当Handler对象有Message在排队，则无法释放，进而导致本该释放的Acitivity也没有办法进行回收。 解决办法：</p>
-<ul>
-<li>声明handler为static类，这样内部类就不再持有外部类的引用了，就不会阻塞Activity的释放</li>
-<li>如果内部类实在需要用到外部类的对象，可在其内部声明一个弱引用引用外部类。</li>
+<li>
+<p>类的静态变量持有大数据对象 静态变量长期维持到大数据对象的引用，阻止垃圾回收。</p>
+</li>
+<li>
+<p>非静态内部类存在静态实例 非静态内部类会维持一个到外部类实例的引用，如果非静态内部类的实例是静态的，就会间接长期维持着外部类的引用，阻止被回收掉。</p>
+</li>
+<li>
+<p>资源对象未关闭 资源性对象比如（Cursor，File文件等）往往都用了一些缓冲，我们在不使用的时候，应该及时关闭它们，以便它们的缓冲及时回收内存。它们的缓冲不仅存在于java虚拟机内，还存在于java虚拟机外。 如果我们仅仅是把它的引用设置为null,而不关闭它们，往往会造成内存泄露。 解决办法： 比如SQLiteCursor（在析构函数finalize（）,如果我们没有关闭它，它自己会调close()关闭）， 如果我们没有关闭它，系统在回收它时也会关闭它，但是这样的效率太低了。 因此对于资源性对象在不使用的时候，应该调用它的close()函数，将其关闭掉，然后才置为null. 在我们的程序退出时一定要确保我们的资源性对象已经关闭。程序中经常会进行查询数据库的操作，但是经常会有使用完毕Cursor后没有关闭的情况。如果我们的查询结果集比较小，对内存的消耗不容易被发现，只有在常时间大量操作的情况下才会复现内存问题，这样就会给以后的测试和问题排查带来困难和风险，记得try catch后，在finally方法中关闭连接</p>
+</li>
+<li>
+<p>Handler内存泄漏  Handler作为内部类存在于Activity中，但是Handler生命周期与Activity生命周期往往并不是相同的，比如当Handler对象有Message在排队，则无法释放，进而导致本该释放的Acitivity也没有办法进行回收。 解决办法：</p>
+</li>
+<li>
+<p>声明handler为static类，这样内部类就不再持有外部类的引用了，就不会阻塞Activity的释放</p>
+</li>
+<li>
+<p>如果内部类实在需要用到外部类的对象，可在其内部声明一个弱引用引用外部类。</p>
+</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> public class MainActivity extends Activity &#123;</span><br><span class="line">  private CustomHandler mHandler;</span><br><span class="line"></span><br><span class="line">  @Override</span><br><span class="line">  protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">      super.onCreate(savedInstanceState);</span><br><span class="line">      mHandler = new CustomHandler(this);</span><br><span class="line">  &#125;</span><br><span class="line">  static class CustomHandlerextends Handler &#123;</span><br><span class="line">     // 内部声明一个弱引用，引用外部类</span><br><span class="line">     private WeakReference&lt;MainActivity &gt; activityWeakReference;</span><br><span class="line">     public MyHandler(MyActivity activity) &#123;</span><br><span class="line">         activityWeakReference= new WeakReference&lt;MainActivity &gt;(activity);</span><br><span class="line">     &#125;</span><br><span class="line">             // ... ...   </span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"> public class MainActivity extends Activity &#123;</span><br><span class="line">  private CustomHandler mHandler;</span><br><span class="line"></span><br><span class="line">  @Override</span><br><span class="line">  protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">      super.onCreate(savedInstanceState);</span><br><span class="line">      mHandler = new CustomHandler(this);</span><br><span class="line">  &#125;</span><br><span class="line">  static class CustomHandlerextends Handler &#123;</span><br><span class="line">     // 内部声明一个弱引用，引用外部类</span><br><span class="line">     private WeakReference&lt;MainActivity &gt; activityWeakReference;</span><br><span class="line">     public MyHandler(MyActivity activity) &#123;</span><br><span class="line">         activityWeakReference= new WeakReference&lt;MainActivity &gt;(activity);</span><br><span class="line">     &#125;</span><br><span class="line">             // ... ...   </span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>在Activity onStop或者onDestroy的时候，取消掉该Handler对象的Message和Runnable</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Override</span><br><span class="line">public void onDestroy() &#123;</span><br><span class="line"> //  If null, all callbacks and messages will be removed.</span><br><span class="line"> mHandler.removeCallbacksAndMessages(null);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Override</span><br><span class="line">public void onDestroy() &#123;</span><br><span class="line"> //  If null, all callbacks and messages will be removed.</span><br><span class="line"> mHandler.removeCallbacksAndMessages(null);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>一些不良代码习惯 有些代码并不造成内存泄露，但是他们的资源没有得到重用，频繁的申请内存和销毁内存，消耗CPU资源的同时，也引起内存抖动 解决方案 如果需要频繁的申请内存对象和和释放对象，可以考虑使用对象池来增加对象的复用。 例如ListView便是采用这种思想，通过复用converview来避免频繁的GC</li>
-</ul>
-</li>
 </ul>
 <p>6.2 如何避免 OOM 问题的出现</p>
 <ol>
@@ -650,8 +701,9 @@
 <li>避免在onDraw方法里面执行对象的创建 类似onDraw等频繁调用的方法，一定需要注意避免在这里做创建对象的操作，因为他会迅速增加内存的使用，而且很容易引起频繁的gc，甚至是内存抖动。</li>
 <li>避免对象的内存泄露 android中内存泄漏的场景以及解决办法，参考上一问</li>
 </ol>
-<h6 id="7-ANR-系列问题"><a href="#7-ANR-系列问题" class="headerlink" title="7. ANR 系列问题"></a>7. ANR 系列问题</h6><p>7.1 什么ANR</p>
-<p>  ANR全称Application Not Responding，意思就是程序未响应。如果一个应用无法响应用户的输入，系统就会弹出一个ANR对话框，用户可以自行选择继续等待亦或者是停止当前程序。一旦出现下面两种情况，则弹出ANR对话框</p>
+<h6 id="7-anr-系列问题"><a class="header-anchor" href="#7-anr-系列问题">¶</a>7. ANR 系列问题</h6>
+<p>7.1 什么ANR</p>
+<p>ANR全称Application Not Responding，意思就是程序未响应。如果一个应用无法响应用户的输入，系统就会弹出一个ANR对话框，用户可以自行选择继续等待亦或者是停止当前程序。一旦出现下面两种情况，则弹出ANR对话框</p>
 <ul>
 <li>应用在5秒内未响应用户的输入事件（如按键或者触摸）</li>
 <li>BroadcastReceiver未在10秒内完成相关的处理</li>
@@ -671,9 +723,10 @@
 <li>Activity的onCreate和onResume回调中尽量避免耗时的代码</li>
 <li>BroadcastReceiver中onReceive代码也要尽量减少耗时操作建议使用IntentService处理。IntentService是一个异步的，会自动停止的服务，很好解决了传统的Service中处理完耗时操作忘记停止并销毁Service的问题</li>
 </ul>
-<h6 id="8-Asynctask问题"><a href="#8-Asynctask问题" class="headerlink" title="8. Asynctask问题"></a>8. Asynctask问题</h6><p> 8.1 AsynTask为什么要设计为只能够一次任务？</p>
-<p> 最核心的还是线程安全问题，多个子线程同时运行，会产生状态不一致的问题。所以要务必保证只能够执行一次</p>
-<p> 8.2 AsynTask造成的内存泄露的问题怎么解决，》比如非静态内部类AsynTask会隐式地持有外部类的引用，如果其生命周期大于外部activity的生命周期，就会出现内存泄漏</p>
+<h6 id="8-asynctask问题"><a class="header-anchor" href="#8-asynctask问题">¶</a>8. Asynctask问题</h6>
+<p>8.1 AsynTask为什么要设计为只能够一次任务？</p>
+<p>最核心的还是线程安全问题，多个子线程同时运行，会产生状态不一致的问题。所以要务必保证只能够执行一次</p>
+<p>8.2 AsynTask造成的内存泄露的问题怎么解决，》比如非静态内部类AsynTask会隐式地持有外部类的引用，如果其生命周期大于外部activity的生命周期，就会出现内存泄漏</p>
 <ul>
 <li>注意要复写AsynTask的onCancel方法，把里面的socket，file等，该关掉的要及时关掉</li>
 <li>在 Activity 的onDestory()方法中调用Asyntask.cancal方法</li>
@@ -684,7 +737,8 @@
 <p>同样也是生命周期的问题，在 Activity 的onDestory()方法中调用Asyntask.cancal方法，让二者的生命周期同步</p>
 <p>8.4 Activity销毁但Task如果没有销毁掉，当Activity重启时这个AsyncTask该如何解决？</p>
 <p>还是屏幕旋转这个例子，在重建Activity的时候，会回掉Activity.onRetainNonConfigurationInstance()重新传递一个新的对象给AsyncTask，完成引用的更新</p>
-<h6 id="9-Android触摸分发机制"><a href="#9-Android触摸分发机制" class="headerlink" title="9. Android触摸分发机制"></a>9. Android触摸分发机制</h6><p>9.1 介绍触摸事件的分发机制</p>
+<h6 id="9-android触摸分发机制"><a class="header-anchor" href="#9-android触摸分发机制">¶</a>9. Android触摸分发机制</h6>
+<p>9.1 介绍触摸事件的分发机制</p>
 <p><img src="../images/touch.jpg" alt="touch"></p>
 <p>(1) 事件从Activity.dispatchTouchEvent()开始传递，只要没有被停止或拦截，从最上层的View(ViewGroup)开始一直往下(子View)传递。子View可以通过onTouchEvent()对事件进行处理。</p>
 <p>(2) 事件由父View(ViewGroup)传递给子View，ViewGroup可以通过onInterceptTouchEvent()对事件做拦截，停止其往下传递。</p>
@@ -711,7 +765,8 @@
 <li>onTouchEvent()</li>
 <li>onClick()</li>
 </ol>
-<h6 id="10-Dalvik虚拟机系列问题"><a href="#10-Dalvik虚拟机系列问题" class="headerlink" title="10. Dalvik虚拟机系列问题"></a>10. Dalvik虚拟机系列问题</h6><p>10.1  什么是Dalvik虚拟机？</p>
+<h6 id="10-dalvik虚拟机系列问题"><a class="header-anchor" href="#10-dalvik虚拟机系列问题">¶</a>10. Dalvik虚拟机系列问题</h6>
+<p>10.1  什么是Dalvik虚拟机？</p>
 <p>Dalvik虚拟机是Android平台的核心。它可以支持.dex格式的程序的运行，.dex格式是专为Dalvik设计的一种压缩格式，可以减少整体文件尺寸，提高I/O操作的速度，适合内存和处理器速度有限的系统。</p>
 <p>10.2  Dalvik虚拟机的作用是什么？</p>
 <p>Dalvik虚拟机主要是完成对象生命周期管理，内存回收，堆栈管理，线程管理，安全和异常管理等等重要功能。</p>
@@ -724,27 +779,36 @@
 <ul>
 <li>每一个Android应用在底层都会对应一个独立的Dalvik虚拟机实例，其代码在虚拟机的解释下得以执行 ，而所有的Android应用的线程都对应一个Linux线程</li>
 </ul>
-<h6 id="11-注册广播接收器有哪几种方式-有什么区别"><a href="#11-注册广播接收器有哪几种方式-有什么区别" class="headerlink" title="11.注册广播接收器有哪几种方式,有什么区别"></a>11.注册广播接收器有哪几种方式,有什么区别</h6><ul>
+<h6 id="11-注册广播接收器有哪几种方式-有什么区别"><a class="header-anchor" href="#11-注册广播接收器有哪几种方式-有什么区别">¶</a>11.注册广播接收器有哪几种方式,有什么区别</h6>
+<ul>
 <li>静态注册：在AndroidManifest.xml文件中进行注册，当App退出后，Receiver仍然可以接收到广播并且进行相应的处理</li>
 <li>动态注册：在代码中动态注册，当App退出后，也就没办法再接受广播了</li>
 </ul>
-<h6 id="12-显示Intent与隐式Intent的区别"><a href="#12-显示Intent与隐式Intent的区别" class="headerlink" title="12. 显示Intent与隐式Intent的区别"></a>12. 显示Intent与隐式Intent的区别</h6><p>对明确指出了目标组件名称的Intent，我们称之为“显式Intent”。 对于没有明确指出目标组件名称的Intent，则称之为“隐式 Intent”。</p>
+<h6 id="12-显示intent与隐式intent的区别"><a class="header-anchor" href="#12-显示intent与隐式intent的区别">¶</a>12. 显示Intent与隐式Intent的区别</h6>
+<p>对明确指出了目标组件名称的Intent，我们称之为“显式Intent”。 对于没有明确指出目标组件名称的Intent，则称之为“隐式 Intent”。</p>
 <p>对于隐式意图，在定义Activity时，指定一个intent-filter，当一个隐式意图对象被一个意图过滤器进行匹配时，将有三个方面会被参考到：</p>
 <ul>
 <li>动作(Action)</li>
-<li>类别(Category [‘kætɪg(ə)rɪ] )</li>
+<li>类别(Category ['kætɪg(ə)rɪ] )</li>
 <li>数据(Data )</li>
 </ul>
-<h6 id="13-Android中的动画有哪些，区别是什么"><a href="#13-Android中的动画有哪些，区别是什么" class="headerlink" title="13. Android中的动画有哪些，区别是什么"></a>13. Android中的动画有哪些，区别是什么</h6><ul>
+<h6 id="13-android中的动画有哪些-区别是什么"><a class="header-anchor" href="#13-android中的动画有哪些-区别是什么">¶</a>13. Android中的动画有哪些，区别是什么</h6>
+<ul>
 <li>逐帧动画(Drawable Animation)：加载一系列Drawable资源来创建动画，简单来说就是播放一系列的图片来实现动画效果，可以自定义每张图片的持续时间</li>
 <li>补间动画(Tween Animation)：Tween可以对View对象实现一系列简单的动画效果，比如位移，缩放，旋转，透明度等等。但是它并不会改变View属性的值，只是改变了View的绘制的位置，比如，一个按钮在动画过后，不在原来的位置，但是触发点击事件的仍然是原来的坐标。</li>
 <li>属性动画(Property Animation)： 动画的对象除了传统的View对象，还可以是Object对象，动画结束后，Object对象的属性值被实实在在的改变了</li>
 </ul>
-<h6 id="14-不使用动画，怎么实现一个动态的-View？"><a href="#14-不使用动画，怎么实现一个动态的-View？" class="headerlink" title="14. 不使用动画，怎么实现一个动态的 View？"></a>14. 不使用动画，怎么实现一个动态的 View？</h6><h6 id="15-Postvalidata与Validata有什么区别？"><a href="#15-Postvalidata与Validata有什么区别？" class="headerlink" title="15. Postvalidata与Validata有什么区别？"></a>15. Postvalidata与Validata有什么区别？</h6><h6 id="16-如何自定义ViewGroup？"><a href="#16-如何自定义ViewGroup？" class="headerlink" title="16. 如何自定义ViewGroup？"></a>16. 如何自定义ViewGroup？</h6><h6 id="17-View的绘制流程"><a href="#17-View的绘制流程" class="headerlink" title="17. View的绘制流程"></a>17. View的绘制流程</h6><p><img src="../images/view.png" alt="view"><br><br>measure()方法，layout()，draw()三个方法主要存放了一些标识符，来判断每个View是否需要再重新测量，布局或者绘制，主要的绘制过程还是在onMeasure，onLayout，onDraw这个三个方法中</p>
+<h6 id="14-不使用动画-怎么实现一个动态的-view？"><a class="header-anchor" href="#14-不使用动画-怎么实现一个动态的-view？">¶</a>14. 不使用动画，怎么实现一个动态的 View？</h6>
+<h6 id="15-postvalidata与validata有什么区别？"><a class="header-anchor" href="#15-postvalidata与validata有什么区别？">¶</a>15. Postvalidata与Validata有什么区别？</h6>
+<h6 id="16-如何自定义viewgroup？"><a class="header-anchor" href="#16-如何自定义viewgroup？">¶</a>16. 如何自定义ViewGroup？</h6>
+<h6 id="17-view的绘制流程"><a class="header-anchor" href="#17-view的绘制流程">¶</a>17. View的绘制流程</h6>
+<p><img src="../images/view.png" alt="view"><br><br>
+measure()方法，layout()，draw()三个方法主要存放了一些标识符，来判断每个View是否需要再重新测量，布局或者绘制，主要的绘制过程还是在onMeasure，onLayout，onDraw这个三个方法中</p>
 <ol>
 <li>onMesarue() 为整个View树计算实际的大小，即设置实际的高(对应属性:mMeasuredHeight)和宽(对应属性: mMeasureWidth)，每个View的控件的实际宽高都是由父视图和本身视图决定的。</li>
 <li>onLayout() 为将整个根据子视图的大小以及布局参数将View树放到合适的位置上。</li>
-<li>onDraw() 开始绘制图像，绘制的流程如下<ol>
+<li>onDraw() 开始绘制图像，绘制的流程如下
+<ol>
 <li>首先绘制该View的背景</li>
 <li>调用onDraw()方法绘制视图本身 (每个View都需要重载该方法，ViewGroup不需要实现该方法)</li>
 <li>如果该View是ViewGroup，调用dispatchDraw ()方法绘制子视图</li>
@@ -752,29 +816,64 @@
 </ol>
 </li>
 </ol>
-<h6 id="18-数据持久化的四种方式有哪些？"><a href="#18-数据持久化的四种方式有哪些？" class="headerlink" title="18. 数据持久化的四种方式有哪些？"></a>18. 数据持久化的四种方式有哪些？</h6><ol>
+<h6 id="18-数据持久化的四种方式有哪些？"><a class="header-anchor" href="#18-数据持久化的四种方式有哪些？">¶</a>18. 数据持久化的四种方式有哪些？</h6>
+<ol>
 <li>文件存储： 通过java.io.FileInputStream和java.io.FileOutputStream这两个类来实现对文件的读写，java.io.File类则用来构造一个具体指向某个文件或者文件夹的对象。</li>
 <li>SharedPreferences： SharedPreferences是一种轻量级的数据存储机制，他将一些简单的数据类型的数据，包括boolean类型，int类型，float类型，long类型以及String类型的数据，以键值对的形式存储在应用程序的私有Preferences目录（/data/data/&lt;包名&gt;/shared_prefs/）中，这种Preferences机制广泛应用于存储应用程序中的配置信息。</li>
 <li>SQLite数据库： 当应用程序需要处理的数据量比较大时，为了更加合理地存储、管理、查询数据，我们往往使用关系数据库来存储数据。Android系统的很多用户数据，如联系人信息，通话记录，短信息等，都是存储在SQLite数据库当中的，所以利用操作SQLite数据库的API可以同样方便的访问和修改这些数据。</li>
 <li>ContentProvider: 主要用于在不同的应用程序之间实现数据共享的功能，不同于sharepreference和文件存储中的两种全局可读写操作模式，内容提供其可以选择只对哪一部分数据进行共享，从而保证我们程序中的隐私数据不会有泄漏的风险</li>
 </ol>
-<h6 id="19-fragement里面可以再嵌套fragment？"><a href="#19-fragement里面可以再嵌套fragment？" class="headerlink" title="19. fragement里面可以再嵌套fragment？"></a>19. fragement里面可以再嵌套fragment？</h6><h6 id="20-Socker编程的步骤"><a href="#20-Socker编程的步骤" class="headerlink" title="20. Socker编程的步骤"></a>20. Socker编程的步骤</h6><h6 id="21-Activity中如何动态的添加Fragment"><a href="#21-Activity中如何动态的添加Fragment" class="headerlink" title="21. Activity中如何动态的添加Fragment"></a>21. Activity中如何动态的添加Fragment</h6><h6 id="22-Scrollview怎么判断是否滑倒底部"><a href="#22-Scrollview怎么判断是否滑倒底部" class="headerlink" title="22. Scrollview怎么判断是否滑倒底部"></a>22. Scrollview怎么判断是否滑倒底部</h6><h6 id="23-什么是-MVC-模式？MVC-模式的好处是什么？"><a href="#23-什么是-MVC-模式？MVC-模式的好处是什么？" class="headerlink" title="23. 什么是 MVC 模式？MVC 模式的好处是什么？"></a>23. 什么是 MVC 模式？MVC 模式的好处是什么？</h6><h6 id="24-应用常驻后台，避免被第三方杀掉的方法，讲讲你用过的奇淫巧技？"><a href="#24-应用常驻后台，避免被第三方杀掉的方法，讲讲你用过的奇淫巧技？" class="headerlink" title="24. 应用常驻后台，避免被第三方杀掉的方法，讲讲你用过的奇淫巧技？"></a>24. 应用常驻后台，避免被第三方杀掉的方法，讲讲你用过的奇淫巧技？</h6><ol>
-<li>Service设置成START_STICKY kill 后会被重启（等待5秒左右），重传Intent，保持与重启前一样</li>
-<li>通过 startForeground将进程设置为前台进程， 做前台服务，优先级和前台应用一个级别​，除非在系统内存非常缺，否则此进程不会被 kill</li>
-<li>双进程Service： 让2个进程互相保护**，其中一个Service被清理后，另外没被清理的进程可以立即重启进程</li>
-<li>QQ黑科技: 在应用退到后台后，另起一个只有 1 像素的页面停留在桌面上，让自己保持前台状态，保护自己不被后台清理工具杀死</li>
-<li><p>在已经root的设备下，修改相应的权限文件,将App伪装成系统级的应用 Android4.0系列的一个漏洞，已经确认可行</p>
+<h6 id="19-fragement里面可以再嵌套fragment？"><a class="header-anchor" href="#19-fragement里面可以再嵌套fragment？">¶</a>19. fragement里面可以再嵌套fragment？</h6>
+<h6 id="20-socker编程的步骤"><a class="header-anchor" href="#20-socker编程的步骤">¶</a>20. Socker编程的步骤</h6>
+<h6 id="21-activity中如何动态的添加fragment"><a class="header-anchor" href="#21-activity中如何动态的添加fragment">¶</a>21. Activity中如何动态的添加Fragment</h6>
+<h6 id="22-scrollview怎么判断是否滑倒底部"><a class="header-anchor" href="#22-scrollview怎么判断是否滑倒底部">¶</a>22. Scrollview怎么判断是否滑倒底部</h6>
+<h6 id="23-什么是-mvc-模式？mvc-模式的好处是什么？"><a class="header-anchor" href="#23-什么是-mvc-模式？mvc-模式的好处是什么？">¶</a>23. 什么是 MVC 模式？MVC 模式的好处是什么？</h6>
+<h6 id="24-应用常驻后台-避免被第三方杀掉的方法-讲讲你用过的奇淫巧技？"><a class="header-anchor" href="#24-应用常驻后台-避免被第三方杀掉的方法-讲讲你用过的奇淫巧技？">¶</a>24. 应用常驻后台，避免被第三方杀掉的方法，讲讲你用过的奇淫巧技？</h6>
+<ol>
+<li>
+<p>Service设置成START_STICKY kill 后会被重启（等待5秒左右），重传Intent，保持与重启前一样</p>
 </li>
-<li><p>用C编写守护进程(即子进程) : Android系统中当前进程(Process)fork出来的子进程，被系统认为是两个不同的进程。当父进程被杀死的时候，子进程仍然可以存活，并不受影响。鉴于目前提到的在Android-&gt;- Service层做双守护都会失败，我们可以fork出c进程，多进程守护。死循环在那检查是否还存在，具体的思路如下（Android5.0以上的版本不可行）</p>
+<li>
+<p>通过 startForeground将进程设置为前台进程， 做前台服务，优先级和前台应用一个级别​，除非在系统内存非常缺，否则此进程不会被 kill</p>
 </li>
-<li>用C编写守护进程(即子进程)，守护进程做的事情就是循环检查目标进程是否存在，不存在则启动它。</li>
-<li>在NDK环境中将1中编写的C代码编译打包成可执行文件(BUILD_EXECUTABLE)。主进程启动时将守护进程放入私有目录下，赋予可执行权限，启动它即可。</li>
-<li>联系厂商，加入白名单</li>
+<li>
+<p>双进程Service： 让2个进程互相保护**，其中一个Service被清理后，另外没被清理的进程可以立即重启进程</p>
+</li>
+<li>
+<p>QQ黑科技: 在应用退到后台后，另起一个只有 1 像素的页面停留在桌面上，让自己保持前台状态，保护自己不被后台清理工具杀死</p>
+</li>
+<li>
+<p>在已经root的设备下，修改相应的权限文件,将App伪装成系统级的应用 Android4.0系列的一个漏洞，已经确认可行</p>
+</li>
+<li>
+<p>用C编写守护进程(即子进程) : Android系统中当前进程(Process)fork出来的子进程，被系统认为是两个不同的进程。当父进程被杀死的时候，子进程仍然可以存活，并不受影响。鉴于目前提到的在Android-&gt;- Service层做双守护都会失败，我们可以fork出c进程，多进程守护。死循环在那检查是否还存在，具体的思路如下（Android5.0以上的版本不可行）</p>
+</li>
+<li>
+<p>用C编写守护进程(即子进程)，守护进程做的事情就是循环检查目标进程是否存在，不存在则启动它。</p>
+</li>
+<li>
+<p>在NDK环境中将1中编写的C代码编译打包成可执行文件(BUILD_EXECUTABLE)。主进程启动时将守护进程放入私有目录下，赋予可执行权限，启动它即可。</p>
+</li>
+<li>
+<p>联系厂商，加入白名单</p>
+</li>
 </ol>
-<h6 id="25-Context与ApplicationContext的区别，分别用在什么情况下"><a href="#25-Context与ApplicationContext的区别，分别用在什么情况下" class="headerlink" title="25.Context与ApplicationContext的区别，分别用在什么情况下"></a>25.Context与ApplicationContext的区别，分别用在什么情况下</h6><p>Application的Context是一个全局静态变量，SDK的说明是只有当你引用这个context的生命周期超过了当前activity的生命周期，而和整个应用的生命周期挂钩时，才去使用这个application的context。</p>
+<h6 id="25-context与applicationcontext的区别-分别用在什么情况下"><a class="header-anchor" href="#25-context与applicationcontext的区别-分别用在什么情况下">¶</a>25.Context与ApplicationContext的区别，分别用在什么情况下</h6>
+<p>Application的Context是一个全局静态变量，SDK的说明是只有当你引用这个context的生命周期超过了当前activity的生命周期，而和整个应用的生命周期挂钩时，才去使用这个application的context。</p>
 <p>在android中context可以作很多操作，但是最主要的功能是加载和访问资源。在android中有两种context，一种是 application context，一种是activity context，通常我们在各种类和方法间传递的是activity context。</p>
-<h6 id="26-同一个应用程序的不同Activity可以运行在不同的进程中么？如果可以，举例说明；"><a href="#26-同一个应用程序的不同Activity可以运行在不同的进程中么？如果可以，举例说明；" class="headerlink" title="26. 同一个应用程序的不同Activity可以运行在不同的进程中么？如果可以，举例说明；"></a>26. 同一个应用程序的不同Activity可以运行在不同的进程中么？如果可以，举例说明；</h6><h6 id="27-Java中的线程同步有哪几种方式，举例说明；"><a href="#27-Java中的线程同步有哪几种方式，举例说明；" class="headerlink" title="27. Java中的线程同步有哪几种方式，举例说明；"></a>27. Java中的线程同步有哪几种方式，举例说明；</h6><h6 id="28-dp-dip-dpi-px-sp是什么意思以及他们的换算公式？layout-sw400dp-layout-h400dp分别代表什么意思；"><a href="#28-dp-dip-dpi-px-sp是什么意思以及他们的换算公式？layout-sw400dp-layout-h400dp分别代表什么意思；" class="headerlink" title="28. dp, dip, dpi, px, sp是什么意思以及他们的换算公式？layout-sw400dp, layout-h400dp分别代表什么意思；"></a>28. dp, dip, dpi, px, sp是什么意思以及他们的换算公式？layout-sw400dp, layout-h400dp分别代表什么意思；</h6><h6 id="29-如何让两个TextView在一个RelativeLayout水平居中显示；"><a href="#29-如何让两个TextView在一个RelativeLayout水平居中显示；" class="headerlink" title="29. 如何让两个TextView在一个RelativeLayout水平居中显示；"></a>29. 如何让两个TextView在一个RelativeLayout水平居中显示；</h6><h6 id="30-如何画出一个印章的图案"><a href="#30-如何画出一个印章的图案" class="headerlink" title="30. 如何画出一个印章的图案"></a>30. 如何画出一个印章的图案</h6><h6 id="31-如何实现一个字体的描边与阴影效果"><a href="#31-如何实现一个字体的描边与阴影效果" class="headerlink" title="31. 如何实现一个字体的描边与阴影效果"></a>31. 如何实现一个字体的描边与阴影效果</h6><h6 id="32-设计一个从网络请求数据，图片，并加载到列表的系统，画出客户端架构并简单的分析下；"><a href="#32-设计一个从网络请求数据，图片，并加载到列表的系统，画出客户端架构并简单的分析下；" class="headerlink" title="32. 设计一个从网络请求数据，图片，并加载到列表的系统，画出客户端架构并简单的分析下；"></a>32. 设计一个从网络请求数据，图片，并加载到列表的系统，画出客户端架构并简单的分析下；</h6><h6 id="33-设计一个文件的断点续传系统"><a href="#33-设计一个文件的断点续传系统" class="headerlink" title="33. 设计一个文件的断点续传系统"></a>33. 设计一个文件的断点续传系统</h6><h6 id="34-设计一个图片缓存加载机制"><a href="#34-设计一个图片缓存加载机制" class="headerlink" title="34. 设计一个图片缓存加载机制"></a>34. 设计一个图片缓存加载机制</h6><p>数据结构与算法部分：</p>
-<p>作者：闭关写代码<br>链接：<a href="https://www.nowcoder.com/discuss/3244" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/3244</a><br>来源：牛客网</p>
+<h6 id="26-同一个应用程序的不同activity可以运行在不同的进程中么？如果可以-举例说明；"><a class="header-anchor" href="#26-同一个应用程序的不同activity可以运行在不同的进程中么？如果可以-举例说明；">¶</a>26. 同一个应用程序的不同Activity可以运行在不同的进程中么？如果可以，举例说明；</h6>
+<h6 id="27-java中的线程同步有哪几种方式-举例说明；"><a class="header-anchor" href="#27-java中的线程同步有哪几种方式-举例说明；">¶</a>27. Java中的线程同步有哪几种方式，举例说明；</h6>
+<h6 id="28-dp-dip-dpi-px-sp是什么意思以及他们的换算公式？layout-sw400dp-layout-h400dp分别代表什么意思；"><a class="header-anchor" href="#28-dp-dip-dpi-px-sp是什么意思以及他们的换算公式？layout-sw400dp-layout-h400dp分别代表什么意思；">¶</a>28. dp, dip, dpi, px, sp是什么意思以及他们的换算公式？layout-sw400dp, layout-h400dp分别代表什么意思；</h6>
+<h6 id="29-如何让两个textview在一个relativelayout水平居中显示；"><a class="header-anchor" href="#29-如何让两个textview在一个relativelayout水平居中显示；">¶</a>29. 如何让两个TextView在一个RelativeLayout水平居中显示；</h6>
+<h6 id="30-如何画出一个印章的图案"><a class="header-anchor" href="#30-如何画出一个印章的图案">¶</a>30. 如何画出一个印章的图案</h6>
+<h6 id="31-如何实现一个字体的描边与阴影效果"><a class="header-anchor" href="#31-如何实现一个字体的描边与阴影效果">¶</a>31. 如何实现一个字体的描边与阴影效果</h6>
+<h6 id="32-设计一个从网络请求数据-图片-并加载到列表的系统-画出客户端架构并简单的分析下；"><a class="header-anchor" href="#32-设计一个从网络请求数据-图片-并加载到列表的系统-画出客户端架构并简单的分析下；">¶</a>32. 设计一个从网络请求数据，图片，并加载到列表的系统，画出客户端架构并简单的分析下；</h6>
+<h6 id="33-设计一个文件的断点续传系统"><a class="header-anchor" href="#33-设计一个文件的断点续传系统">¶</a>33. 设计一个文件的断点续传系统</h6>
+<h6 id="34-设计一个图片缓存加载机制"><a class="header-anchor" href="#34-设计一个图片缓存加载机制">¶</a>34. 设计一个图片缓存加载机制</h6>
+<p>数据结构与算法部分：</p>
+<p>作者：闭关写代码<br>
+链接：<a href="https://www.nowcoder.com/discuss/3244" target="_blank" rel="noopener">https://www.nowcoder.com/discuss/3244</a><br>
+来源：牛客网</p>
 <ol>
 <li>给最外层的rootview，把这个根视图下的全部button背景设置成红色，手写代码，不许用递归</li>
 <li>给一串字符串比如abbbcccd，输出a1b3c3d1，手写代码（注意有个别字符可能会出现十次以上的情况）</li>
@@ -846,8 +945,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/03/Spring常用注解/" rel="next" title="Spring常用注解">
-                <i class="fa fa-chevron-left"></i> Spring常用注解
+              <a href="/2017/07/03/Dao层、Service层、Controller层、View层/" rel="next" title="Dao层、Service层、Controller层、View层">
+                <i class="fa fa-chevron-left"></i> Dao层、Service层、Controller层、View层
               </a>
             
           </div>
@@ -949,8 +1048,6 @@
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
                     
-                    
-                      
                     
                       
                     
@@ -1062,7 +1159,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Android部分（重点部分）"><span class="nav-number">1.</span> <span class="nav-text">Android部分（重点部分）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-Activity系列问题"><span class="nav-number">1.0.1.</span> <span class="nav-text">1. Activity系列问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-Service系列问题"><span class="nav-number">1.0.2.</span> <span class="nav-text">2. Service系列问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-Handle系列问题"><span class="nav-number">1.0.3.</span> <span class="nav-text">3. Handle系列问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#ListView系列问题"><span class="nav-number">1.0.4.</span> <span class="nav-text">ListView系列问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-JNI系列问题"><span class="nav-number">1.0.5.</span> <span class="nav-text">5. JNI系列问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#6-OOM系列问题"><span class="nav-number">1.0.6.</span> <span class="nav-text">6.OOM系列问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#7-ANR-系列问题"><span class="nav-number">1.0.7.</span> <span class="nav-text">7. ANR 系列问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#8-Asynctask问题"><span class="nav-number">1.0.8.</span> <span class="nav-text">8. Asynctask问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#9-Android触摸分发机制"><span class="nav-number">1.0.9.</span> <span class="nav-text">9. Android触摸分发机制</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#10-Dalvik虚拟机系列问题"><span class="nav-number">1.0.10.</span> <span class="nav-text">10. Dalvik虚拟机系列问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#11-注册广播接收器有哪几种方式-有什么区别"><span class="nav-number">1.0.11.</span> <span class="nav-text">11.注册广播接收器有哪几种方式,有什么区别</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#12-显示Intent与隐式Intent的区别"><span class="nav-number">1.0.12.</span> <span class="nav-text">12. 显示Intent与隐式Intent的区别</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#13-Android中的动画有哪些，区别是什么"><span class="nav-number">1.0.13.</span> <span class="nav-text">13. Android中的动画有哪些，区别是什么</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#14-不使用动画，怎么实现一个动态的-View？"><span class="nav-number">1.0.14.</span> <span class="nav-text">14. 不使用动画，怎么实现一个动态的 View？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#15-Postvalidata与Validata有什么区别？"><span class="nav-number">1.0.15.</span> <span class="nav-text">15. Postvalidata与Validata有什么区别？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#16-如何自定义ViewGroup？"><span class="nav-number">1.0.16.</span> <span class="nav-text">16. 如何自定义ViewGroup？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#17-View的绘制流程"><span class="nav-number">1.0.17.</span> <span class="nav-text">17. View的绘制流程</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#18-数据持久化的四种方式有哪些？"><span class="nav-number">1.0.18.</span> <span class="nav-text">18. 数据持久化的四种方式有哪些？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#19-fragement里面可以再嵌套fragment？"><span class="nav-number">1.0.19.</span> <span class="nav-text">19. fragement里面可以再嵌套fragment？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#20-Socker编程的步骤"><span class="nav-number">1.0.20.</span> <span class="nav-text">20. Socker编程的步骤</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#21-Activity中如何动态的添加Fragment"><span class="nav-number">1.0.21.</span> <span class="nav-text">21. Activity中如何动态的添加Fragment</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#22-Scrollview怎么判断是否滑倒底部"><span class="nav-number">1.0.22.</span> <span class="nav-text">22. Scrollview怎么判断是否滑倒底部</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#23-什么是-MVC-模式？MVC-模式的好处是什么？"><span class="nav-number">1.0.23.</span> <span class="nav-text">23. 什么是 MVC 模式？MVC 模式的好处是什么？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#24-应用常驻后台，避免被第三方杀掉的方法，讲讲你用过的奇淫巧技？"><span class="nav-number">1.0.24.</span> <span class="nav-text">24. 应用常驻后台，避免被第三方杀掉的方法，讲讲你用过的奇淫巧技？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#25-Context与ApplicationContext的区别，分别用在什么情况下"><span class="nav-number">1.0.25.</span> <span class="nav-text">25.Context与ApplicationContext的区别，分别用在什么情况下</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#26-同一个应用程序的不同Activity可以运行在不同的进程中么？如果可以，举例说明；"><span class="nav-number">1.0.26.</span> <span class="nav-text">26. 同一个应用程序的不同Activity可以运行在不同的进程中么？如果可以，举例说明；</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#27-Java中的线程同步有哪几种方式，举例说明；"><span class="nav-number">1.0.27.</span> <span class="nav-text">27. Java中的线程同步有哪几种方式，举例说明；</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#28-dp-dip-dpi-px-sp是什么意思以及他们的换算公式？layout-sw400dp-layout-h400dp分别代表什么意思；"><span class="nav-number">1.0.28.</span> <span class="nav-text">28. dp, dip, dpi, px, sp是什么意思以及他们的换算公式？layout-sw400dp, layout-h400dp分别代表什么意思；</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#29-如何让两个TextView在一个RelativeLayout水平居中显示；"><span class="nav-number">1.0.29.</span> <span class="nav-text">29. 如何让两个TextView在一个RelativeLayout水平居中显示；</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#30-如何画出一个印章的图案"><span class="nav-number">1.0.30.</span> <span class="nav-text">30. 如何画出一个印章的图案</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#31-如何实现一个字体的描边与阴影效果"><span class="nav-number">1.0.31.</span> <span class="nav-text">31. 如何实现一个字体的描边与阴影效果</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#32-设计一个从网络请求数据，图片，并加载到列表的系统，画出客户端架构并简单的分析下；"><span class="nav-number">1.0.32.</span> <span class="nav-text">32. 设计一个从网络请求数据，图片，并加载到列表的系统，画出客户端架构并简单的分析下；</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#33-设计一个文件的断点续传系统"><span class="nav-number">1.0.33.</span> <span class="nav-text">33. 设计一个文件的断点续传系统</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#34-设计一个图片缓存加载机制"><span class="nav-number">1.0.34.</span> <span class="nav-text">34. 设计一个图片缓存加载机制</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#android部分-重点部分"><span class="nav-number">1.</span> <span class="nav-text">¶Android部分（重点部分）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-activity系列问题"><span class="nav-number">1.0.1.</span> <span class="nav-text">¶1. Activity系列问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-service系列问题"><span class="nav-number">1.0.2.</span> <span class="nav-text">¶2. Service系列问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-handle系列问题"><span class="nav-number">1.0.3.</span> <span class="nav-text">¶3. Handle系列问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#listview系列问题"><span class="nav-number">1.0.4.</span> <span class="nav-text">¶ListView系列问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-jni系列问题"><span class="nav-number">1.0.5.</span> <span class="nav-text">¶5. JNI系列问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#6-oom系列问题"><span class="nav-number">1.0.6.</span> <span class="nav-text">¶6.OOM系列问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#7-anr-系列问题"><span class="nav-number">1.0.7.</span> <span class="nav-text">¶7. ANR 系列问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#8-asynctask问题"><span class="nav-number">1.0.8.</span> <span class="nav-text">¶8. Asynctask问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#9-android触摸分发机制"><span class="nav-number">1.0.9.</span> <span class="nav-text">¶9. Android触摸分发机制</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#10-dalvik虚拟机系列问题"><span class="nav-number">1.0.10.</span> <span class="nav-text">¶10. Dalvik虚拟机系列问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#11-注册广播接收器有哪几种方式-有什么区别"><span class="nav-number">1.0.11.</span> <span class="nav-text">¶11.注册广播接收器有哪几种方式,有什么区别</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#12-显示intent与隐式intent的区别"><span class="nav-number">1.0.12.</span> <span class="nav-text">¶12. 显示Intent与隐式Intent的区别</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#13-android中的动画有哪些-区别是什么"><span class="nav-number">1.0.13.</span> <span class="nav-text">¶13. Android中的动画有哪些，区别是什么</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#14-不使用动画-怎么实现一个动态的-view？"><span class="nav-number">1.0.14.</span> <span class="nav-text">¶14. 不使用动画，怎么实现一个动态的 View？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#15-postvalidata与validata有什么区别？"><span class="nav-number">1.0.15.</span> <span class="nav-text">¶15. Postvalidata与Validata有什么区别？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#16-如何自定义viewgroup？"><span class="nav-number">1.0.16.</span> <span class="nav-text">¶16. 如何自定义ViewGroup？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#17-view的绘制流程"><span class="nav-number">1.0.17.</span> <span class="nav-text">¶17. View的绘制流程</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#18-数据持久化的四种方式有哪些？"><span class="nav-number">1.0.18.</span> <span class="nav-text">¶18. 数据持久化的四种方式有哪些？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#19-fragement里面可以再嵌套fragment？"><span class="nav-number">1.0.19.</span> <span class="nav-text">¶19. fragement里面可以再嵌套fragment？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#20-socker编程的步骤"><span class="nav-number">1.0.20.</span> <span class="nav-text">¶20. Socker编程的步骤</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#21-activity中如何动态的添加fragment"><span class="nav-number">1.0.21.</span> <span class="nav-text">¶21. Activity中如何动态的添加Fragment</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#22-scrollview怎么判断是否滑倒底部"><span class="nav-number">1.0.22.</span> <span class="nav-text">¶22. Scrollview怎么判断是否滑倒底部</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#23-什么是-mvc-模式？mvc-模式的好处是什么？"><span class="nav-number">1.0.23.</span> <span class="nav-text">¶23. 什么是 MVC 模式？MVC 模式的好处是什么？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#24-应用常驻后台-避免被第三方杀掉的方法-讲讲你用过的奇淫巧技？"><span class="nav-number">1.0.24.</span> <span class="nav-text">¶24. 应用常驻后台，避免被第三方杀掉的方法，讲讲你用过的奇淫巧技？</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#25-context与applicationcontext的区别-分别用在什么情况下"><span class="nav-number">1.0.25.</span> <span class="nav-text">¶25.Context与ApplicationContext的区别，分别用在什么情况下</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#26-同一个应用程序的不同activity可以运行在不同的进程中么？如果可以-举例说明；"><span class="nav-number">1.0.26.</span> <span class="nav-text">¶26. 同一个应用程序的不同Activity可以运行在不同的进程中么？如果可以，举例说明；</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#27-java中的线程同步有哪几种方式-举例说明；"><span class="nav-number">1.0.27.</span> <span class="nav-text">¶27. Java中的线程同步有哪几种方式，举例说明；</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#28-dp-dip-dpi-px-sp是什么意思以及他们的换算公式？layout-sw400dp-layout-h400dp分别代表什么意思；"><span class="nav-number">1.0.28.</span> <span class="nav-text">¶28. dp, dip, dpi, px, sp是什么意思以及他们的换算公式？layout-sw400dp, layout-h400dp分别代表什么意思；</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#29-如何让两个textview在一个relativelayout水平居中显示；"><span class="nav-number">1.0.29.</span> <span class="nav-text">¶29. 如何让两个TextView在一个RelativeLayout水平居中显示；</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#30-如何画出一个印章的图案"><span class="nav-number">1.0.30.</span> <span class="nav-text">¶30. 如何画出一个印章的图案</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#31-如何实现一个字体的描边与阴影效果"><span class="nav-number">1.0.31.</span> <span class="nav-text">¶31. 如何实现一个字体的描边与阴影效果</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#32-设计一个从网络请求数据-图片-并加载到列表的系统-画出客户端架构并简单的分析下；"><span class="nav-number">1.0.32.</span> <span class="nav-text">¶32. 设计一个从网络请求数据，图片，并加载到列表的系统，画出客户端架构并简单的分析下；</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#33-设计一个文件的断点续传系统"><span class="nav-number">1.0.33.</span> <span class="nav-text">¶33. 设计一个文件的断点续传系统</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#34-设计一个图片缓存加载机制"><span class="nav-number">1.0.34.</span> <span class="nav-text">¶34. 设计一个图片缓存加载机制</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

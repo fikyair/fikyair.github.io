@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="常用的是注解有如下几种：@Controller@Service@Autowired@RequestMapping@RequestParam@ModelAttribute">
+  <meta name="description" content="¶常用的是注解有如下几种： @Controller @Service @Autowired @RequestMapping @RequestParam @ModelAttribute">
 <meta name="keywords" content="Javaweb,Spring">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring常用注解">
 <meta property="og:url" content="http://yoursite.com/2017/07/03/Spring常用注解/index.html">
 <meta property="og:site_name" content="Ignite">
-<meta property="og:description" content="常用的是注解有如下几种：@Controller@Service@Autowired@RequestMapping@RequestParam@ModelAttribute">
+<meta property="og:description" content="¶常用的是注解有如下几种： @Controller @Service @Autowired @RequestMapping @RequestParam @ModelAttribute">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-08-18T05:42:33.021Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring常用注解">
-<meta name="twitter:description" content="常用的是注解有如下几种：@Controller@Service@Autowired@RequestMapping@RequestParam@ModelAttribute">
+<meta name="twitter:description" content="¶常用的是注解有如下几种： @Controller @Service @Autowired @RequestMapping @RequestParam @ModelAttribute">
 
 
 
@@ -431,40 +431,109 @@
       
 
       
-        <h3 id="常用的是注解有如下几种："><a href="#常用的是注解有如下几种：" class="headerlink" title="常用的是注解有如下几种："></a>常用的是注解有如下几种：</h3><p>@Controller<br><br>@Service<br><br>@Autowired<br><br>@RequestMapping<br><br>@RequestParam<br><br>@ModelAttribute<br><br><a id="more"></a><br>@Cacheable<br><br>@CacheFlush<br><br>@Resource<br><br>@PostConstruct<br><br>@PreDestroy<br><br>@Repository<br><br>@Component （不推荐使用）<br><br>@Scope<br><br>@SessionAttributes<br><br>@InitBinder<br><br>@Required<br><br>@Qualifier<br></p>
-<h6 id="Controller"><a href="#Controller" class="headerlink" title="@Controller"></a>@Controller</h6><ul>
-<li>例如：@Controller<br><br>public class SoftCreateController extends SimpleBaseController {}</li>
-<li>或者：@Controller<br><br>public class SoftCreateController extends SimpleBaseController {}</li>
-<li><p>说明： @Controller<br><br>负责注册一个bean 到spring 上下文中，bean 的ID 默认为类名称开头字母小写</p>
-<h6 id="Service"><a href="#Service" class="headerlink" title="@Service"></a>@Service</h6><p>• 例如：<br> @Service<br><br>public class SoftCreateServiceImpl implements ISoftCreateService {}</p>
-<p>• 或者：<br><br>@Service(“softCreateServiceImpl”)</p>
-<p>• 说明：<br><br>@Service 负责注册一个bean 到spring 上下文中，bean 的ID 默认为类名称开头字母小写</p>
-</li>
+        <h3 id="常用的是注解有如下几种："><a class="header-anchor" href="#常用的是注解有如下几种：">¶</a>常用的是注解有如下几种：</h3>
+<p>@Controller<br><br>
+@Service<br><br>
+@Autowired<br><br>
+@RequestMapping<br><br>
+@RequestParam<br><br>
+@ModelAttribute<br></p>
+<a id="more"></a>
+<p>@Cacheable<br><br>
+@CacheFlush<br><br>
+@Resource<br><br>
+@PostConstruct<br><br>
+@PreDestroy<br><br>
+@Repository<br><br>
+@Component （不推荐使用）<br><br>
+@Scope<br><br>
+@SessionAttributes<br><br>
+@InitBinder<br><br>
+@Required<br><br>
+@Qualifier<br></p>
+<h6 id="controller"><a class="header-anchor" href="#controller">¶</a>@Controller</h6>
+<ul>
+<li>例如：@Controller<br><br>
+public class SoftCreateController extends SimpleBaseController {}</li>
+<li>或者：@Controller<br><br>
+public class SoftCreateController extends SimpleBaseController {}</li>
+<li>说明： @Controller<br><br>
+负责注册一个bean 到spring 上下文中，bean 的ID 默认为类名称开头字母小写</li>
 </ul>
-<h6 id="Autowired"><a href="#Autowired" class="headerlink" title="@Autowired"></a>@Autowired</h6><p>• 例如：<br> @Autowired<br>private ISoftPMService softPMService;</p>
+<h6 id="service"><a class="header-anchor" href="#service">¶</a>@Service</h6>
+<p>• 例如：<br>
+@Service<br><br>
+public class SoftCreateServiceImpl implements ISoftCreateService {}</p>
+<p>• 或者：<br><br>
+@Service(“softCreateServiceImpl”)</p>
+<p>• 说明：<br><br>
+@Service 负责注册一个bean 到spring 上下文中，bean 的ID 默认为类名称开头字母小写</p>
+<h6 id="autowired"><a class="header-anchor" href="#autowired">¶</a>@Autowired</h6>
+<p>• 例如：<br>
+@Autowired<br>
+private ISoftPMService softPMService;</p>
 <p>• 或者：</p>
-<p>@Autowired(required=false)<br>private ISoftPMService softPMService = new SoftPMServiceImpl();</p>
-<p> • 说明：</p>
+<p>@Autowired(required=false)<br>
+private ISoftPMService softPMService = new SoftPMServiceImpl();</p>
+<p>• 说明：</p>
 <p>@Autowired 根据bean 类型从spring 上线文中进行查找，注册类型必须唯一，否则报异常。</p>
-<p>与@Resource 的区别在于，@Resource 允许通过bean 名称或bean 类型两种<br>方式进行查找@Autowired(required=false) 表示，如果spring 上下文中没有找到该类型的bean 时， 才会使用new SoftPMServiceImpl();</p>
-<p>与@Resource 的区别在于，@Resource 允许通过bean 名称或bean 类型两种方式进行查找@Autowired(required=false) 表示，如果spring<br>上下文中没有找到该类型的bean 时， 才会使用new SoftPMServiceImpl();</p>
-<p>@Autowired 还有一个作用就是，如果将其标注在 BeanFactory 类型、ApplicationContext 类型、ResourceLoader 类型、<br>ApplicationEventPublisher 类型、MessageSource 类型上，那么 Spring 会自动注入这些实现类的实例，不需要额外的操作。</p>
-<h6 id="RequestMapping"><a href="#RequestMapping" class="headerlink" title="@RequestMapping"></a>@RequestMapping</h6><p>• 类：</p>
-<p>@Controller<br>@RequestMapping(“/bbtForum.do”) IT学习者（www.itxxz.com）<br>public class BbtForumController {<br>             @RequestMapping(params = “method=listBoardTopic”)<br>public String listBoardTopic(int topicId,User user) {}<br>}</p>
+<p>与@Resource 的区别在于，@Resource 允许通过bean 名称或bean 类型两种<br>
+方式进行查找@Autowired(required=false) 表示，如果spring 上下文中没有找到该类型的bean 时， 才会使用new SoftPMServiceImpl();</p>
+<p>与@Resource 的区别在于，@Resource 允许通过bean 名称或bean 类型两种方式进行查找@Autowired(required=false) 表示，如果spring<br>
+上下文中没有找到该类型的bean 时， 才会使用new SoftPMServiceImpl();</p>
+<p>@Autowired 还有一个作用就是，如果将其标注在 BeanFactory 类型、ApplicationContext 类型、ResourceLoader 类型、<br>
+ApplicationEventPublisher 类型、MessageSource 类型上，那么 Spring 会自动注入这些实现类的实例，不需要额外的操作。</p>
+<h6 id="requestmapping"><a class="header-anchor" href="#requestmapping">¶</a>@RequestMapping</h6>
+<p>• 类：</p>
+<p>@Controller<br>
+@RequestMapping(&quot;/bbtForum.do&quot;) IT学习者（<a href="http://www.itxxz.com" target="_blank" rel="noopener">www.itxxz.com</a>）<br>
+public class BbtForumController {<br>
+@RequestMapping(params = “method=listBoardTopic”)<br>
+public String listBoardTopic(int topicId,User user) {}<br>
+}</p>
 <p>• 方法：</p>
-<p>@RequestMapping(“/softpg/downSoftPg.do”)<br>@RequestMapping(value=”/softpg/ajaxLoadSoftId.do”,method = POST)<br>@RequestMapping(value = “/osu/product/detail.do”, params = { “modify=false” }, method =POST)<br>• 说明：<br>  @RequestMapping 可以声明到类或方法上</p>
-<p>  • 参数绑定说明<br>  如果我们使用以下的 URL 请求：<br>  <a href="http://localhost/itxxzSpring4?method=listBoardTopic&amp;topicId=1&amp;userId=10&amp;userName=tom" target="_blank" rel="noopener">http://localhost/itxxzSpring4?method=listBoardTopic&amp;topicId=1&amp;userId=10&amp;userName=tom</a><br>  topicId URL 参数将绑定到 topicId 入参上，而 userId 和 userName URL 参数将绑定到 user 对象的<br>  userId 和 userName 属性中。和 URL 请求中不允许没有 topicId 参数不同，虽然 User 的 userId 属性的类型是基本数据类型，但如果 URL 中不存在 userId 参数，Spring 也不会报错，此时 user.userId 值为 0 。如果 User 对象拥有一个 dept.deptId 的级联属性，那么它将和 dept.deptId URL 参数绑定。</p>
-<h6 id="Resource"><a href="#Resource" class="headerlink" title="@Resource"></a>@Resource</h6><ul>
-<li>例如：<br>@Resource<br>private DataSource dataSource; // inject the bean named ‘dataSource’</li>
-<li>或者：<br>@Resource(name=”dataSource”)<br>@Resource(type=DataSource.class)</li>
-<li>说明：<br>@Resource 默认按bean 的name 进行查找，如果没有找到会按type 进行查找，<br>此时与@Autowired 类 似.<br><br>在没有为 @Resource 注解显式指定 name 属性的前提下，如果将其标注在 BeanFactory 类型、ApplicationContext 类型、ResourceLoader 类型、ApplicationEventPublisher 类型、MessageSource 类型上，那么 Spring 会自动注入这些实现类的实例，不需要额外的操作。此时 name 属性不需要指定 ( 或者指定为””)，否则注入失败；</li>
+<p>@RequestMapping(&quot;/softpg/downSoftPg.do&quot;)<br>
+@RequestMapping(value=&quot;/softpg/ajaxLoadSoftId.do&quot;,method = POST)<br>
+@RequestMapping(value = “/osu/product/detail.do”, params = { “modify=false” }, method =POST)<br>
+• 说明：<br>
+@RequestMapping 可以声明到类或方法上</p>
+<p>• 参数绑定说明<br>
+如果我们使用以下的 URL 请求：<br>
+<a href="http://localhost/itxxzSpring4?method=listBoardTopic&amp;topicId=1&amp;userId=10&amp;userName=tom" target="_blank" rel="noopener">http://localhost/itxxzSpring4?method=listBoardTopic&amp;topicId=1&amp;userId=10&amp;userName=tom</a><br>
+topicId URL 参数将绑定到 topicId 入参上，而 userId 和 userName URL 参数将绑定到 user 对象的<br>
+userId 和 userName 属性中。和 URL 请求中不允许没有 topicId 参数不同，虽然 User 的 userId 属性的类型是基本数据类型，但如果 URL 中不存在 userId 参数，Spring 也不会报错，此时 user.userId 值为 0 。如果 User 对象拥有一个 dept.deptId 的级联属性，那么它将和 dept.deptId URL 参数绑定。</p>
+<h6 id="resource"><a class="header-anchor" href="#resource">¶</a>@Resource</h6>
+<ul>
+<li>例如：<br>
+@Resource<br>
+private DataSource dataSource; // inject the bean named ‘dataSource’</li>
+<li>或者：<br>
+@Resource(name=“dataSource”)<br>
+@Resource(type=DataSource.class)</li>
+<li>说明：<br>
+@Resource 默认按bean 的name 进行查找，如果没有找到会按type 进行查找，<br>
+此时与@Autowired 类 似.<br><br>
+在没有为 @Resource 注解显式指定 name 属性的前提下，如果将其标注在 BeanFactory 类型、ApplicationContext 类型、ResourceLoader 类型、ApplicationEventPublisher 类型、MessageSource 类型上，那么 Spring 会自动注入这些实现类的实例，不需要额外的操作。此时 name 属性不需要指定 ( 或者指定为&quot;&quot;)，否则注入失败；</li>
 </ul>
-<h6 id="Scope"><a href="#Scope" class="headerlink" title="@Scope"></a>@Scope</h6><ul>
-<li>例如<br>@Scope(“session”)<br>@Repository()<br>public class UserSessionBean implementsSerializable {}</li>
+<h6 id="scope"><a class="header-anchor" href="#scope">¶</a>@Scope</h6>
+<ul>
+<li>例如<br>
+@Scope(“session”)<br>
+@Repository()<br>
+public class UserSessionBean implementsSerializable {}</li>
 <li>说明</li>
 </ul>
-<p>在使用XML 定义Bean 时，可以通过bean 的scope 属性来定义一个Bean 的作用范围，<br>同样可以通过@Scope 注解来完成<br></p>
-<p>@Scope中可以指定如下值：<br>      singleton:定义bean的范围为每个spring容器一个实例（默认值）<br>      prototype:定义bean可以被多次实例化（使用一次就创建一次）<br>      request:定义bean的范围是http请求（springMVC中有效）<br>      session:定义bean的范围是http会话（springMVC中有效）<br>      global-session:定义bean的范围是全局http会话（portlet中有效）<br><br><br>小链接：ssm配置(<a href="http://www.cnblogs.com/youyefly/p/5685509.html" target="_blank" rel="noopener">http://www.cnblogs.com/youyefly/p/5685509.html</a>),<br>(<a href="http://blog.csdn.net/xuejian0616/article/details/52259335" target="_blank" rel="noopener">http://blog.csdn.net/xuejian0616/article/details/52259335</a>)</p>
+<p>在使用XML 定义Bean 时，可以通过bean 的scope 属性来定义一个Bean 的作用范围，<br>
+同样可以通过@Scope 注解来完成<br></p>
+<p>@Scope中可以指定如下值：<br>
+singleton:定义bean的范围为每个spring容器一个实例（默认值）<br>
+prototype:定义bean可以被多次实例化（使用一次就创建一次）<br>
+request:定义bean的范围是http请求（springMVC中有效）<br>
+session:定义bean的范围是http会话（springMVC中有效）<br>
+global-session:定义bean的范围是全局http会话（portlet中有效）<br>
+<br><br>
+小链接：ssm配置(<a href="http://www.cnblogs.com/youyefly/p/5685509.html" target="_blank" rel="noopener">http://www.cnblogs.com/youyefly/p/5685509.html</a>),<br>
+(<a href="http://blog.csdn.net/xuejian0616/article/details/52259335" target="_blank" rel="noopener">http://blog.csdn.net/xuejian0616/article/details/52259335</a>)</p>
 
       
     </div>
@@ -509,8 +578,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/03/Dao层、Service层、Controller层、View层/" rel="next" title="Dao层、Service层、Controller层、View层">
-                <i class="fa fa-chevron-left"></i> Dao层、Service层、Controller层、View层
+              <a href="/2017/06/24/远方/" rel="next" title="远方">
+                <i class="fa fa-chevron-left"></i> 远方
               </a>
             
           </div>
@@ -519,8 +588,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/06/面试题/" rel="prev" title="面试干货分享">
-                面试干货分享 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/03/Dao层、Service层、Controller层、View层/" rel="prev" title="Dao层、Service层、Controller层、View层">
+                Dao层、Service层、Controller层、View层 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -612,8 +681,6 @@
                 <div class="site-state-item site-state-categories">
                   <a href="/categories/index.html">
                     
-                    
-                      
                     
                       
                     
@@ -725,7 +792,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的是注解有如下几种："><span class="nav-number">1.</span> <span class="nav-text">常用的是注解有如下几种：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Controller"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">@Controller</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Service"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">@Service</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Autowired"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">@Autowired</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#RequestMapping"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">@RequestMapping</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Resource"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">@Resource</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Scope"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">@Scope</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的是注解有如下几种："><span class="nav-number">1.</span> <span class="nav-text">¶常用的是注解有如下几种：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#controller"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">¶@Controller</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#service"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">¶@Service</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#autowired"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">¶@Autowired</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#requestmapping"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">¶@RequestMapping</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#resource"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">¶@Resource</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#scope"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">¶@Scope</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
