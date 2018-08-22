@@ -305,7 +305,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/03/Dao层、Service层、Controller层、View层/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/03/Spring常用注解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ignite">
@@ -324,8 +324,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/03/Dao层、Service层、Controller层、View层/" itemprop="url">
-                  Dao层、Service层、Controller层、View层
+                <a class="post-title-link" href="/2017/07/03/Spring常用注解/" itemprop="url">
+                  Spring常用注解
                 </a>
               
             
@@ -368,7 +368,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-18 13:40:12" itemprop="dateModified" datetime="2018-08-18T13:40:12+08:00">2018-08-18</time>
+                <time title="Modified: 2018-08-18 13:42:33" itemprop="dateModified" datetime="2018-08-18T13:42:33+08:00">2018-08-18</time>
               
             
           </span>
@@ -401,8 +401,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2017/07/03/Dao层、Service层、Controller层、View层/#SOHUCS" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">Comments: </span> <span id="url::http://yoursite.com/2017/07/03/Dao层、Service层、Controller层、View层/" class="cy_cmt_count" data-xid="2017/07/03/Dao层、Service层、Controller层、View层/" itemprop="commentsCount" ></span>
+                <a href="/2017/07/03/Spring常用注解/#SOHUCS" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">Comments: </span> <span id="url::http://yoursite.com/2017/07/03/Spring常用注解/" class="cy_cmt_count" data-xid="2017/07/03/Spring常用注解/" itemprop="commentsCount" ></span>
                 </a>
               
             
@@ -432,13 +432,16 @@
 
       
         
-          <ol>
-<li>DAO层：DAO层主要是做数据持久层的工作，负责与数据库进行联络的一些任务都封装在此，DAO层的设计首先是设计DAO的接口，然后在Spring的配置文件中定义此接口的实现类，然后就可在模块中调用此接口来进行数据业务的处理，而不用关心此接口的具体实现类是哪个类，显得结构非常清晰，DAO层的数据源配置，以及有关数据库连接的参数都在Spring的配置文件中进行配置。</li>
-<li>Service层：Service层主要负责业务模块的逻辑应用设计。同样是首先设计接口，再设计其实现的类，接着再Spring的配置文件中配置其实现的关联。这样我们就可以在应用中调用Service接口来进行业务处理。Service层的业务实现，具体要调用到已定义的DAO层的接口，封装Service层的业务逻辑有利于通用的业务逻辑的独立性和重复利用性，程序显得非常简洁。</li>
-</ol>
+          <h3 id="常用的是注解有如下几种："><a class="header-anchor" href="#常用的是注解有如下几种：">¶</a>常用的是注解有如下几种：</h3>
+<p>@Controller<br><br>
+@Service<br><br>
+@Autowired<br><br>
+@RequestMapping<br><br>
+@RequestParam<br><br>
+@ModelAttribute<br></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/07/03/Dao层、Service层、Controller层、View层/#more" rel="contents">
+            <a class="btn" href="/2017/07/03/Spring常用注解/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
