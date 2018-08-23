@@ -116,10 +116,12 @@
 <meta property="og:site_name" content="Ignite">
 <meta property="og:description" content="¶前言  本文代码浅显易懂，思想深入实用。此属于react进阶用法，如果还不是很了解react，建议从文档开始看起。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-23T07:07:54.539Z">
+<meta property="og:image" content="http://oziqlv1ur.bkt.clouddn.com/WrappedUsual.png">
+<meta property="og:updated_time" content="2018-08-23T07:29:03.391Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React高阶组件(转)">
 <meta name="twitter:description" content="¶前言  本文代码浅显易懂，思想深入实用。此属于react进阶用法，如果还不是很了解react，建议从文档开始看起。">
+<meta name="twitter:image" content="http://oziqlv1ur.bkt.clouddn.com/WrappedUsual.png">
 
 
 
@@ -529,12 +531,23 @@
 <h3 id="注意点-约束"><a class="header-anchor" href="#注意点-约束">¶</a>注意点(约束)</h3>
 <p>其实官网有很多，简单介绍一下。</p>
 <ul>
-<li>最重要的原则就是，注意高阶组件不会修改子组件，也不拷贝子组件的行为。高阶组件只是通过组合的方式将子组件包装在容器组件中，是一个无副作用的纯函数</li>
-<li>要给hoc添加class名，便于debugger。我上面的好多栗子组件都没写class 名，请不要学我，因为我实在想不出叫什么名了… 当我们在chrome里应用React-Developer-Tools的时候，组件结构可以一目了然，所以DisplayName最好还是加上。</li>
-<li>静态方法要复制<br>
-无论PP还是II的方式，WrappedComponent的静态方法都不会复制，如果要用需要我们单独复制。</li>
-<li>refs不会传递。 意思就是HOC里指定的ref，并不会传递到子组件，如果你要使用最好写回调函数通过props传下去。</li>
-<li>不要在render方法内部使用高阶组件。简单来说react的差分算法会去比较 NowElement === OldElement, 来决定要不要替换这个elementTree。也就是如果你每次返回的结果都不是一个引用，react以为发生了变化，去更替这个组件会导致之前组件的状态丢失。</li>
+<li>
+<p>最重要的原则就是，注意高阶组件不会修改子组件，也不拷贝子组件的行为。高阶组件只是通过组合的方式将子组件包装在容器组件中，是一个无副作用的纯函数</p>
+</li>
+<li>
+<p>要给hoc添加class名，便于debugger。我上面的好多栗子组件都没写class 名，请不要学我，因为我实在想不出叫什么名了… 当我们在chrome里应用React-Developer-Tools的时候，组件结构可以一目了然，所以DisplayName最好还是加上。<br>
+<img src="http://oziqlv1ur.bkt.clouddn.com/WrappedUsual.png" alt="WrappedUsual"></p>
+</li>
+<li>
+<p>静态方法要复制<br>
+无论PP还是II的方式，WrappedComponent的静态方法都不会复制，如果要用需要我们单独复制。</p>
+</li>
+<li>
+<p>refs不会传递。 意思就是HOC里指定的ref，并不会传递到子组件，如果你要使用最好写回调函数通过props传下去。</p>
+</li>
+<li>
+<p>不要在render方法内部使用高阶组件。简单来说react的差分算法会去比较 NowElement === OldElement, 来决定要不要替换这个elementTree。也就是如果你每次返回的结果都不是一个引用，react以为发生了变化，去更替这个组件会导致之前组件的状态丢失。</p>
+</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// HOC不要放到render函数里面</span><br><span class="line"></span><br><span class="line"> class WrappedUsual extends Component &#123;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    const WrappenComponent = addStyle(addFunc(Usual));</span><br><span class="line"></span><br><span class="line">    console.log(this.props, &apos;props&apos;);</span><br><span class="line">    return (&lt;div&gt;</span><br><span class="line">      &lt;WrappedComponent /&gt;</span><br><span class="line">    &lt;/div&gt;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>使用compose组合HOC。函数式编程的套路… 例如应用redux中的middleware以增强功能。redux-middleware解析</p>
