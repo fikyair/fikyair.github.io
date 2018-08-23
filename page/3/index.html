@@ -336,7 +336,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/22/你不知道的React/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/01/Git（一）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ignite">
@@ -355,8 +355,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/22/你不知道的React/" itemprop="url">
-                  你不知道的React
+                <a class="post-title-link" href="/2017/12/01/Git（一）/" itemprop="url">
+                  Git（一）
                 </a>
               
             
@@ -382,7 +382,7 @@
                 
               
 
-              <time title="创建时间：2017-11-22 00:00:00" itemprop="dateCreated datePublished" datetime="2017-11-22T00:00:00+08:00">2017-11-22</time>
+              <time title="创建时间：2017-12-01 00:00:00" itemprop="dateCreated datePublished" datetime="2017-12-01T00:00:00+08:00">2017-12-01</time>
             
 
             
@@ -416,8 +416,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2017/11/22/你不知道的React/#SOHUCS" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span id="url::http://yoursite.com/2017/11/22/你不知道的React/" class="cy_cmt_count" data-xid="2017/11/22/你不知道的React/" itemprop="commentsCount" ></span>
+                <a href="/2017/12/01/Git（一）/#SOHUCS" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span id="url::http://yoursite.com/2017/12/01/Git（一）/" class="cy_cmt_count" data-xid="2017/12/01/Git（一）/" itemprop="commentsCount" ></span>
                 </a>
               
             
@@ -449,31 +449,15 @@
 
       
         
-          <p>这几天正在学习React，有空记录一下！<br>
-就比如：</p>
-<h5 id="export和export-default"><a class="header-anchor" href="#export和export-default">¶</a>export和export default</h5>
-<p>一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用。<br>
-组件导出的关键字是:</p>
-<blockquote>
-<p>exprot default</p>
-</blockquote>
-<p>没有加default时，例如：</p>
-<blockquote>
-<p>export class Template{}</p>
-</blockquote>
-<p>当然，你可以在单个js文件里声明多个组件，例如Templates.js</p>
-<blockquote>
-<p>export class Template{}<br>
-export class AnotherTemplate{}</p>
-</blockquote>
-<p>这样在其他文件引用时，需要使用{}符号，且名称必须和class名称一样，like this：</p>
-<blockquote>
-<p>import {Template,AnotherTemplate} from ‘./components/Templates’;</p>
-</blockquote>
-<p>而加default时，例如：</p>
+          <p>提交如果遇到冲突的话，有两种解决方式，git merge和 git rebase。<br>
+首先来了解一下git pull：</p>
+<p>将远程存储库中的更改合并到当前分支中。在默认模式下，git pull 是git fetch后跟git merge FETCH_HEAD的缩写。<br>
+更准确地说，git pull使用给定的参数运行git fetch，并调用git merge将检索到的分支头合并到当前分支中。<br>
+也就是说git pull 分为两步，一步是git fetch，一步是git merge。</p>
+<p>目前提交代码，先是git commit 到本地  然后 merge 或者 rebase。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/11/22/你不知道的React/#more" rel="contents">
+            <a class="btn" href="/2017/12/01/Git（一）/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -649,6 +633,201 @@ Xshell5p.exe  用来访问远程面板</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/22/Linux/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+	<div>
+		
+	</div>
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/22/你不知道的React/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ignite">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ignite">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/22/你不知道的React/" itemprop="url">
+                  你不知道的React
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-11-22 00:00:00" itemprop="dateCreated datePublished" datetime="2017-11-22T00:00:00+08:00">2017-11-22</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技巧/" itemprop="url" rel="index"><span itemprop="name">技巧</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-comment-o"></i>
+              </span>
+              
+                <a href="/2017/11/22/你不知道的React/#SOHUCS" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span id="url::http://yoursite.com/2017/11/22/你不知道的React/" class="cy_cmt_count" data-xid="2017/11/22/你不知道的React/" itemprop="commentsCount" ></span>
+                </a>
+              
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+	
+    <hr style = "margin: '20px 0', height: '1px' ">
+	
+    
+    
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>这几天正在学习React，有空记录一下！<br>
+就比如：</p>
+<h5 id="export和export-default"><a class="header-anchor" href="#export和export-default">¶</a>export和export default</h5>
+<p>一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用。<br>
+组件导出的关键字是:</p>
+<blockquote>
+<p>exprot default</p>
+</blockquote>
+<p>没有加default时，例如：</p>
+<blockquote>
+<p>export class Template{}</p>
+</blockquote>
+<p>当然，你可以在单个js文件里声明多个组件，例如Templates.js</p>
+<blockquote>
+<p>export class Template{}<br>
+export class AnotherTemplate{}</p>
+</blockquote>
+<p>这样在其他文件引用时，需要使用{}符号，且名称必须和class名称一样，like this：</p>
+<blockquote>
+<p>import {Template,AnotherTemplate} from ‘./components/Templates’;</p>
+</blockquote>
+<p>而加default时，例如：</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/22/你不知道的React/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1043,180 +1222,6 @@ sleep是Thread的静态类方法，谁调用的谁去睡觉，即使在a线程�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/18/Mysql获取当前日期并格式化/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ignite">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ignite">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/18/Mysql获取当前日期并格式化/" itemprop="url">
-                  mysql获取当前日期并格式化
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-10-18 00:00:00" itemprop="dateCreated datePublished" datetime="2017-10-18T00:00:00+08:00">2017-10-18</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技巧/" itemprop="url" rel="index"><span itemprop="name">技巧</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-comment-o"></i>
-              </span>
-              
-                <a href="/2017/10/18/Mysql获取当前日期并格式化/#SOHUCS" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span id="url::http://yoursite.com/2017/10/18/Mysql获取当前日期并格式化/" class="cy_cmt_count" data-xid="2017/10/18/Mysql获取当前日期并格式化/" itemprop="commentsCount" ></span>
-                </a>
-              
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-	
-    <hr style = "margin: '20px 0', height: '1px' ">
-	
-    
-    
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>MYSQL 获取当前日期及日期格式话</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/18/Mysql获取当前日期并格式化/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-	<div>
-		
-	</div>
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1268,7 +1273,7 @@ sleep是Thread的静态类方法，谁调用的谁去睡觉，即使在a线程�
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-count">39</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1424,7 +1429,7 @@ sleep是Thread的静态类方法，谁调用的谁去睡觉，即使在a线程�
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共48.6k字</span>
+  <span class="post-count">博客全站共48.9k字</span>
 </div>
 
 
