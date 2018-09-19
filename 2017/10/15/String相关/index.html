@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Ignite">
 <meta property="og:description" content="¶今天在看JVM的时候突然想到这样一个问题，即 1234String s1 = new String(&amp;quot;abc&amp;quot;);String s2 = &amp;quot;abc&amp;quot;;System.out.println(s1 == s2);//答案是false 问题有两个： String s2 = “abc”时发生了什么？ String s1 = new String(“abc”）时又做">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-18T05:42:40.053Z">
+<meta property="og:updated_time" content="2018-09-19T13:00:20.845Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="String s1 = new String(&quot;abc&quot;)和String s2 = &quot;abc&quot;的区别">
 <meta name="twitter:description" content="¶今天在看JVM的时候突然想到这样一个问题，即 1234String s1 = new String(&amp;quot;abc&amp;quot;);String s2 = &amp;quot;abc&amp;quot;;System.out.println(s1 == s2);//答案是false 问题有两个： String s2 = “abc”时发生了什么？ String s1 = new String(“abc”）时又做">
@@ -453,9 +453,9 @@
 <p>问题有两个：</p>
 <p>String s2 = “abc”时发生了什么？<br>
 String s1 = new String(“abc”）时又做了什么？<br>
-第二个问题是比较好回答的，根据官方文档：</p>
+第二个问题是比较好回答的，根据官方文档的解释：</p>
 <a id="more"></a>
-<p>以下讨论在jdk1.6中，常量池放在方法区中。（jdk1.7中常量池放在堆内存中，jdk1.8放在元空间里面，和堆相对独立，所以导致string的intern方法因为以上变化在不同版本会有不同表现。）</p>
+<p>当我们在jdk1.6中讨论时，常量池放在方法区中。（jdk1.7中常量池放在堆内存中，jdk1.8放在元空间里面，和堆相对独立，所以导致string的intern方法因为以上变化在不同版本会有不同表现。）</p>
 <blockquote>
 <p>new String(“abc”);<br>
 Initializes a newly created String object so that it represents the same sequence of characters as the argument; in other words, the newly created string is a copy of the argument string. Unless an explicit copy of original is needed, use of this constructor is unnecessary since Strings are immutable.</p>
@@ -527,8 +527,8 @@ Initializes a newly created String object so that it represents the same sequenc
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/02/盒子模型/" rel="next" title="盒子模型">
-                <i class="fa fa-chevron-left"></i> 盒子模型
+              <a href="/2017/10/15/Mysql decimal类型与decimal长度用法详解/" rel="next" title="Mysql decimal类型与decimal长度用法详解">
+                <i class="fa fa-chevron-left"></i> Mysql decimal类型与decimal长度用法详解
               </a>
             
           </div>
@@ -537,8 +537,8 @@ Initializes a newly created String object so that it represents the same sequenc
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/10/15/Mysql decimal类型与decimal长度用法详解/" rel="prev" title="Mysql decimal类型与decimal长度用法详解">
-                Mysql decimal类型与decimal长度用法详解 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/17/Mysql Decimal数据类型/" rel="prev" title="Mysql Decimal数据类型">
+                Mysql Decimal数据类型 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

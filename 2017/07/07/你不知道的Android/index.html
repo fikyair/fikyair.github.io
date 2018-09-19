@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="Ignite">
 <meta property="og:description" content="¶Android的动画分为3种，具体如下所示：  帧动画：也就是我们说的 Frame 动画。 Frame 动画是一系列图片按照一定的顺序展示的过程， 和放电影的机制相似，它的原理是在一定的时间段内切换多张有细微差异的图片从而达到动画的 效果。由于是一帧一帧加载，所以需要较多的图片。从而增大 APK 的大小，不过 Frame 动画 可以实现一些比较难的效果，例如：等待的环形进度。所涉及到的Java对">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-18T05:35:18.781Z">
+<meta property="og:updated_time" content="2018-09-19T12:56:47.623Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你不知道的Android">
 <meta name="twitter:description" content="¶Android的动画分为3种，具体如下所示：  帧动画：也就是我们说的 Frame 动画。 Frame 动画是一系列图片按照一定的顺序展示的过程， 和放电影的机制相似，它的原理是在一定的时间段内切换多张有细微差异的图片从而达到动画的 效果。由于是一帧一帧加载，所以需要较多的图片。从而增大 APK 的大小，不过 Frame 动画 可以实现一些比较难的效果，例如：等待的环形进度。所涉及到的Java对">
@@ -456,7 +456,7 @@
 可以实现一些比较难的效果，例如：等待的环形进度。所涉及到的Java对象有：AnimationDrawable。<a id="more"></a></li>
 <li>补间动画：也就是 Tween 动画，是操作某一个控件让其展现出旋转、渐变、移动、缩放的一种转换<br>
 过程。是一种视觉上的变化，不是真正位置上的变化。只能运用在 View 对象上，并且功能相对来说<br>
-较为局限。例如：旋转动画只能够在 x 、 y 轴进行，而不能在z 轴放心进行旋转。因此，补间动画<br>
+较为局限。例如：旋转动画只能够在 x 、y 轴进行，而不能在z 轴放心进行旋转。因此，补间动画<br>
 通常用于执行一些比较简单的动画。所涉及到的Java对象有：AlphaAnimation（渐变动画）、<br>
 ScaleAnimation（缩放动画）、TranslateAnimation（位移动画）、RotateAnimation（旋转动画）。</li>
 <li>属性动画：是 Android 3.0 之后推出的，其机制不再是针对 View 来设计的，也不限于只能实现<br>
@@ -466,8 +466,8 @@ ValueAnimator、ObjectAnimator。</li>
 </ul>
 <h5 id="apk程序的两种模式：-调试模式-debug-mode-和发布模式-release-mode"><a class="header-anchor" href="#apk程序的两种模式：-调试模式-debug-mode-和发布模式-release-mode">¶</a>APK程序的两种模式：　调试模式(debug mode)和发布模式(release mode)</h5>
 <ol>
-<li>调试模式(debug mode)  ：  在调试模式下， ADT会自动的使用debug密钥为应用程序签名，因此我们可以直接运行程序。</li>
-<li>发布模式(release mode) ：  当要发布程序时，开发者就需要使用自己的数字证书给apk包签名</li>
+<li>调试模式(debug mode) ：在调试模式下， ADT会自动的使用debug密钥为应用程序签名，因此我们可以直接运行程序。</li>
+<li>发布模式(release mode)：当要发布程序时，开发者就需要使用自己的数字证书给apk包签名</li>
 </ol>
 <hr>
 <p>ContentResolver和 ContentProvider是一对。一个运行在提供数据端(provider),一个运行在调用端(resolver)。使用的时候利用resolver来调用provider的方法(query,insert,update等)，然后provider再进行数据查询</p>
