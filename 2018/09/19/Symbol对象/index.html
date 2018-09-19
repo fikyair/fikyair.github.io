@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="这几天正在学习React，有空记录一下！ 就比如： ¶export和export default 一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用。 组件导出的关键字是:  exprot default  没有加default时，例如：  export class Template{}  当然，你可以在单个js文件里声明多个组件，例如Templates.js  export">
-<meta name="keywords" content="React">
+  <meta name="description" content="称符号对象，是es2015(也就是es6)中新添加的数据类型。通过Symbol()可以得到一个唯一的值，所以这个值很适合做标识符。">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="你不知道的React">
-<meta property="og:url" content="http://yoursite.com/2017/11/22/你不知道的React/index.html">
+<meta property="og:title" content="Symbol对象">
+<meta property="og:url" content="http://yoursite.com/2018/09/19/Symbol对象/index.html">
 <meta property="og:site_name" content="Ignite">
-<meta property="og:description" content="这几天正在学习React，有空记录一下！ 就比如： ¶export和export default 一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用。 组件导出的关键字是:  exprot default  没有加default时，例如：  export class Template{}  当然，你可以在单个js文件里声明多个组件，例如Templates.js  export">
+<meta property="og:description" content="称符号对象，是es2015(也就是es6)中新添加的数据类型。通过Symbol()可以得到一个唯一的值，所以这个值很适合做标识符。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-18T05:37:41.738Z">
+<meta property="og:updated_time" content="2018-09-19T13:14:52.498Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="你不知道的React">
-<meta name="twitter:description" content="这几天正在学习React，有空记录一下！ 就比如： ¶export和export default 一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用。 组件导出的关键字是:  exprot default  没有加default时，例如：  export class Template{}  当然，你可以在单个js文件里声明多个组件，例如Templates.js  export">
+<meta name="twitter:title" content="Symbol对象">
+<meta name="twitter:description" content="称符号对象，是es2015(也就是es6)中新添加的数据类型。通过Symbol()可以得到一个唯一的值，所以这个值很适合做标识符。">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/22/你不知道的React/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/19/Symbol对象/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>你不知道的React | Ignite</title>
+  <title>Symbol对象 | Ignite</title>
   
 
 
@@ -340,7 +340,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/22/你不知道的React/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/19/Symbol对象/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ignite">
@@ -357,7 +357,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">你不知道的React
+          <h1 class="post-title" itemprop="name headline">Symbol对象
               
             
           </h1>
@@ -382,7 +382,7 @@
                 
               
 
-              <time title="创建时间：2017-11-22 00:00:00" itemprop="dateCreated datePublished" datetime="2017-11-22T00:00:00+08:00">2017-11-22</time>
+              <time title="创建时间：2018-09-19 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-19T00:00:00+08:00">2018-09-19</time>
             
 
             
@@ -416,8 +416,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2017/11/22/你不知道的React/#SOHUCS" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/11/22/你不知道的React/" itemprop="commentsCount"></span>
+                <a href="/2018/09/19/Symbol对象/#SOHUCS" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2018/09/19/Symbol对象/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -448,59 +448,27 @@
       
 
       
-        <p>这几天正在学习React，有空记录一下！<br>
-就比如：</p>
-<h5 id="export和export-default"><a class="header-anchor" href="#export和export-default">¶</a>export和export default</h5>
-<p>一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用。<br>
-组件导出的关键字是:</p>
-<blockquote>
-<p>exprot default</p>
+        <blockquote>
+<p>称符号对象，是es2015(也就是es6)中新添加的数据类型。通过Symbol()可以得到一个唯一的值，所以这个值很适合做标识符。</p>
 </blockquote>
-<p>没有加default时，例如：</p>
-<blockquote>
-<p>export class Template{}</p>
-</blockquote>
-<p>当然，你可以在单个js文件里声明多个组件，例如Templates.js</p>
-<blockquote>
-<p>export class Template{}<br>
-export class AnotherTemplate{}</p>
-</blockquote>
-<p>这样在其他文件引用时，需要使用{}符号，且名称必须和class名称一样，like this：</p>
-<blockquote>
-<p>import {Template,AnotherTemplate} from ‘./components/Templates’;</p>
-</blockquote>
-<p>而加default时，例如：</p>
 <a id="more"></a>
+<h3 id="概念"><a class="header-anchor" href="#概念">¶</a>概念</h3>
+<p>Symbol() function 返回一个类型为symbol的值，Symbol有静态属性，原型上也有methods，但是缺少constructor，所以你不能<code>new Symbol()</code>来执行；</p>
 <blockquote>
-<p>export default class Template{}</p>
+<p>引用官方翻译，符号是一种特殊的、不可变的数据类型，它可以作为对象属性的标识符使用。符号对象是一个对的符号原始数据类型的隐式对象包装器。</p>
 </blockquote>
-<p>然后在其他文件引用，像这样：</p>
-<blockquote>
-<p>import Template from ‘./components/Templates’;</p>
-</blockquote>
-<p>你也可以为这个组件另起一个别名，</p>
-<blockquote>
-<p>import TheTemplate from ‘./components/Templates’;</p>
-</blockquote>
-<p>但是每个文件里只能有一个default组件，可以包含其他非default组件：</p>
-<blockquote>
-<p>export default class Template{}<br>
-export class AnotherTemplate{}</p>
-</blockquote>
-<p>然后引用的时候，如下：</p>
-<blockquote>
-<p>import Template,{AnotherTemplate} from ‘./components/Templates’;</p>
-</blockquote>
-<p>总结：</p>
 <ul>
-<li>有default和没有default的区别在于：有default在引用时可以自定义名称，而没有default时需要使用{}括起来且名称必需和class名称一致</li>
-<li>每个文件里只能有一个default组件，但可以有多个非default组件</li>
+<li>类型</li>
 </ul>
-<hr>
-<h5 id="formitem"><a class="header-anchor" href="#formitem">¶</a>FormItem</h5>
-<p>使用initValue 属性的时候，需要在提交“弹出框表单时”（CollectionCreateForm）</p>
-<p>用form.resetFields() 方法重置表单数据，</p>
-<p>如果缺少的话，点击修改某条数据是会回显上次表单修改后的值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let sym = Symbol(); // Symbol中参数为字符串，用来描述。</span><br><span class="line">console.log(typeof sym); //&quot;symbol&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>唯一性</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const sym1 = Symbol(&apos;abc&apos;);</span><br><span class="line">const sym2 = Symbol(&apos;cba&apos;);</span><br><span class="line">console.log(sym1,sym2); //Symbol(abc) Symbol(cba)</span><br><span class="line">//参数的作用就是描述，便于调试</span><br><span class="line">console.log(sym1.toString()) //&apos;Symbol(abc)&apos;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>new关键字</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const sym = new Symbol(); // TypeError</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -530,7 +498,7 @@ export class AnotherTemplate{}</p>
       
         <div class="post-tags">
           
-            <a href="/tags/React/" rel="tag"><i class="fa fa-tag"></i> React</a>
+            <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
           
         </div>
       
@@ -543,8 +511,8 @@ export class AnotherTemplate{}</p>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/22/Linux/" rel="next" title="linux安装jdk以及远程访问服务">
-                <i class="fa fa-chevron-left"></i> linux安装jdk以及远程访问服务
+              <a href="/2018/08/25/React源码分析/" rel="next" title="React源码分析">
+                <i class="fa fa-chevron-left"></i> React源码分析
               </a>
             
           </div>
@@ -552,10 +520,6 @@ export class AnotherTemplate{}</p>
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/01/Git（一）/" rel="prev" title="Git（一）">
-                Git（一） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -757,7 +721,7 @@ export class AnotherTemplate{}</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#export和export-default"><span class="nav-number">1.</span> <span class="nav-text">¶export和export default</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#formitem"><span class="nav-number">2.</span> <span class="nav-text">¶FormItem</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">¶概念</span></a></li></ol></div>
             
 
           </div>

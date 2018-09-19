@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title>Symbol对象</title>
+      <link href="/2018/09/19/Symbol%E5%AF%B9%E8%B1%A1/"/>
+      <url>/2018/09/19/Symbol%E5%AF%B9%E8%B1%A1/</url>
+      <content type="html"><![CDATA[<blockquote><p>称符号对象，是es2015(也就是es6)中新添加的数据类型。通过Symbol()可以得到一个唯一的值，所以这个值很适合做标识符。</p></blockquote><a id="more"></a><h3 id="概念"><a class="header-anchor" href="#概念">¶</a>概念</h3><p>Symbol() function 返回一个类型为symbol的值，Symbol有静态属性，原型上也有methods，但是缺少constructor，所以你不能<code>new Symbol()</code>来执行；</p><blockquote><p>引用官方翻译，符号是一种特殊的、不可变的数据类型，它可以作为对象属性的标识符使用。符号对象是一个对的符号原始数据类型的隐式对象包装器。</p></blockquote><ul><li>类型</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let sym = Symbol(); // Symbol中参数为字符串，用来描述。</span><br><span class="line">console.log(typeof sym); //&quot;symbol&quot;</span><br></pre></td></tr></table></figure><ul><li>唯一性</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const sym1 = Symbol(&apos;abc&apos;);</span><br><span class="line">const sym2 = Symbol(&apos;cba&apos;);</span><br><span class="line">console.log(sym1,sym2); //Symbol(abc) Symbol(cba)</span><br><span class="line">//参数的作用就是描述，便于调试</span><br><span class="line">console.log(sym1.toString()) //&apos;Symbol(abc)&apos;</span><br></pre></td></tr></table></figure><ul><li>new关键字</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const sym = new Symbol(); // TypeError</span><br></pre></td></tr></table></figure>]]></content>
+      
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JavaScript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>React源码分析</title>
       <link href="/2018/08/25/React%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/"/>
       <url>/2018/08/25/React%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</url>
@@ -423,27 +444,6 @@
     </entry>
     
     <entry>
-      <title>你不知道的JS(一)</title>
-      <link href="/2017/09/02/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS(%E4%B8%80)/"/>
-      <url>/2017/09/02/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS(%E4%B8%80)/</url>
-      <content type="html"><![CDATA[<pre><code>javaScript数组的遍历，在项目中遇到的是这个问题：直接上图：</code></pre><h5 id="主要针对数组的遍历有一下方法："><a class="header-anchor" href="#主要针对数组的遍历有一下方法：">¶</a>主要针对数组的遍历有一下方法：</h5><p>传统方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr=[1,2,3,4,5,6];</span><br><span class="line">for(var i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">    console.log(arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a><p>for in方法</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr=[1,2,3,4,5,6];</span><br><span class="line">for(var i in arr)&#123;</span><br><span class="line">    console.log(arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>for each 方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Array.forEach(callback)</span><br><span class="line">forEach()方法是ES2.1标准引入的。</span><br><span class="line">var arr=[1,2,3,4,5,6];</span><br><span class="line">arr.forEach(function(v,i)&#123;//v==value　为arr项，i==index　为arr索引</span><br><span class="line">    console.log(i+&apos;  &apos;v );</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>在最新的ES6中新增了一个方法<br>for of方法</p><p>遍历Array可以采用下标循环，遍历map和Set就无法使用下标，无法使用索引进行遍历<br>，为了统一集合类型，ES6标准引入了新的iterable类型，<br>Array、Map和Set都属于iterable类型。<br>具有iterable类型的集合可以通过新的for…of循环遍历。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr=[1,2,3,4,5,6];</span><br><span class="line">for(var value of Arr)&#123;</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>for … of循环和for … in循环有何区别<br>for … in循环，它遍历的实际上是对象的属性名称。</p><p>一个Array数组实际上也是一个对象，它的每个元素的索引被视为一个属性。</p><p>当我们手动给Array对象添加了额外的属性后，for … in循环将带来意想不到的意外效果：</p><p>for in 遍历数组时会为把数组索引作为键值　如：数组0、1、2、3、4、5、…的键；当我们这样写：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">var arr=[1,2,3,4,5,6];</span><br><span class="line">arr.value=&apos;val&apos;;</span><br><span class="line">//在使用for in 遍历时</span><br><span class="line">for(var i in arr)&#123;</span><br><span class="line">    console.log(i+&apos;   &apos;+arr[i]);//这时的i为键值，不为数组索引</span><br><span class="line">&#125;</span><br><span class="line">//输出</span><br><span class="line">0   1</span><br><span class="line">1   2</span><br><span class="line">2   3</span><br><span class="line">3   4</span><br><span class="line">4   5</span><br><span class="line">5   6</span><br><span class="line">value   val</span><br><span class="line">接着执行，这时出现问题：</span><br><span class="line"></span><br><span class="line">arr;//输出[1, 2, 3, 4, 5, 6]</span><br><span class="line"></span><br><span class="line">//使用 console.log(arr)时，这样</span><br><span class="line">console.log(arr);//输出[1, 2, 3, 4, 5, 6, value: &quot;val&quot;]</span><br><span class="line"></span><br><span class="line">//alert(arr)时</span><br><span class="line">alert(arr);//输出[1, 2, 3, 4, 5, 6]</span><br></pre></td></tr></table></figure><p>而当我们使用for of 时：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var arr=[1,2,3,4,5,6];</span><br><span class="line">arr.value=&apos;val&apos;;</span><br><span class="line">//在使用for in 遍历时</span><br><span class="line">for(var v of arr)&#123;</span><br><span class="line">    console.log(v);//v为数组的项</span><br><span class="line">&#125;</span><br><span class="line">//输出</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td></tr></table></figure><p>直接遍历出值</p><p>Map 遍历：</p><p>map:和forEach非常相似，都是用来遍历数组中的每一项值的，用来遍历数组中的每一项；</p><p>区别：map的回调函数中支持return返回值；</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var ary = [12,23,24,42,1];</span><br><span class="line">var res = ary.map(function (item,index,input) &#123;</span><br><span class="line">     return item*10;</span><br><span class="line">&#125;)</span><br><span class="line">console.log(res);//--&gt;[120,230,240,420,10];</span><br><span class="line">console.log(ary);//--&gt;[12,23,24,42,1]；</span><br></pre></td></tr></table></figure>]]></content>
-      
-      <categories>
-          
-          <category> 技巧 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> JavaScript </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>听罗胖聊天</title>
       <link href="/2017/09/02/%E5%90%AC%E7%BD%97%E8%83%96%E8%81%8A%E5%A4%A9/"/>
       <url>/2017/09/02/%E5%90%AC%E7%BD%97%E8%83%96%E8%81%8A%E5%A4%A9/</url>
@@ -459,6 +459,27 @@
         <tags>
             
             <tag> 思想 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>你不知道的JS(一)</title>
+      <link href="/2017/09/02/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS(%E4%B8%80)/"/>
+      <url>/2017/09/02/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS(%E4%B8%80)/</url>
+      <content type="html"><![CDATA[<pre><code>javaScript数组的遍历，在项目中遇到的是这个问题：直接上图：</code></pre><h5 id="主要针对数组的遍历有一下方法："><a class="header-anchor" href="#主要针对数组的遍历有一下方法：">¶</a>主要针对数组的遍历有一下方法：</h5><p>传统方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr=[1,2,3,4,5,6];</span><br><span class="line">for(var i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">    console.log(arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a><p>for in方法</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr=[1,2,3,4,5,6];</span><br><span class="line">for(var i in arr)&#123;</span><br><span class="line">    console.log(arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>for each 方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Array.forEach(callback)</span><br><span class="line">forEach()方法是ES2.1标准引入的。</span><br><span class="line">var arr=[1,2,3,4,5,6];</span><br><span class="line">arr.forEach(function(v,i)&#123;//v==value　为arr项，i==index　为arr索引</span><br><span class="line">    console.log(i+&apos;  &apos;v );</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>在最新的ES6中新增了一个方法<br>for of方法</p><p>遍历Array可以采用下标循环，遍历map和Set就无法使用下标，无法使用索引进行遍历<br>，为了统一集合类型，ES6标准引入了新的iterable类型，<br>Array、Map和Set都属于iterable类型。<br>具有iterable类型的集合可以通过新的for…of循环遍历。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr=[1,2,3,4,5,6];</span><br><span class="line">for(var value of Arr)&#123;</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>for … of循环和for … in循环有何区别<br>for … in循环，它遍历的实际上是对象的属性名称。</p><p>一个Array数组实际上也是一个对象，它的每个元素的索引被视为一个属性。</p><p>当我们手动给Array对象添加了额外的属性后，for … in循环将带来意想不到的意外效果：</p><p>for in 遍历数组时会为把数组索引作为键值　如：数组0、1、2、3、4、5、…的键；当我们这样写：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">var arr=[1,2,3,4,5,6];</span><br><span class="line">arr.value=&apos;val&apos;;</span><br><span class="line">//在使用for in 遍历时</span><br><span class="line">for(var i in arr)&#123;</span><br><span class="line">    console.log(i+&apos;   &apos;+arr[i]);//这时的i为键值，不为数组索引</span><br><span class="line">&#125;</span><br><span class="line">//输出</span><br><span class="line">0   1</span><br><span class="line">1   2</span><br><span class="line">2   3</span><br><span class="line">3   4</span><br><span class="line">4   5</span><br><span class="line">5   6</span><br><span class="line">value   val</span><br><span class="line">接着执行，这时出现问题：</span><br><span class="line"></span><br><span class="line">arr;//输出[1, 2, 3, 4, 5, 6]</span><br><span class="line"></span><br><span class="line">//使用 console.log(arr)时，这样</span><br><span class="line">console.log(arr);//输出[1, 2, 3, 4, 5, 6, value: &quot;val&quot;]</span><br><span class="line"></span><br><span class="line">//alert(arr)时</span><br><span class="line">alert(arr);//输出[1, 2, 3, 4, 5, 6]</span><br></pre></td></tr></table></figure><p>而当我们使用for of 时：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var arr=[1,2,3,4,5,6];</span><br><span class="line">arr.value=&apos;val&apos;;</span><br><span class="line">//在使用for in 遍历时</span><br><span class="line">for(var v of arr)&#123;</span><br><span class="line">    console.log(v);//v为数组的项</span><br><span class="line">&#125;</span><br><span class="line">//输出</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td></tr></table></figure><p>直接遍历出值</p><p>Map 遍历：</p><p>map:和forEach非常相似，都是用来遍历数组中的每一项值的，用来遍历数组中的每一项；</p><p>区别：map的回调函数中支持return返回值；</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var ary = [12,23,24,42,1];</span><br><span class="line">var res = ary.map(function (item,index,input) &#123;</span><br><span class="line">     return item*10;</span><br><span class="line">&#125;)</span><br><span class="line">console.log(res);//--&gt;[120,230,240,420,10];</span><br><span class="line">console.log(ary);//--&gt;[12,23,24,42,1]；</span><br></pre></td></tr></table></figure>]]></content>
+      
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JavaScript </tag>
             
         </tags>
       
@@ -482,6 +503,27 @@
             <tag> 算法 </tag>
             
             <tag> 数据结构 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>袋鼠过河</title>
+      <link href="/2017/08/23/newCoder%E8%A2%8B%E9%BC%A0%E8%BF%87%E6%B2%B3/"/>
+      <url>/2017/08/23/newCoder%E8%A2%8B%E9%BC%A0%E8%BF%87%E6%B2%B3/</url>
+      <content type="html"><![CDATA[<p>最近忙着复习，博客就更新频率少低了，现在就先把觉得重要的算法题记录一下，在牛客网上做到的最简单的动态规划问题，当然这道题的变形在leetCode上也有（jumpGame）。</p><a id="more"></a><h5 id="题目描述"><a class="header-anchor" href="#题目描述">¶</a>题目描述</h5><blockquote><p>一只袋鼠要从河这边跳到河对岸，河很宽，但是河中间打了很多桩子，每隔一米就有一个，每个桩子上都有一个弹簧，袋鼠跳到弹簧上就可以跳的更远。每个弹簧力量不同，用一个数字代表它的力量，如果弹簧力量为5，就代表袋鼠下一跳最多能够跳5米，如果为0，就会陷进去无法继续跳跃。河流一共N米宽，袋鼠初始位置就在第一个弹簧上面，要跳到最后一个弹簧之后就算过河了，给定每个弹簧的力量，求袋鼠最少需要多少跳能够到达对岸。如果无法到达输出-1</p></blockquote><h5 id="输入描述"><a class="header-anchor" href="#输入描述">¶</a>输入描述:</h5><blockquote><p>输入分两行，第一行是数组长度N (1 ≤ N ≤ 10000)，第二行是每一项的值，用空格分隔。</p></blockquote><h5 id="输出描述"><a class="header-anchor" href="#输出描述">¶</a>输出描述:</h5><blockquote><p>输出最少的跳数，无法到达输出-1</p></blockquote><h5 id="示例1"><a class="header-anchor" href="#示例1">¶</a>示例1</h5><blockquote><p>输入<br>5<br>2 0 1 1 1<br>输出<br>4</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public class Jump &#123;</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">Scanner sc = new Scanner(System.in);</span><br><span class="line">int N = sc.nextInt();</span><br><span class="line">int[] nums = new int[N + 1];</span><br><span class="line">int[] dp = new int[N + 1];</span><br><span class="line">for (int i = 0; i &lt; N; i++)</span><br><span class="line">nums[i] = sc.nextInt();</span><br><span class="line"></span><br><span class="line">for (int i = 0; i &lt;=N; i++)</span><br><span class="line">dp[i] = 100000;</span><br><span class="line">nums[N] = 1;</span><br><span class="line">dp[0] = 0;</span><br><span class="line">for (int i = 1; i &lt;= N; i++) &#123;</span><br><span class="line">if (nums[i] == 0)</span><br><span class="line">continue;</span><br><span class="line">for (int j = 0; j &lt; i; j++) &#123;</span><br><span class="line">if (nums[j] &gt;= i - j)</span><br><span class="line">dp[i] = Math.min(dp[j] + 1, dp[i]);</span><br><span class="line">System.out.println(&quot;i=&quot; + i + &quot;,&quot; + &quot;j=&quot; + j + &quot;  &quot; + &quot;dp[&quot; + i + &quot;]: &quot; + dp[i]);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">System.out.println((dp[N] == 100000) ? -1 : dp[N]);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 动态规划 </tag>
             
         </tags>
       
@@ -524,27 +566,6 @@
         <tags>
             
             <tag> Java </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>袋鼠过河</title>
-      <link href="/2017/08/23/newCoder%E8%A2%8B%E9%BC%A0%E8%BF%87%E6%B2%B3/"/>
-      <url>/2017/08/23/newCoder%E8%A2%8B%E9%BC%A0%E8%BF%87%E6%B2%B3/</url>
-      <content type="html"><![CDATA[<p>最近忙着复习，博客就更新频率少低了，现在就先把觉得重要的算法题记录一下，在牛客网上做到的最简单的动态规划问题，当然这道题的变形在leetCode上也有（jumpGame）。</p><a id="more"></a><h5 id="题目描述"><a class="header-anchor" href="#题目描述">¶</a>题目描述</h5><blockquote><p>一只袋鼠要从河这边跳到河对岸，河很宽，但是河中间打了很多桩子，每隔一米就有一个，每个桩子上都有一个弹簧，袋鼠跳到弹簧上就可以跳的更远。每个弹簧力量不同，用一个数字代表它的力量，如果弹簧力量为5，就代表袋鼠下一跳最多能够跳5米，如果为0，就会陷进去无法继续跳跃。河流一共N米宽，袋鼠初始位置就在第一个弹簧上面，要跳到最后一个弹簧之后就算过河了，给定每个弹簧的力量，求袋鼠最少需要多少跳能够到达对岸。如果无法到达输出-1</p></blockquote><h5 id="输入描述"><a class="header-anchor" href="#输入描述">¶</a>输入描述:</h5><blockquote><p>输入分两行，第一行是数组长度N (1 ≤ N ≤ 10000)，第二行是每一项的值，用空格分隔。</p></blockquote><h5 id="输出描述"><a class="header-anchor" href="#输出描述">¶</a>输出描述:</h5><blockquote><p>输出最少的跳数，无法到达输出-1</p></blockquote><h5 id="示例1"><a class="header-anchor" href="#示例1">¶</a>示例1</h5><blockquote><p>输入<br>5<br>2 0 1 1 1<br>输出<br>4</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public class Jump &#123;</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">Scanner sc = new Scanner(System.in);</span><br><span class="line">int N = sc.nextInt();</span><br><span class="line">int[] nums = new int[N + 1];</span><br><span class="line">int[] dp = new int[N + 1];</span><br><span class="line">for (int i = 0; i &lt; N; i++)</span><br><span class="line">nums[i] = sc.nextInt();</span><br><span class="line"></span><br><span class="line">for (int i = 0; i &lt;=N; i++)</span><br><span class="line">dp[i] = 100000;</span><br><span class="line">nums[N] = 1;</span><br><span class="line">dp[0] = 0;</span><br><span class="line">for (int i = 1; i &lt;= N; i++) &#123;</span><br><span class="line">if (nums[i] == 0)</span><br><span class="line">continue;</span><br><span class="line">for (int j = 0; j &lt; i; j++) &#123;</span><br><span class="line">if (nums[j] &gt;= i - j)</span><br><span class="line">dp[i] = Math.min(dp[j] + 1, dp[i]);</span><br><span class="line">System.out.println(&quot;i=&quot; + i + &quot;,&quot; + &quot;j=&quot; + j + &quot;  &quot; + &quot;dp[&quot; + i + &quot;]: &quot; + dp[i]);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">System.out.println((dp[N] == 100000) ? -1 : dp[N]);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      <categories>
-          
-          <category> 技巧 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 动态规划 </tag>
             
         </tags>
       
@@ -746,29 +767,6 @@
     </entry>
     
     <entry>
-      <title>Dao层、Service层、Controller层、View层</title>
-      <link href="/2017/07/03/Dao%E5%B1%82%E3%80%81Service%E5%B1%82%E3%80%81Controller%E5%B1%82%E3%80%81View%E5%B1%82/"/>
-      <url>/2017/07/03/Dao%E5%B1%82%E3%80%81Service%E5%B1%82%E3%80%81Controller%E5%B1%82%E3%80%81View%E5%B1%82/</url>
-      <content type="html"><![CDATA[<ol><li>DAO层：DAO层主要是做数据持久层的工作，负责与数据库进行联络的一些任务都封装在此，DAO层的设计首先是设计DAO的接口，然后在Spring的配置文件中定义此接口的实现类，然后就可在模块中调用此接口来进行数据业务的处理，而不用关心此接口的具体实现类是哪个类，显得结构非常清晰，DAO层的数据源配置，以及有关数据库连接的参数都在Spring的配置文件中进行配置。</li><li>Service层：Service层主要负责业务模块的逻辑应用设计。同样是首先设计接口，再设计其实现的类，接着再Spring的配置文件中配置其实现的关联。这样我们就可以在应用中调用Service接口来进行业务处理。Service层的业务实现，具体要调用到已定义的DAO层的接口，封装Service层的业务逻辑有利于通用的业务逻辑的独立性和重复利用性，程序显得非常简洁。</li></ol><a id="more"></a><ol start="3"><li>Controller层:Controller层负责具体的业务模块流程的控制，在此层里面要调用Serice层的接口来控制业务流程，控制的配置也同样是在Spring的配置文件里面进行，针对具体的业务流程，会有不同的控制器，我们具体的设计过程中可以将流程进行抽象归纳，设计出可以重复利用的子单元流程模块，这样不仅使程序结构变得清晰，也大大减少了代码量。</li><li>View层 此层与控制层结合比较紧密，需要二者结合起来协同工发。View层主要负责前台jsp页面的表示</li><li>DAO层，Service层这两个层次都可以单独开发，互相的耦合度很低，完全可以独立进行，这样的一种模式在开发大项目的过程中尤其有优势，Controller，View层因为耦合度比较高，因而要结合在一起开发，但是也可以看作一个整体独立于前两个层进行开发。这样，在层与层之前我们只需要知道接口的定义，调用接口即可完成所需要的逻辑单元应用，一切显得非常清晰简单。<br></li><li>DAO设计的总体规划需要和设计的表，和实现类之间一一对应。</li><li>DAO层所定义的接口里的方法都大同小异，这是由我们在DAO层对数据库访问的操作来决定的，对数据库的操作，我们基本要用到的就是新增，更新，删除，查询等方法。因而DAO层里面基本上都应该要涵盖这些方法对应的操作。除此之外，可以定义一些自定义的特殊的对数据库访问的方法。</li><li>Service逻辑层设计</li><li>Service层是建立在DAO层之上的，建立了DAO层后才可以建立Service层，而Service层又是在Controller层之下的，因而Service层应该既调用DAO层的接口，又要提供接口给Controller层的类来进行调用，它刚好处于一个中间层的位置。每个模型都有一个Service接口，每个接口分别封装各自的业务处理方法。</li><li>在DAO层定义的一些方法，在Service层并没有使用，那为什么还要在DAO层进行定义呢？这是由我们定义的需求逻辑所决定的。DAO层的操作 经过抽象后基本上都是通用的，因而我们在定义DAO层的时候可以将相关的方法定义完毕，这样的好处是在对Service进行扩展的时候不需要再对DAO层进行修改，提高了程序的可扩展性。<br><br>小链接：ajax相关 (<a href="http://blog.csdn.net/cwj649956781/article/details/22414533" target="_blank" rel="noopener">http://blog.csdn.net/cwj649956781/article/details/22414533</a>)<br><br><br>(<a href="https://zhidao.baidu.com/question/745652997728018212.html" target="_blank" rel="noopener">https://zhidao.baidu.com/question/745652997728018212.html</a>)<br><br><br>(<a href="http://www.cnblogs.com/sdya/p/4624578.html" target="_blank" rel="noopener">http://www.cnblogs.com/sdya/p/4624578.html</a>)</li></ol>]]></content>
-      
-      <categories>
-          
-          <category> 技巧 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Javaweb </tag>
-            
-            <tag> SSM </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>Spring常用注解</title>
       <link href="/2017/07/03/Spring%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/"/>
       <url>/2017/07/03/Spring%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/</url>
@@ -786,6 +784,29 @@
             <tag> Javaweb </tag>
             
             <tag> Spring </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Dao层、Service层、Controller层、View层</title>
+      <link href="/2017/07/03/Dao%E5%B1%82%E3%80%81Service%E5%B1%82%E3%80%81Controller%E5%B1%82%E3%80%81View%E5%B1%82/"/>
+      <url>/2017/07/03/Dao%E5%B1%82%E3%80%81Service%E5%B1%82%E3%80%81Controller%E5%B1%82%E3%80%81View%E5%B1%82/</url>
+      <content type="html"><![CDATA[<ol><li>DAO层：DAO层主要是做数据持久层的工作，负责与数据库进行联络的一些任务都封装在此，DAO层的设计首先是设计DAO的接口，然后在Spring的配置文件中定义此接口的实现类，然后就可在模块中调用此接口来进行数据业务的处理，而不用关心此接口的具体实现类是哪个类，显得结构非常清晰，DAO层的数据源配置，以及有关数据库连接的参数都在Spring的配置文件中进行配置。</li><li>Service层：Service层主要负责业务模块的逻辑应用设计。同样是首先设计接口，再设计其实现的类，接着再Spring的配置文件中配置其实现的关联。这样我们就可以在应用中调用Service接口来进行业务处理。Service层的业务实现，具体要调用到已定义的DAO层的接口，封装Service层的业务逻辑有利于通用的业务逻辑的独立性和重复利用性，程序显得非常简洁。</li></ol><a id="more"></a><ol start="3"><li>Controller层:Controller层负责具体的业务模块流程的控制，在此层里面要调用Serice层的接口来控制业务流程，控制的配置也同样是在Spring的配置文件里面进行，针对具体的业务流程，会有不同的控制器，我们具体的设计过程中可以将流程进行抽象归纳，设计出可以重复利用的子单元流程模块，这样不仅使程序结构变得清晰，也大大减少了代码量。</li><li>View层 此层与控制层结合比较紧密，需要二者结合起来协同工发。View层主要负责前台jsp页面的表示</li><li>DAO层，Service层这两个层次都可以单独开发，互相的耦合度很低，完全可以独立进行，这样的一种模式在开发大项目的过程中尤其有优势，Controller，View层因为耦合度比较高，因而要结合在一起开发，但是也可以看作一个整体独立于前两个层进行开发。这样，在层与层之前我们只需要知道接口的定义，调用接口即可完成所需要的逻辑单元应用，一切显得非常清晰简单。<br></li><li>DAO设计的总体规划需要和设计的表，和实现类之间一一对应。</li><li>DAO层所定义的接口里的方法都大同小异，这是由我们在DAO层对数据库访问的操作来决定的，对数据库的操作，我们基本要用到的就是新增，更新，删除，查询等方法。因而DAO层里面基本上都应该要涵盖这些方法对应的操作。除此之外，可以定义一些自定义的特殊的对数据库访问的方法。</li><li>Service逻辑层设计</li><li>Service层是建立在DAO层之上的，建立了DAO层后才可以建立Service层，而Service层又是在Controller层之下的，因而Service层应该既调用DAO层的接口，又要提供接口给Controller层的类来进行调用，它刚好处于一个中间层的位置。每个模型都有一个Service接口，每个接口分别封装各自的业务处理方法。</li><li>在DAO层定义的一些方法，在Service层并没有使用，那为什么还要在DAO层进行定义呢？这是由我们定义的需求逻辑所决定的。DAO层的操作 经过抽象后基本上都是通用的，因而我们在定义DAO层的时候可以将相关的方法定义完毕，这样的好处是在对Service进行扩展的时候不需要再对DAO层进行修改，提高了程序的可扩展性。<br><br>小链接：ajax相关 (<a href="http://blog.csdn.net/cwj649956781/article/details/22414533" target="_blank" rel="noopener">http://blog.csdn.net/cwj649956781/article/details/22414533</a>)<br><br><br>(<a href="https://zhidao.baidu.com/question/745652997728018212.html" target="_blank" rel="noopener">https://zhidao.baidu.com/question/745652997728018212.html</a>)<br><br><br>(<a href="http://www.cnblogs.com/sdya/p/4624578.html" target="_blank" rel="noopener">http://www.cnblogs.com/sdya/p/4624578.html</a>)</li></ol>]]></content>
+      
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Javaweb </tag>
+            
+            <tag> SSM </tag>
             
         </tags>
       
