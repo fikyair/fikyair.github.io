@@ -147,7 +147,7 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h5 id="二分查找法"><a class="header-anchor" href="#二分查找法">¶</a>二分查找法</h5>
+    <section class="markdown-content"><h5 id="二分查找法"><a class="header-anchor" href="#二分查找法">null</a>二分查找法</h5>
 <p>对于一个有序数组，我们通常采用二分查找的方式来定位某一元素，请编写二分查找的算法，在数组中查找指定元素。<br>
 给定一个整数数组A及它的大小n，同时给定要查找的元素val，请返回它在数组中的位置(从0开始)，若不存在该元素，<br>
 返回-1。若该元素出现多次，请返回第一次出现的位置</p>
@@ -161,7 +161,7 @@
 </blockquote>
 <p>解答：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line">public class BinarySearch &#123;</span><br><span class="line">    public int getPos(int[] A, int n, int val) &#123;</span><br><span class="line">        // 因为已是有序数组，所以不必排序</span><br><span class="line">        int low=0,high=n-1,mid;			</span><br><span class="line">			while(low&lt;=high)&#123;</span><br><span class="line">				mid=(low+high)/2;</span><br><span class="line">				if(val&lt;A[mid])&#123;</span><br><span class="line">					high=mid-1;				</span><br><span class="line">				&#125;else if(val&gt;A[mid])&#123;</span><br><span class="line">					low=mid+1;</span><br><span class="line"></span><br><span class="line">				&#125;else &#123;				</span><br><span class="line">          //处理两个相邻元素相等情况</span><br><span class="line">                    if(mid&gt;0&amp;&amp;A[mid]==A[mid-1])</span><br><span class="line">                    return mid-1;</span><br><span class="line">                    else return mid;</span><br><span class="line">				&#125;								</span><br><span class="line">			&#125;						</span><br><span class="line">			return -1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">          int[] A=&#123;1,2,4,4,5,5,6&#125;;</span><br><span class="line">          n=a.length;</span><br><span class="line">          val=5;</span><br><span class="line">		 int result=getPos(A, n, val);</span><br><span class="line">		System.out.println(result);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="世界上有10种人-一种懂二进制-一种不懂-那么你知道两个int32整数m和n的二进制表达-有多少个位-bit-不同么？"><a class="header-anchor" href="#世界上有10种人-一种懂二进制-一种不懂-那么你知道两个int32整数m和n的二进制表达-有多少个位-bit-不同么？">¶</a>世界上有10种人，一种懂二进制，一种不懂。那么你知道两个int32整数m和n的二进制表达，有多少个位(bit)不同么？</h5>
+<h5 id="世界上有10种人-一种懂二进制-一种不懂-那么你知道两个int32整数m和n的二进制表达-有多少个位-bit-不同么？"><a class="header-anchor" href="#世界上有10种人-一种懂二进制-一种不懂-那么你知道两个int32整数m和n的二进制表达-有多少个位-bit-不同么？">null</a>世界上有10种人，一种懂二进制，一种不懂。那么你知道两个int32整数m和n的二进制表达，有多少个位(bit)不同么？</h5>
 <p>public class Solution {<br>
 public static int countBitDiff(int m, int n) {<br>
 int k = m ^ n; //先将二者做异或运算，得到结果；<br>
@@ -186,9 +186,9 @@ return num;<br>
 举个例子：一个二进制数1100，从右边数起第三位是处于最右边的一个1。减去1后，第三位变成0，它后面的两位0变成了1，而前面的1保持不变，因此得到的结果是1011.我们发现减1的结果是把最右边的一个1开始的所有位都取反了。这个时候如果我们再把原来的整数和减去1之后的结果做与运算，从原来整数最右边一个1那一位开始所有位都会变成0。如1100&amp;1011=1000.也就是说，把一个整数减去1，再和原整数做与运算，会把该整数最右边一个1变成0.那么一个整数的二进制有多少个1，就可以进行多少次这样的操作。</p>
 <p>ps : 计算机基础，二进制减法</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">   1 1 0 0 0 0                      1 2 0 0 0</span><br><span class="line">-    1 0 1 1 1            类比        3 9 9 9  </span><br><span class="line">- - - - - - - -         &lt;-----    - - - - - - - -</span><br><span class="line">     1 1 0 0 1                        8 0 0 1</span><br></pre></td></tr></table></figure>
-<h4 id="知识点补充"><a class="header-anchor" href="#知识点补充">¶</a>知识点补充</h4>
+<h4 id="知识点补充"><a class="header-anchor" href="#知识点补充">null</a>知识点补充</h4>
 <p>Java 位运算(移位、位与、或、异或、非)</p>
-<h5 id="java提供的位运算符有：左移-右移-无符号右移-位与-位或-位非-位异或-除了位非-是一元操作符外-其它的都是二元操作符"><a class="header-anchor" href="#java提供的位运算符有：左移-右移-无符号右移-位与-位或-位非-位异或-除了位非-是一元操作符外-其它的都是二元操作符">¶</a>Java提供的位运算符有：左移( &lt;&lt; )、右移( &gt;&gt; ) 、无符号右移( &gt;&gt;&gt; ) 、位与( &amp; ) 、位或( | )、位非( ~ )、位异或( ^ )，除了位非( ~ )是一元操作符外，其它的都是二元操作符。</h5>
+<h5 id="java提供的位运算符有：左移-右移-无符号右移-位与-位或-位非-位异或-除了位非-是一元操作符外-其它的都是二元操作符"><a class="header-anchor" href="#java提供的位运算符有：左移-右移-无符号右移-位与-位或-位非-位异或-除了位非-是一元操作符外-其它的都是二元操作符">null</a>Java提供的位运算符有：左移( &lt;&lt; )、右移( &gt;&gt; ) 、无符号右移( &gt;&gt;&gt; ) 、位与( &amp; ) 、位或( | )、位非( ~ )、位异或( ^ )，除了位非( ~ )是一元操作符外，其它的都是二元操作符。</h5>
 <ol>
 <li>左移( &lt;&lt; )</li>
 </ol>
@@ -226,9 +226,9 @@ System.out.println(5&gt;&gt;2);//运行结果是1<br>
 <p>通过其结果转换成二进制后，我们可以发现，正数右移，高位用0补，负数右移，高位用1补，当负数<br>
 使用无符号右移时，用0进行部位(自然而然的，就由负数变成了正数了)<br>
 注意：笔者在这里说的是右移，高位补位的情况。正数或者负数左移，低位都是用0补。(自行测试)</p>
-<h5 id="最后-二进制的运算"><a class="header-anchor" href="#最后-二进制的运算">¶</a>最后，二进制的运算</h5>
+<h5 id="最后-二进制的运算"><a class="header-anchor" href="#最后-二进制的运算">null</a>最后，二进制的运算</h5>
 <p>参考(<a href="http://www.chinatax.gov.cn/jypx/jsjjczs/multiply.htm" target="_blank" rel="noopener">http://www.chinatax.gov.cn/jypx/jsjjczs/multiply.htm</a>)</p>
-<h5 id="抽象类-与-接口"><a class="header-anchor" href="#抽象类-与-接口">¶</a>抽象类 与 接口</h5>
+<h5 id="抽象类-与-接口"><a class="header-anchor" href="#抽象类-与-接口">null</a>抽象类 与 接口</h5>
 <ul>
 <li>抽象类：用abstract修饰，抽象类中可以没有抽象方法，但抽象方法肯定在抽象类中，且抽象方法定义时不能有方法体；抽象类不可以实例化只能通过继承在子类中实现其所有的抽象方法；抽象类如果不被继承就没有任何意义；抽象类为子类定义了一个公共类型，封装了子类中的重复内容。</li>
 <li>接口:同Interface关键字定义接口，是特殊的抽象类因为类中只包含抽象方法；接口中不能定义成员变量可以定义常量；接口是其通过其他类使用implements关键字定义实现类，一个类一旦实现接口就必须实现其中的所有抽象方法，一个类可以实现多个接口，接口名之间用逗号隔开即可；一个接口可以通过extends关键字继承另一个接口，与此同时继承了父类中的所有方法。</li>
@@ -314,7 +314,7 @@ System.out.println(5&gt;&gt;2);//运行结果是1<br>
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#二分查找法"><span class="toc-nav-text">¶二分查找法</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#世界上有10种人-一种懂二进制-一种不懂-那么你知道两个int32整数m和n的二进制表达-有多少个位-bit-不同么？"><span class="toc-nav-text">¶世界上有10种人，一种懂二进制，一种不懂。那么你知道两个int32整数m和n的二进制表达，有多少个位(bit)不同么？</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#知识点补充"><span class="toc-nav-text">¶知识点补充</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#java提供的位运算符有：左移-右移-无符号右移-位与-位或-位非-位异或-除了位非-是一元操作符外-其它的都是二元操作符"><span class="toc-nav-text">¶Java提供的位运算符有：左移( &lt;&lt; )、右移( &gt;&gt; ) 、无符号右移( &gt;&gt;&gt; ) 、位与( &amp; ) 、位或( | )、位非( ~ )、位异或( ^ )，除了位非( ~ )是一元操作符外，其它的都是二元操作符。</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#最后-二进制的运算"><span class="toc-nav-text">¶最后，二进制的运算</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#抽象类-与-接口"><span class="toc-nav-text">¶抽象类 与 接口</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#二分查找法"><span class="toc-nav-text">null二分查找法</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#世界上有10种人-一种懂二进制-一种不懂-那么你知道两个int32整数m和n的二进制表达-有多少个位-bit-不同么？"><span class="toc-nav-text">null世界上有10种人，一种懂二进制，一种不懂。那么你知道两个int32整数m和n的二进制表达，有多少个位(bit)不同么？</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#知识点补充"><span class="toc-nav-text">null知识点补充</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#java提供的位运算符有：左移-右移-无符号右移-位与-位或-位非-位异或-除了位非-是一元操作符外-其它的都是二元操作符"><span class="toc-nav-text">nullJava提供的位运算符有：左移( &lt;&lt; )、右移( &gt;&gt; ) 、无符号右移( &gt;&gt;&gt; ) 、位与( &amp; ) 、位或( | )、位非( ~ )、位异或( ^ )，除了位非( ~ )是一元操作符外，其它的都是二元操作符。</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#最后-二进制的运算"><span class="toc-nav-text">null最后，二进制的运算</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#抽象类-与-接口"><span class="toc-nav-text">null抽象类 与 接口</span></a></li></ol>
     
   </div>
 </aside>

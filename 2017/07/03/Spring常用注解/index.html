@@ -147,7 +147,7 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h3 id="常用的是注解有如下几种："><a class="header-anchor" href="#常用的是注解有如下几种：">¶</a>常用的是注解有如下几种：</h3>
+    <section class="markdown-content"><h3 id="常用的是注解有如下几种："><a class="header-anchor" href="#常用的是注解有如下几种：">null</a>常用的是注解有如下几种：</h3>
 <p>@Controller<br><br>
 @Service<br><br>
 @Autowired<br><br>
@@ -167,7 +167,7 @@
 @InitBinder<br><br>
 @Required<br><br>
 @Qualifier<br></p>
-<h6 id="controller"><a class="header-anchor" href="#controller">¶</a>@Controller</h6>
+<h6 id="controller"><a class="header-anchor" href="#controller">null</a>@Controller</h6>
 <ul>
 <li>例如：@Controller<br><br>
 public class SoftCreateController extends SimpleBaseController {}</li>
@@ -176,7 +176,7 @@ public class SoftCreateController extends SimpleBaseController {}</li>
 <li>说明： @Controller<br><br>
 负责注册一个bean 到spring 上下文中，bean 的ID 默认为类名称开头字母小写</li>
 </ul>
-<h6 id="service"><a class="header-anchor" href="#service">¶</a>@Service</h6>
+<h6 id="service"><a class="header-anchor" href="#service">null</a>@Service</h6>
 <p>• 例如：<br>
 @Service<br><br>
 public class SoftCreateServiceImpl implements ISoftCreateService {}</p>
@@ -184,7 +184,7 @@ public class SoftCreateServiceImpl implements ISoftCreateService {}</p>
 @Service(“softCreateServiceImpl”)</p>
 <p>• 说明：<br><br>
 @Service 负责注册一个bean 到spring 上下文中，bean 的ID 默认为类名称开头字母小写</p>
-<h6 id="autowired"><a class="header-anchor" href="#autowired">¶</a>@Autowired</h6>
+<h6 id="autowired"><a class="header-anchor" href="#autowired">null</a>@Autowired</h6>
 <p>• 例如：<br>
 @Autowired<br>
 private ISoftPMService softPMService;</p>
@@ -199,7 +199,7 @@ private ISoftPMService softPMService = new SoftPMServiceImpl();</p>
 上下文中没有找到该类型的bean 时， 才会使用new SoftPMServiceImpl();</p>
 <p>@Autowired 还有一个作用就是，如果将其标注在 BeanFactory 类型、ApplicationContext 类型、ResourceLoader 类型、<br>
 ApplicationEventPublisher 类型、MessageSource 类型上，那么 Spring 会自动注入这些实现类的实例，不需要额外的操作。</p>
-<h6 id="requestmapping"><a class="header-anchor" href="#requestmapping">¶</a>@RequestMapping</h6>
+<h6 id="requestmapping"><a class="header-anchor" href="#requestmapping">null</a>@RequestMapping</h6>
 <p>• 类：</p>
 <p>@Controller<br>
 @RequestMapping(&quot;/bbtForum.do&quot;) IT学习者（<a href="http://www.itxxz.com" target="_blank" rel="noopener">www.itxxz.com</a>）<br>
@@ -218,7 +218,7 @@ public String listBoardTopic(int topicId,User user) {}<br>
 <a href="http://localhost/itxxzSpring4?method=listBoardTopic&amp;topicId=1&amp;userId=10&amp;userName=tom" target="_blank" rel="noopener">http://localhost/itxxzSpring4?method=listBoardTopic&amp;topicId=1&amp;userId=10&amp;userName=tom</a><br>
 topicId URL 参数将绑定到 topicId 入参上，而 userId 和 userName URL 参数将绑定到 user 对象的<br>
 userId 和 userName 属性中。和 URL 请求中不允许没有 topicId 参数不同，虽然 User 的 userId 属性的类型是基本数据类型，但如果 URL 中不存在 userId 参数，Spring 也不会报错，此时 user.userId 值为 0 。如果 User 对象拥有一个 dept.deptId 的级联属性，那么它将和 dept.deptId URL 参数绑定。</p>
-<h6 id="resource"><a class="header-anchor" href="#resource">¶</a>@Resource</h6>
+<h6 id="resource"><a class="header-anchor" href="#resource">null</a>@Resource</h6>
 <ul>
 <li>例如：<br>
 @Resource<br>
@@ -231,7 +231,7 @@ private DataSource dataSource; // inject the bean named ‘dataSource’</li>
 此时与@Autowired 类 似.<br><br>
 在没有为 @Resource 注解显式指定 name 属性的前提下，如果将其标注在 BeanFactory 类型、ApplicationContext 类型、ResourceLoader 类型、ApplicationEventPublisher 类型、MessageSource 类型上，那么 Spring 会自动注入这些实现类的实例，不需要额外的操作。此时 name 属性不需要指定 ( 或者指定为&quot;&quot;)，否则注入失败；</li>
 </ul>
-<h6 id="scope"><a class="header-anchor" href="#scope">¶</a>@Scope</h6>
+<h6 id="scope"><a class="header-anchor" href="#scope">null</a>@Scope</h6>
 <ul>
 <li>例如<br>
 @Scope(“session”)<br>
@@ -331,7 +331,7 @@ global-session:定义bean的范围是全局http会话（portlet中有效）<br>
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#常用的是注解有如下几种："><span class="toc-nav-text">¶常用的是注解有如下几种：</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#controller"><span class="toc-nav-text">¶@Controller</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#service"><span class="toc-nav-text">¶@Service</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#autowired"><span class="toc-nav-text">¶@Autowired</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#requestmapping"><span class="toc-nav-text">¶@RequestMapping</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#resource"><span class="toc-nav-text">¶@Resource</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#scope"><span class="toc-nav-text">¶@Scope</span></a></li></ol></li></ol></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#常用的是注解有如下几种："><span class="toc-nav-text">null常用的是注解有如下几种：</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#controller"><span class="toc-nav-text">null@Controller</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#service"><span class="toc-nav-text">null@Service</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#autowired"><span class="toc-nav-text">null@Autowired</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#requestmapping"><span class="toc-nav-text">null@RequestMapping</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#resource"><span class="toc-nav-text">null@Resource</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#scope"><span class="toc-nav-text">null@Scope</span></a></li></ol></li></ol></li></ol></li></ol>
     
   </div>
 </aside>

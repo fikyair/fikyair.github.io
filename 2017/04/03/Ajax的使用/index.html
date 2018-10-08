@@ -147,13 +147,13 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h6 id="一-ajax是什么-有什么作用？"><a class="header-anchor" href="#一-ajax是什么-有什么作用？">¶</a>一. ajax是什么，有什么作用？</h6>
+    <section class="markdown-content"><h6 id="一-ajax是什么-有什么作用？"><a class="header-anchor" href="#一-ajax是什么-有什么作用？">null</a>一. ajax是什么，有什么作用？</h6>
 <p>ajax分为同步请求和异步请求两种。<br>
 ajax的异步好处：用户在浏览网页同时点击一个ajax异步请求，这个时候用户无需等待、使用javascript脚本实现页面的动态局部刷新。<br>
 坏处就是post请求不能跨域，比如a.com请求b.com等<br>
 小链接：(<a href="http://blog.csdn.net/cwj649956781/article/details/22414533" target="_blank" rel="noopener">http://blog.csdn.net/cwj649956781/article/details/22414533</a>)</p>
 <a id="more"></a>
-<h6 id="二-ajax的使用-br"><a class="header-anchor" href="#二-ajax的使用-br">¶</a>二.ajax的使用<br></h6>
+<h6 id="二-ajax的使用-br"><a class="header-anchor" href="#二-ajax的使用-br">null</a>二.ajax的使用<br></h6>
 <p>这里放一个小案例，仅供参考：<br>
 先导入包：【写到(/boday)的后面或(header)(/header)里都可以】</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;jquery/jquery-3.1.1.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
@@ -161,7 +161,7 @@ ajax的异步好处：用户在浏览网页同时点击一个ajax异步请求，
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onclick=&quot;test()&quot;&gt;测试&lt;/button&gt;</span><br><span class="line">&lt;span id=&quot;a&quot;&gt;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
 <p>下面这部分写到（/body）的后面</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">	function test()&#123;</span><br><span class="line">		var count=&apos;&apos;;</span><br><span class="line">		$.ajax(&#123;</span><br><span class="line">			type:&quot;get&quot;, //写请求方式</span><br><span class="line">			url: &quot;./findAllTicker&quot;,  //写要跳转页面的Url</span><br><span class="line">			dataType:&quot;json&quot;,  //后台返回数据的格式为json</span><br><span class="line">			async:true,  //true为异步请求</span><br><span class="line">			success: function(map)&#123;  //map 为我自己写的接收后台返回的数据</span><br><span class="line">				$(&quot;#a&quot;).html(map.count);  //在页面上输出数据</span><br><span class="line">				//$(&quot;#a&quot;)[0].innerHTML=map.count;		//在页面上输出数据</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<h6 id="运行截图："><a class="header-anchor" href="#运行截图：">¶</a>运行截图：</h6>
+<h6 id="运行截图："><a class="header-anchor" href="#运行截图：">null</a>运行截图：</h6>
 <p><img src="../images/ajax1.png" alt="ajax01"><br></p>
 <p><img src="../images/ajax2.png" alt="ajax02"><br><br>
 小链接：(<a href="http://www.cnblogs.com/sdya/p/4624578.html" target="_blank" rel="noopener">http://www.cnblogs.com/sdya/p/4624578.html</a>)</p>
@@ -235,7 +235,7 @@ ajax的异步好处：用户在浏览网页同时点击一个ajax异步请求，
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#一-ajax是什么-有什么作用？"><span class="toc-nav-text">¶一. ajax是什么，有什么作用？</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#二-ajax的使用-br"><span class="toc-nav-text">¶二.ajax的使用</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#运行截图："><span class="toc-nav-text">¶运行截图：</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#一-ajax是什么-有什么作用？"><span class="toc-nav-text">null一. ajax是什么，有什么作用？</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#二-ajax的使用-br"><span class="toc-nav-text">null二.ajax的使用</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#运行截图："><span class="toc-nav-text">null运行截图：</span></a></li></ol>
     
   </div>
 </aside>
