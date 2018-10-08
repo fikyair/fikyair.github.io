@@ -27,7 +27,7 @@
       <title>React源码分析</title>
       <link href="/2018/08/25/React%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/"/>
       <url>/2018/08/25/React%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</url>
-      <content type="html"><![CDATA[<p>深入学习React框架</p><a id="more"></a><p>读懂React源码</p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=186018&auto=1&height=66"></iframe>//其中的width=298 height=52 均改为0就看不到了，依然可以播放音乐]]></content>
+      <content type="html"><![CDATA[<p>深入学习React框架</p><a id="more"></a><p>读懂React源码</p><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=186018&auto=1&height=66"></iframe>]]></content>
       
       <categories>
           
