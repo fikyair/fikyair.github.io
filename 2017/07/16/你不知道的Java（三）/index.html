@@ -10,7 +10,7 @@
   
   <title>
     
-      你不知道的java（二） | Ignite
+      你不知道的java（三） | Ignite
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -138,7 +138,7 @@
 </header>
 
     <div id="article-banner">
-  <h2>你不知道的java（二）</h2>
+  <h2>你不知道的java（三）</h2>
   <p class="post-date">2017-07-16</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
@@ -150,7 +150,7 @@
     <section class="markdown-content"><p>Java基础第二天打卡：每天都过一点java基础，这些看似可以忽略的往往最不可以忽略。</p>
 <a id="more"></a>
 <p>在 Java 程序中，通过类的定义只能实现 单 重继承，但通过接口的定义可以实现 多 重继承关系。</p>
-<h5 id="关于继承："><a class="header-anchor" href="#关于继承：">null</a>关于继承：</h5>
+<h5 id="关于继承：">关于继承：</h5>
 <p>在java中，子类构造器会默认调用super()(无论构造器中是否写有super（）),用于初始化父类成员，同时当父类中存在有参构造器时，必须提供无参构造器，子类构造器中并不会自动继承有参构造器，仍然默认调用super()，使用无参构造器。因此，一个类想要被继承必须提供无参构造器。</p>
 <p>通过前面我们知道子类可以继承父类的属性和方法，除了那些private的外还有一样是子类继承不了的—构造器。对于构造器而言，它只能够被调用，而不能被继承。 调用父类的构造方法我们使用super()即可。</p>
 <p>对于子类而已,其构造器的正确初始化是非常重要的,而且当且仅当只有一个方法可以保证这点：在构造器中调用父类构造器来完成初始化，而父类构造器具有执行父类初始化所需要的所有知识和能力。</p>
@@ -161,7 +161,7 @@
 第二个错误的地方是， synchronized 的目标与 wait() 方法的物件不相同，会有 IllegalMonitorStateException ，不过 InterruptedException 会先出现，所以这不是答案<br>
 最后正确的程式码应该是这样：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void waitForSignal() &#123;</span><br><span class="line">Object obj = new Object();</span><br><span class="line">         synchronized (obj) &#123;</span><br><span class="line">             try &#123;</span><br><span class="line">obj.wait();</span><br><span class="line">&#125; catch (InterruptedException e) &#123;</span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">obj.notify();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="java程序的种类"><a class="header-anchor" href="#java程序的种类">null</a>java程序的种类</h5>
+<h5 id="java程序的种类">java程序的种类</h5>
 <p>Java程序的种类有：<br>
 （a）内嵌于Web文件中，由浏览器来观看的_Applet<br>
 （b）可独立运行的 Application<br>
@@ -173,18 +173,18 @@
 格式化结果（网页）<br>
 设置HTTP response参数(如告诉浏览器返回文档格式)<br>
 将文档返回给客户端。</p>
-<h5 id="方法通常存储在进程中的代码区"><a class="header-anchor" href="#方法通常存储在进程中的代码区">null</a>方法通常存储在进程中的代码区</h5>
+<h5 id="方法通常存储在进程中的代码区">方法通常存储在进程中的代码区</h5>
 <p>参考链接(<a href="http://www.cnblogs.com/liulipeng/archive/2013/09/13/3319675.html" target="_blank" rel="noopener">http://www.cnblogs.com/liulipeng/archive/2013/09/13/3319675.html</a>)</p>
-<h5 id="开发java程序的三个步骤"><a class="header-anchor" href="#开发java程序的三个步骤">null</a>开发JAVA程序的三个步骤:</h5>
+<h5 id="开发java程序的三个步骤">开发JAVA程序的三个步骤:</h5>
 <ol>
 <li>编写JAVA的源程序</li>
 <li>编译程序生成字节码.class文件(java是高级语言，不会直接生成机器语言)</li>
 <li>通过JVM解释执行（通过jvm解释为特定的操作系统如Windows、Linux等能理解的机器码，最终JAVA程序得以执行）</li>
 </ol>
-<h5 id="jsp内置对象有："><a class="header-anchor" href="#jsp内置对象有：">null</a>JSP内置对象有：</h5>
+<h5 id="jsp内置对象有：">JSP内置对象有：</h5>
 <p>jsp九大内置对象：</p>
 <p>request,response,  session,out,page,application,exception,pagecontext,config</p>
-<h5 id="基本类型四类八种-其余全是引用类型"><a class="header-anchor" href="#基本类型四类八种-其余全是引用类型">null</a>基本类型四类八种 其余全是引用类型</h5>
+<h5 id="基本类型四类八种-其余全是引用类型">基本类型四类八种 其余全是引用类型</h5>
 <p>四类八种：<br>
 整数（byte short int long)<br>
 浮点数(float double)<br>
@@ -199,7 +199,7 @@ float - Float<br>
 double - Double<br>
 char - Charactor<br>
 boolean - Boolean</p>
-<h5 id="构造方法"><a class="header-anchor" href="#构造方法">null</a>构造方法</h5>
+<h5 id="构造方法">构造方法</h5>
 <ol>
 <li>定义：</li>
 </ol>
@@ -217,8 +217,8 @@ boolean - Boolean</p>
 <li>构造方法不能被static和final修饰</li>
 <li>构造方法不能被继承，子类使用父类的构造方法需要使用super关键字</li>
 </ul>
-<h5 id="类构造方法中调用父类构造方法用super-调用本类其他的构造方法用this-super和this都只能位于类构造方法的第一行-不能同时存在"><a class="header-anchor" href="#类构造方法中调用父类构造方法用super-调用本类其他的构造方法用this-super和this都只能位于类构造方法的第一行-不能同时存在">null</a>类构造方法中调用父类构造方法用super，调用本类其他的构造方法用this。 super和this都只能位于类构造方法的第一行，不能同时存在</h5>
-<h4 id="以下输出结果是"><a class="header-anchor" href="#以下输出结果是">null</a>以下输出结果是</h4>
+<h5 id="类构造方法中调用父类构造方法用super-调用本类其他的构造方法用this-super和this都只能位于类构造方法的第一行-不能同时存在">类构造方法中调用父类构造方法用super，调用本类其他的构造方法用this。 super和this都只能位于类构造方法的第一行，不能同时存在</h5>
+<h4 id="以下输出结果是">以下输出结果是</h4>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class Example &#123;</span><br><span class="line">    String str = new String(&quot;good&quot;);</span><br><span class="line">    char[] ch = &#123; &apos;a&apos;, &apos;b&apos;, &apos;c&apos; &#125;;</span><br><span class="line"></span><br><span class="line">    public static void main(String args[]) &#123;</span><br><span class="line">        Example ex = new Example();</span><br><span class="line">        ex.change(ex.str, ex.ch);</span><br><span class="line">        System.out.print(ex.str + &quot; and &quot;);</span><br><span class="line">        System.out.print(ex.ch);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   public static void change(String str, char ch[])      </span><br><span class="line">   &#123;</span><br><span class="line">        str = &quot;test ok&quot;;</span><br><span class="line">        ch[0] = &apos;g&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>good and gbc</p>
@@ -239,7 +239,7 @@ boolean - Boolean</p>
 </ul>
 <p>说法二:</p>
 <p>其实都是引用传递，只是因为String是个特殊的final类，所以每次对String的更改都会重新创建内存地址并存储（也可能是在字符串常量池中创建内存地址并存入对应的字符串内容），但是因为这里String是作为参数传递的，在方法体内会产生新的字符串而不会对方法体外的字符串产生影响。</p>
-<h5 id="关于string"><a class="header-anchor" href="#关于string">null</a>关于String</h5>
+<h5 id="关于string">关于String</h5>
 <blockquote>
 <p>String str1 = “hello”;<br>
 String str2 = “he” + new String(“llo”);<br>
@@ -247,7 +247,7 @@ System.err.println(str1 == str2);</p>
 </blockquote>
 <p>解释：String str1 = “hello”;这里的str1指的是方法区的字符串常量池中的“hello”，编译时期就知道的； String str2 = “he” + new String(“llo”);这里的str2必须在运行时才知道str2是什么，所以它是指向的是堆里定义的字符串“hello”，所以这两个引用是不一样的。<br>
 如果用str1.equal(str2)，那么返回的是True；因为两个字符串的内容一样。</p>
-<h5 id="自动拆装箱"><a class="header-anchor" href="#自动拆装箱">null</a>自动拆装箱</h5>
+<h5 id="自动拆装箱">自动拆装箱</h5>
 <ol>
 <li>基本型和基本型封装型进行“==”运算符的比较，基本型封装型将会自动拆箱变为基本型后再进行比较，因此Integer(0)会自动拆箱为int类型再进行比较，显然返回true；</li>
 <li>两个Integer类型进行“==”比较，如果其值在-128至127，那么返回true，否则返回false, 这跟Integer.valueOf()的缓冲对象有关，这里不进行赘述。</li>
@@ -268,8 +268,8 @@ System.out.println(b==c);<br>
 System.out.println(b2==c2);</p>
 </blockquote>
 <p>因此上面的代码的结果因此为 true, false, false, true</p>
-<h5 id="java多线程间的通讯之等待唤醒机制"><a class="header-anchor" href="#java多线程间的通讯之等待唤醒机制">null</a>java多线程间的通讯之等待唤醒机制</h5>
-<h5 id="1-wait-notify-和notifyall-是-object类-中的方法"><a class="header-anchor" href="#1-wait-notify-和notifyall-是-object类-中的方法">null</a>1. wait()、notify()和notifyAll()是 Object类 中的方法</h5>
+<h5 id="java多线程间的通讯之等待唤醒机制">java多线程间的通讯之等待唤醒机制</h5>
+<h5 id="1-wait-notify-和notifyall-是-object类-中的方法">1. wait()、notify()和notifyAll()是 Object类 中的方法</h5>
 <ol>
 <li>wait()、notify()和notifyAll()是 Object类 中的方法</li>
 <li>调用某个对象的wait()方法能让当前线程阻塞，并且当前线程必须拥有此对象的monitor（即锁）</li>
@@ -286,13 +286,13 @@ System.out.println(b2==c2);</p>
 notify()方法必须在同步块或者同步方法中进行（synchronized块或者synchronized方法）。</li>
 <li>nofityAll()方法能够唤醒所有正在等待该对象的monitor的线程，这一点与notify()方法是不同的。</li>
 </ul>
-<h5 id="condition是在java-1-5中才出现的-它用来替代传统的object的wait-notify-实现线程间的协作-相比使用object的wait-notify-使用condition1的await-signal-这种方式实现线程间协作更加安全和高效-因此通常来说比较推荐使用condition-在阻塞队列那一篇博文中就讲述到了-阻塞队列实际上是使用了condition来模拟线程间协作"><a class="header-anchor" href="#condition是在java-1-5中才出现的-它用来替代传统的object的wait-notify-实现线程间的协作-相比使用object的wait-notify-使用condition1的await-signal-这种方式实现线程间协作更加安全和高效-因此通常来说比较推荐使用condition-在阻塞队列那一篇博文中就讲述到了-阻塞队列实际上是使用了condition来模拟线程间协作">null</a>Condition是在java 1.5中才出现的，它用来替代传统的Object的wait()、notify()实现线程间的协作，相比使用Object的wait()、notify()，使用Condition1的await()、signal()这种方式实现线程间协作更加安全和高效。因此通常来说比较推荐使用Condition，在阻塞队列那一篇博文中就讲述到了，阻塞队列实际上是使用了Condition来模拟线程间协作。</h5>
+<h5 id="condition是在java-1-5中才出现的-它用来替代传统的object的wait-notify-实现线程间的协作-相比使用object的wait-notify-使用condition1的await-signal-这种方式实现线程间协作更加安全和高效-因此通常来说比较推荐使用condition-在阻塞队列那一篇博文中就讲述到了-阻塞队列实际上是使用了condition来模拟线程间协作">Condition是在java 1.5中才出现的，它用来替代传统的Object的wait()、notify()实现线程间的协作，相比使用Object的wait()、notify()，使用Condition1的await()、signal()这种方式实现线程间协作更加安全和高效。因此通常来说比较推荐使用Condition，在阻塞队列那一篇博文中就讲述到了，阻塞队列实际上是使用了Condition来模拟线程间协作。</h5>
 <ul>
 <li>Condition是个接口，基本的方法就是await()和signal()方法；</li>
 <li>Condition依赖于Lock接口，生成一个Condition的基本代码是lock.newCondition()</li>
 <li>调用Condition的await()和signal()方法，都必须在lock保护之内，就是说必须在lock.lock()和lock.unlock之间才可以使用Conditon中的await()对应Object的wait()； Condition中的signal()对应Object的notify()； Condition中的signalAll()对应Object的notifyAll()</li>
 </ul>
-<h5 id="一个选择题教你学方法重写"><a class="header-anchor" href="#一个选择题教你学方法重写">null</a>一个选择题教你学方法重写</h5>
+<h5 id="一个选择题教你学方法重写">一个选择题教你学方法重写</h5>
 <p>如果一个接口Cow有个方法drink()，有个类Calf实现接口Cow，则在类Calf中正确的是？  ©</p>
 <ul>
 <li>A. void drink() { …}</li>
@@ -300,7 +300,7 @@ notify()方法必须在同步块或者同步方法中进行（synchronized块或
 <li>C. public void drink() { …}</li>
 <li>D. 以上语句都可以用在类Calf中</li>
 </ul>
-<h5 id="假设-a-类有如下定义-设-a-是-a-类的一个实例-下列语句调用哪个是错误的？"><a class="header-anchor" href="#假设-a-类有如下定义-设-a-是-a-类的一个实例-下列语句调用哪个是错误的？">null</a>假设 A 类有如下定义，设 a 是 A 类的一个实例，下列语句调用哪个是错误的？（）</h5>
+<h5 id="假设-a-类有如下定义-设-a-是-a-类的一个实例-下列语句调用哪个是错误的？">假设 A 类有如下定义，设 a 是 A 类的一个实例，下列语句调用哪个是错误的？（）</h5>
 <blockquote>
 <p>Class A<br>
 {<br>
@@ -312,17 +312,17 @@ Static void method2(){}<br>
 </blockquote>
 <p>解析：静态成员和静态方法，可以直接通过类名进行调用；其他的成员和方法则需要进行实例化成对象之后，通过对象来调用。<br>
 所以a.method1();(对)、A.method2();(对)、 A.method1();(错)</p>
-<h5 id="java-多态"><a class="header-anchor" href="#java-多态">null</a>java 多态</h5>
+<h5 id="java-多态">java 多态</h5>
 <p>抽象类或者接口根本无法实例化</p>
-<h5 id="哪些情况可以终止当前线程的运行"><a class="header-anchor" href="#哪些情况可以终止当前线程的运行">null</a>哪些情况可以终止当前线程的运行?</h5>
+<h5 id="哪些情况可以终止当前线程的运行">哪些情况可以终止当前线程的运行?</h5>
 <ul>
 <li>优先级高的并不一定会马上执行。</li>
 <li>sleep方法会阻塞一个线程并不会终止</li>
 <li>创建一个新的线程时也不会终止另一个线程</li>
 <li>当抛出一个异常后程序会结束，所以线程也会被终止</li>
 </ul>
-<h5 id="java不允许单独的方法-过程或函数存在-需要隶属于某一类中-java语言中的方法属于对象的成员-而不是类的成员-不过-其中静态方法属于类的成员"><a class="header-anchor" href="#java不允许单独的方法-过程或函数存在-需要隶属于某一类中-java语言中的方法属于对象的成员-而不是类的成员-不过-其中静态方法属于类的成员">null</a>java不允许单独的方法，过程或函数存在,需要隶属于某一类中; java语言中的方法属于对象的成员,而不是类的成员。不过，其中静态方法属于类的成员</h5>
-<h5 id="equals-和-的区别："><a class="header-anchor" href="#equals-和-的区别：">null</a>equals()和==的区别：</h5>
+<h5 id="java不允许单独的方法-过程或函数存在-需要隶属于某一类中-java语言中的方法属于对象的成员-而不是类的成员-不过-其中静态方法属于类的成员">java不允许单独的方法，过程或函数存在,需要隶属于某一类中; java语言中的方法属于对象的成员,而不是类的成员。不过，其中静态方法属于类的成员</h5>
+<h5 id="equals-和-的区别：">equals()和==的区别：</h5>
 <blockquote>
 <p>String s1=“abc”+“def”;//1<br>
 String s2=new String（s1);//2<br>
@@ -333,7 +333,7 @@ System.out.println(&quot;==succeeded&quot;);//6</p>
 </blockquote>
 <p>equals（）比较的是字符串的内容，==比较的是内存地址值</p>
 <p>s1存放在常量池中 s2存放在堆区中  内存地址值是不一样的</p>
-<h5 id="垃圾回收机制-如题"><a class="header-anchor" href="#垃圾回收机制-如题">null</a>垃圾回收机制，如题</h5>
+<h5 id="垃圾回收机制-如题">垃圾回收机制，如题</h5>
 <blockquote>
 <p>static String str0=“0123456789”;<br>
 static String str1=“0123456789”;<br>
@@ -350,11 +350,11 @@ Java 7中，以上述代码为基础，在发生过一次FullGC后，上述代�
 永久代：存储的是final常量，static变量，常量池。<br>
 str3,str4都是直接new的对象，而substring的源代码其实也是new一个string对象返回，如下图：<br>
 经过fullgc之后，年老区的内存回收，则年轻区的占了15个，不算PermGen。所以答案为15。</p>
-<h5 id="java设计模式之单例模式"><a class="header-anchor" href="#java设计模式之单例模式">null</a>java设计模式之单例模式</h5>
+<h5 id="java设计模式之单例模式">java设计模式之单例模式</h5>
 <p>参考博客(<a href="http://blog.csdn.net/jason0539/article/details/23297037/" target="_blank" rel="noopener">http://blog.csdn.net/jason0539/article/details/23297037/</a>)</p>
-<h5 id="java-stack-和heap-的区别"><a class="header-anchor" href="#java-stack-和heap-的区别">null</a>java stack 和heap 的区别</h5>
+<h5 id="java-stack-和heap-的区别">java stack 和heap 的区别</h5>
 <p>参考博客(<a href="http://blog.csdn.net/wl_ldy/article/details/5935528" target="_blank" rel="noopener">http://blog.csdn.net/wl_ldy/article/details/5935528</a>)</p>
-<h5 id="关于iterator-迭代器"><a class="header-anchor" href="#关于iterator-迭代器">null</a>关于iterator(迭代器)</h5>
+<h5 id="关于iterator-迭代器">关于iterator(迭代器)</h5>
 <p>迭代器是一种设计模式，它是一个对象，它可以遍历并选择序列中的对象，而开发人员不需要了解该序列的底层结构。迭代器通常被称为“轻量级”对象，因为创建它的代价小。<br>
 Java中的Iterator功能比较简单，并且只能单向移动：</p>
 <ol>
@@ -416,7 +416,7 @@ list.remove(…);<br>
 </blockquote>
 <p>循环过程中list.size()的大小变化了，就会导致导list中的元素删除不完全。<br>
 所以，如果你想在循环语句中删除集合中的某个元素，就要用迭代器iterator的remove()方法，因为它的remove()方法不仅会删除元素，还会维护一个标志，用来记录目前是不是可删除状态，例如，你不能连续两次调用它的remove()方法，调用之前至少有一次next()方法的调用。</p>
-<h5 id="spring-支持-7-种事务传播行为："><a class="header-anchor" href="#spring-支持-7-种事务传播行为：">null</a>Spring 支持 7 种事务传播行为：</h5>
+<h5 id="spring-支持-7-种事务传播行为：">Spring 支持 7 种事务传播行为：</h5>
 <ul>
 <li>PROPAGATION_REQUIRED 如果当前没有事务，就新建一个事务，如果已经存在一个事务中，加入到这个事务中。这是最常见的选择。</li>
 <li>PROPAGATION_SUPPORTS 支持当前事务，如果当前没有事务，就以非事务方式执行。</li>
@@ -426,7 +426,7 @@ list.remove(…);<br>
 <li>PROPAGATION_NEVER 以非事务方式执行，如果当前存在事务，则抛出异常。</li>
 <li>PROPAGATION_NESTED 如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则执行与 PROPAGATION_REQUIRED 类似的操作。</li>
 </ul>
-<h5 id="集合小结"><a class="header-anchor" href="#集合小结">null</a>集合小结</h5>
+<h5 id="集合小结">集合小结</h5>
 <ol>
 <li>List（有序、可重复）<br>
 List里存放的对象是有序的，同时也是可以重复的，List关注的是索引，拥有一系列和索引相关的方法，查询速度快。因为往list集合里插入或删除数据时，会伴随着后面数据的移动，所有插入删除数据速度慢。</li>
@@ -436,17 +436,17 @@ Set里存放的对象是无序，不能重复的，集合中的对象不按特�
 Map集合中存储的是键值对，键不能重复，值可以重复。根据键得到值，对map集合遍历时先得到键的set集合，对set集合进行遍历，得到相应的值。</li>
 </ol>
 <p>集合类汇总(<a href="http://www.cnblogs.com/leeplogs/p/5891861.html" target="_blank" rel="noopener">http://www.cnblogs.com/leeplogs/p/5891861.html</a>)</p>
-<h5 id="replaceall-方法"><a class="header-anchor" href="#replaceall-方法">null</a>replaceAll() 方法</h5>
+<h5 id="replaceall-方法">replaceAll() 方法</h5>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public static void main (String[] args) &#123;</span><br><span class="line">    String classFile = &quot;com.jd.&quot;. replaceAll(&quot;.&quot;, &quot;/&quot;) + &quot;MyClass.class&quot;;</span><br><span class="line">    System.out.println(classFile);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>输出结果：///////MyClass.class</p>
 </blockquote>
 <p>由于replaceAll方法的第一个参数是一个正则表达式，而&quot;.“在正则表达式中表示任何字符，所以会把前面字符串的所有字符都替换成”/&quot;。如果想替换的只是&quot;.&quot;，那么久要写成&quot;\.&quot;.</p>
-<h5 id="对象序列化的描述"><a class="header-anchor" href="#对象序列化的描述">null</a>对象序列化的描述</h5>
+<h5 id="对象序列化的描述">对象序列化的描述</h5>
 <p>使用ObjectOutputStream和ObjectInputStream可以将对象进行传输.</p>
 <p>声明为static和transient类型的成员数据不能被串行化。因为static代表类的状态， transient代表对象的临时数据。</p>
 <p>在Java中，对象的序列化可以通过实现两种接口来实现，若实现的是Serializable接口，则所有的序列化将会自动进行，若实现的是Externalizable接口，则没有任何东西可以自动序列化，需要在writeExternal方法中进行手工指定所要序列化的变量，这与是否被transient修饰无关。</p>
-<h5 id="jsp中静态include和动态include的区别"><a class="header-anchor" href="#jsp中静态include和动态include的区别">null</a>jsp中静态include和动态include的区别</h5>
+<h5 id="jsp中静态include和动态include的区别">jsp中静态include和动态include的区别</h5>
 <ol>
 <li>
 <p>动态 INCLUDE 用 jsp:include 动作实现 &lt;jsp:include page=“included.jsp” flush=“true” /&gt; 它总是会检查所含文件中的变化 , 适合用于包含动态页面 , 并且可以带参数。各个文件分别先编译，然后组合成一个文件。</p>
@@ -465,11 +465,11 @@ Map集合中存储的是键值对，键不能重复，值可以重复。根据�
 &lt;jsp:include page=“relativeURI” flush=“true” /&gt; 引入执行页面或 servlet 所生成的应答文本 .</p>
 </li>
 </ol>
-<h5 id="变量引用"><a class="header-anchor" href="#变量引用">null</a>变量引用</h5>
+<h5 id="变量引用">变量引用</h5>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public class Replaces &#123;</span><br><span class="line">       public int x;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		System. out. println(&quot;Value is&quot; + x);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>改正：实例化Replaces 或 public static int  x;</p>
 <p>原因：非静态成员只能被类的实例化对象引用，因此这里在静态方法中访问x会造成编译出错</p>
-<h5 id="aop和oop"><a class="header-anchor" href="#aop和oop">null</a>AOP和OOP</h5>
+<h5 id="aop和oop">AOP和OOP</h5>
 <p>AOP 和 OOP的区别：</p>
 <ol>
 <li>面向方面编程 AOP 偏重业务处理过程的某个步骤或阶段，强调降低模块之间的耦合度，使代码拥有更好的移植性。</li>
@@ -477,14 +477,14 @@ Map集合中存储的是键值对，键不能重复，值可以重复。根据�
 也可以说 AOP 是面向业务中的动词领域， OOP 面向名词领域。<br>
 AOP 的一个很重要的特点是源代码无关性，也就是说如果我们的系统中引用了 AOP 组件，即使我们把该组件去掉，系统代码也应该能够编译通过。要实现这一点，可以使用动态 proxy 模式。</li>
 </ol>
-<h5 id="类的初始化顺序"><a class="header-anchor" href="#类的初始化顺序">null</a>类的初始化顺序</h5>
+<h5 id="类的初始化顺序">类的初始化顺序</h5>
 <p>静态优先，父类优先</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class HelloA&#123;</span><br><span class="line">public HelloA()</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(&quot;I’m A class &quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    static</span><br><span class="line">    &#123;</span><br><span class="line">    System.out.println(&quot;static A&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public class HelloB extends HelloA&#123;</span><br><span class="line">    public HelloB()</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(&quot;I’m B class&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    static&#123;</span><br><span class="line">        System.out.println(&quot;static B&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main (String[] args)&#123;</span><br><span class="line">        new HelloB();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>输出：static A static B I’m A class I’m B class</p>
 </blockquote>
-<h5 id="resultset中记录行的第一列索引为1"><a class="header-anchor" href="#resultset中记录行的第一列索引为1">null</a>ResultSet中记录行的第一列索引为1</h5>
-<h5 id="jsp"><a class="header-anchor" href="#jsp">null</a>JSP</h5>
+<h5 id="resultset中记录行的第一列索引为1">ResultSet中记录行的第一列索引为1</h5>
+<h5 id="jsp">JSP</h5>
 <p>A JSP脚本(Scriptlet)，是Java代码块。</p>
 <p>C JSP表达式(expression)，表达式是一个有返回值的式子，它返回的结果将由out.print()进行输出。</p>
 <p>所以jsp表达式写法：<br>
@@ -509,10 +509,10 @@ AOP 的一个很重要的特点是源代码无关性，也就是说如果我们�
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2017/07/14/你不知道的Java（三）/">
+      <a class="nav-left" href="/2017/07/14/你不知道的Java（二）/">
         <span class="nav-arrow">← </span>
         
-          你不知道的Java（三）
+          你不知道的Java（二）
         
       </a>
     
@@ -568,7 +568,7 @@ AOP 的一个很重要的特点是源代码无关性，也就是说如果我们�
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#关于继承："><span class="toc-nav-text">null关于继承：</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#java程序的种类"><span class="toc-nav-text">nulljava程序的种类</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#方法通常存储在进程中的代码区"><span class="toc-nav-text">null方法通常存储在进程中的代码区</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#开发java程序的三个步骤"><span class="toc-nav-text">null开发JAVA程序的三个步骤:</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#jsp内置对象有："><span class="toc-nav-text">nullJSP内置对象有：</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#基本类型四类八种-其余全是引用类型"><span class="toc-nav-text">null基本类型四类八种 其余全是引用类型</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#构造方法"><span class="toc-nav-text">null构造方法</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#类构造方法中调用父类构造方法用super-调用本类其他的构造方法用this-super和this都只能位于类构造方法的第一行-不能同时存在"><span class="toc-nav-text">null类构造方法中调用父类构造方法用super，调用本类其他的构造方法用this。 super和this都只能位于类构造方法的第一行，不能同时存在</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#以下输出结果是"><span class="toc-nav-text">null以下输出结果是</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#关于string"><span class="toc-nav-text">null关于String</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#自动拆装箱"><span class="toc-nav-text">null自动拆装箱</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#java多线程间的通讯之等待唤醒机制"><span class="toc-nav-text">nulljava多线程间的通讯之等待唤醒机制</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#1-wait-notify-和notifyall-是-object类-中的方法"><span class="toc-nav-text">null1. wait()、notify()和notifyAll()是 Object类 中的方法</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#condition是在java-1-5中才出现的-它用来替代传统的object的wait-notify-实现线程间的协作-相比使用object的wait-notify-使用condition1的await-signal-这种方式实现线程间协作更加安全和高效-因此通常来说比较推荐使用condition-在阻塞队列那一篇博文中就讲述到了-阻塞队列实际上是使用了condition来模拟线程间协作"><span class="toc-nav-text">nullCondition是在java 1.5中才出现的，它用来替代传统的Object的wait()、notify()实现线程间的协作，相比使用Object的wait()、notify()，使用Condition1的await()、signal()这种方式实现线程间协作更加安全和高效。因此通常来说比较推荐使用Condition，在阻塞队列那一篇博文中就讲述到了，阻塞队列实际上是使用了Condition来模拟线程间协作。</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#一个选择题教你学方法重写"><span class="toc-nav-text">null一个选择题教你学方法重写</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#假设-a-类有如下定义-设-a-是-a-类的一个实例-下列语句调用哪个是错误的？"><span class="toc-nav-text">null假设 A 类有如下定义，设 a 是 A 类的一个实例，下列语句调用哪个是错误的？（）</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#java-多态"><span class="toc-nav-text">nulljava 多态</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#哪些情况可以终止当前线程的运行"><span class="toc-nav-text">null哪些情况可以终止当前线程的运行?</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#java不允许单独的方法-过程或函数存在-需要隶属于某一类中-java语言中的方法属于对象的成员-而不是类的成员-不过-其中静态方法属于类的成员"><span class="toc-nav-text">nulljava不允许单独的方法，过程或函数存在,需要隶属于某一类中; java语言中的方法属于对象的成员,而不是类的成员。不过，其中静态方法属于类的成员</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#equals-和-的区别："><span class="toc-nav-text">nullequals()和==的区别：</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#垃圾回收机制-如题"><span class="toc-nav-text">null垃圾回收机制，如题</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#java设计模式之单例模式"><span class="toc-nav-text">nulljava设计模式之单例模式</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#java-stack-和heap-的区别"><span class="toc-nav-text">nulljava stack 和heap 的区别</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#关于iterator-迭代器"><span class="toc-nav-text">null关于iterator(迭代器)</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#spring-支持-7-种事务传播行为："><span class="toc-nav-text">nullSpring 支持 7 种事务传播行为：</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#集合小结"><span class="toc-nav-text">null集合小结</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#replaceall-方法"><span class="toc-nav-text">nullreplaceAll() 方法</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#对象序列化的描述"><span class="toc-nav-text">null对象序列化的描述</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#jsp中静态include和动态include的区别"><span class="toc-nav-text">nulljsp中静态include和动态include的区别</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#变量引用"><span class="toc-nav-text">null变量引用</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#aop和oop"><span class="toc-nav-text">nullAOP和OOP</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#类的初始化顺序"><span class="toc-nav-text">null类的初始化顺序</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#resultset中记录行的第一列索引为1"><span class="toc-nav-text">nullResultSet中记录行的第一列索引为1</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#jsp"><span class="toc-nav-text">nullJSP</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#关于继承："><span class="toc-nav-text">关于继承：</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#java程序的种类"><span class="toc-nav-text">java程序的种类</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#方法通常存储在进程中的代码区"><span class="toc-nav-text">方法通常存储在进程中的代码区</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#开发java程序的三个步骤"><span class="toc-nav-text">开发JAVA程序的三个步骤:</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#jsp内置对象有："><span class="toc-nav-text">JSP内置对象有：</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#基本类型四类八种-其余全是引用类型"><span class="toc-nav-text">基本类型四类八种 其余全是引用类型</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#构造方法"><span class="toc-nav-text">构造方法</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#类构造方法中调用父类构造方法用super-调用本类其他的构造方法用this-super和this都只能位于类构造方法的第一行-不能同时存在"><span class="toc-nav-text">类构造方法中调用父类构造方法用super，调用本类其他的构造方法用this。 super和this都只能位于类构造方法的第一行，不能同时存在</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#以下输出结果是"><span class="toc-nav-text">以下输出结果是</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#关于string"><span class="toc-nav-text">关于String</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#自动拆装箱"><span class="toc-nav-text">自动拆装箱</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#java多线程间的通讯之等待唤醒机制"><span class="toc-nav-text">java多线程间的通讯之等待唤醒机制</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#1-wait-notify-和notifyall-是-object类-中的方法"><span class="toc-nav-text">1. wait()、notify()和notifyAll()是 Object类 中的方法</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#condition是在java-1-5中才出现的-它用来替代传统的object的wait-notify-实现线程间的协作-相比使用object的wait-notify-使用condition1的await-signal-这种方式实现线程间协作更加安全和高效-因此通常来说比较推荐使用condition-在阻塞队列那一篇博文中就讲述到了-阻塞队列实际上是使用了condition来模拟线程间协作"><span class="toc-nav-text">Condition是在java 1.5中才出现的，它用来替代传统的Object的wait()、notify()实现线程间的协作，相比使用Object的wait()、notify()，使用Condition1的await()、signal()这种方式实现线程间协作更加安全和高效。因此通常来说比较推荐使用Condition，在阻塞队列那一篇博文中就讲述到了，阻塞队列实际上是使用了Condition来模拟线程间协作。</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#一个选择题教你学方法重写"><span class="toc-nav-text">一个选择题教你学方法重写</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#假设-a-类有如下定义-设-a-是-a-类的一个实例-下列语句调用哪个是错误的？"><span class="toc-nav-text">假设 A 类有如下定义，设 a 是 A 类的一个实例，下列语句调用哪个是错误的？（）</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#java-多态"><span class="toc-nav-text">java 多态</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#哪些情况可以终止当前线程的运行"><span class="toc-nav-text">哪些情况可以终止当前线程的运行?</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#java不允许单独的方法-过程或函数存在-需要隶属于某一类中-java语言中的方法属于对象的成员-而不是类的成员-不过-其中静态方法属于类的成员"><span class="toc-nav-text">java不允许单独的方法，过程或函数存在,需要隶属于某一类中; java语言中的方法属于对象的成员,而不是类的成员。不过，其中静态方法属于类的成员</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#equals-和-的区别："><span class="toc-nav-text">equals()和==的区别：</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#垃圾回收机制-如题"><span class="toc-nav-text">垃圾回收机制，如题</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#java设计模式之单例模式"><span class="toc-nav-text">java设计模式之单例模式</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#java-stack-和heap-的区别"><span class="toc-nav-text">java stack 和heap 的区别</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#关于iterator-迭代器"><span class="toc-nav-text">关于iterator(迭代器)</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#spring-支持-7-种事务传播行为："><span class="toc-nav-text">Spring 支持 7 种事务传播行为：</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#集合小结"><span class="toc-nav-text">集合小结</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#replaceall-方法"><span class="toc-nav-text">replaceAll() 方法</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#对象序列化的描述"><span class="toc-nav-text">对象序列化的描述</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#jsp中静态include和动态include的区别"><span class="toc-nav-text">jsp中静态include和动态include的区别</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#变量引用"><span class="toc-nav-text">变量引用</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#aop和oop"><span class="toc-nav-text">AOP和OOP</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#类的初始化顺序"><span class="toc-nav-text">类的初始化顺序</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#resultset中记录行的第一列索引为1"><span class="toc-nav-text">ResultSet中记录行的第一列索引为1</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#jsp"><span class="toc-nav-text">JSP</span></a></li></ol>
     
   </div>
 </aside>
@@ -578,7 +578,7 @@ AOP 的一个很重要的特点是源代码无关性，也就是说如果我们�
 
 <script>
   (function () {
-    var url = 'http://xueshiming.cn/2017/07/16/你不知道的Java（二）/';
+    var url = 'http://xueshiming.cn/2017/07/16/你不知道的Java（三）/';
     var banner = 'undefined'
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -634,7 +634,7 @@ AOP 的一个很重要的特点是源代码无关性，也就是说如果我们�
     var gitmentConfig = "Ignite";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "你不知道的java（二）",
+        id: "你不知道的java（三）",
         owner: "Ignite",
         repo: "fikyair.github.io",
         oauth: {
@@ -662,7 +662,7 @@ AOP 的一个很重要的特点是源代码无关性，也就是说如果我们�
 <script>
   var disqus_shortname = 'null';
   
-  var disqus_url = 'http://xueshiming.cn/2017/07/16/你不知道的Java（二）/';
+  var disqus_url = 'http://xueshiming.cn/2017/07/16/你不知道的Java（三）/';
   
   (function(){
     var dsq = document.createElement('script');
