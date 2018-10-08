@@ -255,27 +255,6 @@
     </entry>
     
     <entry>
-      <title>你不知道的React</title>
-      <link href="/2017/11/22/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84React/"/>
-      <url>/2017/11/22/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84React/</url>
-      <content type="html"><![CDATA[<p>这几天正在学习React，有空记录一下！<br>就比如：</p><h5 id="export和export-default"><a class="header-anchor" href="#export和export-default">¶</a>export和export default</h5><p>一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用。<br>组件导出的关键字是:</p><blockquote><p>exprot default</p></blockquote><p>没有加default时，例如：</p><blockquote><p>export class Template{}</p></blockquote><p>当然，你可以在单个js文件里声明多个组件，例如Templates.js</p><blockquote><p>export class Template{}<br>export class AnotherTemplate{}</p></blockquote><p>这样在其他文件引用时，需要使用{}符号，且名称必须和class名称一样，like this：</p><blockquote><p>import {Template,AnotherTemplate} from ‘./components/Templates’;</p></blockquote><p>而加default时，例如：</p><a id="more"></a><blockquote><p>export default class Template{}</p></blockquote><p>然后在其他文件引用，像这样：</p><blockquote><p>import Template from ‘./components/Templates’;</p></blockquote><p>你也可以为这个组件另起一个别名，</p><blockquote><p>import TheTemplate from ‘./components/Templates’;</p></blockquote><p>但是每个文件里只能有一个default组件，可以包含其他非default组件：</p><blockquote><p>export default class Template{}<br>export class AnotherTemplate{}</p></blockquote><p>然后引用的时候，如下：</p><blockquote><p>import Template,{AnotherTemplate} from ‘./components/Templates’;</p></blockquote><p>总结：</p><ul><li>有default和没有default的区别在于：有default在引用时可以自定义名称，而没有default时需要使用{}括起来且名称必需和class名称一致</li><li>每个文件里只能有一个default组件，但可以有多个非default组件</li></ul><hr><h5 id="formitem"><a class="header-anchor" href="#formitem">¶</a>FormItem</h5><p>使用initValue 属性的时候，需要在提交“弹出框表单时”（CollectionCreateForm）</p><p>用form.resetFields() 方法重置表单数据，</p><p>如果缺少的话，点击修改某条数据是会回显上次表单修改后的值。</p>]]></content>
-      
-      <categories>
-          
-          <category> 技巧 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> React </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>linux安装jdk以及远程访问服务</title>
       <link href="/2017/11/22/Linux/"/>
       <url>/2017/11/22/Linux/</url>
@@ -291,6 +270,27 @@
         <tags>
             
             <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>你不知道的React</title>
+      <link href="/2017/11/22/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84React/"/>
+      <url>/2017/11/22/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84React/</url>
+      <content type="html"><![CDATA[<p>这几天正在学习React，有空记录一下！<br>就比如：</p><h5 id="export和export-default"><a class="header-anchor" href="#export和export-default">¶</a>export和export default</h5><p>一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用。<br>组件导出的关键字是:</p><blockquote><p>exprot default</p></blockquote><p>没有加default时，例如：</p><blockquote><p>export class Template{}</p></blockquote><p>当然，你可以在单个js文件里声明多个组件，例如Templates.js</p><blockquote><p>export class Template{}<br>export class AnotherTemplate{}</p></blockquote><p>这样在其他文件引用时，需要使用{}符号，且名称必须和class名称一样，like this：</p><blockquote><p>import {Template,AnotherTemplate} from ‘./components/Templates’;</p></blockquote><p>而加default时，例如：</p><a id="more"></a><blockquote><p>export default class Template{}</p></blockquote><p>然后在其他文件引用，像这样：</p><blockquote><p>import Template from ‘./components/Templates’;</p></blockquote><p>你也可以为这个组件另起一个别名，</p><blockquote><p>import TheTemplate from ‘./components/Templates’;</p></blockquote><p>但是每个文件里只能有一个default组件，可以包含其他非default组件：</p><blockquote><p>export default class Template{}<br>export class AnotherTemplate{}</p></blockquote><p>然后引用的时候，如下：</p><blockquote><p>import Template,{AnotherTemplate} from ‘./components/Templates’;</p></blockquote><p>总结：</p><ul><li>有default和没有default的区别在于：有default在引用时可以自定义名称，而没有default时需要使用{}括起来且名称必需和class名称一致</li><li>每个文件里只能有一个default组件，但可以有多个非default组件</li></ul><hr><h5 id="formitem"><a class="header-anchor" href="#formitem">¶</a>FormItem</h5><p>使用initValue 属性的时候，需要在提交“弹出框表单时”（CollectionCreateForm）</p><p>用form.resetFields() 方法重置表单数据，</p><p>如果缺少的话，点击修改某条数据是会回显上次表单修改后的值。</p>]]></content>
+      
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> React </tag>
             
         </tags>
       
@@ -423,27 +423,6 @@
     </entry>
     
     <entry>
-      <title>你不知道的JS(一)</title>
-      <link href="/2017/09/02/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS(%E4%B8%80)/"/>
-      <url>/2017/09/02/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS(%E4%B8%80)/</url>
-      <content type="html"><![CDATA[<pre><code>javaScript数组的遍历，在项目中遇到的是这个问题：直接上图：</code></pre><h5 id="主要针对数组的遍历有一下方法："><a class="header-anchor" href="#主要针对数组的遍历有一下方法：">¶</a>主要针对数组的遍历有一下方法：</h5><p>传统方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr=[1,2,3,4,5,6];</span><br><span class="line">for(var i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">    console.log(arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a><p>for in方法</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr=[1,2,3,4,5,6];</span><br><span class="line">for(var i in arr)&#123;</span><br><span class="line">    console.log(arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>for each 方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Array.forEach(callback)</span><br><span class="line">forEach()方法是ES2.1标准引入的。</span><br><span class="line">var arr=[1,2,3,4,5,6];</span><br><span class="line">arr.forEach(function(v,i)&#123;//v==value　为arr项，i==index　为arr索引</span><br><span class="line">    console.log(i+&apos;  &apos;v );</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>在最新的ES6中新增了一个方法<br>for of方法</p><p>遍历Array可以采用下标循环，遍历map和Set就无法使用下标，无法使用索引进行遍历<br>，为了统一集合类型，ES6标准引入了新的iterable类型，<br>Array、Map和Set都属于iterable类型。<br>具有iterable类型的集合可以通过新的for…of循环遍历。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr=[1,2,3,4,5,6];</span><br><span class="line">for(var value of Arr)&#123;</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>for … of循环和for … in循环有何区别<br>for … in循环，它遍历的实际上是对象的属性名称。</p><p>一个Array数组实际上也是一个对象，它的每个元素的索引被视为一个属性。</p><p>当我们手动给Array对象添加了额外的属性后，for … in循环将带来意想不到的意外效果：</p><p>for in 遍历数组时会为把数组索引作为键值　如：数组0、1、2、3、4、5、…的键；当我们这样写：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">var arr=[1,2,3,4,5,6];</span><br><span class="line">arr.value=&apos;val&apos;;</span><br><span class="line">//在使用for in 遍历时</span><br><span class="line">for(var i in arr)&#123;</span><br><span class="line">    console.log(i+&apos;   &apos;+arr[i]);//这时的i为键值，不为数组索引</span><br><span class="line">&#125;</span><br><span class="line">//输出</span><br><span class="line">0   1</span><br><span class="line">1   2</span><br><span class="line">2   3</span><br><span class="line">3   4</span><br><span class="line">4   5</span><br><span class="line">5   6</span><br><span class="line">value   val</span><br><span class="line">接着执行，这时出现问题：</span><br><span class="line"></span><br><span class="line">arr;//输出[1, 2, 3, 4, 5, 6]</span><br><span class="line"></span><br><span class="line">//使用 console.log(arr)时，这样</span><br><span class="line">console.log(arr);//输出[1, 2, 3, 4, 5, 6, value: &quot;val&quot;]</span><br><span class="line"></span><br><span class="line">//alert(arr)时</span><br><span class="line">alert(arr);//输出[1, 2, 3, 4, 5, 6]</span><br></pre></td></tr></table></figure><p>而当我们使用for of 时：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var arr=[1,2,3,4,5,6];</span><br><span class="line">arr.value=&apos;val&apos;;</span><br><span class="line">//在使用for in 遍历时</span><br><span class="line">for(var v of arr)&#123;</span><br><span class="line">    console.log(v);//v为数组的项</span><br><span class="line">&#125;</span><br><span class="line">//输出</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td></tr></table></figure><p>直接遍历出值</p><p>Map 遍历：</p><p>map:和forEach非常相似，都是用来遍历数组中的每一项值的，用来遍历数组中的每一项；</p><p>区别：map的回调函数中支持return返回值；</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var ary = [12,23,24,42,1];</span><br><span class="line">var res = ary.map(function (item,index,input) &#123;</span><br><span class="line">     return item*10;</span><br><span class="line">&#125;)</span><br><span class="line">console.log(res);//--&gt;[120,230,240,420,10];</span><br><span class="line">console.log(ary);//--&gt;[12,23,24,42,1]；</span><br></pre></td></tr></table></figure>]]></content>
-      
-      <categories>
-          
-          <category> 技巧 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> JavaScript </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>盒子模型</title>
       <link href="/2017/09/02/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/"/>
       <url>/2017/09/02/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/</url>
@@ -459,6 +438,27 @@
         <tags>
             
             <tag> CSS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>你不知道的JS(一)</title>
+      <link href="/2017/09/02/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS(%E4%B8%80)/"/>
+      <url>/2017/09/02/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS(%E4%B8%80)/</url>
+      <content type="html"><![CDATA[<pre><code>javaScript数组的遍历，在项目中遇到的是这个问题：直接上图：</code></pre><h5 id="主要针对数组的遍历有一下方法："><a class="header-anchor" href="#主要针对数组的遍历有一下方法：">¶</a>主要针对数组的遍历有一下方法：</h5><p>传统方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr=[1,2,3,4,5,6];</span><br><span class="line">for(var i=0;i&lt;arr.length;i++)&#123;</span><br><span class="line">    console.log(arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a><p>for in方法</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr=[1,2,3,4,5,6];</span><br><span class="line">for(var i in arr)&#123;</span><br><span class="line">    console.log(arr[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>for each 方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Array.forEach(callback)</span><br><span class="line">forEach()方法是ES2.1标准引入的。</span><br><span class="line">var arr=[1,2,3,4,5,6];</span><br><span class="line">arr.forEach(function(v,i)&#123;//v==value　为arr项，i==index　为arr索引</span><br><span class="line">    console.log(i+&apos;  &apos;v );</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p>在最新的ES6中新增了一个方法<br>for of方法</p><p>遍历Array可以采用下标循环，遍历map和Set就无法使用下标，无法使用索引进行遍历<br>，为了统一集合类型，ES6标准引入了新的iterable类型，<br>Array、Map和Set都属于iterable类型。<br>具有iterable类型的集合可以通过新的for…of循环遍历。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr=[1,2,3,4,5,6];</span><br><span class="line">for(var value of Arr)&#123;</span><br><span class="line">    console.log(value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>for … of循环和for … in循环有何区别<br>for … in循环，它遍历的实际上是对象的属性名称。</p><p>一个Array数组实际上也是一个对象，它的每个元素的索引被视为一个属性。</p><p>当我们手动给Array对象添加了额外的属性后，for … in循环将带来意想不到的意外效果：</p><p>for in 遍历数组时会为把数组索引作为键值　如：数组0、1、2、3、4、5、…的键；当我们这样写：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">var arr=[1,2,3,4,5,6];</span><br><span class="line">arr.value=&apos;val&apos;;</span><br><span class="line">//在使用for in 遍历时</span><br><span class="line">for(var i in arr)&#123;</span><br><span class="line">    console.log(i+&apos;   &apos;+arr[i]);//这时的i为键值，不为数组索引</span><br><span class="line">&#125;</span><br><span class="line">//输出</span><br><span class="line">0   1</span><br><span class="line">1   2</span><br><span class="line">2   3</span><br><span class="line">3   4</span><br><span class="line">4   5</span><br><span class="line">5   6</span><br><span class="line">value   val</span><br><span class="line">接着执行，这时出现问题：</span><br><span class="line"></span><br><span class="line">arr;//输出[1, 2, 3, 4, 5, 6]</span><br><span class="line"></span><br><span class="line">//使用 console.log(arr)时，这样</span><br><span class="line">console.log(arr);//输出[1, 2, 3, 4, 5, 6, value: &quot;val&quot;]</span><br><span class="line"></span><br><span class="line">//alert(arr)时</span><br><span class="line">alert(arr);//输出[1, 2, 3, 4, 5, 6]</span><br></pre></td></tr></table></figure><p>而当我们使用for of 时：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var arr=[1,2,3,4,5,6];</span><br><span class="line">arr.value=&apos;val&apos;;</span><br><span class="line">//在使用for in 遍历时</span><br><span class="line">for(var v of arr)&#123;</span><br><span class="line">    console.log(v);//v为数组的项</span><br><span class="line">&#125;</span><br><span class="line">//输出</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td></tr></table></figure><p>直接遍历出值</p><p>Map 遍历：</p><p>map:和forEach非常相似，都是用来遍历数组中的每一项值的，用来遍历数组中的每一项；</p><p>区别：map的回调函数中支持return返回值；</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var ary = [12,23,24,42,1];</span><br><span class="line">var res = ary.map(function (item,index,input) &#123;</span><br><span class="line">     return item*10;</span><br><span class="line">&#125;)</span><br><span class="line">console.log(res);//--&gt;[120,230,240,420,10];</span><br><span class="line">console.log(ary);//--&gt;[12,23,24,42,1]；</span><br></pre></td></tr></table></figure>]]></content>
+      
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JavaScript </tag>
             
         </tags>
       
