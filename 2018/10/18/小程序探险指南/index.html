@@ -10,7 +10,7 @@
   
   <title>
     
-      linux安装jdk以及远程访问服务 | Ignite
+      小程序探险指南 | Ignite
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -138,8 +138,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>linux安装jdk以及远程访问服务</h2>
-  <p class="post-date">2017-11-22</p>
+  <h2>小程序探险指南</h2>
+  <p class="post-date">2018-10-18</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -147,90 +147,18 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><p>在windows下，下载jdk-8u25-linux-64.tar.gz<br>
-Xshell5p.exe  用来访问远程面板</p>
+    <section class="markdown-content"><blockquote>
+<p>终于有时间去详细了解一下小程序了，下面我们就从HelloWorld开始，走近小程序，一探究竟。</p>
+</blockquote>
 <a id="more"></a>
-<ol>
-<li>在windows下面下好 tar.gz</li>
-<li>上传文件 rz</li>
-<li>解压文件 tar -xzvf jdk-8u25-linux-x64.tar.gz</li>
-<li>进入当前用户目录  cd home/fisherman</li>
-<li>vi .bash -profile  编辑文件<br>
-’JAVA_HOME=&quot;/home/fisherman/jdk1.8.0_25&quot;<br>
-CLASSPATH=&quot;$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib&quot;<br>
-PATH=&quot;$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOMR/bin&quot;</li>
-<li>:wq退出</li>
-<li>source .bash_profile 命令生效</li>
-<li>java -version 查询java版本</li>
-</ol>
-<p>linux相关命令：</p>
-<p>eg:</p>
-<ol>
-<li>压缩文件：</li>
-</ol>
-<p>tar zcvf secu.tar.gz tt</p>
-<p>将文件压缩到tt目录</p>
-<ol start="2">
-<li>每天一个linux命令：</li>
-</ol>
-<p><a href="http://www.cnblogs.com/peida/archive/2012/12/05/2803591.html" target="_blank" rel="noopener">http://www.cnblogs.com/peida/archive/2012/12/05/2803591.html</a></p>
-<ul>
-<li>
-<p>vim 中翻页：向上查找和向下查找字符串的命令是</p>
-<ul>
-<li>j --向下</li>
-<li>k-- 向上</li>
-<li>h–向左</li>
-<li>l–向右</li>
-<li>ctrlb–向上移动一屏</li>
-<li>ctrlf–向下移动一屏</li>
-<li>上下左右箭头也可以</li>
-</ul>
-</li>
-<li>
-<p>启动linuxshell的时候，stdin.stdout,stderr,三个文件描述符会自动打开，他们的值分别是：标准输入，标准输出、标准错误</p>
-</li>
-<li>
-<p>为脚本程序添加执行权限的命令及参数：chmod a+x filename</p>
-</li>
-<li>
-<p>用八进制表示权限：</p>
-<ul>
-<li>
-<p>r–4 w–2  x–1</p>
-<p>eg::<br>
-r–r--r--   444</p>
-</li>
-</ul>
-<p>drw------   600</p>
-</li>
-<li>
-<p>对权限的参考博文：<br>
-<a href="http://blog.csdn.net/sinat_35209943/article/details/52449743" target="_blank" rel="noopener">http://blog.csdn.net/sinat_35209943/article/details/52449743</a><br>
-一 、 xshell 连到 远程服务器</p>
-</li>
-</ul>
-<p><img src="http://oziqlv1ur.bkt.clouddn.com/clipboard.png" alt="连接远程服务器"></p>
-<ul>
-<li>输入远程服务器的ip：</li>
-</ul>
-<p><img src="http://oziqlv1ur.bkt.clouddn.com/clipboard2.png" alt="服务器ip"></p>
-<ul>
-<li>输入用户名和密码，就登录成功了</li>
-</ul>
-<p><img src="http://oziqlv1ur.bkt.clouddn.com/clipboard3.png" alt="填写自己的用户名"></p>
-<p>然后可以  修改用户名密码：<br>
-useradd fisherman &amp;&amp; echo 123456 | passwd --stdin fisherman</p>
-<p>fisherman–自己的用户名：<br>
-mark</p>
 </section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#Linux" >
-    <span class="tag-code">Linux</span>
+  <a href="/tags#小程序" >
+    <span class="tag-code">小程序</span>
   </a>
 
       </div>
@@ -241,20 +169,13 @@ mark</p>
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2017/10/27/MySQL中MAX函数与Group By一起使用的注意事项/">
+      <a class="nav-left" href="/2018/09/19/Symbol对象/">
         <span class="nav-arrow">← </span>
         
-          MySQL中MAX函数与Group By一起使用的注意事项
+          Symbol对象
         
       </a>
     
-    
-      <a class="nav-right" href="/2017/11/22/你不知道的React/">
-        
-          你不知道的React
-        
-        <span class="nav-arrow"> →</span>
-      </a>
     
   </div>
 
@@ -310,7 +231,7 @@ mark</p>
 
 <script>
   (function () {
-    var url = 'http://xueshiming.cn/2017/11/22/Linux/';
+    var url = 'http://xueshiming.cn/2018/10/18/小程序探险指南/';
     var banner = 'undefined'
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -366,7 +287,7 @@ mark</p>
     var gitmentConfig = "Ignite";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "linux安装jdk以及远程访问服务",
+        id: "小程序探险指南",
         owner: "Ignite",
         repo: "fikyair.github.io",
         oauth: {
@@ -394,7 +315,7 @@ mark</p>
 <script>
   var disqus_shortname = 'null';
   
-  var disqus_url = 'http://xueshiming.cn/2017/11/22/Linux/';
+  var disqus_url = 'http://xueshiming.cn/2018/10/18/小程序探险指南/';
   
   (function(){
     var dsq = document.createElement('script');
