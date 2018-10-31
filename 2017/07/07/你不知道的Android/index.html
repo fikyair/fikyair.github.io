@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Ignite&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      你不知道的Android | Ignite
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Ignite</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>你不知道的Android</h2>
+  <p class="post-date">2017-07-07</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h5 id="android的动画分为3种-具体如下所示："><a class="header-anchor" href="#android的动画分为3种-具体如下所示：">null</a>Android的动画分为3种，具体如下所示：</h5>
+<ul>
+<li>帧动画：也就是我们说的 Frame 动画。 Frame 动画是一系列图片按照一定的顺序展示的过程，<br>
+和放电影的机制相似，它的原理是在一定的时间段内切换多张有细微差异的图片从而达到动画的<br>
+效果。由于是一帧一帧加载，所以需要较多的图片。从而增大 APK 的大小，不过 Frame 动画<br>
+可以实现一些比较难的效果，例如：等待的环形进度。所涉及到的Java对象有：AnimationDrawable。<a id="more"></a></li>
+<li>补间动画：也就是 Tween 动画，是操作某一个控件让其展现出旋转、渐变、移动、缩放的一种转换<br>
+过程。是一种视觉上的变化，不是真正位置上的变化。只能运用在 View 对象上，并且功能相对来说<br>
+较为局限。例如：旋转动画只能够在 x 、y 轴进行，而不能在z 轴放心进行旋转。因此，补间动画<br>
+通常用于执行一些比较简单的动画。所涉及到的Java对象有：AlphaAnimation（渐变动画）、<br>
+ScaleAnimation（缩放动画）、TranslateAnimation（位移动画）、RotateAnimation（旋转动画）。</li>
+<li>属性动画：是 Android 3.0 之后推出的，其机制不再是针对 View 来设计的，也不限于只能实现<br>
+移动、缩放、旋转和淡入这几种简单的动画操作，同时也不再只是一种视觉上的动画效果。属性动画<br>
+实际上是一种在一定时间段内不断修改某个对象的某个属性值的机制。所涉及到的Java对象有：<br>
+ValueAnimator、ObjectAnimator。</li>
+</ul>
+<h5 id="apk程序的两种模式：-调试模式-debug-mode-和发布模式-release-mode"><a class="header-anchor" href="#apk程序的两种模式：-调试模式-debug-mode-和发布模式-release-mode">null</a>APK程序的两种模式：　调试模式(debug mode)和发布模式(release mode)</h5>
+<ol>
+<li>调试模式(debug mode) ：在调试模式下， ADT会自动的使用debug密钥为应用程序签名，因此我们可以直接运行程序。</li>
+<li>发布模式(release mode)：当要发布程序时，开发者就需要使用自己的数字证书给apk包签名</li>
+</ol>
+<hr>
+<p>ContentResolver和 ContentProvider是一对。一个运行在提供数据端(provider),一个运行在调用端(resolver)。使用的时候利用resolver来调用provider的方法(query,insert,update等)，然后provider再进行数据查询</p>
+<hr>
+<p>在android 中主线程是ui线程一切的界面操作都是在主线中完成的，如果在非主线程中操作ui将会报错。<br>
+B 同时执行多个AsyncTask默认是串行执行的。<br>
+C AsyncTask必须在UI线程中创建。<br>
+D 内部默认的线程是由 SerialExecutor创建 。</p>
+<hr>
+<ol>
+<li>BroadcastReceiver 是对发送出来的广播进行过滤接收并响应的一类组件</li>
+<li>每次广播被接收后会重新创建BroadcastReceiver对象，并在onReceiver方法中执行完时销毁</li>
+<li>定义广播接收器类需要继承BroadcastReceiver基类，并且必须要重写onReceive()方法</li>
+</ol>
+<hr>
+<p>NotificationManager 清除消息的方法是:cancel,cancelAll</p>
+<hr>
+<ol>
+<li>应用运行时，Main线程进行了耗时操作  产生ANR，程序没有响应，有可能程序会再次响应</li>
+<li>应用运行时抛出了OutOfMemoryError  程序抛出异常，会强制退出</li>
+<li>应用运行时抛出了RuntimeException  程序抛出异常，会强制退出</li>
+<li>应用运行时，用户操作过于频繁  产生ANR，程序没有响应，有可能程序会再次响应</li>
+</ol>
+<hr>
+<p>在Android中，如果需要对数据进行存储，则可以使用（ ）方式<br>
+sharedpreference  \数据库\文件\Content Provider</p>
+<hr>
+<p>A. Message提供了消息池，有静态方法Obtain从消息池中取对象；<br>
+B. Thread默认不提供资源池，除非使用线程池ThreadPool管理；<br>
+C. AsynTask是线程池改造的，池里 默认提供（核数+1）个线程进行并发操作，最大支持（核数  * 2 + 1）个线程，超过后会丢弃其他任务；<br>
+D. Looper，每个Looper创建时创建一个消息队列和线程对象，也不是资源池；</p>
+<hr>
+<p>下面关于Android中定义style和theme的描述正确的是？<br>
+style可以作用在Activity上<br>
+官方解释：A style is a collection of properties that specify the look and format for a View or window<br>
+A theme is a style applied to an entire Activity or application<br>
+补充一句：style和theme本质上就是同一个东西，xml格式完全相同，只是我用在activity上我就叫他theme，我用在view上我就叫他style。唯一的区别就是style里头控制的各个属性了，某些属性是只有针对Activity才能生效的（你view有标题栏嘛有状态栏有导航栏吗嘛？但是反过来Activity内部却有一个继承自View的Decorview） 。所以style可以作用在activity上，但是theme却不能反过来作用在view上</p>
+<hr>
+<p>在Tween动画下，下面哪个方法可以构建一个渐变尺寸伸缩动画</p>
+<ul>
+<li>AlphaAnimation 透明度渐变</li>
+<li>ScaleAnimation 透明度渐变</li>
+<li>TranslateAnimation 坐标变化</li>
+<li>RotateAnimation 旋转变换</li>
+</ul>
+<hr>
+<p>前台进程是Android系统中最重要的进程，在Andriod系统中包含</p>
+<ul>
+<li>Activity正在与用户进行交互</li>
+<li>进程服务正在执行声明中的回调函数</li>
+<li>进程的BroadCastRecevier在执行onRecevie()函数</li>
+</ul>
+<p>activity被遮挡时属于可见进程，可见进程的优先级在前台进程之下。</p>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#牛客" >
+    <span class="tag-code">牛客</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2017/07/06/面试题/">
+        <span class="nav-arrow">← </span>
+        
+          面试干货分享
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2017/07/09/你不知道的Java（一）/">
+        
+          你不知道的Java（一）
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Gitment START -->
+      <div id="comments"></div>
+      <!-- Gitment END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#android的动画分为3种-具体如下所示："><span class="toc-nav-text">nullAndroid的动画分为3种，具体如下所示：</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#apk程序的两种模式：-调试模式-debug-mode-和发布模式-release-mode"><span class="toc-nav-text">nullAPK程序的两种模式：　调试模式(debug mode)和发布模式(release mode)</span></a></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://xueshiming.cn/2017/07/07/你不知道的Android/';
+    var banner = 'undefined'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+        
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "Ignite";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "你不知道的Android",
+        owner: "Ignite",
+        repo: "fikyair.github.io",
+        oauth: {
+          client_id: "4ebfc91b3b208e90d865",
+          client_secret: "88e447799ce7aa0ce80f656cb56bccd1435b99d9"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  })();
+</script>
+
+<script>
+  var disqus_shortname = 'null';
+  
+  var disqus_url = 'http://xueshiming.cn/2017/07/07/你不知道的Android/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2018 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">Ignite</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Ignite&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      Spring常用注解 | Ignite
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+<script src="/js/gitment.js"></script>
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Ignite</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>Spring常用注解</h2>
+  <p class="post-date">2017-07-03</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h3 id="常用的是注解有如下几种："><a class="header-anchor" href="#常用的是注解有如下几种：">null</a>常用的是注解有如下几种：</h3>
+<p>@Controller<br><br>
+@Service<br><br>
+@Autowired<br><br>
+@RequestMapping<br><br>
+@RequestParam<br><br>
+@ModelAttribute<br></p>
+<a id="more"></a>
+<p>@Cacheable<br><br>
+@CacheFlush<br><br>
+@Resource<br><br>
+@PostConstruct<br><br>
+@PreDestroy<br><br>
+@Repository<br><br>
+@Component （不推荐使用）<br><br>
+@Scope<br><br>
+@SessionAttributes<br><br>
+@InitBinder<br><br>
+@Required<br><br>
+@Qualifier<br></p>
+<h6 id="controller"><a class="header-anchor" href="#controller">null</a>@Controller</h6>
+<ul>
+<li>例如：@Controller<br><br>
+public class SoftCreateController extends SimpleBaseController {}</li>
+<li>或者：@Controller<br><br>
+public class SoftCreateController extends SimpleBaseController {}</li>
+<li>说明： @Controller<br><br>
+负责注册一个bean 到spring 上下文中，bean 的ID 默认为类名称开头字母小写</li>
+</ul>
+<h6 id="service"><a class="header-anchor" href="#service">null</a>@Service</h6>
+<p>• 例如：<br>
+@Service<br><br>
+public class SoftCreateServiceImpl implements ISoftCreateService {}</p>
+<p>• 或者：<br><br>
+@Service(“softCreateServiceImpl”)</p>
+<p>• 说明：<br><br>
+@Service 负责注册一个bean 到spring 上下文中，bean 的ID 默认为类名称开头字母小写</p>
+<h6 id="autowired"><a class="header-anchor" href="#autowired">null</a>@Autowired</h6>
+<p>• 例如：<br>
+@Autowired<br>
+private ISoftPMService softPMService;</p>
+<p>• 或者：</p>
+<p>@Autowired(required=false)<br>
+private ISoftPMService softPMService = new SoftPMServiceImpl();</p>
+<p>• 说明：</p>
+<p>@Autowired 根据bean 类型从spring 上线文中进行查找，注册类型必须唯一，否则报异常。</p>
+<p>与@Resource 的区别在于，@Resource 允许通过bean 名称或bean 类型两种<br>
+方式进行查找@Autowired(required=false) 表示，如果spring 上下文中没有找到该类型的bean 时， 才会使用new SoftPMServiceImpl();</p>
+<p>与@Resource 的区别在于，@Resource 允许通过bean 名称或bean 类型两种方式进行查找@Autowired(required=false) 表示，如果spring<br>
+上下文中没有找到该类型的bean 时， 才会使用new SoftPMServiceImpl();</p>
+<p>@Autowired 还有一个作用就是，如果将其标注在 BeanFactory 类型、ApplicationContext 类型、ResourceLoader 类型、<br>
+ApplicationEventPublisher 类型、MessageSource 类型上，那么 Spring 会自动注入这些实现类的实例，不需要额外的操作。</p>
+<h6 id="requestmapping"><a class="header-anchor" href="#requestmapping">null</a>@RequestMapping</h6>
+<p>• 类：</p>
+<p>@Controller<br>
+@RequestMapping(&quot;/bbtForum.do&quot;) IT学习者（<a href="http://www.itxxz.com" target="_blank" rel="noopener">www.itxxz.com</a>）<br>
+public class BbtForumController {<br>
+@RequestMapping(params = “method=listBoardTopic”)<br>
+public String listBoardTopic(int topicId,User user) {}<br>
+}</p>
+<p>• 方法：</p>
+<p>@RequestMapping(&quot;/softpg/downSoftPg.do&quot;)<br>
+@RequestMapping(value=&quot;/softpg/ajaxLoadSoftId.do&quot;,method = POST)<br>
+@RequestMapping(value = “/osu/product/detail.do”, params = { “modify=false” }, method =POST)<br>
+• 说明：<br>
+@RequestMapping 可以声明到类或方法上</p>
+<p>• 参数绑定说明<br>
+如果我们使用以下的 URL 请求：<br>
+<a href="http://localhost/itxxzSpring4?method=listBoardTopic&amp;topicId=1&amp;userId=10&amp;userName=tom" target="_blank" rel="noopener">http://localhost/itxxzSpring4?method=listBoardTopic&amp;topicId=1&amp;userId=10&amp;userName=tom</a><br>
+topicId URL 参数将绑定到 topicId 入参上，而 userId 和 userName URL 参数将绑定到 user 对象的<br>
+userId 和 userName 属性中。和 URL 请求中不允许没有 topicId 参数不同，虽然 User 的 userId 属性的类型是基本数据类型，但如果 URL 中不存在 userId 参数，Spring 也不会报错，此时 user.userId 值为 0 。如果 User 对象拥有一个 dept.deptId 的级联属性，那么它将和 dept.deptId URL 参数绑定。</p>
+<h6 id="resource"><a class="header-anchor" href="#resource">null</a>@Resource</h6>
+<ul>
+<li>例如：<br>
+@Resource<br>
+private DataSource dataSource; // inject the bean named ‘dataSource’</li>
+<li>或者：<br>
+@Resource(name=“dataSource”)<br>
+@Resource(type=DataSource.class)</li>
+<li>说明：<br>
+@Resource 默认按bean 的name 进行查找，如果没有找到会按type 进行查找，<br>
+此时与@Autowired 类 似.<br><br>
+在没有为 @Resource 注解显式指定 name 属性的前提下，如果将其标注在 BeanFactory 类型、ApplicationContext 类型、ResourceLoader 类型、ApplicationEventPublisher 类型、MessageSource 类型上，那么 Spring 会自动注入这些实现类的实例，不需要额外的操作。此时 name 属性不需要指定 ( 或者指定为&quot;&quot;)，否则注入失败；</li>
+</ul>
+<h6 id="scope"><a class="header-anchor" href="#scope">null</a>@Scope</h6>
+<ul>
+<li>例如<br>
+@Scope(“session”)<br>
+@Repository()<br>
+public class UserSessionBean implementsSerializable {}</li>
+<li>说明</li>
+</ul>
+<p>在使用XML 定义Bean 时，可以通过bean 的scope 属性来定义一个Bean 的作用范围，<br>
+同样可以通过@Scope 注解来完成<br></p>
+<p>@Scope中可以指定如下值：<br>
+singleton:定义bean的范围为每个spring容器一个实例（默认值）<br>
+prototype:定义bean可以被多次实例化（使用一次就创建一次）<br>
+request:定义bean的范围是http请求（springMVC中有效）<br>
+session:定义bean的范围是http会话（springMVC中有效）<br>
+global-session:定义bean的范围是全局http会话（portlet中有效）<br>
+<br><br>
+小链接：ssm配置(<a href="http://www.cnblogs.com/youyefly/p/5685509.html" target="_blank" rel="noopener">http://www.cnblogs.com/youyefly/p/5685509.html</a>),<br>
+(<a href="http://blog.csdn.net/xuejian0616/article/details/52259335" target="_blank" rel="noopener">http://blog.csdn.net/xuejian0616/article/details/52259335</a>)</p>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#Javaweb" >
+    <span class="tag-code">Javaweb</span>
+  </a>
+
+  <a href="/tags#Spring" >
+    <span class="tag-code">Spring</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2017/07/03/Dao层、Service层、Controller层、View层/">
+        <span class="nav-arrow">← </span>
+        
+          Dao层、Service层、Controller层、View层
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2017/07/06/面试题/">
+        
+          面试干货分享
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Gitment START -->
+      <div id="comments"></div>
+      <!-- Gitment END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#常用的是注解有如下几种："><span class="toc-nav-text">null常用的是注解有如下几种：</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#controller"><span class="toc-nav-text">null@Controller</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#service"><span class="toc-nav-text">null@Service</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#autowired"><span class="toc-nav-text">null@Autowired</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#requestmapping"><span class="toc-nav-text">null@RequestMapping</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#resource"><span class="toc-nav-text">null@Resource</span></a></li><li class="toc-nav-item toc-nav-level-6"><a class="toc-nav-link" href="#scope"><span class="toc-nav-text">null@Scope</span></a></li></ol></li></ol></li></ol></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://xueshiming.cn/2017/07/03/Spring常用注解/';
+    var banner = 'undefined'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+        
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "Ignite";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "Spring常用注解",
+        owner: "Ignite",
+        repo: "fikyair.github.io",
+        oauth: {
+          client_id: "4ebfc91b3b208e90d865",
+          client_secret: "88e447799ce7aa0ce80f656cb56bccd1435b99d9"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  })();
+</script>
+
+<script>
+  var disqus_shortname = 'null';
+  
+  var disqus_url = 'http://xueshiming.cn/2017/07/03/Spring常用注解/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//go.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2018 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">Ignite</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+
+  </body>
+</html>
