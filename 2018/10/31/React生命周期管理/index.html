@@ -10,7 +10,7 @@
   
   <title>
     
-      String s1 = new String(&quot;abc&quot;)和String s2 = &quot;abc&quot;的区别 | Ignite
+      React生命周期管理 | Ignite
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -138,8 +138,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>String s1 = new String("abc")和String s2 = "abc"的区别</h2>
-  <p class="post-date">2017-10-15</p>
+  <h2>React生命周期管理</h2>
+  <p class="post-date">2018-10-31</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -147,51 +147,26 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h5 id="今天在看jvm的时候突然想到这样一个问题-即"><a class="header-anchor" href="#今天在看jvm的时候突然想到这样一个问题-即">null</a>今天在看JVM的时候突然想到这样一个问题，即</h5>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String s1 = new String(&quot;abc&quot;);</span><br><span class="line">String s2 = &quot;abc&quot;;</span><br><span class="line"></span><br><span class="line">System.out.println(s1 == s2);//答案是false</span><br></pre></td></tr></table></figure>
-<p>问题有两个：</p>
-<p>String s2 = “abc”时发生了什么？<br>
-String s1 = new String(“abc”）时又做了什么？<br>
-第二个问题是比较好回答的，根据官方文档的解释：</p>
-<a id="more"></a>
-<p>当我们在jdk1.6中讨论时，常量池放在方法区中。（jdk1.7中常量池放在堆内存中，jdk1.8放在元空间里面，和堆相对独立，所以导致string的intern方法因为以上变化在不同版本会有不同表现。）</p>
-<blockquote>
-<p>new String(“abc”);<br>
-Initializes a newly created String object so that it represents the same sequence of characters as the argument; in other words, the newly created string is a copy of the argument string. Unless an explicit copy of original is needed, use of this constructor is unnecessary since Strings are immutable.</p>
+    <section class="markdown-content"><blockquote>
+<p>你有没有遇到过这样的问题:</p>
 </blockquote>
-<p>简单解释一下：</p>
-<blockquote>
-<p>初始化一个新创建的String对象，换句话说，新创建的字符串是参数字符串的一个副本。除非确实需要一份副本，否则这种方法是不必要的，因为String是不可变的</p>
-</blockquote>
-<p>这句话实际上透露出两个意思，</p>
-<p>在编译器编译的时候，当编译器注意到参数为字符串常量时，即将字符串作为常量放在class文件中的常量区，并在类加载时放入运行时常量池中。<br>
-在new操作符被调用时，在java堆中创建一个新的对象，然后对象的内容为常量池里面对应字符串的一个拷贝。<br>
-而在String s2 = “abc”被编译的时候，先检查class文件中是否包含该字符串常量，如果包含，直接返回常量池中的对象。</p>
-<p>因此，在调用new操作时，对象始终存在于堆中，而直接字符串赋值时对象实际上是存在于常量池中的，<br>
-所以比较结果肯定是false</p>
-<p>String s = new String(“hello”);</p>
-<h5 id="generally-speaking"><a class="header-anchor" href="#generally-speaking">null</a>Generally speaking,</h5>
 <ul>
-<li>jdk1.6中: 首先&quot;hello&quot;字符串对象保存在 方法区的字符串常量池中， 在虚拟机栈中开辟空间 用来存放String 类型的变量s，在堆中开辟空间<br>
-存放 s 引用的对象，然后将常量池中的“hello” 拷贝一个副本给堆中的String。</li>
-<li>jdk1.7中:首先&quot;hello&quot;字符串对象保存在堆内存的字符串常量池中
-<ul>
-<li>1】在栈中开辟空间存放 s</li>
-<li>2】在堆中开辟空间存放新建的String 对象&quot;hello&quot;</li>
-<li>3】引用s指向堆中新建的String对象“hello”。</li>
+<li>组件的生命周期有哪些？为什么要有生命周期函数?</li>
+<li>我应该什么时候去获取后台数据? 为什么很多教程都推荐</li>
+<li>用componentDidMount? 用componentWillMount会有什么问题?</li>
+<li>为什么setState写在这里造成了重复渲染多次？</li>
+<li>setState在这里写合适吗？</li>
 </ul>
-</li>
-</ul>
-<p>参考文章1、（<a href="http://blog.csdn.net/weixin_35663229/article/details/52796157?locationNum=15%EF%BC%89" target="_blank" rel="noopener">http://blog.csdn.net/weixin_35663229/article/details/52796157?locationNum=15）</a><br>
-参考文章2、（<a href="http://blog.csdn.net/u010644448/article/details/51980370%EF%BC%89" target="_blank" rel="noopener">http://blog.csdn.net/u010644448/article/details/51980370）</a></p>
+<blockquote></blockquote>
+<p>带着问题我们一起来回顾一下React生命周期那些事儿</p>
 </section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#Mysql" >
-    <span class="tag-code">Mysql</span>
+  <a href="/tags#React" >
+    <span class="tag-code">React</span>
   </a>
 
       </div>
@@ -202,20 +177,13 @@ Initializes a newly created String object so that it represents the same sequenc
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2017/09/02/盒子模型/">
+      <a class="nav-left" href="/2018/10/18/小程序探险指南（一）/">
         <span class="nav-arrow">← </span>
         
-          盒子模型
+          小程序探险指南（一）
         
       </a>
     
-    
-      <a class="nav-right" href="/2017/10/15/Mysql decimal类型与decimal长度用法详解/">
-        
-          Mysql decimal类型与decimal长度用法详解
-        
-        <span class="nav-arrow"> →</span>
-      </a>
     
   </div>
 
@@ -261,7 +229,7 @@ Initializes a newly created String object so that it represents the same sequenc
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#今天在看jvm的时候突然想到这样一个问题-即"><span class="toc-nav-text">null今天在看JVM的时候突然想到这样一个问题，即</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#generally-speaking"><span class="toc-nav-text">nullGenerally speaking,</span></a></li></ol>
+      <ol class="nav">none</ol>
     
   </div>
 </aside>
@@ -271,7 +239,7 @@ Initializes a newly created String object so that it represents the same sequenc
 
 <script>
   (function () {
-    var url = 'http://xueshiming.cn/2017/10/15/String相关/';
+    var url = 'http://xueshiming.cn/2018/10/31/React生命周期管理/';
     var banner = 'undefined'
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -327,7 +295,7 @@ Initializes a newly created String object so that it represents the same sequenc
     var gitmentConfig = "Ignite";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "String s1 = new String("abc")和String s2 = "abc"的区别",
+        id: "React生命周期管理",
         owner: "Ignite",
         repo: "fikyair.github.io",
         oauth: {
@@ -355,7 +323,7 @@ Initializes a newly created String object so that it represents the same sequenc
 <script>
   var disqus_shortname = 'null';
   
-  var disqus_url = 'http://xueshiming.cn/2017/10/15/String相关/';
+  var disqus_url = 'http://xueshiming.cn/2018/10/31/React生命周期管理/';
   
   (function(){
     var dsq = document.createElement('script');
