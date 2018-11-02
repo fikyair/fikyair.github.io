@@ -163,9 +163,19 @@
 <a id="more"></a>
 <h3 id="生命周期">生命周期</h3>
 <p>我们先看下下面的图建立一个React组件生命周期的直观认识，图为React 16的生命周期，总的来说React组件的生命周期分为三个部分: <code>装载期间(Mounting)</code> ，<code>更新期间(Updating)</code> 和 <code>卸载期间(Unmounting)</code> ，React16多出来一个componentDidCatch() 函数用于捕捉错误。知道什么时候去使用哪些生命周期函数对于掌握和理解React是非常重要的，你可以看到这些生命周期函数有一定的规律，比如在某件事情发生之前调用的会用xxxWillxxx，而在这之后发生的会用xxxDidxxx。</p>
-<p><img src="http://oziqlv1ur.bkt.clouddn.com/code.png" alt="code"></p>
+<p><img src="http://oziqlv1ur.bkt.clouddn.com/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" alt="code"></p>
 <p>接下来我们就这三个阶段分别介绍一下各个生命周期函数，详细的生命周期函数解释可以看官方文档  <a href="https://reactjs.org/docs/react-component.html" target="_blank" rel="noopener">React.Component</a></p>
 <hr>
+<h3 id="装载期间">装载期间</h3>
+<p>组件被实例化并挂载在到DOM树这一过程称为装载，在装载期调用的生命周期函数依次为</p>
+<ul>
+<li><a href="https://reactjs.org/docs/react-component.html#constructor" target="_blank" rel="noopener">constructor()</a></li>
+<li><a href="https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops" target="_blank" rel="noopener">getDerivedStateFromProps()</a></li>
+<li><a href="https://reactjs.org/docs/react-component.html#render" target="_blank" rel="noopener">render()</a></li>
+<li><a href="https://reactjs.org/docs/react-component.html#componentdidmount" target="_blank" rel="noopener">componentDidMount()</a></li>
+</ul>
+<p>上图中还有一些函数比如<code>getDefaultProps</code>, <code>getInitialState</code>等是在你不是用ES6的class创建组件而是用<code>createReactClass</code>函数创建函数时暴露的方法，分别用于定义属性和设置初始状态，详见<a href="https://reactjs.org/docs/react-without-es6.html" target="_blank" rel="noopener">React-without-es6</a>，这里我们不再赘述。</p>
+<p>通常推荐使用继承组件类的方式进行组件创建，即<code>class Analysis extends Component{}</code></p>
 </section>
     <!-- Tags START -->
     
@@ -236,7 +246,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#生命周期"><span class="toc-nav-text">生命周期</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#生命周期"><span class="toc-nav-text">生命周期</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#装载期间"><span class="toc-nav-text">装载期间</span></a></li></ol>
     
   </div>
 </aside>
