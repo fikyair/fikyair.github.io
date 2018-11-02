@@ -6,7 +6,7 @@
       <title>React生命周期管理</title>
       <link href="/2018/10/31/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/"/>
       <url>/2018/10/31/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E7%AE%A1%E7%90%86/</url>
-      <content type="html"><![CDATA[<blockquote><p>你有没有遇到过这样的问题:</p></blockquote><ul><li>组件的生命周期有哪些？为什么要有生命周期函数?</li><li>我应该什么时候去获取后台数据? 为什么很多教程都推荐</li><li>用componentDidMount? 用componentWillMount会有什么问题?</li><li>为什么setState写在这里造成了重复渲染多次？</li><li>setState在这里写合适吗？</li></ul><blockquote></blockquote><p>带着问题我们一起来回顾一下React生命周期那些事儿</p>]]></content>
+      <content type="html"><![CDATA[<blockquote><p>你有没有遇到过这样的问题:</p></blockquote><ul><li>组件的生命周期有哪些？为什么要有生命周期函数?</li><li>我应该什么时候去获取后台数据? 为什么很多教程都推荐</li><li>用componentDidMount? 用componentWillMount会有什么问题?</li><li>为什么setState写在这里造成了重复渲染多次？</li><li>setState在这里写合适吗？</li></ul><blockquote><p>带着问题我们一起来回顾一下React生命周期那些事儿</p></blockquote><a id="more"></a><h3 id="生命周期">生命周期</h3><p>我们先看下下面的图建立一个React组件生命周期的直观认识，图为React 16的生命周期，总的来说React组件的生命周期分为三个部分: <code>装载期间(Mounting)</code> ，<code>更新期间(Updating)</code> 和 <code>卸载期间(Unmounting)</code> ，React16多出来一个componentDidCatch() 函数用于捕捉错误。知道什么时候去使用哪些生命周期函数对于掌握和理解React是非常重要的，你可以看到这些生命周期函数有一定的规律，比如在某件事情发生之前调用的会用xxxWillxxx，而在这之后发生的会用xxxDidxxx。</p><p><img src="http://oziqlv1ur.bkt.clouddn.com/code.png" alt="code"></p><p>接下来我们就这三个阶段分别介绍一下各个生命周期函数，详细的生命周期函数解释可以看官方文档  <a href="https://reactjs.org/docs/react-component.html" target="_blank" rel="noopener">React.Component</a></p><hr>]]></content>
       
       <categories>
           
