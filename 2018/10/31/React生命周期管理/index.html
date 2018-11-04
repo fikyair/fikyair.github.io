@@ -197,6 +197,15 @@
 <p>我们推荐可以在这个函数中<code>发送异步请求</code>，在回调函数中调用setState()设置state，等数据到达后触发重新渲染。但注意尽量<b>不要在这个函数中直接调用setState()</b>设置状态，这会触发一次额外的重新渲染，可能造成性能问题。</p>
 <p>下面的代码演示了如何在componentDidMount加载数据并设置状态:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">componentDidMount() &#123;</span><br><span class="line">   console.log(&apos;componentDidMount&apos;);</span><br><span class="line">   fetch(&quot;https://api.github.com/search/repositories?q=language:java&amp;sort=stars&quot;)</span><br><span class="line">     .then(res =&gt; res.json())</span><br><span class="line">     .then((result) =&gt; &#123;</span><br><span class="line">         this.setState(&#123; // 触发render</span><br><span class="line">           items: result.items</span><br><span class="line">         &#125;);</span><br><span class="line">       &#125;)</span><br><span class="line">     .catch((error) =&gt; &#123; console.log(error)&#125;);</span><br><span class="line">   // this.setState(&#123;color: xxx&#125;) // 不要这样做</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="更新期间">更新期间</h3>
+<p>当组件的状态或属性变化时会触发更新，更新过程中会依次调用以下方法:</p>
+<ul>
+<li><a href="https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops" target="_blank" rel="noopener">getDerivedStateFromProps()</a>  上文已描述，不赘述</li>
+<li><a href="https://reactjs.org/docs/react-component.html#unsafe_componentwillupdate" target="_blank" rel="noopener">componentWillUpdate()</a></li>
+<li><a href="https://reactjs.org/docs/react-component.html#render" target="_blank" rel="noopener">render()</a></li>
+<li><a href="https://reactjs.org/docs/react-component.html#getsnapshotbeforeupdate" target="_blank" rel="noopener">getSnapshotBeforeUpdate()</a></li>
+<li><a href="https://reactjs.org/docs/react-component.html#componentdidupdate" target="_blank" rel="noopener">componentDidUpdate()</a></li>
+</ul>
 </section>
     <!-- Tags START -->
     
@@ -267,7 +276,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#生命周期"><span class="toc-nav-text">生命周期</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#装载期间"><span class="toc-nav-text">装载期间</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#constructor-props"><span class="toc-nav-text">constructor(props)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#getderivedstatefromprops"><span class="toc-nav-text">getDerivedStateFromProps()</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#render"><span class="toc-nav-text">render()</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#componentdidmount"><span class="toc-nav-text">componentDidMount()</span></a></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#生命周期"><span class="toc-nav-text">生命周期</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#装载期间"><span class="toc-nav-text">装载期间</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#constructor-props"><span class="toc-nav-text">constructor(props)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#getderivedstatefromprops"><span class="toc-nav-text">getDerivedStateFromProps()</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#render"><span class="toc-nav-text">render()</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#componentdidmount"><span class="toc-nav-text">componentDidMount()</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#更新期间"><span class="toc-nav-text">更新期间</span></a></li></ol>
     
   </div>
 </aside>
