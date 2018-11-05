@@ -206,6 +206,12 @@
 <li><a href="https://reactjs.org/docs/react-component.html#getsnapshotbeforeupdate" target="_blank" rel="noopener">getSnapshotBeforeUpdate()</a></li>
 <li><a href="https://reactjs.org/docs/react-component.html#componentdidupdate" target="_blank" rel="noopener">componentDidUpdate()</a></li>
 </ul>
+<hr>
+<h4 id="shouldcomponentupdate-nextprops-nextstate">shouldComponentUpdate(nextProps, nextState)</h4>
+<p>你可以用这个方法来告诉React是否要进行下一次render()，默认这个函数放回true，即每次更新状态和属性的时候都进行组件更新。注意这个函数如果返回false并不会导致子组件也不更新。</p>
+<p>这个钩子函数一般不需要实现, 如果你的组件性能比较差或者渲染比较耗时，你可以考虑使React.PureComponent 重新实现该组件，PureComponent默认实现了一个版本的shouldComponentUpdate会进行state和props的比较。当然如果你有自信，可以自己实现比较nextProps和nextState是否发生了改变。</p>
+<p>该函数通常是优化性能的紧急出口，是个大招，不要轻易用，如果要用可以参考<a href="https://github.com/camsong/blog/issues/3" target="_blank" rel="noopener">Immutable 详解及 React 中实践</a> .</p>
+<h4 id="getsnapshotbeforeupdate">getSnapshotBeforeUpdate()</h4>
 </section>
     <!-- Tags START -->
     
@@ -276,7 +282,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#生命周期"><span class="toc-nav-text">生命周期</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#装载期间"><span class="toc-nav-text">装载期间</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#constructor-props"><span class="toc-nav-text">constructor(props)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#getderivedstatefromprops"><span class="toc-nav-text">getDerivedStateFromProps()</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#render"><span class="toc-nav-text">render()</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#componentdidmount"><span class="toc-nav-text">componentDidMount()</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#更新期间"><span class="toc-nav-text">更新期间</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#生命周期"><span class="toc-nav-text">生命周期</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#装载期间"><span class="toc-nav-text">装载期间</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#constructor-props"><span class="toc-nav-text">constructor(props)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#getderivedstatefromprops"><span class="toc-nav-text">getDerivedStateFromProps()</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#render"><span class="toc-nav-text">render()</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#componentdidmount"><span class="toc-nav-text">componentDidMount()</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#更新期间"><span class="toc-nav-text">更新期间</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#shouldcomponentupdate-nextprops-nextstate"><span class="toc-nav-text">shouldComponentUpdate(nextProps, nextState)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#getsnapshotbeforeupdate"><span class="toc-nav-text">getSnapshotBeforeUpdate()</span></a></li></ol></li></ol>
     
   </div>
 </aside>
