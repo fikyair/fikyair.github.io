@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          React高阶组件(repost) - Ignite | Allen
+        
+    </title>
+
+    <link rel="canonical" href="http://xueshiming.cn/2018/08/23/React高阶组件(repost)/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('')
+            /*post*/
+        
+    }
+    
+    #signature{
+        background-image: url('/img/signature/BeanTechSign-white.png');
+    }
+    
+</style>
+
+<header class="intro-header">
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#React" title="React">React</a>
+                            
+                        </div>
+                        <h1>React高阶组件(repost)</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by Allen on
+                            2018-08-23
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">boom</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h3><span id="前言">前言</span></h3>
+<blockquote>
+<p>本文代码浅显易懂，思想深入实用。此属于react进阶用法，如果还不是很了解react，建议从文档开始看起。</p>
+</blockquote>
+<a id="more"></a>
+<p>我们都知道高阶函数是什么, 高阶组件其实是差不多的用法，只不过传入的参数变成了react组件，并返回一个新的组件.</p>
+<blockquote>
+<p>A higher-order component is a function that takes a component and returns a new component.</p>
+</blockquote>
+<p>形如</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">const EnhancedComponent</span> = higherOrderComponent(WrappedComponent);</span><br></pre></td></tr></table></figure>
+<p>高阶组件是react应用中很重要的一部分，最大的特点就是重用组件逻辑。它并不是由React API定义出来的功能，而是由React的组合特性衍生出来的一种设计模式。<br>
+如果你用过redux，那你就一定接触过高阶组件，因为react-redux中的connect<br>
+就是一个高阶组件。</p>
+<p>另外本次demo代码都放在 <a href="https://github.com/sunyongjian/hoc-demo" target="_blank" rel="noopener">hoc-demo</a></p>
+<h3><span id="引入">引入</span></h3>
+<p>先来一个最简单的高阶组件</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="type">React</span>, &#123; <span class="type">Component</span> &#125; from <span class="symbol">'reac</span>t';</span><br><span class="line"><span class="keyword">import</span> simpleHoc from './simple-hoc';</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Usual</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    console.log(<span class="keyword">this</span>.props, <span class="symbol">'prop</span>s');</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        <span class="type">Usual</span></span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">export <span class="keyword">default</span> simpleHoc(<span class="type">Usual</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="type">React</span>, &#123; <span class="type">Component</span> &#125; from <span class="symbol">'reac</span>t';</span><br><span class="line"></span><br><span class="line">const simpleHoc = <span class="type">WrappedComponent</span> =&gt; &#123;</span><br><span class="line">  console.log(<span class="symbol">'simpleHo</span>c');</span><br><span class="line">  <span class="keyword">return</span> <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">      <span class="keyword">return</span> &lt;<span class="type">WrappedComponent</span> &#123;...<span class="keyword">this</span>.props&#125;/&gt;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">export <span class="keyword">default</span> simpleHoc;</span><br></pre></td></tr></table></figure>
+<p>组件Usual通过simpleHoc的包装，打了一个log… 那么形如simpleHoc就是一个高阶组件了，通过接收一个组件class Usual，并返回一个组件class。 其实我们可以看到，在这个函数里，我们可以做很多操作。 而且return的组件同样有自己的生命周期，function，另外，我们看到也可以把props传给WrappedComponent(被包装的组件)。 高阶组件的定义我都是用箭头函数去写的，如有不适请参照<br>
+<a href="http://es6.ruanyifeng.com/#docs/function#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0" target="_blank" rel="noopener">arrow function</a></p>
+<h3><span id="装饰器模式">装饰器模式</span></h3>
+<p>高阶组件可以看做是装饰器模式(Decorator Pattern)在React的实现。即允许向一个现有的对象添加新的功能，同时又不改变其结构，属于包装模式(Wrapper Pattern)的一种</p>
+<p>ES7中添加了一个decorator的属性，使用@符表示，可以更精简的书写。那上面的例子就可以改成：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="type">React</span>, &#123; <span class="type">Component</span> &#125; from <span class="symbol">'reac</span>t';</span><br><span class="line"><span class="keyword">import</span> simpleHoc from './simple-hoc';</span><br><span class="line"></span><br><span class="line"><span class="meta">@simpleHoc</span></span><br><span class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Usual</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        <span class="type">Usual</span></span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>是同样的效果。<br>
+当然兼容性是存在问题的，通常都是通过babel去编译的。 babel提供了plugin，高阶组件用的是类装饰器，所以用 <code>transform-decorators-legacy</code></p>
+<h2><span id="两种形式">两种形式</span></h2>
+<h3><span id="属性代理">属性代理</span></h3>
+<p>引入里我们写的最简单的形式，就是属性代理(Props Proxy)的形式。通过hoc包装wrappedComponent，也就是例子中的Usual，本来传给Usual的props，都在hoc中接受到了，也就是props proxy。 由此我们可以做一些操作</p>
+<ul>
+<li>操作props<br>
+最直观的就是接受到props，我们可以做任何读取，编辑，删除的很多自定义操作。包括hoc中定义的自定义事件，都可以通过props再传下去。</li>
+</ul>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="type">React</span>, &#123; <span class="type">Component</span> &#125; from <span class="symbol">'reac</span>t';</span><br><span class="line"></span><br><span class="line">const propsProxyHoc = <span class="type">WrappedComponent</span> =&gt; <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  handleClick() &#123;</span><br><span class="line">    console.log(<span class="symbol">'clic</span>k');</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (&lt;<span class="type">WrappedComponent</span></span><br><span class="line">      &#123;...<span class="keyword">this</span>.props&#125;</span><br><span class="line">      handleClick=&#123;<span class="keyword">this</span>.handleClick&#125;</span><br><span class="line">    /&gt;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">export <span class="keyword">default</span> propsProxyHoc;</span><br></pre></td></tr></table></figure>
+<p>然后我们的Usual组件render的时候, console.log(this.props) 会得到handleClick。</p>
+<ul>
+<li>refs获取组件实例<br>
+当我们包装Usual的时候，想获取到它的实例怎么办，可以通过引用(ref),在Usual组件挂载的时候，会执行ref的回调函数，在hoc中取到组件的实例。通过打印，可以看到它的props， state，都是可以取到的。</li>
+</ul>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="type">React</span>, &#123; <span class="type">Component</span> &#125; from <span class="symbol">'reac</span>t';</span><br><span class="line"></span><br><span class="line">const refHoc = <span class="type">WrappedComponent</span> =&gt; <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    console.log(<span class="keyword">this</span>.instanceComponent, <span class="symbol">'instanceComponen</span>t');</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (&lt;<span class="type">WrappedComponent</span></span><br><span class="line">      &#123;...<span class="keyword">this</span>.props&#125;</span><br><span class="line">      ref=&#123;instanceComponent =&gt; <span class="keyword">this</span>.instanceComponent = instanceComponent&#125;</span><br><span class="line">    /&gt;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">export <span class="keyword">default</span> refHoc;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这里不是通过ref获取state， 而是通过 { props, 回调函数 } 传递   给wrappedComponent组件，通过回调函数获取state。这里用的比较多的就是react处理表单的时候。通常react在处理表单的时候，一般使用的是受控组件<a href="https://reactjs.org/docs/forms.html#controlled-components" target="_blank" rel="noopener">文档</a>，即把input都做成受控的，改变value的时候，用onChange事件同步到state中。当然这种操作通过Container组件也可以做到，具体的区别放到后面去比较。看一下代码就知道怎么回事了：</li>
+</ul>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 普通组件Login</span></span><br><span class="line"><span class="keyword">import</span> <span class="type">React</span>, &#123; <span class="type">Component</span> &#125; from <span class="symbol">'reac</span>t';</span><br><span class="line"><span class="keyword">import</span> formCreate from './form-create';</span><br><span class="line"></span><br><span class="line"><span class="meta">@formCreate</span></span><br><span class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Login</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">          &lt;label id=<span class="string">"username"</span>&gt;</span><br><span class="line">            账户</span><br><span class="line">          &lt;/label&gt;</span><br><span class="line">          &lt;input name=<span class="string">"username"</span> &#123;...<span class="keyword">this</span>.props.getField(<span class="symbol">'usernam</span>e')&#125;/&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">          &lt;label id=<span class="string">"password"</span>&gt;</span><br><span class="line">            密码</span><br><span class="line">          &lt;/label&gt;</span><br><span class="line">          &lt;input name=<span class="string">"password"</span> &#123;...<span class="keyword">this</span>.props.getField(<span class="symbol">'passwor</span>d')&#125;/&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div onClick=&#123;<span class="keyword">this</span>.props.handleSubmit&#125;&gt;提交&lt;/div&gt;</span><br><span class="line">        &lt;div&gt;other content&lt;/div&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//HOC</span></span><br><span class="line"><span class="keyword">import</span> <span class="type">React</span>, &#123; <span class="type">Component</span> &#125; from <span class="symbol">'reac</span>t';</span><br><span class="line"></span><br><span class="line">const formCreate = <span class="type">WrappedComponent</span> =&gt; <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  constructor() &#123;</span><br><span class="line">    <span class="keyword">super</span>();</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">      fields: &#123;&#125;,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  onChange = key =&gt; e =&gt; &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      fields: &#123;</span><br><span class="line">        ...<span class="keyword">this</span>.state.fields,</span><br><span class="line">        [key]: e.target.value,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  handleSubmit = () =&gt; &#123;</span><br><span class="line">    console.log(<span class="keyword">this</span>.state.fields);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  getField = fieldName =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      onChange: <span class="keyword">this</span>.onChange(fieldName),</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    const props = &#123;</span><br><span class="line">      ...<span class="keyword">this</span>.props,</span><br><span class="line">      handleSubmit: <span class="keyword">this</span>.handleSubmit,</span><br><span class="line">      getField: <span class="keyword">this</span>.getField,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (&lt;<span class="type">WrappedComponent</span></span><br><span class="line">      &#123;...props&#125;</span><br><span class="line">    /&gt;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">export <span class="keyword">default</span> formCreate;</span><br></pre></td></tr></table></figure>
+<p>这里我们把state，onChange等方法都放到HOC里，其实是遵从的react组件的一种规范，子组件简单，傻瓜，负责展示，逻辑与操作放到Container。比如说我们在HOC获取到用户名密码之后，再去做其他操作，就方便多了，而state，处理函数放到Form组件里，只会让Form更加笨重，承担了本不属于它的工作，这样我们可能其他地方也需要用到这个组件，但是处理方式稍微不同，就很麻烦了。</p>
+<h3><span id="反向继承">反向继承</span></h3>
+<p>反向继承(Inheritance Inversion)，简称II，本来我是叫继承反转的…因为有个模式叫控制反转嘛…<br>
+跟属性代理的方式不同的是，II采用通过 去继承WrappedComponent，本来是一种嵌套的关系，结果II返回的组件却继承了WrappedComponent，这看起来是一种反转的关系。<br>
+通过继承WrappedComponent，除了一些静态方法，包括生命周期，state，各种function，我们都可以得到。上栗子：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// usual</span></span><br><span class="line"><span class="keyword">import</span> <span class="type">React</span>, &#123; <span class="type">Component</span> &#125; from <span class="symbol">'reac</span>t';</span><br><span class="line"><span class="keyword">import</span> iiHoc from './ii-hoc';</span><br><span class="line"></span><br><span class="line"><span class="meta">@iiHoc</span></span><br><span class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Usual</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"> constructor() &#123;</span><br><span class="line">   <span class="keyword">super</span>();</span><br><span class="line">   <span class="keyword">this</span>.state = &#123;</span><br><span class="line">     usual: <span class="symbol">'usua</span>l',</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> componentDidMount() &#123;</span><br><span class="line">   console.log(<span class="symbol">'didMoun</span>t')</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> render() &#123;</span><br><span class="line">   <span class="keyword">return</span> (</span><br><span class="line">     &lt;div&gt;</span><br><span class="line">       <span class="type">Usual</span></span><br><span class="line">     &lt;/div&gt;</span><br><span class="line">   )</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//IIHOC</span></span><br><span class="line"><span class="keyword">import</span> <span class="type">React</span> from <span class="symbol">'reac</span>t';</span><br><span class="line"></span><br><span class="line">const iiHoc = <span class="type">WrappedComponent</span> =&gt; <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">WrappedComponent</span> </span>&#123;</span><br><span class="line">   render() &#123;</span><br><span class="line">     console.log(<span class="keyword">this</span>.state, <span class="symbol">'stat</span>e');</span><br><span class="line">     <span class="keyword">return</span> <span class="keyword">super</span>.render();</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export <span class="keyword">default</span> iiHoc;</span><br></pre></td></tr></table></figure>
+<p>iiHoc return的组件通过继承，拥有了Usual的生命周期及属性，所以didMount会打印，state也通过constructor执行，得到state.usual。<br>
+其实，你还可以通过II：</p>
+<ul>
+<li>渲染劫持<br>
+这里HOC里定义的组件继承了WrappedComponent的render(渲染)，我们可以以此进行hijack(劫持)，也就是控制它的render函数。栗子：</li>
+</ul>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//hijack-hoc</span></span><br><span class="line"><span class="keyword">import</span> <span class="type">React</span> from <span class="symbol">'reac</span>t';</span><br><span class="line"></span><br><span class="line">const hijackRenderHoc = config =&gt; <span class="type">WrappedComponent</span> =&gt; <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">WrappedComponent</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    const &#123; style = &#123;&#125; &#125; = config;</span><br><span class="line">    const elementsTree = <span class="keyword">super</span>.render();</span><br><span class="line">    console.log(elementsTree, <span class="symbol">'elementsTre</span>e');</span><br><span class="line">    <span class="keyword">if</span> (config.<span class="keyword">type</span> === <span class="symbol">'add</span>-style') &#123;</span><br><span class="line">      <span class="keyword">return</span> &lt;div style=&#123;&#123;...style&#125;&#125;&gt;</span><br><span class="line">        &#123;elementsTree&#125;</span><br><span class="line">      &lt;/div&gt;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> elementsTree;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">export <span class="keyword">default</span> hijackRenderHoc;</span><br><span class="line"><span class="comment">//usual</span></span><br><span class="line"><span class="meta">@hijackRenderHoc</span>(&#123;<span class="class"><span class="keyword">type</span></span>: <span class="symbol">'add</span>-style', style: &#123; color: <span class="symbol">'re</span>d'&#125;&#125;)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Usual</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我这里通过二阶函数，把config参数预制进HOC， 算是一种柯理化的思想。<br>
+栗子很简单，这个hoc就是添加样式的功能。但是它暴露出来的信息却不少。首先我们可以通过config参数进行逻辑判断，有条件的渲染，当然这个参数的作用很多，react-redux中的connect不就是传入了props-key 嘛。再就是我们还可以拿到WrappedComponent的元素树，可以进行修改操作。最后就是我们通过div包裹，设置了style。但其实具体如何操作还是根据业务逻辑去处理的…<br>
+<img src="http://oziqlv1ur.bkt.clouddn.com/%E5%85%83%E7%B4%A0%E6%A0%91.png" alt="元素树"></p>
+<h3><span id="我的应用场景">我的应用场景</span></h3>
+<ul>
+<li>
+<p>通常我会通过高阶组件去优化之前老项目写的不好的地方，比如两个页面UI几乎一样，功能几乎相同，仅仅几个操作不太一样，却写了两个耦合很多的页面级组件。当我去维护它的时候，由于它的耦合性过多，经常会添加一个功能(这两个组件都要添加)，我要去改完第一个的时候，还要改第二个。而且有时候由于我的记性不好，会忘掉第二个… 就会出现bug再返工。更重要的是由于个人比较懒，不想去重构这部分的代码，因为东西太多了，花费太多时间。所以加新功能的时候，我会写一个高阶组件，往HOC里添加方法，把那两个组件包装一下，也就是属性代理。这样新代码就不会再出现耦合，旧的逻辑并不会改变，说不定哪天心情好就会抽离一部分功能到HOC里，直到理想的状态。</p>
+</li>
+<li>
+<p>另一种情况就是之前写过一个组件A，做完上线，之后产品加了一个新需求，很奇怪要做的组件B跟A几乎一模一样，但稍微有区别。那我可能就通过II的方式去继承之前的组件A，比如它在didMount去fetch请求，需要的数据是一样的。不同的地方我就会放到HOC里，存储新的state这样，再通过劫持渲染，把不同的地方，添加的地方进行处理。但其实这算Hack的一种方式，能快速解决问题，也反映了组件设计规划之初有所不足(原因比较多)。</p>
+</li>
+<li>
+<p>Container解决不了的时候甚至不太优雅的时候。其实大部分时候包一层Container组件也能做到差不多的效果，比如操作props，渲染劫持。但其实还是有很大区别的。比如我们现在有两个功能的container，添加样式和添加处理函数的，对Usual进行包装。栗子：</p>
+</li>
+</ul>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//usual</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Usual</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    console.log(<span class="keyword">this</span>.props, <span class="symbol">'prop</span>s');</span><br><span class="line">    <span class="keyword">return</span> &lt;div&gt;</span><br><span class="line">      <span class="type">Usual</span></span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">export <span class="keyword">default</span> <span class="type">Usual</span>;</span><br><span class="line"><span class="comment">//console - Object &#123;handleClick: function&#125;  "props"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="type">React</span>, &#123; <span class="type">Component</span> &#125; from <span class="symbol">'reac</span>t';</span><br><span class="line"><span class="keyword">import</span> <span class="type">Usual</span> from './usual';</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StyleContainer</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (&lt;div style=&#123;&#123; color: '#<span class="number">76</span>d0a3' &#125;&#125;&gt;</span><br><span class="line">      &lt;div&gt;container&lt;/div&gt;</span><br><span class="line">      &lt;<span class="type">Usual</span> &#123;...<span class="keyword">this</span>.props&#125; /&gt;</span><br><span class="line">    &lt;/div&gt;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export <span class="keyword">default</span> <span class="type">StyleContainer</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="type">React</span>, &#123; <span class="type">Component</span> &#125; from <span class="symbol">'reac</span>t';</span><br><span class="line"><span class="keyword">import</span> <span class="type">StyleContainer</span> from './container-add-style';</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FuncContainer</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  handleClick() &#123;</span><br><span class="line">    console.log(<span class="symbol">'clic</span>k');</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    const props = &#123;</span><br><span class="line">      ...<span class="keyword">this</span>.props,</span><br><span class="line">      handleClick: <span class="keyword">this</span>.handleClick,</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> (&lt;<span class="type">StyleContainer</span> &#123;...props&#125; /&gt;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export <span class="keyword">default</span> <span class="type">FuncContainer</span>;</span><br></pre></td></tr></table></figure>
+<p>外层Container必须要引入内层Container，进行包装，还有props的传递，同样要注意包装的顺序。当然你可以把所有的处理都放到一个Container里。那用HOC怎么处理呢，相信大家有清晰的答案了</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">const addFunc = <span class="type">WrappedComponent</span> =&gt; <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  handleClick() &#123;</span><br><span class="line">    console.log(<span class="symbol">'clic</span>k');</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    const props = &#123;</span><br><span class="line">      ...<span class="keyword">this</span>.props,</span><br><span class="line">      handleClick: <span class="keyword">this</span>.handleClick,</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> &lt;<span class="type">WrappedComponent</span> &#123;...props&#125; /&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const addStyle = <span class="type">WrappedComponent</span> =&gt; <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (&lt;div style=&#123;&#123; color: '#<span class="number">76</span>d0a3' &#125;&#125;&gt;</span><br><span class="line">      &lt;<span class="type">WrappedComponent</span> &#123;...<span class="keyword">this</span>.props&#125; /&gt;</span><br><span class="line">    &lt;/div&gt;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const <span class="type">WrappenComponent</span> = addStyle(addFunc(<span class="type">Usual</span>));</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WrappedUsual</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    console.log(<span class="keyword">this</span>.props, <span class="symbol">'prop</span>s');</span><br><span class="line">    <span class="keyword">return</span> (&lt;div&gt;</span><br><span class="line">      &lt;<span class="type">WrappedComponent</span> /&gt;</span><br><span class="line">    &lt;/div&gt;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>显然HOC是更优雅一些的，每个HOC都定义自己独有的处理逻辑，需要的时候只需要去包装你的组件。相较于Container的方式，HOC耦合性更低，灵活性更高，可以自由组合，更适合应付复杂的业务。当然当你的需求很简单的时候，还是用Container去自由组合，应用场景需要你清楚。</p>
+<h3><span id="注意点约束">注意点(约束)</span></h3>
+<p>其实官网有很多，简单介绍一下。</p>
+<ul>
+<li>
+<p>最重要的原则就是，注意高阶组件不会修改子组件，也不拷贝子组件的行为。高阶组件只是通过组合的方式将子组件包装在容器组件中，是一个无副作用的纯函数</p>
+</li>
+<li>
+<p>要给hoc添加class名，便于debugger。我上面的好多栗子组件都没写class 名，请不要学我，因为我实在想不出叫什么名了… 当我们在chrome里应用React-Developer-Tools的时候，组件结构可以一目了然，所以DisplayName最好还是加上。<br>
+<img src="http://oziqlv1ur.bkt.clouddn.com/WrappedUsual.png" alt="WrappedUsual"></p>
+</li>
+<li>
+<p>静态方法要复制<br>
+无论PP还是II的方式，WrappedComponent的静态方法都不会复制，如果要用需要我们单独复制。</p>
+</li>
+<li>
+<p>refs不会传递。 意思就是HOC里指定的ref，并不会传递到子组件，如果你要使用最好写回调函数通过props传下去。</p>
+</li>
+<li>
+<p>不要在render方法内部使用高阶组件。简单来说react的差分算法会去比较 NowElement === OldElement, 来决定要不要替换这个elementTree。也就是如果你每次返回的结果都不是一个引用，react以为发生了变化，去更替这个组件会导致之前组件的状态丢失。</p>
+</li>
+</ul>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HOC不要放到render函数里面</span></span><br><span class="line"></span><br><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">WrappedUsual</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    const <span class="type">WrappenComponent</span> = addStyle(addFunc(<span class="type">Usual</span>));</span><br><span class="line"></span><br><span class="line">    console.log(<span class="keyword">this</span>.props, <span class="symbol">'prop</span>s');</span><br><span class="line">    <span class="keyword">return</span> (&lt;div&gt;</span><br><span class="line">      &lt;<span class="type">WrappedComponent</span> /&gt;</span><br><span class="line">    &lt;/div&gt;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用compose组合HOC。函数式编程的套路… 例如应用redux中的middleware以增强功能。redux-middleware解析</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> addFuncHOC = ...</span><br><span class="line"><span class="keyword">const</span> addStyleHOC = ...<span class="comment">//省略</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> compose = <span class="function">(<span class="params">...funcs</span>) =&gt;</span> component =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (funcs.lenght === <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> component;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> last = funcs[funcs.length - <span class="number">1</span>];</span><br><span class="line">  <span class="keyword">return</span> funcs.reduceRight(<span class="function">(<span class="params">res, cur</span>) =&gt;</span> cur(res), last(component));</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> WrappedComponent = compose(addFuncHOC, addStyleHOC)(Usual);</span><br></pre></td></tr></table></figure>
+<p>关于注意点，官网有所介绍，不再赘述。链接：<a href="https://reactjs.org/docs/higher-order-components.html#dont-mutate-the-original-component.-use-composition." target="_blank" rel="noopener">reactjs.org</a></p>
+<h3><span id="总结">总结</span></h3>
+<p>高阶组件最大的好处就是解耦和灵活性，在react的开发中还是很有用的。<br>
+当然这不可能是高阶组件的全部用法。掌握了它的一些技巧，还有一些限制，你可以结合你的应用场景，发散思维，尝试一些不同的用法。</p>
+<p>原文转自：<a href="https://github.com/sunyongjian/blog/issues/25" target="_blank" rel="noopener">blog</a></p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2018/08/25/React源码分析/" data-toggle="tooltip" data-placement="top" title="React源码分析">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2018/07/01/Say Hi/" data-toggle="tooltip" data-placement="top" title="Say Hi">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                    <div class="comment">
+                        <div id="disqus_thread" class="disqus-thread"></div>
+                    </div>
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#React" title="React">React</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="http://beantech.org" target="_blank">Bean Tech</a></li>
+                    
+                        <li><a href="http://blog.kaijun.rocks" target="_blank">Kaijun&#39;s Blog</a></li>
+                    
+                        <li><a href="http://huangxuan.me" target="_blank">Hux Blog</a></li>
+                    
+                        <li><a href="#" target="_blank">It Helps SEO</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus embedded js code start (one page only need to embed once) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "your-disqus-ID";
+    var disqus_identifier = "http://xueshiming.cn/2018/08/23/React高阶组件(repost)/";
+    var disqus_url = "http://xueshiming.cn/2018/08/23/React高阶组件(repost)/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus embedded js code start end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/YenYuHsuan">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://github.com/YenYuHsuan">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/yu-hsuan-yen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Allen 2018 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://beantech.org">BeanTech</a> | 
+                    <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="91px" height="20px" src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true">
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://xueshiming.cn/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://xueshiming.cn/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

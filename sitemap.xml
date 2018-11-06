@@ -3,7 +3,7 @@
 
     <sitemap>
         <loc>http://xueshiming.cn/post-sitemap.xml</loc>
-        <lastmod>2018-11-06T05:58:23.089Z</lastmod>
+        <lastmod>2018-11-06T06:15:46.150Z</lastmod>
     </sitemap>
 
     <sitemap>
@@ -12,8 +12,13 @@
     </sitemap>
 
     <sitemap>
+        <loc>http://xueshiming.cn/category-sitemap.xml</loc>
+        <lastmod>2018-11-06T06:15:46.006Z</lastmod>
+    </sitemap>
+
+    <sitemap>
         <loc>http://xueshiming.cn/tag-sitemap.xml</loc>
-        <lastmod>2018-11-06T03:31:19.146Z</lastmod>
+        <lastmod>2018-11-06T06:15:44.282Z</lastmod>
     </sitemap>
 
 </sitemapindex>

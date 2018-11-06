@@ -2,15 +2,127 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>http://xueshiming.cn/tags/Hexo/</loc>
-        <lastmod>2018-11-06T03:31:19.146Z</lastmod>
+        <loc>http://xueshiming.cn/tags/Spring/</loc>
+        <lastmod>2018-11-06T06:15:44.282Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://xueshiming.cn/tags/Blog/</loc>
-        <lastmod>2018-11-06T03:31:19.146Z</lastmod>
+        <loc>http://xueshiming.cn/tags/Linux/</loc>
+        <lastmod>2018-11-06T06:15:44.322Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://xueshiming.cn/tags/CSS/</loc>
+        <lastmod>2018-11-06T06:15:44.546Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://xueshiming.cn/tags/Javaweb/</loc>
+        <lastmod>2018-11-06T06:15:44.742Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://xueshiming.cn/tags/SSM/</loc>
+        <lastmod>2018-11-06T06:15:44.742Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://xueshiming.cn/tags/%E8%AF%97/</loc>
+        <lastmod>2018-11-06T06:15:45.462Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://xueshiming.cn/tags/JavaScript/</loc>
+        <lastmod>2018-11-06T06:15:45.494Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://xueshiming.cn/tags/React/</loc>
+        <lastmod>2018-11-06T06:15:45.530Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://xueshiming.cn/tags/Android/</loc>
+        <lastmod>2018-11-06T06:15:45.562Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://xueshiming.cn/tags/%E7%89%9B%E5%AE%A2/</loc>
+        <lastmod>2018-11-06T06:15:45.562Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://xueshiming.cn/tags/%E7%AE%97%E6%B3%95/</loc>
+        <lastmod>2018-11-06T06:15:45.598Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://xueshiming.cn/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+        <lastmod>2018-11-06T06:15:45.742Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://xueshiming.cn/tags/Mysql/</loc>
+        <lastmod>2018-11-06T06:15:45.778Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://xueshiming.cn/tags/Webpack/</loc>
+        <lastmod>2018-11-06T06:15:45.850Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://xueshiming.cn/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</loc>
+        <lastmod>2018-11-06T06:15:45.938Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://xueshiming.cn/tags/Java/</loc>
+        <lastmod>2018-11-06T06:15:45.970Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://xueshiming.cn/tags/Git/</loc>
+        <lastmod>2018-11-06T06:15:46.106Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://xueshiming.cn/tags/%E6%80%9D%E6%83%B3/</loc>
+        <lastmod>2018-11-06T06:15:46.150Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
