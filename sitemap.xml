@@ -2,17 +2,17 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <sitemap>
-        <loc>http://yoursite-url/post-sitemap.xml</loc>
+        <loc>http://xueshiming.cn/post-sitemap.xml</loc>
         <lastmod>2018-11-06T05:58:23.089Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>http://yoursite-url/page-sitemap.xml</loc>
+        <loc>http://xueshiming.cn/page-sitemap.xml</loc>
         <lastmod>2018-11-06T03:31:19.178Z</lastmod>
     </sitemap>
 
     <sitemap>
-        <loc>http://yoursite-url/tag-sitemap.xml</loc>
+        <loc>http://xueshiming.cn/tag-sitemap.xml</loc>
         <lastmod>2018-11-06T03:31:19.146Z</lastmod>
     </sitemap>
 
