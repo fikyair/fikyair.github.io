@@ -149,7 +149,7 @@
   <article class="post-article">
     <section class="markdown-content"><p>关于java基础的一些概念性、理论性的东西，好久没碰了，现在回过头来看看，有助于自己更深层次的提高，所以在此总结一下。</p>
 <a id="more"></a>
-<h5 id="方法的重写"><a class="header-anchor" href="#方法的重写">null</a>方法的重写</h5>
+<h5 id="方法的重写">方法的重写</h5>
 <ol>
 <li>概念：子父类出了同名的函数，这个我们就称作为方法的重写。</li>
 <li>方法重写的前提： 必须要存在继承的关系。</li>
@@ -163,7 +163,7 @@
 <li>方法重写时，子类的权限修饰符必须要大于或者等于父类的权限修饰符(“一大”)</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Exception(最坏)</span><br><span class="line">RuntimeException(小坏)</span><br></pre></td></tr></table></figure>
-<h5 id="方法的重载"><a class="header-anchor" href="#方法的重载">null</a>方法的重载</h5>
+<h5 id="方法的重载">方法的重载</h5>
 <ol>
 <li>概念：在一个类中 存在两个或者两个 以上的同名函数,称作为方法重载。</li>
 <li>方法重载的要求</li>
@@ -173,7 +173,7 @@
 <li>形参列表不一致（形参个数或形参的类型不一致）</li>
 <li>与返回值类型无关</li>
 </ul>
-<h5 id="java运算符优先级助记口诀"><a class="header-anchor" href="#java运算符优先级助记口诀">null</a>java运算符优先级助记口诀</h5>
+<h5 id="java运算符优先级助记口诀">java运算符优先级助记口诀</h5>
 <p>单目乘除为关系，逻辑三目后赋值。</p>
 <ul>
 <li>单目：单目运算符+ –(负数) ++ – 等</li>
@@ -185,7 +185,7 @@
 <li>后：无意义，仅仅为了凑字数</li>
 <li>赋值：赋值=</li>
 </ul>
-<h5 id="java的四种访问权限"><a class="header-anchor" href="#java的四种访问权限">null</a>java的四种访问权限</h5>
+<h5 id="java的四种访问权限">java的四种访问权限</h5>
 <table>
 <thead>
 <tr>
@@ -235,7 +235,7 @@
 <li>protected：受保护的，类的内部可访问；同一个包下的不管是否有继承关系均可访问；不同包下只有有继承关系的才可访问；</li>
 <li>默认（default）：类的内部可访问；同一个包下不管是否有继承关系均可访问；不同包下不管有没有继承关系都不能访问。</li>
 </ol>
-<h5 id="java并发之原子性-可见性与有序性"><a class="header-anchor" href="#java并发之原子性-可见性与有序性">null</a>java并发之原子性、可见性与有序性</h5>
+<h5 id="java并发之原子性-可见性与有序性">java并发之原子性、可见性与有序性</h5>
 <ol>
 <li>原子性<br>
 原子是世界上的最小单位，具有不可分割性。比如 a=0；（a非long和double类型） 这个操作是不可分割的，那么我们说这个操作时原子操作。再比如：a++； 这个操作实际是a = a + 1；是可分割的，所以他不是一个原子操作。非原子操作都会存在线程安全问题，需要我们使用同步技术（sychronized）来让它变成一个原子操作。一个操作是原子操作，那么我们称它具有原子性。Java的concurrent包下提供了一些原子类，我们可以通过阅读API来了解这些原子类的用法。比如：AtomicInteger、AtomicLong、AtomicReference等。</li>
@@ -245,12 +245,12 @@
 volatile。JVM规定，在volatile之前的操作，不能重排序到volatile之后。</li>
 </ol>
 <p>synchronized。同步代码块对于不同线程来说串行进入的。</p>
-<h5 id="线程的创建方式"><a class="header-anchor" href="#线程的创建方式">null</a>线程的创建方式</h5>
+<h5 id="线程的创建方式">线程的创建方式</h5>
 <ol>
 <li>继承Thread类，重写run()方法，该run方法的方法体，代表了线程需要完成的任务</li>
 <li>实现Runnable接口，重写该接口的run()方法，run()方法也为线程执行体</li>
 </ol>
-<h5 id="其他小知识"><a class="header-anchor" href="#其他小知识">null</a>其他小知识</h5>
+<h5 id="其他小知识">其他小知识</h5>
 <p>在java7中下列说法：<br>
 (1)Arrays.asList()将一个数组转化为一个List对象，这个方法会返回一个ArrayList类型的对象， 这个ArrayList类并非java.util.ArrayList类，而是Arrays类的静态内部类！用这个对象对列表进行添加删除更新操作，就会报UnsupportedOperationException异常。</p>
 <p>(2) ConcurrentHashMap使用segment来分段和管理锁，segment继承自ReentrantLock，因此ConcurrentHashMap使用ReentrantLock来保证线程安全。</p>
@@ -356,7 +356,7 @@ private  protected</p>
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#方法的重写"><span class="toc-nav-text">null方法的重写</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#方法的重载"><span class="toc-nav-text">null方法的重载</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#java运算符优先级助记口诀"><span class="toc-nav-text">nulljava运算符优先级助记口诀</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#java的四种访问权限"><span class="toc-nav-text">nulljava的四种访问权限</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#java并发之原子性-可见性与有序性"><span class="toc-nav-text">nulljava并发之原子性、可见性与有序性</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#线程的创建方式"><span class="toc-nav-text">null线程的创建方式</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#其他小知识"><span class="toc-nav-text">null其他小知识</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#方法的重写"><span class="toc-nav-text">方法的重写</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#方法的重载"><span class="toc-nav-text">方法的重载</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#java运算符优先级助记口诀"><span class="toc-nav-text">java运算符优先级助记口诀</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#java的四种访问权限"><span class="toc-nav-text">java的四种访问权限</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#java并发之原子性-可见性与有序性"><span class="toc-nav-text">java并发之原子性、可见性与有序性</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#线程的创建方式"><span class="toc-nav-text">线程的创建方式</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#其他小知识"><span class="toc-nav-text">其他小知识</span></a></li></ol>
     
   </div>
 </aside>

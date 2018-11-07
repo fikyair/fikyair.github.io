@@ -147,11 +147,11 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h5 id="不用四则做加法"><a class="header-anchor" href="#不用四则做加法">null</a>不用四则做加法</h5>
+    <section class="markdown-content"><h5 id="不用四则做加法">不用四则做加法</h5>
 <p>直接上代码：</p>
 <a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">public class Add &#123;</span><br><span class="line">	public static int Add(int num1, int num2) &#123;</span><br><span class="line">		while (num2 != 0) &#123;</span><br><span class="line">			int temp = num1 ^ num2;</span><br><span class="line">			System.out.println(&quot;temp=&quot; + temp);</span><br><span class="line">			System.out.println(&quot;num1&amp;num2=&quot; + (num1 &amp; num2));</span><br><span class="line">			num2 = (num1 &amp; num2) &lt;&lt; 1;</span><br><span class="line">			System.out.println(&quot;(num1 &amp; num2) &lt;&lt; 1 =&quot; + num2);</span><br><span class="line">			num1 = temp;</span><br><span class="line">            System.out.print(num1);</span><br><span class="line">		&#125;</span><br><span class="line">		return num1;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Add(3, 6);</span><br><span class="line">		//2  :0010</span><br><span class="line">		//3  :0011</span><br><span class="line">		//2^3=0001  =1    异或运算符，用符号(^)表示，其运算规则是：两个操作数的位中，相同则结果为0，不同则结果为1。</span><br><span class="line"> 	  //2&amp;3=0010  =2    位与运算符，都为1则为1，否则为0。</span><br><span class="line">		//2&lt;&lt;2=4                      右移运算符，num &lt;&lt; 1,相当于num乘以2</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="思路解读："><a class="header-anchor" href="#思路解读：">null</a>思路解读：</h5>
+<h5 id="思路解读：">思路解读：</h5>
 <blockquote>
 <p>解析：<br>
 首先看十进制是如何做的： 5+7=12，三步走<br>
@@ -166,7 +166,7 @@
 第三步重复上述两步， 各位相加 010^1010=1000，进位值为100=(010&amp;1010)&lt;&lt;1。<br>
 继续重复上述两步：1000^100 = 1100，进位值为0，跳出循环，1100为最终结果。</p>
 </blockquote>
-<h5 id="延伸："><a class="header-anchor" href="#延伸：">null</a>延伸：</h5>
+<h5 id="延伸：">延伸：</h5>
 <ol>
 <li>位异或运算（^）</li>
 </ol>
@@ -197,7 +197,7 @@
 <p>因为高位是1，所以原码为负数，负数的补码是其绝对值的原码取反，末尾再加1。</p>
 <p>因此，我们可将这个二进制数的补码进行还原： 首先，末尾减1得反码：11111111 11111111 11111111 11011001 其次，将各位取反得原码：</p>
 <p>00000000 00000000 00000000 00100110，此时二进制转原码为38</p>
-<h2 id="所以-37-38"><a class="header-anchor" href="#所以-37-38">null</a>所以~37 = -38.</h2>
+<h2 id="所以-37-38">所以~37 = -38.</h2>
 <p>关于java 原码、反码、补码的解释<br>
 (<a href="http://blog.csdn.net/u010841296/article/details/52850307" target="_blank" rel="noopener">http://blog.csdn.net/u010841296/article/details/52850307</a>)</p>
 </section>
@@ -222,10 +222,10 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2017/08/23/Java中单链表的实现/">
+      <a class="nav-left" href="/2017/08/23/newCoder袋鼠过河/">
         <span class="nav-arrow">← </span>
         
-          Java中单链表的实现
+          袋鼠过河
         
       </a>
     
@@ -281,7 +281,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#不用四则做加法"><span class="toc-nav-text">null不用四则做加法</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#思路解读："><span class="toc-nav-text">null思路解读：</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#延伸："><span class="toc-nav-text">null延伸：</span></a></li></ol></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#所以-37-38"><span class="toc-nav-text">null所以~37 = -38.</span></a>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#不用四则做加法"><span class="toc-nav-text">不用四则做加法</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#思路解读："><span class="toc-nav-text">思路解读：</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#延伸："><span class="toc-nav-text">延伸：</span></a></li></ol></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#所以-37-38"><span class="toc-nav-text">所以~37 = -38.</span></a>
     
   </div>
 </aside>

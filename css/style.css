@@ -654,6 +654,9 @@ h2.article-head {
   border-bottom: 1px dashed #e5e5e5;
   margin: 30px 0;
 }
+.emoji {
+  height: 1.2em;
+}
 #tag-cloud {
   margin: 30px 0;
   text-align: center;
