@@ -228,6 +228,32 @@
 <p>该方法会在组件被卸载之前被调用，如果你学过C++，那么这玩意和析构函数差不多，在方法里清理内存之类的，当然如果你用java请不用在意。如上所述，你可以在这个函数中进行相关清理工作，比如删除定时器之类的。<br>
 下面给个示例代码:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">componentWillUnmount() &#123;</span><br><span class="line">    console.log(&apos;componentWillUnmount&apos;);</span><br><span class="line"></span><br><span class="line">    // 清除timer</span><br><span class="line">    clearInterval(this.timerID1);</span><br><span class="line">    clearTimeout(this.timerID2);</span><br><span class="line"></span><br><span class="line">    // 关闭socket</span><br><span class="line">    this.myWebsocket.close();</span><br><span class="line"></span><br><span class="line">    // 取消消息订阅...</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="错误捕获">错误捕获</h3>
+<p>React16中新增了一个生命周期函数:</p>
+<ul>
+<li><a href="https://reactjs.org/docs/react-component.html#componentdidcatch" target="_blank" rel="noopener">componentDidCatch()</a></li>
+</ul>
+<h4 id="componentdidcatch-error-info">componentDidCatch(error, info)</h4>
+<p>在react组件中如果产生的错误没有被捕获会被抛给上层组件，如果上层也不处理的话就会抛到顶层导致浏览器白屏错误，在React16中我们可以实现这个方法来捕获子组件产生的错误，然后在父组件中妥善处理，比如搞个弹层通知用户网页崩溃等。</p>
+<p>在这个函数中请只进行错误恢复相关的处理，不要做其他流程控制方面的操作。比如:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">componentDidCatch(error, info) &#123; // from react.org</span><br><span class="line">    // Display fallback UI</span><br><span class="line">    this.setState(&#123; hasError: true &#125;);</span><br><span class="line">    // You can also log the error to an error reporting service</span><br><span class="line">    logErrorToMyService(error, info);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="react16中的生命周期函数变化">React16中的生命周期函数变化</h3>
+<p>componentWillMount，componentWillUpdate, componentWillReceiveProps等生命周期方法在下个主版本中会被废弃?<br>
+根据这份<a href="https://github.com/reactjs/rfcs/blob/master/text/0006-static-lifecycle-methods.md" target="_blank" rel="noopener">RFC</a>，是的，这些生命周期方法被认为是不安全的，在React16中被重命名为UNSAFE_componentWillMount，UNSAFE_componentWillUpdate，UNSAFE_componentWillReceiveProps，而在更下个大版本中他们会被废弃。详见<a href="https://reactjs.org/blog/2018/03/29/react-v-16-3.html" target="_blank" rel="noopener">React 16.3版本发布公告</a>。</p>
+<hr>
+<h3 id="总结">总结</h3>
+<p>总结一下，以上讲的这些生命周期都有自己存在的意义，但在React使用过程中我们最常用到的生命周期函数是如下几个:</p>
+<ul>
+<li>constructor: 初始化状态，进行函数绑定</li>
+<li>componentDidMount: 进行DOM操作，进行异步调用初始化页面</li>
+<li>componentWillReceiveProps: 根据props更新状态</li>
+<li>componentWillUnmount: 清理组件定时器，网络请求或者相关订阅等<br>
+其他的逻辑一般和用户的操作有关(各种handleClickXXXX），当然需要用到其他生命周期函数可以按需正确使用。如果阅读文章过程中遇到问题欢迎评论进行修正。</li>
+</ul>
+<blockquote>
+<p>本文引用自<a href="https://www.yuque.com/fe9/select/fon761#lwhpkf" target="_blank" rel="noopener">九部知识库-精选集</a></p>
+</blockquote>
 </section>
     <!-- Tags START -->
     
@@ -298,7 +324,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#生命周期"><span class="toc-nav-text">生命周期</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#装载期间"><span class="toc-nav-text">装载期间</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#constructor-props"><span class="toc-nav-text">constructor(props)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#getderivedstatefromprops"><span class="toc-nav-text">getDerivedStateFromProps()</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#render"><span class="toc-nav-text">render()</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#componentdidmount"><span class="toc-nav-text">componentDidMount()</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#更新期间"><span class="toc-nav-text">更新期间</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#shouldcomponentupdate-nextprops-nextstate"><span class="toc-nav-text">shouldComponentUpdate(nextProps, nextState)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#getsnapshotbeforeupdate"><span class="toc-nav-text">getSnapshotBeforeUpdate()</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#componentdidupdate-prevprops-prevstate-snapshot"><span class="toc-nav-text">componentDidUpdate(prevProps, prevState, snapshot)</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#卸载期间"><span class="toc-nav-text">卸载期间</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#componentwillunmount"><span class="toc-nav-text">componentWillUnmount()</span></a></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#生命周期"><span class="toc-nav-text">生命周期</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#装载期间"><span class="toc-nav-text">装载期间</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#constructor-props"><span class="toc-nav-text">constructor(props)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#getderivedstatefromprops"><span class="toc-nav-text">getDerivedStateFromProps()</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#render"><span class="toc-nav-text">render()</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#componentdidmount"><span class="toc-nav-text">componentDidMount()</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#更新期间"><span class="toc-nav-text">更新期间</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#shouldcomponentupdate-nextprops-nextstate"><span class="toc-nav-text">shouldComponentUpdate(nextProps, nextState)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#getsnapshotbeforeupdate"><span class="toc-nav-text">getSnapshotBeforeUpdate()</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#componentdidupdate-prevprops-prevstate-snapshot"><span class="toc-nav-text">componentDidUpdate(prevProps, prevState, snapshot)</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#卸载期间"><span class="toc-nav-text">卸载期间</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#componentwillunmount"><span class="toc-nav-text">componentWillUnmount()</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#错误捕获"><span class="toc-nav-text">错误捕获</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#componentdidcatch-error-info"><span class="toc-nav-text">componentDidCatch(error, info)</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#react16中的生命周期函数变化"><span class="toc-nav-text">React16中的生命周期函数变化</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#总结"><span class="toc-nav-text">总结</span></a></li></ol>
     
   </div>
 </aside>
