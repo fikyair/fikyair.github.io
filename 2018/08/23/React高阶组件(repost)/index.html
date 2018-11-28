@@ -207,7 +207,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">//hijack-hoc</span><br><span class="line">import React from &apos;react&apos;;</span><br><span class="line"></span><br><span class="line">const hijackRenderHoc = config =&gt; WrappedComponent =&gt; class extends WrappedComponent &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    const &#123; style = &#123;&#125; &#125; = config;</span><br><span class="line">    const elementsTree = super.render();</span><br><span class="line">    console.log(elementsTree, &apos;elementsTree&apos;);</span><br><span class="line">    if (config.type === &apos;add-style&apos;) &#123;</span><br><span class="line">      return &lt;div style=&#123;&#123;...style&#125;&#125;&gt;</span><br><span class="line">        &#123;elementsTree&#125;</span><br><span class="line">      &lt;/div&gt;;</span><br><span class="line">    &#125;</span><br><span class="line">    return elementsTree;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">export default hijackRenderHoc;</span><br><span class="line">//usual</span><br><span class="line">@hijackRenderHoc(&#123;type: &apos;add-style&apos;, style: &#123; color: &apos;red&apos;&#125;&#125;)</span><br><span class="line">class Usual extends Component &#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>我这里通过二阶函数，把config参数预制进HOC， 算是一种柯理化的思想。<br>
 栗子很简单，这个hoc就是添加样式的功能。但是它暴露出来的信息却不少。首先我们可以通过config参数进行逻辑判断，有条件的渲染，当然这个参数的作用很多，react-redux中的connect不就是传入了props-key 嘛。再就是我们还可以拿到WrappedComponent的元素树，可以进行修改操作。最后就是我们通过div包裹，设置了style。但其实具体如何操作还是根据业务逻辑去处理的…<br>
-<img src="http://oziqlv1ur.bkt.clouddn.com/%E5%85%83%E7%B4%A0%E6%A0%91.png" alt="元素树"></p>
+<img src="http://qiniu.xueshiming.cn/%E5%85%83%E7%B4%A0%E6%A0%91.png" alt="元素树"></p>
 <h3 id="我的应用场景">我的应用场景</h3>
 <ul>
 <li>
@@ -234,7 +234,7 @@
 </li>
 <li>
 <p>要给hoc添加class名，便于debugger。我上面的好多栗子组件都没写class 名，请不要学我，因为我实在想不出叫什么名了… 当我们在chrome里应用React-Developer-Tools的时候，组件结构可以一目了然，所以DisplayName最好还是加上。<br>
-<img src="http://oziqlv1ur.bkt.clouddn.com/WrappedUsual.png" alt="WrappedUsual"></p>
+<img src="http://qiniu.xueshiming.cn/WrappedUsual.png" alt="WrappedUsual"></p>
 </li>
 <li>
 <p>静态方法要复制<br>
