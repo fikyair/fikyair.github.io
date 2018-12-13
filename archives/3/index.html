@@ -213,21 +213,20 @@
 
 <div class="post-preview">
 
-    <a href="/2017/10/15/Mysql decimal类型与decimal长度用法详解/">
+    <a href="/2017/10/15/String相关/">
         <h2 class="post-title">
-            Mysql decimal类型与decimal长度用法详解
+            String s1 = new String("abc")和String s2 = "abc"的区别
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            float,double,decimal三者的区别介绍
-
-float:浮点型，含字节数为4，32bit，数值范围为-3.4E38~3.4E38（7个有效位）
-double:双精度实型，含字节数为8，64bit数值范围-1.7E308~1.7E308（15个有效位）
-decimal:数字型，128bit，不存在精度损失，常用于银行帐目计算。（28个有效位）
-按存储的范围进行排序
-float（r......
+            今天在看JVM的时候突然想到这样一个问题，即
+1234String s1 = new String("abc");String s2 = "abc";System.out.println(s1 == s2);//答案是false
+问题有两个：
+String s2 = “abc”时发生了什么？
+String s1 = new String(“abc”）时又做了什么？
+第二个问题是比较好回答的，......
         </div>
     </a>
     
@@ -238,6 +237,41 @@ float（r......
         <div class="tags">
             
               <a href="/tags/#Mysql" title="Mysql">Mysql</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/09/02/你不知道的JS(一)/">
+        <h2 class="post-title">
+            你不知道的JS(一)
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            javaScript数组的遍历，在项目中遇到的是这个问题：
+直接上图：
+主要针对数组的遍历有一下方法：
+传统方法：
+1234var arr=[1,2,3,4,5,6];for(var i=0;i&lt;arr.length;i++)&#123;    console.log(arr[i]);&#125;
+
+for in方法
+1234var arr=[1,2,3,4,5,6];for(var ......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Allen on
+            2017-09-02
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
             
         </div>
     
@@ -311,41 +345,6 @@ Box-sizing:
         <div class="tags">
             
               <a href="/tags/#CSS" title="CSS">CSS</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/09/02/你不知道的JS(一)/">
-        <h2 class="post-title">
-            你不知道的JS(一)
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            javaScript数组的遍历，在项目中遇到的是这个问题：
-直接上图：
-主要针对数组的遍历有一下方法：
-传统方法：
-1234var arr=[1,2,3,4,5,6];for(var i=0;i&lt;arr.length;i++)&#123;    console.log(arr[i]);&#125;
-
-for in方法
-1234var arr=[1,2,3,4,5,6];for(var ......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Allen on
-            2017-09-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
             
         </div>
     
@@ -669,7 +668,7 @@ for in方法
         
 
         
-            <p>Hi, i&#39;m John Doe</p>
+            <p>Hi, i&#39;m Allen</p>
         
 
         <!-- SNS Link -->
@@ -681,19 +680,10 @@ for in方法
             
 
             
-                <li>
-                    <a target="_blank" href="https://www.facebook.com/YenYuHsuan">
-                        <span class="fa-stack fa-lg">
-                            <i class="fa fa-circle fa-stack-2x"></i>
-                            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                        </span>
-                    </a>
-                </li>
-            
 
             
                 <li>
-                    <a target="_blank" href="https://github.com/YenYuHsuan">
+                    <a target="_blank" href="https://github.com/fikyair">
                         <span class="fa-stack fa-lg">
                             <i class="fa fa-circle fa-stack-2x"></i>
                             <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -705,7 +695,7 @@ for in方法
             
             
                 <li>
-                    <a target="_blank" href="https://www.linkedin.com/in/yu-hsuan-yen">
+                    <a target="_blank" href="https://www.linkedin.com/in/时鸣-薛-12845913a">
                         <span class="fa-stack fa-lg">
                             <i class="fa fa-circle fa-stack-2x"></i>
                             <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
@@ -787,19 +777,10 @@ for in方法
                 
 
                 
-                    <li>
-                        <a target="_blank" href="https://www.facebook.com/YenYuHsuan">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                
 
                 
                     <li>
-                        <a target="_blank" href="https://github.com/YenYuHsuan">
+                        <a target="_blank" href="https://github.com/fikyair">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -810,7 +791,7 @@ for in方法
 
                 
                     <li>
-                        <a target="_blank" href="https://www.linkedin.com/in/yu-hsuan-yen">
+                        <a target="_blank" href="https://www.linkedin.com/in/时鸣-薛-12845913a">
                             <span class="fa-stack fa-lg">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
