@@ -147,8 +147,7 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h3 id="前言">前言</h3>
-<blockquote>
+    <section class="markdown-content"><blockquote>
 <p>对于海外的业务需求，我们期望能让客户有一个良好的用户体验，因此前端需要适配国际化。</p>
 </blockquote>
 <a id="more"></a>
@@ -223,32 +222,34 @@
 <p>为了达成这一愿景，我们需要有一个工具：它能够扫描指定的文件，并能识别出文件中的字符串，然后能根据字符串的含义生成变量名，并用变量表达式替换掉原来的字符串，最后能够将提取出来的变量自动追加到资源文件中。</p>
 <p>如何实现这样的工具？我们可以用 Babel 将js文件解析为一颗语法树，然后遍历并找出字符串节点，接下来调用 Google Cloud Translation API 将字符串翻译为英文，并以此作为变量名得到变量表达式，最后用变量表达式替换掉原来的文本即可。如下图所示：</p>
 <p><img src="https://user-gold-cdn.xitu.io/2019/2/18/168fe753e25bfa3f?imageslim" alt=""></p>
-<p>幸运的是，i18n-pick 已经有那么点味道了~</p>
+<p>幸运的是，<a href="https://github.com/ProtoTeam/i18n-pick" target="_blank" rel="noopener">i18n-pick</a> 已经有那么点味道了~</p>
 <p><img src="https://user-gold-cdn.xitu.io/2019/2/18/168fe753e72a3dce?imageslim" alt=""></p>
 <ul>
-<li>分析 这是站在开发层面，对前端开发体验和开发效率提出的改进办法，将重复的事情交给程序去完成。</li>
+<li>分析 这是站在开发层面，对前端开发体验和开发效率提出的改进办法，<strong>将重复的事情交给程序去完成。</strong></li>
 </ul>
 <h4 id="黄金时期">黄金时期</h4>
 <p>有了石器时期的生产方式作为铺垫，我们可以在此基础上继续做改进。既然“前端开发”和“翻译团队”之间依赖的太重，那我们可以在中间加一个节点“文案配置平台”。前端将提取的文案直接上传到“文案配置平台”，翻译团队直接在“文案配置平台”上进行文案翻译，前端直接从“文案配置平台”获取翻译后的最新文案。</p>
 <p><img src="https://user-gold-cdn.xitu.io/2019/2/18/168fe753e80a22b0?imageslim" alt=""></p>
 <ul>
-<li>文案配置平台应当具备的基本能力</li>
-</ul>
+<li>
+<p>文案配置平台应当具备的基本能力</p>
 <ol>
 <li>面向前端开发人员：文案录入、输出</li>
 <li>面向翻译团队：文案翻译、发布</li>
 <li>其他：文案版本控制</li>
 </ol>
-<ul>
-<li>适用场景</li>
-</ul>
+</li>
+<li>
+<p>适用场景</p>
 <ol>
 <li>有大量的国际化业务需求</li>
 <li>希望将其沉淀为通用能力平台，提升业务开发效率</li>
 </ol>
-<ul>
-<li>分析<br>
-这是从架构层面对国际化开发方式进行优化和提效，一般大的互联网公司因为其自身业务的复杂度，都早已沉淀出很多的通用能力平台。</li>
+</li>
+<li>
+<p>分析<br>
+这是从架构层面对国际化开发方式进行优化和提效，一般大的互联网公司因为其自身业务的复杂度，都早已沉淀出很多的通用能力平台。</p>
+</li>
 </ul>
 <h3 id="总结">总结</h3>
 <p>以上每种思路都有各自适用的场景，实际生产中需要从开发成本、开发体验、后期维护、能力沉淀等多维度进行考虑。这篇文章旨在抛砖引玉打开思路，各位看官可以将自己的思路抛出来一起讨论。</p>
@@ -330,7 +331,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#前言"><span class="toc-nav-text">前言</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#面临的挑战"><span class="toc-nav-text">面临的挑战</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#国际化文案的处理思路"><span class="toc-nav-text">国际化文案的处理思路</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#石器时期"><span class="toc-nav-text">石器时期</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#青铜时期"><span class="toc-nav-text">青铜时期</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#黄金时期"><span class="toc-nav-text">黄金时期</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#总结"><span class="toc-nav-text">总结</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#参考"><span class="toc-nav-text">参考</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#面临的挑战"><span class="toc-nav-text">面临的挑战</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#国际化文案的处理思路"><span class="toc-nav-text">国际化文案的处理思路</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#石器时期"><span class="toc-nav-text">石器时期</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#青铜时期"><span class="toc-nav-text">青铜时期</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#黄金时期"><span class="toc-nav-text">黄金时期</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#总结"><span class="toc-nav-text">总结</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#参考"><span class="toc-nav-text">参考</span></a></li></ol>
     
   </div>
 </aside>
