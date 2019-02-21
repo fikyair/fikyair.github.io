@@ -176,8 +176,8 @@
 <p>② 时间复杂度：平均情况:O(n²) 最好情况：O(n) 最坏情况:O(n²)</p>
 <p>③ 空间复杂度：S(n) = O(1)</p>
 <p>④   稳定性：稳定排序。<br>
-举例：100个数时无序的，先取一个数（习惯取第一个数）拿出来作为有序序列，再将剩下的99个数里取出一个数，插入到有序序列，有序序列在增大，无序序列在减小，排序完成<br>
-⑤   程序：</p>
+举例：100个数时无序的，先取一个数（习惯取第一个数）拿出来作为有序序列，再将剩下的99个数里取出一个数，插入到有序序列，有序序列在增大，无序序列在减小，排序完成</p>
+<p>⑤   程序：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">for (i = 1; i &lt; a.length; i++) &#123;</span><br><span class="line">	if (a[i] &lt; a[i - 1]) &#123;               // 这个加不加都可以</span><br><span class="line">		temp = a[i];                       // 把数组0位置的元素看作有序序列，从数组一位置开始，先把temp=a[1],保留a[1]，</span><br><span class="line">		for (j = i - 1; j &gt;= 0 &amp;&amp; temp &lt; a[j]; j--) &#123;</span><br><span class="line">                                         // 判断a[i-1]与temp的大小 如果temp&lt;a[i-1]，把a[i-1]（大于temp的数后移一位）</span><br><span class="line">			a[j + 1] = a[j];</span><br><span class="line">			a[j] = temp;                     // 直到j减为0 把 temp的值赋值给a[0]; 这里相当于每次都将temp与左边比它大的数交换</span><br><span class="line">		&#125;</span><br><span class="line">		                                   // 这里也可以这样a[j+1]=temp; 与 a[j] = temp; 执行结果类似，它是把temp这个位置的值空开了</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>2、 折半插入排序</p>
 <p>①   思想：因为是已经确定了前部分是有序序列，所以在查找插入位置的时候可以用折半查找的方法进行查找，提高效率。</p>
