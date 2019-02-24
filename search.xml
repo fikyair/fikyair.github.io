@@ -6,7 +6,7 @@
       <title>再议JS的异步编程</title>
       <link href="/2019/02/24/%E5%86%8D%E8%AE%AEjs%E7%9A%84%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"/>
       <url>/2019/02/24/%E5%86%8D%E8%AE%AEjs%E7%9A%84%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/</url>
-      <content type="html"><![CDATA[<h3 id="前言">前言</h3>]]></content>
+      <content type="html"><![CDATA[<h3 id="前言">前言</h3><blockquote><p>JS异步编程的实现，以及原理。</p></blockquote>]]></content>
       
       <categories>
           
