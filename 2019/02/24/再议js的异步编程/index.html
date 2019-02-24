@@ -10,7 +10,7 @@
   
   <title>
     
-      袋鼠过河 | Ignite
+      再议JS的异步编程 | Ignite
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -138,8 +138,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>袋鼠过河</h2>
-  <p class="post-date">2017-08-23</p>
+  <h2>再议JS的异步编程</h2>
+  <p class="post-date">2019-02-24</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -147,37 +147,15 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><p>最近忙着复习，博客就更新频率少低了，现在就先把觉得重要的算法题记录一下，在牛客网上做到的最简单的动态规划问题，当然这道题的变形在leetCode上也有（jumpGame）。</p>
-<a id="more"></a>
-<h5 id="题目描述">题目描述</h5>
-<blockquote>
-<p>一只袋鼠要从河这边跳到河对岸，河很宽，但是河中间打了很多桩子，每隔一米就有一个，每个桩子上都有一个弹簧，袋鼠跳到弹簧上就可以跳的更远。每个弹簧力量不同，用一个数字代表它的力量，如果弹簧力量为5，就代表袋鼠下一跳最多能够跳5米，如果为0，就会陷进去无法继续跳跃。河流一共N米宽，袋鼠初始位置就在第一个弹簧上面，要跳到最后一个弹簧之后就算过河了，给定每个弹簧的力量，求袋鼠最少需要多少跳能够到达对岸。如果无法到达输出-1</p>
-</blockquote>
-<h5 id="输入描述">输入描述:</h5>
-<blockquote>
-<p>输入分两行，第一行是数组长度N (1 ≤ N ≤ 10000)，第二行是每一项的值，用空格分隔。</p>
-</blockquote>
-<h5 id="输出描述">输出描述:</h5>
-<blockquote>
-<p>输出最少的跳数，无法到达输出-1</p>
-</blockquote>
-<h5 id="示例1">示例1</h5>
-<blockquote>
-<p>输入<br>
-5<br>
-2 0 1 1 1<br>
-输出<br>
-4</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public class Jump &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Scanner sc = new Scanner(System.in);</span><br><span class="line">		int N = sc.nextInt();</span><br><span class="line">		int[] nums = new int[N + 1];</span><br><span class="line">		int[] dp = new int[N + 1];</span><br><span class="line">		for (int i = 0; i &lt; N; i++)</span><br><span class="line">			nums[i] = sc.nextInt();</span><br><span class="line"></span><br><span class="line">		for (int i = 0; i &lt;=N; i++)</span><br><span class="line">			dp[i] = 100000;</span><br><span class="line">		nums[N] = 1;</span><br><span class="line">		dp[0] = 0;</span><br><span class="line">		for (int i = 1; i &lt;= N; i++) &#123;</span><br><span class="line">			if (nums[i] == 0)</span><br><span class="line">				continue;</span><br><span class="line">			for (int j = 0; j &lt; i; j++) &#123;</span><br><span class="line">				if (nums[j] &gt;= i - j)</span><br><span class="line">					dp[i] = Math.min(dp[j] + 1, dp[i]);</span><br><span class="line">				System.out.println(&quot;i=&quot; + i + &quot;,&quot; + &quot;j=&quot; + j + &quot;  &quot; + &quot;dp[&quot; + i + &quot;]: &quot; + dp[i]);</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println((dp[N] == 100000) ? -1 : dp[N]);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <section class="markdown-content"><h3 id="前言">前言</h3>
 </section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#动态规划" >
-    <span class="tag-code">动态规划</span>
+  <a href="/tags#JavaScript" >
+    <span class="tag-code">JavaScript</span>
   </a>
 
       </div>
@@ -188,20 +166,13 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2017/08/23/内部类/">
+      <a class="nav-left" href="/2019/01/20/不简单的前端国际化/">
         <span class="nav-arrow">← </span>
         
-          内部类
+          不简单的前端国际化
         
       </a>
     
-    
-      <a class="nav-right" href="/2017/08/23/Java中单链表的实现/">
-        
-          Java中单链表的实现
-        
-        <span class="nav-arrow"> →</span>
-      </a>
     
   </div>
 
@@ -247,7 +218,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#题目描述"><span class="toc-nav-text">题目描述</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#输入描述"><span class="toc-nav-text">输入描述:</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#输出描述"><span class="toc-nav-text">输出描述:</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#示例1"><span class="toc-nav-text">示例1</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#前言"><span class="toc-nav-text">前言</span></a></li></ol>
     
   </div>
 </aside>
@@ -257,7 +228,7 @@
 
 <script>
   (function () {
-    var url = 'http://xueshiming.cn/2017/08/23/newCoder袋鼠过河/';
+    var url = 'http://xueshiming.cn/2019/02/24/再议js的异步编程/';
     var banner = 'undefined'
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -313,7 +284,7 @@
     var gitmentConfig = "Ignite";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "袋鼠过河",
+        id: "再议JS的异步编程",
         owner: "Ignite",
         repo: "fikyair.github.io",
         oauth: {
@@ -341,7 +312,7 @@
 <script>
   var disqus_shortname = 'null';
   
-  var disqus_url = 'http://xueshiming.cn/2017/08/23/newCoder袋鼠过河/';
+  var disqus_url = 'http://xueshiming.cn/2019/02/24/再议js的异步编程/';
   
   (function(){
     var dsq = document.createElement('script');
