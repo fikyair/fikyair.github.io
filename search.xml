@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title>浅谈多端统一框架</title>
+      <link href="/2019/02/25/%E6%B5%85%E8%B0%88%E5%A4%9A%E7%AB%AF%E7%BB%9F%E4%B8%80%E6%A1%86%E6%9E%B6/"/>
+      <url>/2019/02/25/%E6%B5%85%E8%B0%88%E5%A4%9A%E7%AB%AF%E7%BB%9F%E4%B8%80%E6%A1%86%E6%9E%B6/</url>
+      <content type="html"><![CDATA[]]></content>
+      
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>再议JS的异步编程</title>
       <link href="/2019/02/24/%E5%86%8D%E8%AE%AEjs%E7%9A%84%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"/>
       <url>/2019/02/24/%E5%86%8D%E8%AE%AEjs%E7%9A%84%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/</url>
@@ -339,27 +360,6 @@
     </entry>
     
     <entry>
-      <title>linux安装jdk以及远程访问服务</title>
-      <link href="/2017/11/22/Linux/"/>
-      <url>/2017/11/22/Linux/</url>
-      <content type="html"><![CDATA[<p>在windows下，下载jdk-8u25-linux-64.tar.gz<br>Xshell5p.exe  用来访问远程面板</p><a id="more"></a><ol><li>在windows下面下好 tar.gz</li><li>上传文件 rz</li><li>解压文件 tar -xzvf jdk-8u25-linux-x64.tar.gz</li><li>进入当前用户目录  cd home/fisherman</li><li>vi .bash -profile  编辑文件<br>’JAVA_HOME=&quot;/home/fisherman/jdk1.8.0_25&quot;<br>CLASSPATH=&quot;$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib&quot;<br>PATH=&quot;$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOMR/bin&quot;</li><li>:wq退出</li><li>source .bash_profile 命令生效</li><li>java -version 查询java版本</li></ol><p>linux相关命令：</p><p>eg:</p><ol><li>压缩文件：</li></ol><p>tar zcvf secu.tar.gz tt</p><p>将文件压缩到tt目录</p><ol start="2"><li>每天一个linux命令：</li></ol><p><a href="http://www.cnblogs.com/peida/archive/2012/12/05/2803591.html" target="_blank" rel="noopener">http://www.cnblogs.com/peida/archive/2012/12/05/2803591.html</a></p><ul><li><p>vim 中翻页：向上查找和向下查找字符串的命令是</p><ul><li>j --向下</li><li>k-- 向上</li><li>h–向左</li><li>l–向右</li><li>ctrlb–向上移动一屏</li><li>ctrlf–向下移动一屏</li><li>上下左右箭头也可以</li></ul></li><li><p>启动linuxshell的时候，stdin.stdout,stderr,三个文件描述符会自动打开，他们的值分别是：标准输入，标准输出、标准错误</p></li><li><p>为脚本程序添加执行权限的命令及参数：chmod a+x filename</p></li><li><p>用八进制表示权限：</p><ul><li><p>r–4 w–2  x–1</p><p>eg::<br>r–r--r--   444</p></li></ul><p>drw------   600</p></li><li><p>对权限的参考博文：<br><a href="http://blog.csdn.net/sinat_35209943/article/details/52449743" target="_blank" rel="noopener">http://blog.csdn.net/sinat_35209943/article/details/52449743</a><br>一 、 xshell 连到 远程服务器</p></li></ul><p><img src="http://qiniu.xueshiming.cn/clipboard.png" alt="连接远程服务器"></p><ul><li>输入远程服务器的ip：</li></ul><p><img src="http://qiniu.xueshiming.cn/clipboard2.png" alt="服务器ip"></p><ul><li>输入用户名和密码，就登录成功了</li></ul><p><img src="http://qiniu.xueshiming.cn/clipboard3.png" alt="填写自己的用户名"></p><p>然后可以  修改用户名密码：<br>useradd fisherman &amp;&amp; echo 123456 | passwd --stdin fisherman</p><p>fisherman–自己的用户名：<br>mark</p>]]></content>
-      
-      <categories>
-          
-          <category> 技巧 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Linux </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>你不知道的React</title>
       <link href="/2017/11/22/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84React/"/>
       <url>/2017/11/22/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84React/</url>
@@ -375,6 +375,27 @@
         <tags>
             
             <tag> React </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>linux安装jdk以及远程访问服务</title>
+      <link href="/2017/11/22/Linux/"/>
+      <url>/2017/11/22/Linux/</url>
+      <content type="html"><![CDATA[<p>在windows下，下载jdk-8u25-linux-64.tar.gz<br>Xshell5p.exe  用来访问远程面板</p><a id="more"></a><ol><li>在windows下面下好 tar.gz</li><li>上传文件 rz</li><li>解压文件 tar -xzvf jdk-8u25-linux-x64.tar.gz</li><li>进入当前用户目录  cd home/fisherman</li><li>vi .bash -profile  编辑文件<br>’JAVA_HOME=&quot;/home/fisherman/jdk1.8.0_25&quot;<br>CLASSPATH=&quot;$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib&quot;<br>PATH=&quot;$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOMR/bin&quot;</li><li>:wq退出</li><li>source .bash_profile 命令生效</li><li>java -version 查询java版本</li></ol><p>linux相关命令：</p><p>eg:</p><ol><li>压缩文件：</li></ol><p>tar zcvf secu.tar.gz tt</p><p>将文件压缩到tt目录</p><ol start="2"><li>每天一个linux命令：</li></ol><p><a href="http://www.cnblogs.com/peida/archive/2012/12/05/2803591.html" target="_blank" rel="noopener">http://www.cnblogs.com/peida/archive/2012/12/05/2803591.html</a></p><ul><li><p>vim 中翻页：向上查找和向下查找字符串的命令是</p><ul><li>j --向下</li><li>k-- 向上</li><li>h–向左</li><li>l–向右</li><li>ctrlb–向上移动一屏</li><li>ctrlf–向下移动一屏</li><li>上下左右箭头也可以</li></ul></li><li><p>启动linuxshell的时候，stdin.stdout,stderr,三个文件描述符会自动打开，他们的值分别是：标准输入，标准输出、标准错误</p></li><li><p>为脚本程序添加执行权限的命令及参数：chmod a+x filename</p></li><li><p>用八进制表示权限：</p><ul><li><p>r–4 w–2  x–1</p><p>eg::<br>r–r--r--   444</p></li></ul><p>drw------   600</p></li><li><p>对权限的参考博文：<br><a href="http://blog.csdn.net/sinat_35209943/article/details/52449743" target="_blank" rel="noopener">http://blog.csdn.net/sinat_35209943/article/details/52449743</a><br>一 、 xshell 连到 远程服务器</p></li></ul><p><img src="http://qiniu.xueshiming.cn/clipboard.png" alt="连接远程服务器"></p><ul><li>输入远程服务器的ip：</li></ul><p><img src="http://qiniu.xueshiming.cn/clipboard2.png" alt="服务器ip"></p><ul><li>输入用户名和密码，就登录成功了</li></ul><p><img src="http://qiniu.xueshiming.cn/clipboard3.png" alt="填写自己的用户名"></p><p>然后可以  修改用户名密码：<br>useradd fisherman &amp;&amp; echo 123456 | passwd --stdin fisherman</p><p>fisherman–自己的用户名：<br>mark</p>]]></content>
+      
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -465,10 +486,10 @@
     </entry>
     
     <entry>
-      <title>String s1 = new String(&quot;abc&quot;)和String s2 = &quot;abc&quot;的区别</title>
-      <link href="/2017/10/15/String%E7%9B%B8%E5%85%B3/"/>
-      <url>/2017/10/15/String%E7%9B%B8%E5%85%B3/</url>
-      <content type="html"><![CDATA[<h5 id="今天在看jvm的时候突然想到这样一个问题-即">今天在看JVM的时候突然想到这样一个问题，即</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String s1 = new String(&quot;abc&quot;);</span><br><span class="line">String s2 = &quot;abc&quot;;</span><br><span class="line"></span><br><span class="line">System.out.println(s1 == s2);//答案是false</span><br></pre></td></tr></table></figure><p>问题有两个：</p><p>String s2 = “abc”时发生了什么？<br>String s1 = new String(“abc”）时又做了什么？<br>第二个问题是比较好回答的，根据官方文档的解释：</p><a id="more"></a><p>当我们在jdk1.6中讨论时，常量池放在方法区中。（jdk1.7中常量池放在堆内存中，jdk1.8放在元空间里面，和堆相对独立，所以导致string的intern方法因为以上变化在不同版本会有不同表现。）</p><blockquote><p>new String(“abc”);<br>Initializes a newly created String object so that it represents the same sequence of characters as the argument; in other words, the newly created string is a copy of the argument string. Unless an explicit copy of original is needed, use of this constructor is unnecessary since Strings are immutable.</p></blockquote><p>简单解释一下：</p><blockquote><p>初始化一个新创建的String对象，换句话说，新创建的字符串是参数字符串的一个副本。除非确实需要一份副本，否则这种方法是不必要的，因为String是不可变的</p></blockquote><p>这句话实际上透露出两个意思，</p><p>在编译器编译的时候，当编译器注意到参数为字符串常量时，即将字符串作为常量放在class文件中的常量区，并在类加载时放入运行时常量池中。<br>在new操作符被调用时，在java堆中创建一个新的对象，然后对象的内容为常量池里面对应字符串的一个拷贝。<br>而在String s2 = “abc”被编译的时候，先检查class文件中是否包含该字符串常量，如果包含，直接返回常量池中的对象。</p><p>因此，在调用new操作时，对象始终存在于堆中，而直接字符串赋值时对象实际上是存在于常量池中的，<br>所以比较结果肯定是false</p><p>String s = new String(“hello”);</p><h5 id="generally-speaking">Generally speaking,</h5><ul><li>jdk1.6中: 首先&quot;hello&quot;字符串对象保存在 方法区的字符串常量池中， 在虚拟机栈中开辟空间 用来存放String 类型的变量s，在堆中开辟空间<br>存放 s 引用的对象，然后将常量池中的“hello” 拷贝一个副本给堆中的String。</li><li>jdk1.7中:首先&quot;hello&quot;字符串对象保存在堆内存的字符串常量池中<ul><li>1】在栈中开辟空间存放 s</li><li>2】在堆中开辟空间存放新建的String 对象&quot;hello&quot;</li><li>3】引用s指向堆中新建的String对象“hello”。</li></ul></li></ul><p>参考文章1、（<a href="http://blog.csdn.net/weixin_35663229/article/details/52796157?locationNum=15%EF%BC%89" target="_blank" rel="noopener">http://blog.csdn.net/weixin_35663229/article/details/52796157?locationNum=15）</a><br>参考文章2、（<a href="http://blog.csdn.net/u010644448/article/details/51980370%EF%BC%89" target="_blank" rel="noopener">http://blog.csdn.net/u010644448/article/details/51980370）</a></p>]]></content>
+      <title>Mysql decimal类型与decimal长度用法详解</title>
+      <link href="/2017/10/15/Mysql%20decimal%E7%B1%BB%E5%9E%8B%E4%B8%8Edecimal%E9%95%BF%E5%BA%A6%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/"/>
+      <url>/2017/10/15/Mysql%20decimal%E7%B1%BB%E5%9E%8B%E4%B8%8Edecimal%E9%95%BF%E5%BA%A6%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<h5 id="float-double-decimal三者的区别介绍">float,double,decimal三者的区别介绍</h5><a id="more"></a><p>float:浮点型，含字节数为4，32bit，数值范围为-3.4E38~3.4E38（7个有效位）<br>double:双精度实型，含字节数为8，64bit数值范围-1.7E308~1.7E308（15个有效位）<br>decimal:数字型，128bit，不存在精度损失，常用于银行帐目计算。（28个有效位）</p><h5 id="按存储的范围进行排序">按存储的范围进行排序</h5><p>float（real）<br>double<br>decimal（numeric）</p><h5 id="decimal的详细介绍">decimal的详细介绍</h5><p>decimal(a,b)</p><h5 id="参数说明">参数说明</h5><p>a指定指定小数点左边和右边可以存储的十进制数字的最大个数，最大精度38。<br>b指定小数点右边可以存储的十进制数字的最大个数。小数位数必须是从 0 到 a之间的值。默认小数位数是 0。</p><h5 id="备注">备注</h5><p>DECIMAL数据类型用于要求非常高的精确度的计算中，这些类型允许指定数值的精确度和计数方法作为选择参数。精确度在这里是指为这个值保存的有效数字的总个数，而计数方法表示小数点后数字的个数。例如，语句DECIMAL (5,2)规定了存储的值将不会超过5位数字，开且小数点后面有2位数字。</p><h5 id="实例">实例</h5><blockquote><p>float f = 345.98756f;–结果显示为345.9876，只显示7个有效位，对最后一位数四舍五入。<br>double d=345.975423578631442d;–结果显示为345.975423578631，只显示15个有效位，对最后一位四舍五入。<br>–注：float和double的相乘操作，数字溢出不会报错，会有精度的损失。<br>decimal dd=345.545454879…–可以支持28位，对最后一位四舍五入。<br>–：当对decimal类型进行操作时，数值会因溢出而报错。</p></blockquote><h5 id="总结">总结</h5><p>数值存储范围越小的精度越高，存储数值范围越大，精度就越不准确，如果存储正常金额的情况下，使用money，好处在于可以存储不指定的小数点位数的数值，比较真实。如果对于既要求精度，又固定小数点位数的数值存储，采用decimal（numeric），优点在于可以自定义小数点位数，精度高。如特殊情况，如数值范围巨大只能用float（real）类型了，此类型一般不提倡使用</p><p>链接(<a href="http://blog.csdn.net/zhanghao143lina/article/details/53816884" target="_blank" rel="noopener">http://blog.csdn.net/zhanghao143lina/article/details/53816884</a>)<br>mysql数据类型(<a href="http://www.cnblogs.com/zbseoag/archive/2013/03/19/2970004.html" target="_blank" rel="noopener">http://www.cnblogs.com/zbseoag/archive/2013/03/19/2970004.html</a>)</p>]]></content>
       
       <categories>
           
@@ -486,10 +507,10 @@
     </entry>
     
     <entry>
-      <title>Mysql decimal类型与decimal长度用法详解</title>
-      <link href="/2017/10/15/Mysql%20decimal%E7%B1%BB%E5%9E%8B%E4%B8%8Edecimal%E9%95%BF%E5%BA%A6%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/"/>
-      <url>/2017/10/15/Mysql%20decimal%E7%B1%BB%E5%9E%8B%E4%B8%8Edecimal%E9%95%BF%E5%BA%A6%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<h5 id="float-double-decimal三者的区别介绍">float,double,decimal三者的区别介绍</h5><a id="more"></a><p>float:浮点型，含字节数为4，32bit，数值范围为-3.4E38~3.4E38（7个有效位）<br>double:双精度实型，含字节数为8，64bit数值范围-1.7E308~1.7E308（15个有效位）<br>decimal:数字型，128bit，不存在精度损失，常用于银行帐目计算。（28个有效位）</p><h5 id="按存储的范围进行排序">按存储的范围进行排序</h5><p>float（real）<br>double<br>decimal（numeric）</p><h5 id="decimal的详细介绍">decimal的详细介绍</h5><p>decimal(a,b)</p><h5 id="参数说明">参数说明</h5><p>a指定指定小数点左边和右边可以存储的十进制数字的最大个数，最大精度38。<br>b指定小数点右边可以存储的十进制数字的最大个数。小数位数必须是从 0 到 a之间的值。默认小数位数是 0。</p><h5 id="备注">备注</h5><p>DECIMAL数据类型用于要求非常高的精确度的计算中，这些类型允许指定数值的精确度和计数方法作为选择参数。精确度在这里是指为这个值保存的有效数字的总个数，而计数方法表示小数点后数字的个数。例如，语句DECIMAL (5,2)规定了存储的值将不会超过5位数字，开且小数点后面有2位数字。</p><h5 id="实例">实例</h5><blockquote><p>float f = 345.98756f;–结果显示为345.9876，只显示7个有效位，对最后一位数四舍五入。<br>double d=345.975423578631442d;–结果显示为345.975423578631，只显示15个有效位，对最后一位四舍五入。<br>–注：float和double的相乘操作，数字溢出不会报错，会有精度的损失。<br>decimal dd=345.545454879…–可以支持28位，对最后一位四舍五入。<br>–：当对decimal类型进行操作时，数值会因溢出而报错。</p></blockquote><h5 id="总结">总结</h5><p>数值存储范围越小的精度越高，存储数值范围越大，精度就越不准确，如果存储正常金额的情况下，使用money，好处在于可以存储不指定的小数点位数的数值，比较真实。如果对于既要求精度，又固定小数点位数的数值存储，采用decimal（numeric），优点在于可以自定义小数点位数，精度高。如特殊情况，如数值范围巨大只能用float（real）类型了，此类型一般不提倡使用</p><p>链接(<a href="http://blog.csdn.net/zhanghao143lina/article/details/53816884" target="_blank" rel="noopener">http://blog.csdn.net/zhanghao143lina/article/details/53816884</a>)<br>mysql数据类型(<a href="http://www.cnblogs.com/zbseoag/archive/2013/03/19/2970004.html" target="_blank" rel="noopener">http://www.cnblogs.com/zbseoag/archive/2013/03/19/2970004.html</a>)</p>]]></content>
+      <title>String s1 = new String(&quot;abc&quot;)和String s2 = &quot;abc&quot;的区别</title>
+      <link href="/2017/10/15/String%E7%9B%B8%E5%85%B3/"/>
+      <url>/2017/10/15/String%E7%9B%B8%E5%85%B3/</url>
+      <content type="html"><![CDATA[<h5 id="今天在看jvm的时候突然想到这样一个问题-即">今天在看JVM的时候突然想到这样一个问题，即</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String s1 = new String(&quot;abc&quot;);</span><br><span class="line">String s2 = &quot;abc&quot;;</span><br><span class="line"></span><br><span class="line">System.out.println(s1 == s2);//答案是false</span><br></pre></td></tr></table></figure><p>问题有两个：</p><p>String s2 = “abc”时发生了什么？<br>String s1 = new String(“abc”）时又做了什么？<br>第二个问题是比较好回答的，根据官方文档的解释：</p><a id="more"></a><p>当我们在jdk1.6中讨论时，常量池放在方法区中。（jdk1.7中常量池放在堆内存中，jdk1.8放在元空间里面，和堆相对独立，所以导致string的intern方法因为以上变化在不同版本会有不同表现。）</p><blockquote><p>new String(“abc”);<br>Initializes a newly created String object so that it represents the same sequence of characters as the argument; in other words, the newly created string is a copy of the argument string. Unless an explicit copy of original is needed, use of this constructor is unnecessary since Strings are immutable.</p></blockquote><p>简单解释一下：</p><blockquote><p>初始化一个新创建的String对象，换句话说，新创建的字符串是参数字符串的一个副本。除非确实需要一份副本，否则这种方法是不必要的，因为String是不可变的</p></blockquote><p>这句话实际上透露出两个意思，</p><p>在编译器编译的时候，当编译器注意到参数为字符串常量时，即将字符串作为常量放在class文件中的常量区，并在类加载时放入运行时常量池中。<br>在new操作符被调用时，在java堆中创建一个新的对象，然后对象的内容为常量池里面对应字符串的一个拷贝。<br>而在String s2 = “abc”被编译的时候，先检查class文件中是否包含该字符串常量，如果包含，直接返回常量池中的对象。</p><p>因此，在调用new操作时，对象始终存在于堆中，而直接字符串赋值时对象实际上是存在于常量池中的，<br>所以比较结果肯定是false</p><p>String s = new String(“hello”);</p><h5 id="generally-speaking">Generally speaking,</h5><ul><li>jdk1.6中: 首先&quot;hello&quot;字符串对象保存在 方法区的字符串常量池中， 在虚拟机栈中开辟空间 用来存放String 类型的变量s，在堆中开辟空间<br>存放 s 引用的对象，然后将常量池中的“hello” 拷贝一个副本给堆中的String。</li><li>jdk1.7中:首先&quot;hello&quot;字符串对象保存在堆内存的字符串常量池中<ul><li>1】在栈中开辟空间存放 s</li><li>2】在堆中开辟空间存放新建的String 对象&quot;hello&quot;</li><li>3】引用s指向堆中新建的String对象“hello”。</li></ul></li></ul><p>参考文章1、（<a href="http://blog.csdn.net/weixin_35663229/article/details/52796157?locationNum=15%EF%BC%89" target="_blank" rel="noopener">http://blog.csdn.net/weixin_35663229/article/details/52796157?locationNum=15）</a><br>参考文章2、（<a href="http://blog.csdn.net/u010644448/article/details/51980370%EF%BC%89" target="_blank" rel="noopener">http://blog.csdn.net/u010644448/article/details/51980370）</a></p>]]></content>
       
       <categories>
           
@@ -593,6 +614,27 @@
     </entry>
     
     <entry>
+      <title>内部类</title>
+      <link href="/2017/08/23/%E5%86%85%E9%83%A8%E7%B1%BB/"/>
+      <url>/2017/08/23/%E5%86%85%E9%83%A8%E7%B1%BB/</url>
+      <content type="html"><![CDATA[<p>这是我学习Java内部类的笔记<br>1.为什么使用内部类?<br>使用内部类最吸引人的原因是：每个内部类都能独立地继承一个（接口的）实现，所以无论外围类是否已经继承了某个（接口的）实现，<br>对于内部类都没有影响</p><a id="more"></a><p>1.1.使用内部类最大的优点就在于它能够非常好的解决多重继承的问题,使用内部类还能够为我们带来如下特性:<br>(1)、内部类可以用多个实例，每个实例都有自己的状态信息，并且与其他外围对象的信息相互独。<br>(2)、在单个外围类中，可以让多个内部类以不同的方式实现同一个接口，或者继承同一个类。<br>(3)、创建内部类对象的时刻并不依赖于外围类对象的创建。<br>(4)、内部类并没有令人迷惑的“is-a”关系，他就是一个独立的实体。<br>(5)、内部类提供了更好的封装，除了该外围类，其他类都不能访问。<br>2.内部类分类:<br>(一).成员内部类:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class Outer&#123;</span><br><span class="line">       private int age = 99;</span><br><span class="line">       String name = &quot;Coco&quot;;</span><br><span class="line">       public class Inner&#123;</span><br><span class="line">           String name = &quot;Jayden&quot;;</span><br><span class="line">           public void show()&#123;</span><br><span class="line">               System.out.println(Outer.this.name);</span><br><span class="line">               System.out.println(name);</span><br><span class="line">               System.out.println(age);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       public Inner getInnerClass()&#123;</span><br><span class="line">           return new Inner();</span><br><span class="line">       &#125;</span><br><span class="line">       public static void main(String[] args)&#123;</span><br><span class="line">           Outer o = new Outer();</span><br><span class="line">           Inner in = o.new Inner();</span><br><span class="line">           in.show();</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure><p>1.Inner 类定义在 Outer 类的内部，相当于 Outer 类的一个成员变量的位置，Inner 类可以使用任意访问控制符，<br>如 public 、 protected 、 private 等<br>2.Inner 类中定义的 show() 方法可以直接访问 Outer 类中的数据，而不受访问控制符的影响，<br>如直接访问 Outer 类中的私有属性age<br>3.定义了成员内部类后，必须使用外部类对象来创建内部类对象，而不能直接去 new 一个内部类对象，<br>即：内部类 对象名 = 外部类对象.new 内部类( );<br>4.编译上面的程序后，会发现产生了两个 .class 文件: Outer.class,Outer$Inner.class{}<br>5.成员内部类中不能存在任何 static 的变量和方法,可以定义常量:<br>(1).因为非静态内部类是要依赖于外部类的实例,而静态变量和方法是不依赖于对象的,仅与类相关,<br>简而言之:在加载静态域时,根本没有外部类,所在在非静态内部类中不能定义静态域或方法,编译不通过;<br>非静态内部类的作用域是实例级别<br>(2).常量是在编译器就确定的,放到所谓的常量池了<br>★★友情提示:<br>1.外部类是不能直接使用内部类的成员和方法的，可先创建内部类的对象，然后通过内部类的对象来访问其成员变量和方法;<br>2.如果外部类和内部类具有相同的成员变量或方法，内部类默认访问自己的成员变量或方法，如果要访问外部类的成员变量，<br>可以使用 this 关键字,如:Outer.this.name<br>(二).静态内部类: 是 static 修饰的内部类,<br>1.静态内部类不能直接访问外部类的非静态成员，但可以通过 new 外部类().成员 的方式访问<br>2.如果外部类的静态成员与内部类的成员名称相同，可通过“类名.静态成员”访问外部类的静态成员；<br>如果外部类的静态成员与内部类的成员名称不相同，则可通过“成员名”直接调用外部类的静态成员<br>3.创建静态内部类的对象时，不需要外部类的对象，可以直接创建 内部类 对象名 = new 内部类();</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class Outer&#123;</span><br><span class="line">           private int age = 99;</span><br><span class="line">           static String name = &quot;Coco&quot;;</span><br><span class="line">           public static class Inner&#123;</span><br><span class="line">               String name = &quot;Jayden&quot;;</span><br><span class="line">               public void show()&#123;</span><br><span class="line">                   System.out.println(Outer.name);</span><br><span class="line">                   System.out.println(name);                  </span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           public static void main(String[] args)&#123;</span><br><span class="line">               Inner i = new Inner();</span><br><span class="line">               i.show();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure><p>(三).方法内部类:访问仅限于方法内或者该作用域内<br>(1).局部内部类就像是方法里面的一个局部变量一样，是不能有 public、protected、private 以及 static 修饰符的<br>(2).只能访问方法中定义的 final 类型的局部变量,因为:<br>当方法被调用运行完毕之后，局部变量就已消亡了。但内部类对象可能还存在,<br>直到没有被引用时才会消亡。此时就会出现一种情况，就是内部类要访问一个不存在的局部变量;<br>==&gt;使用final修饰符不仅会保持对象的引用不会改变,而且编译器还会持续维护这个对象在回调方法中的生命周期.<br>局部内部类并不是直接调用方法传进来的参数，而是内部类将传进来的参数通过自己的构造器备份到了自己的内部，<br>自己内部的方法调用的实际是自己的属性而不是外部类方法的参数;<br>防止被篡改数据,而导致内部类得到的值不一致<br>   使用的形参为何要为 final???<br>在内部类中的属性和外部方法的参数两者从外表上看是同一个东西，但实际上却不是，所以他们两者是可以任意变化的，<br>也就是说在内部类中我对属性的改变并不会影响到外部的形参，而然这从程序员的角度来看这是不可行的，<br>毕竟站在程序的角度来看这两个根本就是同一个，如果内部类该变了，而外部方法的形参却没有改变这是难以理解<br>和不可接受的，所以为了保持参数的一致性，就规定使用 final 来避免形参的不改变</p>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">        public class Outer&#123;</span><br><span class="line">            public void Show()&#123;</span><br><span class="line">                final int a = 25;</span><br><span class="line">                int b = 13;</span><br><span class="line">                class Inner&#123;</span><br><span class="line">                    int c = 2;</span><br><span class="line">                    public void print()&#123;</span><br><span class="line">                        System.out.println(&quot;访问外部类:&quot; + a);</span><br><span class="line">                        System.out.println(&quot;访问内部类:&quot; + c);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                Inner i = new Inner();</span><br><span class="line">                i.print();</span><br><span class="line">            &#125;</span><br><span class="line">            public static void main(String[] args)&#123;</span><br><span class="line">                Outer o = new Outer();</span><br><span class="line">                o.show();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;  </span><br><span class="line">  ```  </span><br><span class="line">(四).匿名内部类:</span><br><span class="line">(1).匿名内部类是直接使用 new 来生成一个对象的引用;</span><br><span class="line">(2).对于匿名内部类的使用它是存在一个缺陷的，就是它仅能被使用一次，创建匿名内部类时它会立即创建一个该类的实例，</span><br><span class="line">该类的定义会立即消失，所以匿名内部类是不能够被重复使用;</span><br><span class="line">(3).使用匿名内部类时，我们必须是继承一个类或者实现一个接口，但是两者不可兼得，同时也只能继承一个类或者实现一个接口;</span><br><span class="line">(4).匿名内部类中是不能定义构造函数的,匿名内部类中不能存在任何的静态成员变量和静态方法;</span><br><span class="line">(5).匿名内部类中不能存在任何的静态成员变量和静态方法,匿名内部类不能是抽象的,它必须要实现继承的类或者实现的接口的所有抽象方法</span><br><span class="line">(6).匿名内部类初始化:使用构造代码块！利用构造代码块能够达到为匿名内部类创建一个构造器的效果</span><br></pre></td></tr></table></figure><p>public class OuterClass {<br>public InnerClass getInnerClass(final int   num,String str2){<br>return new InnerClass(){<br>int number = num + 3;<br>public int getNumber(){<br>return number;<br>}<br>};        /* 注意：分号不能省 */<br>}<br>public static void main(String[] args) {<br>OuterClass out = new OuterClass();<br>InnerClass inner = out.getInnerClass(2, “chenssy”);<br>System.out.println(inner.getNumber());<br>}<br>}<br>interface InnerClass {<br>int getNumber();<br>}</p><pre><code></code></pre>]]></content>
+      
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Java中单链表的实现</title>
       <link href="/2017/08/23/Java%E4%B8%AD%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
       <url>/2017/08/23/Java%E4%B8%AD%E5%8D%95%E9%93%BE%E8%A1%A8%E7%9A%84%E5%AE%9E%E7%8E%B0/</url>
@@ -629,27 +671,6 @@
         <tags>
             
             <tag> 动态规划 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>内部类</title>
-      <link href="/2017/08/23/%E5%86%85%E9%83%A8%E7%B1%BB/"/>
-      <url>/2017/08/23/%E5%86%85%E9%83%A8%E7%B1%BB/</url>
-      <content type="html"><![CDATA[<p>这是我学习Java内部类的笔记<br>1.为什么使用内部类?<br>使用内部类最吸引人的原因是：每个内部类都能独立地继承一个（接口的）实现，所以无论外围类是否已经继承了某个（接口的）实现，<br>对于内部类都没有影响</p><a id="more"></a><p>1.1.使用内部类最大的优点就在于它能够非常好的解决多重继承的问题,使用内部类还能够为我们带来如下特性:<br>(1)、内部类可以用多个实例，每个实例都有自己的状态信息，并且与其他外围对象的信息相互独。<br>(2)、在单个外围类中，可以让多个内部类以不同的方式实现同一个接口，或者继承同一个类。<br>(3)、创建内部类对象的时刻并不依赖于外围类对象的创建。<br>(4)、内部类并没有令人迷惑的“is-a”关系，他就是一个独立的实体。<br>(5)、内部类提供了更好的封装，除了该外围类，其他类都不能访问。<br>2.内部类分类:<br>(一).成员内部类:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class Outer&#123;</span><br><span class="line">       private int age = 99;</span><br><span class="line">       String name = &quot;Coco&quot;;</span><br><span class="line">       public class Inner&#123;</span><br><span class="line">           String name = &quot;Jayden&quot;;</span><br><span class="line">           public void show()&#123;</span><br><span class="line">               System.out.println(Outer.this.name);</span><br><span class="line">               System.out.println(name);</span><br><span class="line">               System.out.println(age);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       public Inner getInnerClass()&#123;</span><br><span class="line">           return new Inner();</span><br><span class="line">       &#125;</span><br><span class="line">       public static void main(String[] args)&#123;</span><br><span class="line">           Outer o = new Outer();</span><br><span class="line">           Inner in = o.new Inner();</span><br><span class="line">           in.show();</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure><p>1.Inner 类定义在 Outer 类的内部，相当于 Outer 类的一个成员变量的位置，Inner 类可以使用任意访问控制符，<br>如 public 、 protected 、 private 等<br>2.Inner 类中定义的 show() 方法可以直接访问 Outer 类中的数据，而不受访问控制符的影响，<br>如直接访问 Outer 类中的私有属性age<br>3.定义了成员内部类后，必须使用外部类对象来创建内部类对象，而不能直接去 new 一个内部类对象，<br>即：内部类 对象名 = 外部类对象.new 内部类( );<br>4.编译上面的程序后，会发现产生了两个 .class 文件: Outer.class,Outer$Inner.class{}<br>5.成员内部类中不能存在任何 static 的变量和方法,可以定义常量:<br>(1).因为非静态内部类是要依赖于外部类的实例,而静态变量和方法是不依赖于对象的,仅与类相关,<br>简而言之:在加载静态域时,根本没有外部类,所在在非静态内部类中不能定义静态域或方法,编译不通过;<br>非静态内部类的作用域是实例级别<br>(2).常量是在编译器就确定的,放到所谓的常量池了<br>★★友情提示:<br>1.外部类是不能直接使用内部类的成员和方法的，可先创建内部类的对象，然后通过内部类的对象来访问其成员变量和方法;<br>2.如果外部类和内部类具有相同的成员变量或方法，内部类默认访问自己的成员变量或方法，如果要访问外部类的成员变量，<br>可以使用 this 关键字,如:Outer.this.name<br>(二).静态内部类: 是 static 修饰的内部类,<br>1.静态内部类不能直接访问外部类的非静态成员，但可以通过 new 外部类().成员 的方式访问<br>2.如果外部类的静态成员与内部类的成员名称相同，可通过“类名.静态成员”访问外部类的静态成员；<br>如果外部类的静态成员与内部类的成员名称不相同，则可通过“成员名”直接调用外部类的静态成员<br>3.创建静态内部类的对象时，不需要外部类的对象，可以直接创建 内部类 对象名 = new 内部类();</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class Outer&#123;</span><br><span class="line">           private int age = 99;</span><br><span class="line">           static String name = &quot;Coco&quot;;</span><br><span class="line">           public static class Inner&#123;</span><br><span class="line">               String name = &quot;Jayden&quot;;</span><br><span class="line">               public void show()&#123;</span><br><span class="line">                   System.out.println(Outer.name);</span><br><span class="line">                   System.out.println(name);                  </span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           public static void main(String[] args)&#123;</span><br><span class="line">               Inner i = new Inner();</span><br><span class="line">               i.show();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure><p>(三).方法内部类:访问仅限于方法内或者该作用域内<br>(1).局部内部类就像是方法里面的一个局部变量一样，是不能有 public、protected、private 以及 static 修饰符的<br>(2).只能访问方法中定义的 final 类型的局部变量,因为:<br>当方法被调用运行完毕之后，局部变量就已消亡了。但内部类对象可能还存在,<br>直到没有被引用时才会消亡。此时就会出现一种情况，就是内部类要访问一个不存在的局部变量;<br>==&gt;使用final修饰符不仅会保持对象的引用不会改变,而且编译器还会持续维护这个对象在回调方法中的生命周期.<br>局部内部类并不是直接调用方法传进来的参数，而是内部类将传进来的参数通过自己的构造器备份到了自己的内部，<br>自己内部的方法调用的实际是自己的属性而不是外部类方法的参数;<br>防止被篡改数据,而导致内部类得到的值不一致<br>   使用的形参为何要为 final???<br>在内部类中的属性和外部方法的参数两者从外表上看是同一个东西，但实际上却不是，所以他们两者是可以任意变化的，<br>也就是说在内部类中我对属性的改变并不会影响到外部的形参，而然这从程序员的角度来看这是不可行的，<br>毕竟站在程序的角度来看这两个根本就是同一个，如果内部类该变了，而外部方法的形参却没有改变这是难以理解<br>和不可接受的，所以为了保持参数的一致性，就规定使用 final 来避免形参的不改变</p>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">        public class Outer&#123;</span><br><span class="line">            public void Show()&#123;</span><br><span class="line">                final int a = 25;</span><br><span class="line">                int b = 13;</span><br><span class="line">                class Inner&#123;</span><br><span class="line">                    int c = 2;</span><br><span class="line">                    public void print()&#123;</span><br><span class="line">                        System.out.println(&quot;访问外部类:&quot; + a);</span><br><span class="line">                        System.out.println(&quot;访问内部类:&quot; + c);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                Inner i = new Inner();</span><br><span class="line">                i.print();</span><br><span class="line">            &#125;</span><br><span class="line">            public static void main(String[] args)&#123;</span><br><span class="line">                Outer o = new Outer();</span><br><span class="line">                o.show();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;  </span><br><span class="line">  ```  </span><br><span class="line">(四).匿名内部类:</span><br><span class="line">(1).匿名内部类是直接使用 new 来生成一个对象的引用;</span><br><span class="line">(2).对于匿名内部类的使用它是存在一个缺陷的，就是它仅能被使用一次，创建匿名内部类时它会立即创建一个该类的实例，</span><br><span class="line">该类的定义会立即消失，所以匿名内部类是不能够被重复使用;</span><br><span class="line">(3).使用匿名内部类时，我们必须是继承一个类或者实现一个接口，但是两者不可兼得，同时也只能继承一个类或者实现一个接口;</span><br><span class="line">(4).匿名内部类中是不能定义构造函数的,匿名内部类中不能存在任何的静态成员变量和静态方法;</span><br><span class="line">(5).匿名内部类中不能存在任何的静态成员变量和静态方法,匿名内部类不能是抽象的,它必须要实现继承的类或者实现的接口的所有抽象方法</span><br><span class="line">(6).匿名内部类初始化:使用构造代码块！利用构造代码块能够达到为匿名内部类创建一个构造器的效果</span><br></pre></td></tr></table></figure><p>public class OuterClass {<br>public InnerClass getInnerClass(final int   num,String str2){<br>return new InnerClass(){<br>int number = num + 3;<br>public int getNumber(){<br>return number;<br>}<br>};        /* 注意：分号不能省 */<br>}<br>public static void main(String[] args) {<br>OuterClass out = new OuterClass();<br>InnerClass inner = out.getInnerClass(2, “chenssy”);<br>System.out.println(inner.getNumber());<br>}<br>}<br>interface InnerClass {<br>int getNumber();<br>}</p><pre><code></code></pre>]]></content>
-      
-      <categories>
-          
-          <category> 技巧 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Java </tag>
             
         </tags>
       
@@ -851,29 +872,6 @@
     </entry>
     
     <entry>
-      <title>Dao层、Service层、Controller层、View层</title>
-      <link href="/2017/07/03/Dao%E5%B1%82%E3%80%81Service%E5%B1%82%E3%80%81Controller%E5%B1%82%E3%80%81View%E5%B1%82/"/>
-      <url>/2017/07/03/Dao%E5%B1%82%E3%80%81Service%E5%B1%82%E3%80%81Controller%E5%B1%82%E3%80%81View%E5%B1%82/</url>
-      <content type="html"><![CDATA[<ol><li>DAO层：DAO层主要是做数据持久层的工作，负责与数据库进行联络的一些任务都封装在此，DAO层的设计首先是设计DAO的接口，然后在Spring的配置文件中定义此接口的实现类，然后就可在模块中调用此接口来进行数据业务的处理，而不用关心此接口的具体实现类是哪个类，显得结构非常清晰，DAO层的数据源配置，以及有关数据库连接的参数都在Spring的配置文件中进行配置。</li><li>Service层：Service层主要负责业务模块的逻辑应用设计。同样是首先设计接口，再设计其实现的类，接着再Spring的配置文件中配置其实现的关联。这样我们就可以在应用中调用Service接口来进行业务处理。Service层的业务实现，具体要调用到已定义的DAO层的接口，封装Service层的业务逻辑有利于通用的业务逻辑的独立性和重复利用性，程序显得非常简洁。</li></ol><a id="more"></a><ol start="3"><li>Controller层:Controller层负责具体的业务模块流程的控制，在此层里面要调用Serice层的接口来控制业务流程，控制的配置也同样是在Spring的配置文件里面进行，针对具体的业务流程，会有不同的控制器，我们具体的设计过程中可以将流程进行抽象归纳，设计出可以重复利用的子单元流程模块，这样不仅使程序结构变得清晰，也大大减少了代码量。</li><li>View层 此层与控制层结合比较紧密，需要二者结合起来协同工发。View层主要负责前台jsp页面的表示</li><li>DAO层，Service层这两个层次都可以单独开发，互相的耦合度很低，完全可以独立进行，这样的一种模式在开发大项目的过程中尤其有优势，Controller，View层因为耦合度比较高，因而要结合在一起开发，但是也可以看作一个整体独立于前两个层进行开发。这样，在层与层之前我们只需要知道接口的定义，调用接口即可完成所需要的逻辑单元应用，一切显得非常清晰简单。<br></li><li>DAO设计的总体规划需要和设计的表，和实现类之间一一对应。</li><li>DAO层所定义的接口里的方法都大同小异，这是由我们在DAO层对数据库访问的操作来决定的，对数据库的操作，我们基本要用到的就是新增，更新，删除，查询等方法。因而DAO层里面基本上都应该要涵盖这些方法对应的操作。除此之外，可以定义一些自定义的特殊的对数据库访问的方法。</li><li>Service逻辑层设计</li><li>Service层是建立在DAO层之上的，建立了DAO层后才可以建立Service层，而Service层又是在Controller层之下的，因而Service层应该既调用DAO层的接口，又要提供接口给Controller层的类来进行调用，它刚好处于一个中间层的位置。每个模型都有一个Service接口，每个接口分别封装各自的业务处理方法。</li><li>在DAO层定义的一些方法，在Service层并没有使用，那为什么还要在DAO层进行定义呢？这是由我们定义的需求逻辑所决定的。DAO层的操作 经过抽象后基本上都是通用的，因而我们在定义DAO层的时候可以将相关的方法定义完毕，这样的好处是在对Service进行扩展的时候不需要再对DAO层进行修改，提高了程序的可扩展性。<br><br>小链接：ajax相关 (<a href="http://blog.csdn.net/cwj649956781/article/details/22414533" target="_blank" rel="noopener">http://blog.csdn.net/cwj649956781/article/details/22414533</a>)<br><br><br>(<a href="https://zhidao.baidu.com/question/745652997728018212.html" target="_blank" rel="noopener">https://zhidao.baidu.com/question/745652997728018212.html</a>)<br><br><br>(<a href="http://www.cnblogs.com/sdya/p/4624578.html" target="_blank" rel="noopener">http://www.cnblogs.com/sdya/p/4624578.html</a>)</li></ol>]]></content>
-      
-      <categories>
-          
-          <category> 技巧 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Javaweb </tag>
-            
-            <tag> SSM </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>Spring常用注解</title>
       <link href="/2017/07/03/Spring%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/"/>
       <url>/2017/07/03/Spring%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/</url>
@@ -891,6 +889,29 @@
             <tag> Javaweb </tag>
             
             <tag> Spring </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Dao层、Service层、Controller层、View层</title>
+      <link href="/2017/07/03/Dao%E5%B1%82%E3%80%81Service%E5%B1%82%E3%80%81Controller%E5%B1%82%E3%80%81View%E5%B1%82/"/>
+      <url>/2017/07/03/Dao%E5%B1%82%E3%80%81Service%E5%B1%82%E3%80%81Controller%E5%B1%82%E3%80%81View%E5%B1%82/</url>
+      <content type="html"><![CDATA[<ol><li>DAO层：DAO层主要是做数据持久层的工作，负责与数据库进行联络的一些任务都封装在此，DAO层的设计首先是设计DAO的接口，然后在Spring的配置文件中定义此接口的实现类，然后就可在模块中调用此接口来进行数据业务的处理，而不用关心此接口的具体实现类是哪个类，显得结构非常清晰，DAO层的数据源配置，以及有关数据库连接的参数都在Spring的配置文件中进行配置。</li><li>Service层：Service层主要负责业务模块的逻辑应用设计。同样是首先设计接口，再设计其实现的类，接着再Spring的配置文件中配置其实现的关联。这样我们就可以在应用中调用Service接口来进行业务处理。Service层的业务实现，具体要调用到已定义的DAO层的接口，封装Service层的业务逻辑有利于通用的业务逻辑的独立性和重复利用性，程序显得非常简洁。</li></ol><a id="more"></a><ol start="3"><li>Controller层:Controller层负责具体的业务模块流程的控制，在此层里面要调用Serice层的接口来控制业务流程，控制的配置也同样是在Spring的配置文件里面进行，针对具体的业务流程，会有不同的控制器，我们具体的设计过程中可以将流程进行抽象归纳，设计出可以重复利用的子单元流程模块，这样不仅使程序结构变得清晰，也大大减少了代码量。</li><li>View层 此层与控制层结合比较紧密，需要二者结合起来协同工发。View层主要负责前台jsp页面的表示</li><li>DAO层，Service层这两个层次都可以单独开发，互相的耦合度很低，完全可以独立进行，这样的一种模式在开发大项目的过程中尤其有优势，Controller，View层因为耦合度比较高，因而要结合在一起开发，但是也可以看作一个整体独立于前两个层进行开发。这样，在层与层之前我们只需要知道接口的定义，调用接口即可完成所需要的逻辑单元应用，一切显得非常清晰简单。<br></li><li>DAO设计的总体规划需要和设计的表，和实现类之间一一对应。</li><li>DAO层所定义的接口里的方法都大同小异，这是由我们在DAO层对数据库访问的操作来决定的，对数据库的操作，我们基本要用到的就是新增，更新，删除，查询等方法。因而DAO层里面基本上都应该要涵盖这些方法对应的操作。除此之外，可以定义一些自定义的特殊的对数据库访问的方法。</li><li>Service逻辑层设计</li><li>Service层是建立在DAO层之上的，建立了DAO层后才可以建立Service层，而Service层又是在Controller层之下的，因而Service层应该既调用DAO层的接口，又要提供接口给Controller层的类来进行调用，它刚好处于一个中间层的位置。每个模型都有一个Service接口，每个接口分别封装各自的业务处理方法。</li><li>在DAO层定义的一些方法，在Service层并没有使用，那为什么还要在DAO层进行定义呢？这是由我们定义的需求逻辑所决定的。DAO层的操作 经过抽象后基本上都是通用的，因而我们在定义DAO层的时候可以将相关的方法定义完毕，这样的好处是在对Service进行扩展的时候不需要再对DAO层进行修改，提高了程序的可扩展性。<br><br>小链接：ajax相关 (<a href="http://blog.csdn.net/cwj649956781/article/details/22414533" target="_blank" rel="noopener">http://blog.csdn.net/cwj649956781/article/details/22414533</a>)<br><br><br>(<a href="https://zhidao.baidu.com/question/745652997728018212.html" target="_blank" rel="noopener">https://zhidao.baidu.com/question/745652997728018212.html</a>)<br><br><br>(<a href="http://www.cnblogs.com/sdya/p/4624578.html" target="_blank" rel="noopener">http://www.cnblogs.com/sdya/p/4624578.html</a>)</li></ol>]]></content>
+      
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Javaweb </tag>
+            
+            <tag> SSM </tag>
             
         </tags>
       
