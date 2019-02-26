@@ -3,27 +3,6 @@
   
     
     <entry>
-      <title>浅谈多端统一框架</title>
-      <link href="/2019/02/25/%E6%B5%85%E8%B0%88%E5%A4%9A%E7%AB%AF%E7%BB%9F%E4%B8%80%E6%A1%86%E6%9E%B6/"/>
-      <url>/2019/02/25/%E6%B5%85%E8%B0%88%E5%A4%9A%E7%AB%AF%E7%BB%9F%E4%B8%80%E6%A1%86%E6%9E%B6/</url>
-      <content type="html"><![CDATA[]]></content>
-      
-      <categories>
-          
-          <category> 技巧 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 前端 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>再议JS的异步编程</title>
       <link href="/2019/02/24/%E5%86%8D%E8%AE%AEjs%E7%9A%84%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"/>
       <url>/2019/02/24/%E5%86%8D%E8%AE%AEjs%E7%9A%84%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/</url>
@@ -486,10 +465,10 @@
     </entry>
     
     <entry>
-      <title>Mysql decimal类型与decimal长度用法详解</title>
-      <link href="/2017/10/15/Mysql%20decimal%E7%B1%BB%E5%9E%8B%E4%B8%8Edecimal%E9%95%BF%E5%BA%A6%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/"/>
-      <url>/2017/10/15/Mysql%20decimal%E7%B1%BB%E5%9E%8B%E4%B8%8Edecimal%E9%95%BF%E5%BA%A6%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<h5 id="float-double-decimal三者的区别介绍">float,double,decimal三者的区别介绍</h5><a id="more"></a><p>float:浮点型，含字节数为4，32bit，数值范围为-3.4E38~3.4E38（7个有效位）<br>double:双精度实型，含字节数为8，64bit数值范围-1.7E308~1.7E308（15个有效位）<br>decimal:数字型，128bit，不存在精度损失，常用于银行帐目计算。（28个有效位）</p><h5 id="按存储的范围进行排序">按存储的范围进行排序</h5><p>float（real）<br>double<br>decimal（numeric）</p><h5 id="decimal的详细介绍">decimal的详细介绍</h5><p>decimal(a,b)</p><h5 id="参数说明">参数说明</h5><p>a指定指定小数点左边和右边可以存储的十进制数字的最大个数，最大精度38。<br>b指定小数点右边可以存储的十进制数字的最大个数。小数位数必须是从 0 到 a之间的值。默认小数位数是 0。</p><h5 id="备注">备注</h5><p>DECIMAL数据类型用于要求非常高的精确度的计算中，这些类型允许指定数值的精确度和计数方法作为选择参数。精确度在这里是指为这个值保存的有效数字的总个数，而计数方法表示小数点后数字的个数。例如，语句DECIMAL (5,2)规定了存储的值将不会超过5位数字，开且小数点后面有2位数字。</p><h5 id="实例">实例</h5><blockquote><p>float f = 345.98756f;–结果显示为345.9876，只显示7个有效位，对最后一位数四舍五入。<br>double d=345.975423578631442d;–结果显示为345.975423578631，只显示15个有效位，对最后一位四舍五入。<br>–注：float和double的相乘操作，数字溢出不会报错，会有精度的损失。<br>decimal dd=345.545454879…–可以支持28位，对最后一位四舍五入。<br>–：当对decimal类型进行操作时，数值会因溢出而报错。</p></blockquote><h5 id="总结">总结</h5><p>数值存储范围越小的精度越高，存储数值范围越大，精度就越不准确，如果存储正常金额的情况下，使用money，好处在于可以存储不指定的小数点位数的数值，比较真实。如果对于既要求精度，又固定小数点位数的数值存储，采用decimal（numeric），优点在于可以自定义小数点位数，精度高。如特殊情况，如数值范围巨大只能用float（real）类型了，此类型一般不提倡使用</p><p>链接(<a href="http://blog.csdn.net/zhanghao143lina/article/details/53816884" target="_blank" rel="noopener">http://blog.csdn.net/zhanghao143lina/article/details/53816884</a>)<br>mysql数据类型(<a href="http://www.cnblogs.com/zbseoag/archive/2013/03/19/2970004.html" target="_blank" rel="noopener">http://www.cnblogs.com/zbseoag/archive/2013/03/19/2970004.html</a>)</p>]]></content>
+      <title>String s1 = new String(&quot;abc&quot;)和String s2 = &quot;abc&quot;的区别</title>
+      <link href="/2017/10/15/String%E7%9B%B8%E5%85%B3/"/>
+      <url>/2017/10/15/String%E7%9B%B8%E5%85%B3/</url>
+      <content type="html"><![CDATA[<h5 id="今天在看jvm的时候突然想到这样一个问题-即">今天在看JVM的时候突然想到这样一个问题，即</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String s1 = new String(&quot;abc&quot;);</span><br><span class="line">String s2 = &quot;abc&quot;;</span><br><span class="line"></span><br><span class="line">System.out.println(s1 == s2);//答案是false</span><br></pre></td></tr></table></figure><p>问题有两个：</p><p>String s2 = “abc”时发生了什么？<br>String s1 = new String(“abc”）时又做了什么？<br>第二个问题是比较好回答的，根据官方文档的解释：</p><a id="more"></a><p>当我们在jdk1.6中讨论时，常量池放在方法区中。（jdk1.7中常量池放在堆内存中，jdk1.8放在元空间里面，和堆相对独立，所以导致string的intern方法因为以上变化在不同版本会有不同表现。）</p><blockquote><p>new String(“abc”);<br>Initializes a newly created String object so that it represents the same sequence of characters as the argument; in other words, the newly created string is a copy of the argument string. Unless an explicit copy of original is needed, use of this constructor is unnecessary since Strings are immutable.</p></blockquote><p>简单解释一下：</p><blockquote><p>初始化一个新创建的String对象，换句话说，新创建的字符串是参数字符串的一个副本。除非确实需要一份副本，否则这种方法是不必要的，因为String是不可变的</p></blockquote><p>这句话实际上透露出两个意思，</p><p>在编译器编译的时候，当编译器注意到参数为字符串常量时，即将字符串作为常量放在class文件中的常量区，并在类加载时放入运行时常量池中。<br>在new操作符被调用时，在java堆中创建一个新的对象，然后对象的内容为常量池里面对应字符串的一个拷贝。<br>而在String s2 = “abc”被编译的时候，先检查class文件中是否包含该字符串常量，如果包含，直接返回常量池中的对象。</p><p>因此，在调用new操作时，对象始终存在于堆中，而直接字符串赋值时对象实际上是存在于常量池中的，<br>所以比较结果肯定是false</p><p>String s = new String(“hello”);</p><h5 id="generally-speaking">Generally speaking,</h5><ul><li>jdk1.6中: 首先&quot;hello&quot;字符串对象保存在 方法区的字符串常量池中， 在虚拟机栈中开辟空间 用来存放String 类型的变量s，在堆中开辟空间<br>存放 s 引用的对象，然后将常量池中的“hello” 拷贝一个副本给堆中的String。</li><li>jdk1.7中:首先&quot;hello&quot;字符串对象保存在堆内存的字符串常量池中<ul><li>1】在栈中开辟空间存放 s</li><li>2】在堆中开辟空间存放新建的String 对象&quot;hello&quot;</li><li>3】引用s指向堆中新建的String对象“hello”。</li></ul></li></ul><p>参考文章1、（<a href="http://blog.csdn.net/weixin_35663229/article/details/52796157?locationNum=15%EF%BC%89" target="_blank" rel="noopener">http://blog.csdn.net/weixin_35663229/article/details/52796157?locationNum=15）</a><br>参考文章2、（<a href="http://blog.csdn.net/u010644448/article/details/51980370%EF%BC%89" target="_blank" rel="noopener">http://blog.csdn.net/u010644448/article/details/51980370）</a></p>]]></content>
       
       <categories>
           
@@ -507,10 +486,10 @@
     </entry>
     
     <entry>
-      <title>String s1 = new String(&quot;abc&quot;)和String s2 = &quot;abc&quot;的区别</title>
-      <link href="/2017/10/15/String%E7%9B%B8%E5%85%B3/"/>
-      <url>/2017/10/15/String%E7%9B%B8%E5%85%B3/</url>
-      <content type="html"><![CDATA[<h5 id="今天在看jvm的时候突然想到这样一个问题-即">今天在看JVM的时候突然想到这样一个问题，即</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String s1 = new String(&quot;abc&quot;);</span><br><span class="line">String s2 = &quot;abc&quot;;</span><br><span class="line"></span><br><span class="line">System.out.println(s1 == s2);//答案是false</span><br></pre></td></tr></table></figure><p>问题有两个：</p><p>String s2 = “abc”时发生了什么？<br>String s1 = new String(“abc”）时又做了什么？<br>第二个问题是比较好回答的，根据官方文档的解释：</p><a id="more"></a><p>当我们在jdk1.6中讨论时，常量池放在方法区中。（jdk1.7中常量池放在堆内存中，jdk1.8放在元空间里面，和堆相对独立，所以导致string的intern方法因为以上变化在不同版本会有不同表现。）</p><blockquote><p>new String(“abc”);<br>Initializes a newly created String object so that it represents the same sequence of characters as the argument; in other words, the newly created string is a copy of the argument string. Unless an explicit copy of original is needed, use of this constructor is unnecessary since Strings are immutable.</p></blockquote><p>简单解释一下：</p><blockquote><p>初始化一个新创建的String对象，换句话说，新创建的字符串是参数字符串的一个副本。除非确实需要一份副本，否则这种方法是不必要的，因为String是不可变的</p></blockquote><p>这句话实际上透露出两个意思，</p><p>在编译器编译的时候，当编译器注意到参数为字符串常量时，即将字符串作为常量放在class文件中的常量区，并在类加载时放入运行时常量池中。<br>在new操作符被调用时，在java堆中创建一个新的对象，然后对象的内容为常量池里面对应字符串的一个拷贝。<br>而在String s2 = “abc”被编译的时候，先检查class文件中是否包含该字符串常量，如果包含，直接返回常量池中的对象。</p><p>因此，在调用new操作时，对象始终存在于堆中，而直接字符串赋值时对象实际上是存在于常量池中的，<br>所以比较结果肯定是false</p><p>String s = new String(“hello”);</p><h5 id="generally-speaking">Generally speaking,</h5><ul><li>jdk1.6中: 首先&quot;hello&quot;字符串对象保存在 方法区的字符串常量池中， 在虚拟机栈中开辟空间 用来存放String 类型的变量s，在堆中开辟空间<br>存放 s 引用的对象，然后将常量池中的“hello” 拷贝一个副本给堆中的String。</li><li>jdk1.7中:首先&quot;hello&quot;字符串对象保存在堆内存的字符串常量池中<ul><li>1】在栈中开辟空间存放 s</li><li>2】在堆中开辟空间存放新建的String 对象&quot;hello&quot;</li><li>3】引用s指向堆中新建的String对象“hello”。</li></ul></li></ul><p>参考文章1、（<a href="http://blog.csdn.net/weixin_35663229/article/details/52796157?locationNum=15%EF%BC%89" target="_blank" rel="noopener">http://blog.csdn.net/weixin_35663229/article/details/52796157?locationNum=15）</a><br>参考文章2、（<a href="http://blog.csdn.net/u010644448/article/details/51980370%EF%BC%89" target="_blank" rel="noopener">http://blog.csdn.net/u010644448/article/details/51980370）</a></p>]]></content>
+      <title>Mysql decimal类型与decimal长度用法详解</title>
+      <link href="/2017/10/15/Mysql%20decimal%E7%B1%BB%E5%9E%8B%E4%B8%8Edecimal%E9%95%BF%E5%BA%A6%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/"/>
+      <url>/2017/10/15/Mysql%20decimal%E7%B1%BB%E5%9E%8B%E4%B8%8Edecimal%E9%95%BF%E5%BA%A6%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<h5 id="float-double-decimal三者的区别介绍">float,double,decimal三者的区别介绍</h5><a id="more"></a><p>float:浮点型，含字节数为4，32bit，数值范围为-3.4E38~3.4E38（7个有效位）<br>double:双精度实型，含字节数为8，64bit数值范围-1.7E308~1.7E308（15个有效位）<br>decimal:数字型，128bit，不存在精度损失，常用于银行帐目计算。（28个有效位）</p><h5 id="按存储的范围进行排序">按存储的范围进行排序</h5><p>float（real）<br>double<br>decimal（numeric）</p><h5 id="decimal的详细介绍">decimal的详细介绍</h5><p>decimal(a,b)</p><h5 id="参数说明">参数说明</h5><p>a指定指定小数点左边和右边可以存储的十进制数字的最大个数，最大精度38。<br>b指定小数点右边可以存储的十进制数字的最大个数。小数位数必须是从 0 到 a之间的值。默认小数位数是 0。</p><h5 id="备注">备注</h5><p>DECIMAL数据类型用于要求非常高的精确度的计算中，这些类型允许指定数值的精确度和计数方法作为选择参数。精确度在这里是指为这个值保存的有效数字的总个数，而计数方法表示小数点后数字的个数。例如，语句DECIMAL (5,2)规定了存储的值将不会超过5位数字，开且小数点后面有2位数字。</p><h5 id="实例">实例</h5><blockquote><p>float f = 345.98756f;–结果显示为345.9876，只显示7个有效位，对最后一位数四舍五入。<br>double d=345.975423578631442d;–结果显示为345.975423578631，只显示15个有效位，对最后一位四舍五入。<br>–注：float和double的相乘操作，数字溢出不会报错，会有精度的损失。<br>decimal dd=345.545454879…–可以支持28位，对最后一位四舍五入。<br>–：当对decimal类型进行操作时，数值会因溢出而报错。</p></blockquote><h5 id="总结">总结</h5><p>数值存储范围越小的精度越高，存储数值范围越大，精度就越不准确，如果存储正常金额的情况下，使用money，好处在于可以存储不指定的小数点位数的数值，比较真实。如果对于既要求精度，又固定小数点位数的数值存储，采用decimal（numeric），优点在于可以自定义小数点位数，精度高。如特殊情况，如数值范围巨大只能用float（real）类型了，此类型一般不提倡使用</p><p>链接(<a href="http://blog.csdn.net/zhanghao143lina/article/details/53816884" target="_blank" rel="noopener">http://blog.csdn.net/zhanghao143lina/article/details/53816884</a>)<br>mysql数据类型(<a href="http://www.cnblogs.com/zbseoag/archive/2013/03/19/2970004.html" target="_blank" rel="noopener">http://www.cnblogs.com/zbseoag/archive/2013/03/19/2970004.html</a>)</p>]]></content>
       
       <categories>
           
@@ -549,27 +528,6 @@
     </entry>
     
     <entry>
-      <title>听罗胖聊天</title>
-      <link href="/2017/09/02/%E5%90%AC%E7%BD%97%E8%83%96%E8%81%8A%E5%A4%A9/"/>
-      <url>/2017/09/02/%E5%90%AC%E7%BD%97%E8%83%96%E8%81%8A%E5%A4%A9/</url>
-      <content type="html"><![CDATA[<p>最近才了解到《逻辑思维》这个节目，其实这个节目在某酷上已经播出了好长一段时间了，</p><p>今天有闲心去看了两集《逻辑思维》，两级节目都令自己感触比较深。</p><ol><li>《拒绝逃离北上广》：他的这个观点，其实和自己一直心中有个认知是一样的：<br>见识很重要，在北上广，虽然房价贵，空气不好但是真的是“机会非常多”。<br>“机会”的定义，会随着你慢慢接触的事物变多之后，慢慢的丰富。所以，我想要以后生活在这里！</li><li>《知识焦虑》，今天说来也巧，在《意林》上，和节目中都看到了这个话题，对“知识爆炸”的更进一步了解了。<br>还有就是学习效率的问题，另类二八原则！<br>而且，正准备在地铁上去听书，在节目中就了解了碎片化学习，很巧。</li><li>二八法则频频出现在外来的信息中。</li></ol>]]></content>
-      
-      <categories>
-          
-          <category> 随笔 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 思想 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>你不知道的JS(一)</title>
       <link href="/2017/09/02/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS(%E4%B8%80)/"/>
       <url>/2017/09/02/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JS(%E4%B8%80)/</url>
@@ -585,6 +543,27 @@
         <tags>
             
             <tag> JavaScript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>听罗胖聊天</title>
+      <link href="/2017/09/02/%E5%90%AC%E7%BD%97%E8%83%96%E8%81%8A%E5%A4%A9/"/>
+      <url>/2017/09/02/%E5%90%AC%E7%BD%97%E8%83%96%E8%81%8A%E5%A4%A9/</url>
+      <content type="html"><![CDATA[<p>最近才了解到《逻辑思维》这个节目，其实这个节目在某酷上已经播出了好长一段时间了，</p><p>今天有闲心去看了两集《逻辑思维》，两级节目都令自己感触比较深。</p><ol><li>《拒绝逃离北上广》：他的这个观点，其实和自己一直心中有个认知是一样的：<br>见识很重要，在北上广，虽然房价贵，空气不好但是真的是“机会非常多”。<br>“机会”的定义，会随着你慢慢接触的事物变多之后，慢慢的丰富。所以，我想要以后生活在这里！</li><li>《知识焦虑》，今天说来也巧，在《意林》上，和节目中都看到了这个话题，对“知识爆炸”的更进一步了解了。<br>还有就是学习效率的问题，另类二八原则！<br>而且，正准备在地铁上去听书，在节目中就了解了碎片化学习，很巧。</li><li>二八法则频频出现在外来的信息中。</li></ol>]]></content>
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 思想 </tag>
             
         </tags>
       
