@@ -360,27 +360,6 @@
     </entry>
     
     <entry>
-      <title>linux安装jdk以及远程访问服务</title>
-      <link href="/2017/11/22/Linux/"/>
-      <url>/2017/11/22/Linux/</url>
-      <content type="html"><![CDATA[<p>在windows下，下载jdk-8u25-linux-64.tar.gz<br>Xshell5p.exe  用来访问远程面板</p><a id="more"></a><ol><li>在windows下面下好 tar.gz</li><li>上传文件 rz</li><li>解压文件 tar -xzvf jdk-8u25-linux-x64.tar.gz</li><li>进入当前用户目录  cd home/fisherman</li><li>vi .bash -profile  编辑文件<br>’JAVA_HOME=&quot;/home/fisherman/jdk1.8.0_25&quot;<br>CLASSPATH=&quot;$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib&quot;<br>PATH=&quot;$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOMR/bin&quot;</li><li>:wq退出</li><li>source .bash_profile 命令生效</li><li>java -version 查询java版本</li></ol><p>linux相关命令：</p><p>eg:</p><ol><li>压缩文件：</li></ol><p>tar zcvf secu.tar.gz tt</p><p>将文件压缩到tt目录</p><ol start="2"><li>每天一个linux命令：</li></ol><p><a href="http://www.cnblogs.com/peida/archive/2012/12/05/2803591.html" target="_blank" rel="noopener">http://www.cnblogs.com/peida/archive/2012/12/05/2803591.html</a></p><ul><li><p>vim 中翻页：向上查找和向下查找字符串的命令是</p><ul><li>j --向下</li><li>k-- 向上</li><li>h–向左</li><li>l–向右</li><li>ctrlb–向上移动一屏</li><li>ctrlf–向下移动一屏</li><li>上下左右箭头也可以</li></ul></li><li><p>启动linuxshell的时候，stdin.stdout,stderr,三个文件描述符会自动打开，他们的值分别是：标准输入，标准输出、标准错误</p></li><li><p>为脚本程序添加执行权限的命令及参数：chmod a+x filename</p></li><li><p>用八进制表示权限：</p><ul><li><p>r–4 w–2  x–1</p><p>eg::<br>r–r--r--   444</p></li></ul><p>drw------   600</p></li><li><p>对权限的参考博文：<br><a href="http://blog.csdn.net/sinat_35209943/article/details/52449743" target="_blank" rel="noopener">http://blog.csdn.net/sinat_35209943/article/details/52449743</a><br>一 、 xshell 连到 远程服务器</p></li></ul><p><img src="http://qiniu.xueshiming.cn/clipboard.png" alt="连接远程服务器"></p><ul><li>输入远程服务器的ip：</li></ul><p><img src="http://qiniu.xueshiming.cn/clipboard2.png" alt="服务器ip"></p><ul><li>输入用户名和密码，就登录成功了</li></ul><p><img src="http://qiniu.xueshiming.cn/clipboard3.png" alt="填写自己的用户名"></p><p>然后可以  修改用户名密码：<br>useradd fisherman &amp;&amp; echo 123456 | passwd --stdin fisherman</p><p>fisherman–自己的用户名：<br>mark</p>]]></content>
-      
-      <categories>
-          
-          <category> 技巧 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Linux </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>你不知道的React</title>
       <link href="/2017/11/22/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84React/"/>
       <url>/2017/11/22/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84React/</url>
@@ -396,6 +375,27 @@
         <tags>
             
             <tag> React </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>linux安装jdk以及远程访问服务</title>
+      <link href="/2017/11/22/Linux/"/>
+      <url>/2017/11/22/Linux/</url>
+      <content type="html"><![CDATA[<p>在windows下，下载jdk-8u25-linux-64.tar.gz<br>Xshell5p.exe  用来访问远程面板</p><a id="more"></a><ol><li>在windows下面下好 tar.gz</li><li>上传文件 rz</li><li>解压文件 tar -xzvf jdk-8u25-linux-x64.tar.gz</li><li>进入当前用户目录  cd home/fisherman</li><li>vi .bash -profile  编辑文件<br>’JAVA_HOME=&quot;/home/fisherman/jdk1.8.0_25&quot;<br>CLASSPATH=&quot;$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib&quot;<br>PATH=&quot;$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOMR/bin&quot;</li><li>:wq退出</li><li>source .bash_profile 命令生效</li><li>java -version 查询java版本</li></ol><p>linux相关命令：</p><p>eg:</p><ol><li>压缩文件：</li></ol><p>tar zcvf secu.tar.gz tt</p><p>将文件压缩到tt目录</p><ol start="2"><li>每天一个linux命令：</li></ol><p><a href="http://www.cnblogs.com/peida/archive/2012/12/05/2803591.html" target="_blank" rel="noopener">http://www.cnblogs.com/peida/archive/2012/12/05/2803591.html</a></p><ul><li><p>vim 中翻页：向上查找和向下查找字符串的命令是</p><ul><li>j --向下</li><li>k-- 向上</li><li>h–向左</li><li>l–向右</li><li>ctrlb–向上移动一屏</li><li>ctrlf–向下移动一屏</li><li>上下左右箭头也可以</li></ul></li><li><p>启动linuxshell的时候，stdin.stdout,stderr,三个文件描述符会自动打开，他们的值分别是：标准输入，标准输出、标准错误</p></li><li><p>为脚本程序添加执行权限的命令及参数：chmod a+x filename</p></li><li><p>用八进制表示权限：</p><ul><li><p>r–4 w–2  x–1</p><p>eg::<br>r–r--r--   444</p></li></ul><p>drw------   600</p></li><li><p>对权限的参考博文：<br><a href="http://blog.csdn.net/sinat_35209943/article/details/52449743" target="_blank" rel="noopener">http://blog.csdn.net/sinat_35209943/article/details/52449743</a><br>一 、 xshell 连到 远程服务器</p></li></ul><p><img src="http://qiniu.xueshiming.cn/clipboard.png" alt="连接远程服务器"></p><ul><li>输入远程服务器的ip：</li></ul><p><img src="http://qiniu.xueshiming.cn/clipboard2.png" alt="服务器ip"></p><ul><li>输入用户名和密码，就登录成功了</li></ul><p><img src="http://qiniu.xueshiming.cn/clipboard3.png" alt="填写自己的用户名"></p><p>然后可以  修改用户名密码：<br>useradd fisherman &amp;&amp; echo 123456 | passwd --stdin fisherman</p><p>fisherman–自己的用户名：<br>mark</p>]]></content>
+      
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -486,10 +486,10 @@
     </entry>
     
     <entry>
-      <title>Mysql decimal类型与decimal长度用法详解</title>
-      <link href="/2017/10/15/Mysql%20decimal%E7%B1%BB%E5%9E%8B%E4%B8%8Edecimal%E9%95%BF%E5%BA%A6%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/"/>
-      <url>/2017/10/15/Mysql%20decimal%E7%B1%BB%E5%9E%8B%E4%B8%8Edecimal%E9%95%BF%E5%BA%A6%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<h5 id="float-double-decimal三者的区别介绍">float,double,decimal三者的区别介绍</h5><a id="more"></a><p>float:浮点型，含字节数为4，32bit，数值范围为-3.4E38~3.4E38（7个有效位）<br>double:双精度实型，含字节数为8，64bit数值范围-1.7E308~1.7E308（15个有效位）<br>decimal:数字型，128bit，不存在精度损失，常用于银行帐目计算。（28个有效位）</p><h5 id="按存储的范围进行排序">按存储的范围进行排序</h5><p>float（real）<br>double<br>decimal（numeric）</p><h5 id="decimal的详细介绍">decimal的详细介绍</h5><p>decimal(a,b)</p><h5 id="参数说明">参数说明</h5><p>a指定指定小数点左边和右边可以存储的十进制数字的最大个数，最大精度38。<br>b指定小数点右边可以存储的十进制数字的最大个数。小数位数必须是从 0 到 a之间的值。默认小数位数是 0。</p><h5 id="备注">备注</h5><p>DECIMAL数据类型用于要求非常高的精确度的计算中，这些类型允许指定数值的精确度和计数方法作为选择参数。精确度在这里是指为这个值保存的有效数字的总个数，而计数方法表示小数点后数字的个数。例如，语句DECIMAL (5,2)规定了存储的值将不会超过5位数字，开且小数点后面有2位数字。</p><h5 id="实例">实例</h5><blockquote><p>float f = 345.98756f;–结果显示为345.9876，只显示7个有效位，对最后一位数四舍五入。<br>double d=345.975423578631442d;–结果显示为345.975423578631，只显示15个有效位，对最后一位四舍五入。<br>–注：float和double的相乘操作，数字溢出不会报错，会有精度的损失。<br>decimal dd=345.545454879…–可以支持28位，对最后一位四舍五入。<br>–：当对decimal类型进行操作时，数值会因溢出而报错。</p></blockquote><h5 id="总结">总结</h5><p>数值存储范围越小的精度越高，存储数值范围越大，精度就越不准确，如果存储正常金额的情况下，使用money，好处在于可以存储不指定的小数点位数的数值，比较真实。如果对于既要求精度，又固定小数点位数的数值存储，采用decimal（numeric），优点在于可以自定义小数点位数，精度高。如特殊情况，如数值范围巨大只能用float（real）类型了，此类型一般不提倡使用</p><p>链接(<a href="http://blog.csdn.net/zhanghao143lina/article/details/53816884" target="_blank" rel="noopener">http://blog.csdn.net/zhanghao143lina/article/details/53816884</a>)<br>mysql数据类型(<a href="http://www.cnblogs.com/zbseoag/archive/2013/03/19/2970004.html" target="_blank" rel="noopener">http://www.cnblogs.com/zbseoag/archive/2013/03/19/2970004.html</a>)</p>]]></content>
+      <title>String s1 = new String(&quot;abc&quot;)和String s2 = &quot;abc&quot;的区别</title>
+      <link href="/2017/10/15/String%E7%9B%B8%E5%85%B3/"/>
+      <url>/2017/10/15/String%E7%9B%B8%E5%85%B3/</url>
+      <content type="html"><![CDATA[<h5 id="今天在看jvm的时候突然想到这样一个问题-即">今天在看JVM的时候突然想到这样一个问题，即</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String s1 = new String(&quot;abc&quot;);</span><br><span class="line">String s2 = &quot;abc&quot;;</span><br><span class="line"></span><br><span class="line">System.out.println(s1 == s2);//答案是false</span><br></pre></td></tr></table></figure><p>问题有两个：</p><p>String s2 = “abc”时发生了什么？<br>String s1 = new String(“abc”）时又做了什么？<br>第二个问题是比较好回答的，根据官方文档的解释：</p><a id="more"></a><p>当我们在jdk1.6中讨论时，常量池放在方法区中。（jdk1.7中常量池放在堆内存中，jdk1.8放在元空间里面，和堆相对独立，所以导致string的intern方法因为以上变化在不同版本会有不同表现。）</p><blockquote><p>new String(“abc”);<br>Initializes a newly created String object so that it represents the same sequence of characters as the argument; in other words, the newly created string is a copy of the argument string. Unless an explicit copy of original is needed, use of this constructor is unnecessary since Strings are immutable.</p></blockquote><p>简单解释一下：</p><blockquote><p>初始化一个新创建的String对象，换句话说，新创建的字符串是参数字符串的一个副本。除非确实需要一份副本，否则这种方法是不必要的，因为String是不可变的</p></blockquote><p>这句话实际上透露出两个意思，</p><p>在编译器编译的时候，当编译器注意到参数为字符串常量时，即将字符串作为常量放在class文件中的常量区，并在类加载时放入运行时常量池中。<br>在new操作符被调用时，在java堆中创建一个新的对象，然后对象的内容为常量池里面对应字符串的一个拷贝。<br>而在String s2 = “abc”被编译的时候，先检查class文件中是否包含该字符串常量，如果包含，直接返回常量池中的对象。</p><p>因此，在调用new操作时，对象始终存在于堆中，而直接字符串赋值时对象实际上是存在于常量池中的，<br>所以比较结果肯定是false</p><p>String s = new String(“hello”);</p><h5 id="generally-speaking">Generally speaking,</h5><ul><li>jdk1.6中: 首先&quot;hello&quot;字符串对象保存在 方法区的字符串常量池中， 在虚拟机栈中开辟空间 用来存放String 类型的变量s，在堆中开辟空间<br>存放 s 引用的对象，然后将常量池中的“hello” 拷贝一个副本给堆中的String。</li><li>jdk1.7中:首先&quot;hello&quot;字符串对象保存在堆内存的字符串常量池中<ul><li>1】在栈中开辟空间存放 s</li><li>2】在堆中开辟空间存放新建的String 对象&quot;hello&quot;</li><li>3】引用s指向堆中新建的String对象“hello”。</li></ul></li></ul><p>参考文章1、（<a href="http://blog.csdn.net/weixin_35663229/article/details/52796157?locationNum=15%EF%BC%89" target="_blank" rel="noopener">http://blog.csdn.net/weixin_35663229/article/details/52796157?locationNum=15）</a><br>参考文章2、（<a href="http://blog.csdn.net/u010644448/article/details/51980370%EF%BC%89" target="_blank" rel="noopener">http://blog.csdn.net/u010644448/article/details/51980370）</a></p>]]></content>
       
       <categories>
           
@@ -507,10 +507,10 @@
     </entry>
     
     <entry>
-      <title>String s1 = new String(&quot;abc&quot;)和String s2 = &quot;abc&quot;的区别</title>
-      <link href="/2017/10/15/String%E7%9B%B8%E5%85%B3/"/>
-      <url>/2017/10/15/String%E7%9B%B8%E5%85%B3/</url>
-      <content type="html"><![CDATA[<h5 id="今天在看jvm的时候突然想到这样一个问题-即">今天在看JVM的时候突然想到这样一个问题，即</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String s1 = new String(&quot;abc&quot;);</span><br><span class="line">String s2 = &quot;abc&quot;;</span><br><span class="line"></span><br><span class="line">System.out.println(s1 == s2);//答案是false</span><br></pre></td></tr></table></figure><p>问题有两个：</p><p>String s2 = “abc”时发生了什么？<br>String s1 = new String(“abc”）时又做了什么？<br>第二个问题是比较好回答的，根据官方文档的解释：</p><a id="more"></a><p>当我们在jdk1.6中讨论时，常量池放在方法区中。（jdk1.7中常量池放在堆内存中，jdk1.8放在元空间里面，和堆相对独立，所以导致string的intern方法因为以上变化在不同版本会有不同表现。）</p><blockquote><p>new String(“abc”);<br>Initializes a newly created String object so that it represents the same sequence of characters as the argument; in other words, the newly created string is a copy of the argument string. Unless an explicit copy of original is needed, use of this constructor is unnecessary since Strings are immutable.</p></blockquote><p>简单解释一下：</p><blockquote><p>初始化一个新创建的String对象，换句话说，新创建的字符串是参数字符串的一个副本。除非确实需要一份副本，否则这种方法是不必要的，因为String是不可变的</p></blockquote><p>这句话实际上透露出两个意思，</p><p>在编译器编译的时候，当编译器注意到参数为字符串常量时，即将字符串作为常量放在class文件中的常量区，并在类加载时放入运行时常量池中。<br>在new操作符被调用时，在java堆中创建一个新的对象，然后对象的内容为常量池里面对应字符串的一个拷贝。<br>而在String s2 = “abc”被编译的时候，先检查class文件中是否包含该字符串常量，如果包含，直接返回常量池中的对象。</p><p>因此，在调用new操作时，对象始终存在于堆中，而直接字符串赋值时对象实际上是存在于常量池中的，<br>所以比较结果肯定是false</p><p>String s = new String(“hello”);</p><h5 id="generally-speaking">Generally speaking,</h5><ul><li>jdk1.6中: 首先&quot;hello&quot;字符串对象保存在 方法区的字符串常量池中， 在虚拟机栈中开辟空间 用来存放String 类型的变量s，在堆中开辟空间<br>存放 s 引用的对象，然后将常量池中的“hello” 拷贝一个副本给堆中的String。</li><li>jdk1.7中:首先&quot;hello&quot;字符串对象保存在堆内存的字符串常量池中<ul><li>1】在栈中开辟空间存放 s</li><li>2】在堆中开辟空间存放新建的String 对象&quot;hello&quot;</li><li>3】引用s指向堆中新建的String对象“hello”。</li></ul></li></ul><p>参考文章1、（<a href="http://blog.csdn.net/weixin_35663229/article/details/52796157?locationNum=15%EF%BC%89" target="_blank" rel="noopener">http://blog.csdn.net/weixin_35663229/article/details/52796157?locationNum=15）</a><br>参考文章2、（<a href="http://blog.csdn.net/u010644448/article/details/51980370%EF%BC%89" target="_blank" rel="noopener">http://blog.csdn.net/u010644448/article/details/51980370）</a></p>]]></content>
+      <title>Mysql decimal类型与decimal长度用法详解</title>
+      <link href="/2017/10/15/Mysql%20decimal%E7%B1%BB%E5%9E%8B%E4%B8%8Edecimal%E9%95%BF%E5%BA%A6%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/"/>
+      <url>/2017/10/15/Mysql%20decimal%E7%B1%BB%E5%9E%8B%E4%B8%8Edecimal%E9%95%BF%E5%BA%A6%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<h5 id="float-double-decimal三者的区别介绍">float,double,decimal三者的区别介绍</h5><a id="more"></a><p>float:浮点型，含字节数为4，32bit，数值范围为-3.4E38~3.4E38（7个有效位）<br>double:双精度实型，含字节数为8，64bit数值范围-1.7E308~1.7E308（15个有效位）<br>decimal:数字型，128bit，不存在精度损失，常用于银行帐目计算。（28个有效位）</p><h5 id="按存储的范围进行排序">按存储的范围进行排序</h5><p>float（real）<br>double<br>decimal（numeric）</p><h5 id="decimal的详细介绍">decimal的详细介绍</h5><p>decimal(a,b)</p><h5 id="参数说明">参数说明</h5><p>a指定指定小数点左边和右边可以存储的十进制数字的最大个数，最大精度38。<br>b指定小数点右边可以存储的十进制数字的最大个数。小数位数必须是从 0 到 a之间的值。默认小数位数是 0。</p><h5 id="备注">备注</h5><p>DECIMAL数据类型用于要求非常高的精确度的计算中，这些类型允许指定数值的精确度和计数方法作为选择参数。精确度在这里是指为这个值保存的有效数字的总个数，而计数方法表示小数点后数字的个数。例如，语句DECIMAL (5,2)规定了存储的值将不会超过5位数字，开且小数点后面有2位数字。</p><h5 id="实例">实例</h5><blockquote><p>float f = 345.98756f;–结果显示为345.9876，只显示7个有效位，对最后一位数四舍五入。<br>double d=345.975423578631442d;–结果显示为345.975423578631，只显示15个有效位，对最后一位四舍五入。<br>–注：float和double的相乘操作，数字溢出不会报错，会有精度的损失。<br>decimal dd=345.545454879…–可以支持28位，对最后一位四舍五入。<br>–：当对decimal类型进行操作时，数值会因溢出而报错。</p></blockquote><h5 id="总结">总结</h5><p>数值存储范围越小的精度越高，存储数值范围越大，精度就越不准确，如果存储正常金额的情况下，使用money，好处在于可以存储不指定的小数点位数的数值，比较真实。如果对于既要求精度，又固定小数点位数的数值存储，采用decimal（numeric），优点在于可以自定义小数点位数，精度高。如特殊情况，如数值范围巨大只能用float（real）类型了，此类型一般不提倡使用</p><p>链接(<a href="http://blog.csdn.net/zhanghao143lina/article/details/53816884" target="_blank" rel="noopener">http://blog.csdn.net/zhanghao143lina/article/details/53816884</a>)<br>mysql数据类型(<a href="http://www.cnblogs.com/zbseoag/archive/2013/03/19/2970004.html" target="_blank" rel="noopener">http://www.cnblogs.com/zbseoag/archive/2013/03/19/2970004.html</a>)</p>]]></content>
       
       <categories>
           
@@ -635,27 +635,6 @@
     </entry>
     
     <entry>
-      <title>袋鼠过河</title>
-      <link href="/2017/08/23/newCoder%E8%A2%8B%E9%BC%A0%E8%BF%87%E6%B2%B3/"/>
-      <url>/2017/08/23/newCoder%E8%A2%8B%E9%BC%A0%E8%BF%87%E6%B2%B3/</url>
-      <content type="html"><![CDATA[<p>最近忙着复习，博客就更新频率少低了，现在就先把觉得重要的算法题记录一下，在牛客网上做到的最简单的动态规划问题，当然这道题的变形在leetCode上也有（jumpGame）。</p><a id="more"></a><h5 id="题目描述">题目描述</h5><blockquote><p>一只袋鼠要从河这边跳到河对岸，河很宽，但是河中间打了很多桩子，每隔一米就有一个，每个桩子上都有一个弹簧，袋鼠跳到弹簧上就可以跳的更远。每个弹簧力量不同，用一个数字代表它的力量，如果弹簧力量为5，就代表袋鼠下一跳最多能够跳5米，如果为0，就会陷进去无法继续跳跃。河流一共N米宽，袋鼠初始位置就在第一个弹簧上面，要跳到最后一个弹簧之后就算过河了，给定每个弹簧的力量，求袋鼠最少需要多少跳能够到达对岸。如果无法到达输出-1</p></blockquote><h5 id="输入描述">输入描述:</h5><blockquote><p>输入分两行，第一行是数组长度N (1 ≤ N ≤ 10000)，第二行是每一项的值，用空格分隔。</p></blockquote><h5 id="输出描述">输出描述:</h5><blockquote><p>输出最少的跳数，无法到达输出-1</p></blockquote><h5 id="示例1">示例1</h5><blockquote><p>输入<br>5<br>2 0 1 1 1<br>输出<br>4</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public class Jump &#123;</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">Scanner sc = new Scanner(System.in);</span><br><span class="line">int N = sc.nextInt();</span><br><span class="line">int[] nums = new int[N + 1];</span><br><span class="line">int[] dp = new int[N + 1];</span><br><span class="line">for (int i = 0; i &lt; N; i++)</span><br><span class="line">nums[i] = sc.nextInt();</span><br><span class="line"></span><br><span class="line">for (int i = 0; i &lt;=N; i++)</span><br><span class="line">dp[i] = 100000;</span><br><span class="line">nums[N] = 1;</span><br><span class="line">dp[0] = 0;</span><br><span class="line">for (int i = 1; i &lt;= N; i++) &#123;</span><br><span class="line">if (nums[i] == 0)</span><br><span class="line">continue;</span><br><span class="line">for (int j = 0; j &lt; i; j++) &#123;</span><br><span class="line">if (nums[j] &gt;= i - j)</span><br><span class="line">dp[i] = Math.min(dp[j] + 1, dp[i]);</span><br><span class="line">System.out.println(&quot;i=&quot; + i + &quot;,&quot; + &quot;j=&quot; + j + &quot;  &quot; + &quot;dp[&quot; + i + &quot;]: &quot; + dp[i]);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">System.out.println((dp[N] == 100000) ? -1 : dp[N]);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      <categories>
-          
-          <category> 技巧 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 动态规划 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>内部类</title>
       <link href="/2017/08/23/%E5%86%85%E9%83%A8%E7%B1%BB/"/>
       <url>/2017/08/23/%E5%86%85%E9%83%A8%E7%B1%BB/</url>
@@ -671,6 +650,27 @@
         <tags>
             
             <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>袋鼠过河</title>
+      <link href="/2017/08/23/newCoder%E8%A2%8B%E9%BC%A0%E8%BF%87%E6%B2%B3/"/>
+      <url>/2017/08/23/newCoder%E8%A2%8B%E9%BC%A0%E8%BF%87%E6%B2%B3/</url>
+      <content type="html"><![CDATA[<p>最近忙着复习，博客就更新频率少低了，现在就先把觉得重要的算法题记录一下，在牛客网上做到的最简单的动态规划问题，当然这道题的变形在leetCode上也有（jumpGame）。</p><a id="more"></a><h5 id="题目描述">题目描述</h5><blockquote><p>一只袋鼠要从河这边跳到河对岸，河很宽，但是河中间打了很多桩子，每隔一米就有一个，每个桩子上都有一个弹簧，袋鼠跳到弹簧上就可以跳的更远。每个弹簧力量不同，用一个数字代表它的力量，如果弹簧力量为5，就代表袋鼠下一跳最多能够跳5米，如果为0，就会陷进去无法继续跳跃。河流一共N米宽，袋鼠初始位置就在第一个弹簧上面，要跳到最后一个弹簧之后就算过河了，给定每个弹簧的力量，求袋鼠最少需要多少跳能够到达对岸。如果无法到达输出-1</p></blockquote><h5 id="输入描述">输入描述:</h5><blockquote><p>输入分两行，第一行是数组长度N (1 ≤ N ≤ 10000)，第二行是每一项的值，用空格分隔。</p></blockquote><h5 id="输出描述">输出描述:</h5><blockquote><p>输出最少的跳数，无法到达输出-1</p></blockquote><h5 id="示例1">示例1</h5><blockquote><p>输入<br>5<br>2 0 1 1 1<br>输出<br>4</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public class Jump &#123;</span><br><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">Scanner sc = new Scanner(System.in);</span><br><span class="line">int N = sc.nextInt();</span><br><span class="line">int[] nums = new int[N + 1];</span><br><span class="line">int[] dp = new int[N + 1];</span><br><span class="line">for (int i = 0; i &lt; N; i++)</span><br><span class="line">nums[i] = sc.nextInt();</span><br><span class="line"></span><br><span class="line">for (int i = 0; i &lt;=N; i++)</span><br><span class="line">dp[i] = 100000;</span><br><span class="line">nums[N] = 1;</span><br><span class="line">dp[0] = 0;</span><br><span class="line">for (int i = 1; i &lt;= N; i++) &#123;</span><br><span class="line">if (nums[i] == 0)</span><br><span class="line">continue;</span><br><span class="line">for (int j = 0; j &lt; i; j++) &#123;</span><br><span class="line">if (nums[j] &gt;= i - j)</span><br><span class="line">dp[i] = Math.min(dp[j] + 1, dp[i]);</span><br><span class="line">System.out.println(&quot;i=&quot; + i + &quot;,&quot; + &quot;j=&quot; + j + &quot;  &quot; + &quot;dp[&quot; + i + &quot;]: &quot; + dp[i]);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">System.out.println((dp[N] == 100000) ? -1 : dp[N]);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 动态规划 </tag>
             
         </tags>
       
@@ -872,29 +872,6 @@
     </entry>
     
     <entry>
-      <title>Dao层、Service层、Controller层、View层</title>
-      <link href="/2017/07/03/Dao%E5%B1%82%E3%80%81Service%E5%B1%82%E3%80%81Controller%E5%B1%82%E3%80%81View%E5%B1%82/"/>
-      <url>/2017/07/03/Dao%E5%B1%82%E3%80%81Service%E5%B1%82%E3%80%81Controller%E5%B1%82%E3%80%81View%E5%B1%82/</url>
-      <content type="html"><![CDATA[<ol><li>DAO层：DAO层主要是做数据持久层的工作，负责与数据库进行联络的一些任务都封装在此，DAO层的设计首先是设计DAO的接口，然后在Spring的配置文件中定义此接口的实现类，然后就可在模块中调用此接口来进行数据业务的处理，而不用关心此接口的具体实现类是哪个类，显得结构非常清晰，DAO层的数据源配置，以及有关数据库连接的参数都在Spring的配置文件中进行配置。</li><li>Service层：Service层主要负责业务模块的逻辑应用设计。同样是首先设计接口，再设计其实现的类，接着再Spring的配置文件中配置其实现的关联。这样我们就可以在应用中调用Service接口来进行业务处理。Service层的业务实现，具体要调用到已定义的DAO层的接口，封装Service层的业务逻辑有利于通用的业务逻辑的独立性和重复利用性，程序显得非常简洁。</li></ol><a id="more"></a><ol start="3"><li>Controller层:Controller层负责具体的业务模块流程的控制，在此层里面要调用Serice层的接口来控制业务流程，控制的配置也同样是在Spring的配置文件里面进行，针对具体的业务流程，会有不同的控制器，我们具体的设计过程中可以将流程进行抽象归纳，设计出可以重复利用的子单元流程模块，这样不仅使程序结构变得清晰，也大大减少了代码量。</li><li>View层 此层与控制层结合比较紧密，需要二者结合起来协同工发。View层主要负责前台jsp页面的表示</li><li>DAO层，Service层这两个层次都可以单独开发，互相的耦合度很低，完全可以独立进行，这样的一种模式在开发大项目的过程中尤其有优势，Controller，View层因为耦合度比较高，因而要结合在一起开发，但是也可以看作一个整体独立于前两个层进行开发。这样，在层与层之前我们只需要知道接口的定义，调用接口即可完成所需要的逻辑单元应用，一切显得非常清晰简单。<br></li><li>DAO设计的总体规划需要和设计的表，和实现类之间一一对应。</li><li>DAO层所定义的接口里的方法都大同小异，这是由我们在DAO层对数据库访问的操作来决定的，对数据库的操作，我们基本要用到的就是新增，更新，删除，查询等方法。因而DAO层里面基本上都应该要涵盖这些方法对应的操作。除此之外，可以定义一些自定义的特殊的对数据库访问的方法。</li><li>Service逻辑层设计</li><li>Service层是建立在DAO层之上的，建立了DAO层后才可以建立Service层，而Service层又是在Controller层之下的，因而Service层应该既调用DAO层的接口，又要提供接口给Controller层的类来进行调用，它刚好处于一个中间层的位置。每个模型都有一个Service接口，每个接口分别封装各自的业务处理方法。</li><li>在DAO层定义的一些方法，在Service层并没有使用，那为什么还要在DAO层进行定义呢？这是由我们定义的需求逻辑所决定的。DAO层的操作 经过抽象后基本上都是通用的，因而我们在定义DAO层的时候可以将相关的方法定义完毕，这样的好处是在对Service进行扩展的时候不需要再对DAO层进行修改，提高了程序的可扩展性。<br><br>小链接：ajax相关 (<a href="http://blog.csdn.net/cwj649956781/article/details/22414533" target="_blank" rel="noopener">http://blog.csdn.net/cwj649956781/article/details/22414533</a>)<br><br><br>(<a href="https://zhidao.baidu.com/question/745652997728018212.html" target="_blank" rel="noopener">https://zhidao.baidu.com/question/745652997728018212.html</a>)<br><br><br>(<a href="http://www.cnblogs.com/sdya/p/4624578.html" target="_blank" rel="noopener">http://www.cnblogs.com/sdya/p/4624578.html</a>)</li></ol>]]></content>
-      
-      <categories>
-          
-          <category> 技巧 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Javaweb </tag>
-            
-            <tag> SSM </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>Spring常用注解</title>
       <link href="/2017/07/03/Spring%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/"/>
       <url>/2017/07/03/Spring%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/</url>
@@ -912,6 +889,29 @@
             <tag> Javaweb </tag>
             
             <tag> Spring </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Dao层、Service层、Controller层、View层</title>
+      <link href="/2017/07/03/Dao%E5%B1%82%E3%80%81Service%E5%B1%82%E3%80%81Controller%E5%B1%82%E3%80%81View%E5%B1%82/"/>
+      <url>/2017/07/03/Dao%E5%B1%82%E3%80%81Service%E5%B1%82%E3%80%81Controller%E5%B1%82%E3%80%81View%E5%B1%82/</url>
+      <content type="html"><![CDATA[<ol><li>DAO层：DAO层主要是做数据持久层的工作，负责与数据库进行联络的一些任务都封装在此，DAO层的设计首先是设计DAO的接口，然后在Spring的配置文件中定义此接口的实现类，然后就可在模块中调用此接口来进行数据业务的处理，而不用关心此接口的具体实现类是哪个类，显得结构非常清晰，DAO层的数据源配置，以及有关数据库连接的参数都在Spring的配置文件中进行配置。</li><li>Service层：Service层主要负责业务模块的逻辑应用设计。同样是首先设计接口，再设计其实现的类，接着再Spring的配置文件中配置其实现的关联。这样我们就可以在应用中调用Service接口来进行业务处理。Service层的业务实现，具体要调用到已定义的DAO层的接口，封装Service层的业务逻辑有利于通用的业务逻辑的独立性和重复利用性，程序显得非常简洁。</li></ol><a id="more"></a><ol start="3"><li>Controller层:Controller层负责具体的业务模块流程的控制，在此层里面要调用Serice层的接口来控制业务流程，控制的配置也同样是在Spring的配置文件里面进行，针对具体的业务流程，会有不同的控制器，我们具体的设计过程中可以将流程进行抽象归纳，设计出可以重复利用的子单元流程模块，这样不仅使程序结构变得清晰，也大大减少了代码量。</li><li>View层 此层与控制层结合比较紧密，需要二者结合起来协同工发。View层主要负责前台jsp页面的表示</li><li>DAO层，Service层这两个层次都可以单独开发，互相的耦合度很低，完全可以独立进行，这样的一种模式在开发大项目的过程中尤其有优势，Controller，View层因为耦合度比较高，因而要结合在一起开发，但是也可以看作一个整体独立于前两个层进行开发。这样，在层与层之前我们只需要知道接口的定义，调用接口即可完成所需要的逻辑单元应用，一切显得非常清晰简单。<br></li><li>DAO设计的总体规划需要和设计的表，和实现类之间一一对应。</li><li>DAO层所定义的接口里的方法都大同小异，这是由我们在DAO层对数据库访问的操作来决定的，对数据库的操作，我们基本要用到的就是新增，更新，删除，查询等方法。因而DAO层里面基本上都应该要涵盖这些方法对应的操作。除此之外，可以定义一些自定义的特殊的对数据库访问的方法。</li><li>Service逻辑层设计</li><li>Service层是建立在DAO层之上的，建立了DAO层后才可以建立Service层，而Service层又是在Controller层之下的，因而Service层应该既调用DAO层的接口，又要提供接口给Controller层的类来进行调用，它刚好处于一个中间层的位置。每个模型都有一个Service接口，每个接口分别封装各自的业务处理方法。</li><li>在DAO层定义的一些方法，在Service层并没有使用，那为什么还要在DAO层进行定义呢？这是由我们定义的需求逻辑所决定的。DAO层的操作 经过抽象后基本上都是通用的，因而我们在定义DAO层的时候可以将相关的方法定义完毕，这样的好处是在对Service进行扩展的时候不需要再对DAO层进行修改，提高了程序的可扩展性。<br><br>小链接：ajax相关 (<a href="http://blog.csdn.net/cwj649956781/article/details/22414533" target="_blank" rel="noopener">http://blog.csdn.net/cwj649956781/article/details/22414533</a>)<br><br><br>(<a href="https://zhidao.baidu.com/question/745652997728018212.html" target="_blank" rel="noopener">https://zhidao.baidu.com/question/745652997728018212.html</a>)<br><br><br>(<a href="http://www.cnblogs.com/sdya/p/4624578.html" target="_blank" rel="noopener">http://www.cnblogs.com/sdya/p/4624578.html</a>)</li></ol>]]></content>
+      
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Javaweb </tag>
+            
+            <tag> SSM </tag>
             
         </tags>
       
