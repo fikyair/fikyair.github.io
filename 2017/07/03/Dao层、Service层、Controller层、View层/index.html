@@ -161,11 +161,11 @@
 <li>Service逻辑层设计</li>
 <li>Service层是建立在DAO层之上的，建立了DAO层后才可以建立Service层，而Service层又是在Controller层之下的，因而Service层应该既调用DAO层的接口，又要提供接口给Controller层的类来进行调用，它刚好处于一个中间层的位置。每个模型都有一个Service接口，每个接口分别封装各自的业务处理方法。</li>
 <li>在DAO层定义的一些方法，在Service层并没有使用，那为什么还要在DAO层进行定义呢？这是由我们定义的需求逻辑所决定的。DAO层的操作 经过抽象后基本上都是通用的，因而我们在定义DAO层的时候可以将相关的方法定义完毕，这样的好处是在对Service进行扩展的时候不需要再对DAO层进行修改，提高了程序的可扩展性。<br><br>
-小链接：ajax相关 (<a href="http://blog.csdn.net/cwj649956781/article/details/22414533" target="_blank" rel="noopener">http://blog.csdn.net/cwj649956781/article/details/22414533</a>)<br>
+小链接：ajax相关 (<a href="https://blog.csdn.net/cwj649956781/article/details/22414533" target="_blank" rel="noopener">https://blog.csdn.net/cwj649956781/article/details/22414533</a>)<br>
 <br><br>
 (<a href="https://zhidao.baidu.com/question/745652997728018212.html" target="_blank" rel="noopener">https://zhidao.baidu.com/question/745652997728018212.html</a>)<br>
 <br><br>
-(<a href="http://www.cnblogs.com/sdya/p/4624578.html" target="_blank" rel="noopener">http://www.cnblogs.com/sdya/p/4624578.html</a>)</li>
+(<a href="https://www.cnblogs.com/sdya/p/4624578.html" target="_blank" rel="noopener">https://www.cnblogs.com/sdya/p/4624578.html</a>)</li>
 </ol>
 </section>
     <!-- Tags START -->

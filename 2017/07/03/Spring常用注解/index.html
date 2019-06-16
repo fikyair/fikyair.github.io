@@ -215,7 +215,7 @@ public String listBoardTopic(int topicId,User user) {}<br>
 @RequestMapping 可以声明到类或方法上</p>
 <p>• 参数绑定说明<br>
 如果我们使用以下的 URL 请求：<br>
-<a href="http://localhost/itxxzSpring4?method=listBoardTopic&amp;topicId=1&amp;userId=10&amp;userName=tom" target="_blank" rel="noopener">http://localhost/itxxzSpring4?method=listBoardTopic&amp;topicId=1&amp;userId=10&amp;userName=tom</a><br>
+<a href="https://localhost/itxxzSpring4?method=listBoardTopic&amp;topicId=1&amp;userId=10&amp;userName=tom" target="_blank" rel="noopener">https://localhost/itxxzSpring4?method=listBoardTopic&amp;topicId=1&amp;userId=10&amp;userName=tom</a><br>
 topicId URL 参数将绑定到 topicId 入参上，而 userId 和 userName URL 参数将绑定到 user 对象的<br>
 userId 和 userName 属性中。和 URL 请求中不允许没有 topicId 参数不同，虽然 User 的 userId 属性的类型是基本数据类型，但如果 URL 中不存在 userId 参数，Spring 也不会报错，此时 user.userId 值为 0 。如果 User 对象拥有一个 dept.deptId 的级联属性，那么它将和 dept.deptId URL 参数绑定。</p>
 <h6 id="resource">@Resource</h6>
@@ -244,12 +244,12 @@ public class UserSessionBean implementsSerializable {}</li>
 <p>@Scope中可以指定如下值：<br>
 singleton:定义bean的范围为每个spring容器一个实例（默认值）<br>
 prototype:定义bean可以被多次实例化（使用一次就创建一次）<br>
-request:定义bean的范围是http请求（springMVC中有效）<br>
-session:定义bean的范围是http会话（springMVC中有效）<br>
-global-session:定义bean的范围是全局http会话（portlet中有效）<br>
+request:定义bean的范围是https请求（springMVC中有效）<br>
+session:定义bean的范围是https会话（springMVC中有效）<br>
+global-session:定义bean的范围是全局https会话（portlet中有效）<br>
 <br><br>
-小链接：ssm配置(<a href="http://www.cnblogs.com/youyefly/p/5685509.html" target="_blank" rel="noopener">http://www.cnblogs.com/youyefly/p/5685509.html</a>),<br>
-(<a href="http://blog.csdn.net/xuejian0616/article/details/52259335" target="_blank" rel="noopener">http://blog.csdn.net/xuejian0616/article/details/52259335</a>)</p>
+小链接：ssm配置(<a href="https://www.cnblogs.com/youyefly/p/5685509.html" target="_blank" rel="noopener">https://www.cnblogs.com/youyefly/p/5685509.html</a>),<br>
+(<a href="https://blog.csdn.net/xuejian0616/article/details/52259335" target="_blank" rel="noopener">https://blog.csdn.net/xuejian0616/article/details/52259335</a>)</p>
 </section>
     <!-- Tags START -->
     
