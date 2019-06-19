@@ -156,15 +156,15 @@
 <ul>
 <li>
 <p>页面文案全部可配置 需要配置的文案大致有四种：label、placeholder、字段校验提示信息、超链接。<br>
-<img src="https://qiniu.xueshiming.cn/%E9%9D%A2%E4%B8%B4%E7%9A%84%E6%8C%91%E6%88%981" alt="页面文案配置"></p>
+<img src="http://qiniu.xueshiming.cn/%E9%9D%A2%E4%B8%B4%E7%9A%84%E6%8C%91%E6%88%981" alt="页面文案配置"></p>
 </li>
 <li>
 <p>页面文案样式处理 文案样式需要特别注意，不同语言的文字，可能会有不同的表现。例如下面两张图所示：</p>
 <ul>
 <li>英语（页面样式正常）<br>
-<img src="https://qiniu.xueshiming.cn/%E9%9D%A2%E4%B8%B4%E7%9A%84%E6%8C%91%E6%88%982" alt="英文"></li>
+<img src="http://qiniu.xueshiming.cn/%E9%9D%A2%E4%B8%B4%E7%9A%84%E6%8C%91%E6%88%982" alt="英文"></li>
 <li>土耳其语（页面样式异常）<br>
-<img src="https://qiniu.xueshiming.cn/%E9%9D%A2%E4%B8%B4%E7%9A%84%E6%8C%91%E6%88%983" alt="土耳其语"></li>
+<img src="http://qiniu.xueshiming.cn/%E9%9D%A2%E4%B8%B4%E7%9A%84%E6%8C%91%E6%88%983" alt="土耳其语"></li>
 </ul>
 </li>
 <li>
@@ -222,7 +222,7 @@
 <p>接下来将会抛出几种国际化文案处理思路，每种思路对生产力和生产关系的要求有高有低，姑且将其分别对应为石器时期、青铜时期、黄金时期。</p>
 <h4 id="石器时期">石器时期</h4>
 <p>传统的国际化开发流程：前端开发到一定阶段，将文案提取到资源文件（通常为 en-US.json），然后将资源文件发送给翻译团队，翻译团队翻译出各国语言版本的文案，每种语言对应一个资源文件，最后将这些资源文件发回给前端开发人员，前端开发人员更新到自己本地。如下图所示：<br>
-<img src="https://qiniu.xueshiming.cn/%E7%9F%B3%E5%99%A8%E6%97%B6%E4%BB%A31" alt=""></p>
+<img src="http://qiniu.xueshiming.cn/%E7%9F%B3%E5%99%A8%E6%97%B6%E4%BB%A31" alt=""></p>
 <ul>
 <li>适用场景</li>
 </ul>
@@ -246,7 +246,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;welcome&quot;: &quot;Hello world!&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="青铜时期">青铜时期</h4>
 <p>前面分析了“提取文案”的过程本质上是在重复劳动，那我们看看有没有办法进行改进。我们可以先对比一下“无国际化需求”和“有国际化需求”时的前端开发流程。如图所示：</p>
-<p><img src="https://qiniu.xueshiming.cn/%E9%9D%92%E9%93%9C%E6%97%B6%E6%9C%9F1" alt=""></p>
+<p><img src="http://qiniu.xueshiming.cn/%E9%9D%92%E9%93%9C%E6%97%B6%E6%9C%9F1" alt=""></p>
 <p>可以看出右边多了三个过程：</p>
 <ol>
 <li>将文案提取为变量</li>
@@ -256,15 +256,15 @@
 <p>这里我们提出一个期望或愿景：希望能像开发普通业务一样去开发有国际化需求的业务！</p>
 <p>为了达成这一愿景，我们需要有一个工具：它能够扫描指定的文件，并能识别出文件中的字符串，然后能根据字符串的含义生成变量名，并用变量表达式替换掉原来的字符串，最后能够将提取出来的变量自动追加到资源文件中。</p>
 <p>如何实现这样的工具？我们可以用 Babel 将js文件解析为一颗语法树，然后遍历并找出字符串节点，接下来调用 Google Cloud Translation API 将字符串翻译为英文，并以此作为变量名得到变量表达式，最后用变量表达式替换掉原来的文本即可。如下图所示：</p>
-<p><img src="https://qiniu.xueshiming.cn/%E9%9D%92%E9%93%9C%E6%97%B6%E6%9C%9F2" alt=""></p>
+<p><img src="http://qiniu.xueshiming.cn/%E9%9D%92%E9%93%9C%E6%97%B6%E6%9C%9F2" alt=""></p>
 <p>幸运的是，<a href="https://github.com/ProtoTeam/i18n-pick" target="_blank" rel="noopener">i18n-pick</a> 已经有那么点味道了~</p>
-<p><img src="https://qiniu.xueshiming.cn/%E9%9D%92%E9%93%9C%E6%97%B6%E6%9C%9F3" alt=""></p>
+<p><img src="http://qiniu.xueshiming.cn/%E9%9D%92%E9%93%9C%E6%97%B6%E6%9C%9F3" alt=""></p>
 <ul>
 <li>分析 这是站在开发层面，对前端开发体验和开发效率提出的改进办法，<strong>将重复的事情交给程序去完成。</strong></li>
 </ul>
 <h4 id="黄金时期">黄金时期</h4>
 <p>有了石器时期的生产方式作为铺垫，我们可以在此基础上继续做改进。既然“前端开发”和“翻译团队”之间依赖的太重，那我们可以在中间加一个节点“文案配置平台”。前端将提取的文案直接上传到“文案配置平台”，翻译团队直接在“文案配置平台”上进行文案翻译，前端直接从“文案配置平台”获取翻译后的最新文案。</p>
-<p><img src="https://qiniu.xueshiming.cn/%E9%BB%84%E9%87%91%E6%97%B6%E4%BB%A3" alt=""></p>
+<p><img src="http://qiniu.xueshiming.cn/%E9%BB%84%E9%87%91%E6%97%B6%E4%BB%A3" alt=""></p>
 <ul>
 <li>
 <p>文案配置平台应当具备的基本能力</p>

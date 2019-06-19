@@ -159,12 +159,12 @@
 <li>
 <p>首先查看所有分支：<br>
 git branch -r<br>
-<img src="https://qiniu.xueshiming.cn/01.png" alt="查看所有分支"></p>
+<img src="http://qiniu.xueshiming.cn/01.png" alt="查看所有分支"></p>
 </li>
 <li>
 <p>检出一个分支：<br>
 git checkout -b root<br>
-<img src="https://qiniu.xueshiming.cn/02.png" alt="检出分支"></p>
+<img src="http://qiniu.xueshiming.cn/02.png" alt="检出分支"></p>
 </li>
 <li>
 <p>当自己修改了本地分支之后<br>
@@ -175,42 +175,42 @@ git push --set-upstream origin root<br>
 <p>试图去拉当前服务器上的分支,因为在要向服务器提交代码时，首先要拉服务器的代码<br>
 git pull<br>
 会有提示 ：（因为当时还没有commit到本地仓库）<br>
-<img src="https://qiniu.xueshiming.cn/03.png" alt="提示"><br>
+<img src="http://qiniu.xueshiming.cn/03.png" alt="提示"><br>
 提交到本地仓库：<br>
 git add .<br>
 git commit -m test<br>
-<img src="https://qiniu.xueshiming.cn/04.png" alt="提交到本地仓库"></p>
+<img src="http://qiniu.xueshiming.cn/04.png" alt="提交到本地仓库"></p>
 </li>
 <li>
 <p>使用git pull --rebase</p>
 </li>
 </ol>
-<p><img src="https://qiniu.xueshiming.cn/05.png" alt="rebase命令"></p>
-<p><img src="https://qiniu.xueshiming.cn/06.png" alt="命令"></p>
+<p><img src="http://qiniu.xueshiming.cn/05.png" alt="rebase命令"></p>
+<p><img src="http://qiniu.xueshiming.cn/06.png" alt="命令"></p>
 <ol start="6">
 <li>使用git status 查看到哪一个文件有错误</li>
 </ol>
-<p><img src="https://qiniu.xueshiming.cn/07.png" alt="Routers.jsx报错"></p>
+<p><img src="http://qiniu.xueshiming.cn/07.png" alt="Routers.jsx报错"></p>
 <ol start="7">
 <li>修改后(保留服务器的代码)：</li>
 </ol>
-<p><img src="https://qiniu.xueshiming.cn/08.png" alt="服务器代码"></p>
+<p><img src="http://qiniu.xueshiming.cn/08.png" alt="服务器代码"></p>
 <p>其中&lt;&lt;&lt;&lt;HEAD 下 ====上是远程分支上的代码</p>
 <p>====下  &gt;&gt;&gt;&gt;&gt;111 上是本地代码  （111是提交时候的注释）</p>
 <h5 id="情况一：需要git-服务器上的代码">情况一：需要Git 服务器上的代码</h5>
-<p><img src="https://qiniu.xueshiming.cn/09.png" alt="提交"></p>
+<p><img src="http://qiniu.xueshiming.cn/09.png" alt="提交"></p>
 <p>此处就不需要再git commit了，因为你所要提交的代码是和远程分支上一样的。</p>
 <h5 id="情况二：保留本地代码">情况二：保留本地代码</h5>
 <p>就需要git commit -m xxx</p>
 <p>————&gt;我们这里演示的是保留远程分支上的代码：</p>
 <p>所以执行 	git rebase --continue  会出现以下情况：</p>
-<p><img src="https://qiniu.xueshiming.cn/continue.png" alt="continue"></p>
+<p><img src="http://qiniu.xueshiming.cn/continue.png" alt="continue"></p>
 <p>命令的作用是：  git会继续应用(apply)余下的补丁,因为已经git add .  过了<br>
 所以跳过此补丁</p>
 <p>另外：在任何时候，都可以用git rebase --abort参数来终止rebase的行动，分支会回到rebase开始前的状态.</p>
 <ol start="8">
 <li>最后根据提示来执行命令：<br>
-<img src="https://qiniu.xueshiming.cn/11.png" alt="最后的命令"></li>
+<img src="http://qiniu.xueshiming.cn/11.png" alt="最后的命令"></li>
 </ol>
 <p>使用git需要养成的习惯～～</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">经常commit，然后pull —reabase , 最后 push</span><br><span class="line"></span><br><span class="line">养成良好操作，尽量保持Master提交记录是一条线  利于code review</span><br></pre></td></tr></table></figure>
