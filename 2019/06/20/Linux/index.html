@@ -148,12 +148,14 @@
   <!-- Article START -->
   <article class="post-article">
     <section class="markdown-content"><blockquote>
-<p>最近在将博客换成了https协议，并将自己小程序后台部署到了云服务器上，期间学习到了很多东西，下面便一一悉知</p>
+<p>最近在将博客换成了https协议，并将自己小程序后台部署到了我的ubuntu服务器上，期间学习到了很多东西，下面便一一悉知</p>
 </blockquote>
+<a id="more"></a>
 <p><strong>tips：</strong></p>
+<h4 id="nginx配置">nginx配置</h4>
 <ul>
 <li>
-<p>每次nginx配置完时，需要<figure class="highlight plain"><figcaption><span>nginx restart``` 或```service nginx start```重启</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- ```sudo chmod 777 /etc/nginx/myssl```在scp上传文件夹时候需要设置文件夹可写权限,我干脆权限设置最高(有些粗暴哈哈😀)</span><br><span class="line">- 找端口杀进程： ```lsof -i:9981``` 找到该端口的```pId: 22463``` ,然后```kill -9 22463``` </span><br><span class="line">- 查找```nginx``` ```log``` 文件查看报错信息```/var/log/nginx</span><br></pre></td></tr></table></figure></p>
+<p>每次nginx配置完时，需要 <figure class="highlight plain"><figcaption><span>nginx restart``` 或 ```service nginx start``` 重启</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- ```sudo chmod 777 /etc/nginx/myssl```在scp上传文件夹时候需要设置文件夹可写权限,我干脆权限设置最高(有些粗暴哈哈😀)</span><br><span class="line">- 找端口杀进程： ```lsof -i:9981``` 找到该端口的```pId: 22463``` ,然后```kill -9 22463``` </span><br><span class="line">- 查找```nginx``` ```log``` 文件查看报错信息```/var/log/nginx</span><br></pre></td></tr></table></figure></p>
 </li>
 <li>
 <p>用screen保持项目在服务器上长久运行 <a href="https://www.jianshu.com/p/b24f597c0561" target="_blank" rel="noopener">戳这儿</a></p>
@@ -313,7 +315,7 @@ mark</p>
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#2018-01-22"><span class="toc-nav-text">2018-01-22</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#nginx配置"><span class="toc-nav-text">nginx配置</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#2018-01-22"><span class="toc-nav-text">2018-01-22</span></a></li></ol></li></ol>
     
   </div>
 </aside>
