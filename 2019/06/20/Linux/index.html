@@ -153,21 +153,21 @@
 <a id="more"></a>
 <p><strong>tips：</strong></p>
 <h4 id="nginx配置">nginx配置</h4>
-<p>每次nginx配置完时，都需要<code>service nginx restart</code>或<code>service nginx start</code>来重启nginx服务</p>
-<p>拓展：updating</p>
+<p>每次<code>nginx</code>配置完时，都需要<code>service nginx restart</code>或<code>service nginx start</code>来重启<code>nginx</code>服务</p>
+<p>拓展：关于<code>nginx</code>更多的信息，updating…</p>
 <h4 id="改写文件权限">改写文件权限</h4>
 <p><code>sudo chmod 777 /etc/nginx/myssl</code>,在scp上传文件夹时候需要设置文件夹可写权限,</p>
 <p>我干脆权限设置最高(有些粗暴哈哈😀，但是不可取)</p>
-<p>拓展：updating</p>
+<p>拓展：updating…</p>
 <h4 id="找端口杀进程">找端口杀进程</h4>
 <p>这个问题我们经常遇到，但是想用的时候总是忘记，<code>lsof -i:9981</code>查找到 <code>9981</code> 端口对应的<br>
 <code>pId: 22463</code>然后<code>kill -9 22463</code>就可以了。</p>
-<p>拓展：updating</p>
+<p>拓展：updating…</p>
 <h4 id="查看nginx的报错原因">查看nginx的报错原因</h4>
 <p>查找<code>nginx</code>的日志文件,查看<code>log</code>文件获取报错信息<code>/var/log/nginx</code></p>
 <h4 id="使项目持久运行在服务器上">使项目持久运行在服务器上</h4>
 <p>用screen保持项目在服务器上长久运行<a href="https://www.jianshu.com/p/b24f597c0561" target="_blank" rel="noopener">戳这儿</a></p>
-<p>拓展：updating</p>
+<p>拓展：updating…</p>
 <h4 id="保持ssh连接不断开">保持ssh连接不断开</h4>
 <p>经常遇到终端断开了ssh远程链接，然后终端卡顿，很是头疼<code>/etc/ssh/sshd_config</code>,添加：<br>
 <code>ClientAliveInterva 120</code></p>
