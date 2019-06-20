@@ -10,7 +10,7 @@
   
   <title>
     
-      linux安装jdk以及远程访问服务 | Ignite
+      上手捣鼓linux命令(更新) | Ignite
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -138,7 +138,7 @@
 </header>
 
     <div id="article-banner">
-  <h2>linux安装jdk以及远程访问服务</h2>
+  <h2>上手捣鼓linux命令(更新)</h2>
   <p class="post-date">2017-11-22</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
@@ -147,9 +147,29 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><p>在windows下，下载jdk-8u25-linux-64.tar.gz<br>
+    <section class="markdown-content"><blockquote>
+<p>最近在将博客换成了https协议，并将自己小程序后台部署到了云服务器上，期间学习到了很多东西，下面便一一悉知</p>
+</blockquote>
+<p><strong>tips：</strong></p>
+<ul>
+<li>
+<p>每次nginx配置完时，需要<figure class="highlight plain"><figcaption><span>nginx restart``` 或```service nginx start```重启</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- ```sudo chmod 777 /etc/nginx/myssl```在scp上传文件夹时候需要设置文件夹可写权限,我干脆权限设置最高(有些粗暴哈哈😀)</span><br><span class="line">- 找端口杀进程： ```lsof -i:9981``` 找到该端口的```pId: 22463``` ,然后```kill -9 22463``` </span><br><span class="line">- 查找```nginx``` ```log``` 文件查看报错信息```/var/log/nginx</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>用screen保持项目在服务器上长久运行 <a href="https://www.jianshu.com/p/b24f597c0561" target="_blank" rel="noopener">戳这儿</a></p>
+</li>
+<li>
+<p>保持ssh连接不断开</p>
+</li>
+</ul>
+<figure class="highlight vim"><figcaption><span>/etc/ssh/sshd_config``` 添加：```ClientAliveInterva 120```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">```ClientAliveCountMax <span class="number">720</span>```重启sshd服务：```systemctl restart sshd</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>第一句意思是服务端每间隔120s会向客户端发送一个空数据包，第二句表示服务器最大会发送720次,120*720=24小时，24小时期间连接是不会断开的</p>
+</blockquote>
+<p>围绕每个tips，我将展开学习其中的所以然。</p>
+<h5 id="2018-01-22">2018-01-22</h5>
+<p>在windows下，下载jdk-8u25-linux-64.tar.gz<br>
 Xshell5p.exe  用来访问远程面板</p>
-<a id="more"></a>
 <ol>
 <li>在windows下面下好 tar.gz</li>
 <li>上传文件 rz</li>
@@ -300,7 +320,7 @@ mark</p>
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="nav">none</ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#2018-01-22"><span class="toc-nav-text">2018-01-22</span></a></li></ol>
     
   </div>
 </aside>
@@ -366,7 +386,7 @@ mark</p>
     var gitmentConfig = "Ignite";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "linux安装jdk以及远程访问服务",
+        id: "上手捣鼓linux命令(更新)",
         owner: "Ignite",
         repo: "fikyair.github.io",
         oauth: {
