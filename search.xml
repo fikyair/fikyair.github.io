@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title>上手捣鼓linux命令(更新)</title>
+      <link href="/2019/06/20/Linux/"/>
+      <url>/2019/06/20/Linux/</url>
+      <content type="html"><![CDATA[<blockquote><p>最近在将博客换成了https协议，并将自己小程序后台部署到了云服务器上，期间学习到了很多东西，下面便一一悉知</p></blockquote><p><strong>tips：</strong></p><ul><li><p>每次nginx配置完时，需要<figure class="highlight plain"><figcaption><span>nginx restart``` 或```service nginx start```重启</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- ```sudo chmod 777 /etc/nginx/myssl```在scp上传文件夹时候需要设置文件夹可写权限,我干脆权限设置最高(有些粗暴哈哈😀)</span><br><span class="line">- 找端口杀进程： ```lsof -i:9981``` 找到该端口的```pId: 22463``` ,然后```kill -9 22463``` </span><br><span class="line">- 查找```nginx``` ```log``` 文件查看报错信息```/var/log/nginx</span><br></pre></td></tr></table></figure></p></li><li><p>用screen保持项目在服务器上长久运行 <a href="https://www.jianshu.com/p/b24f597c0561" target="_blank" rel="noopener">戳这儿</a></p></li><li><p>保持ssh连接不断开</p></li></ul><figure class="highlight vim"><figcaption><span>/etc/ssh/sshd_config``` 添加：```ClientAliveInterva 120```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">```ClientAliveCountMax <span class="number">720</span>```重启sshd服务：```systemctl restart sshd</span><br></pre></td></tr></table></figure><blockquote><p>第一句意思是服务端每间隔120s会向客户端发送一个空数据包，第二句表示服务器最大会发送720次,120*720=24小时，24小时期间连接是不会断开的</p></blockquote><p>围绕每个tips，我将展开学习其中的所以然。</p><h5 id="2018-01-22">2018-01-22</h5><p>在windows下，下载jdk-8u25-linux-64.tar.gz<br>Xshell5p.exe  用来访问远程面板</p><ol><li>在windows下面下好 tar.gz</li><li>上传文件 rz</li><li>解压文件 tar -xzvf jdk-8u25-linux-x64.tar.gz</li><li>进入当前用户目录  cd home/fisherman</li><li>vi .bash -profile  编辑文件<br>’JAVA_HOME=&quot;/home/fisherman/jdk1.8.0_25&quot;<br>CLASSPATH=&quot;$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib&quot;<br>PATH=&quot;$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOMR/bin&quot;</li><li>:wq退出</li><li>source .bash_profile 命令生效</li><li>java -version 查询java版本</li></ol><p>linux相关命令：</p><p>eg:</p><ol><li>压缩文件：</li></ol><p>tar zcvf secu.tar.gz tt</p><p>将文件压缩到tt目录</p><ol start="2"><li>每天一个linux命令：</li></ol><p><a href="https://www.cnblogs.com/peida/archive/2012/12/05/2803591.html" target="_blank" rel="noopener">https://www.cnblogs.com/peida/archive/2012/12/05/2803591.html</a></p><ul><li><p>vim 中翻页：向上查找和向下查找字符串的命令是</p><ul><li>j --向下</li><li>k-- 向上</li><li>h–向左</li><li>l–向右</li><li>ctrlb–向上移动一屏</li><li>ctrlf–向下移动一屏</li><li>上下左右箭头也可以</li></ul></li><li><p>启动linuxshell的时候，stdin.stdout,stderr,三个文件描述符会自动打开，他们的值分别是：标准输入，标准输出、标准错误</p></li><li><p>为脚本程序添加执行权限的命令及参数：chmod a+x filename</p></li><li><p>用八进制表示权限：</p><ul><li><p>r–4 w–2  x–1</p><p>eg::<br>r–r--r--   444</p></li></ul><p>drw------   600</p></li><li><p>对权限的参考博文：<br><a href="https://blog.csdn.net/sinat_35209943/article/details/52449743" target="_blank" rel="noopener">https://blog.csdn.net/sinat_35209943/article/details/52449743</a><br>一 、 xshell 连到 远程服务器</p></li></ul><p><img src="http://qiniu.xueshiming.cn/clipboard.png" alt="连接远程服务器"></p><ul><li>输入远程服务器的ip：</li></ul><p><img src="http://qiniu.xueshiming.cn/clipboard2.png" alt="服务器ip"></p><ul><li>输入用户名和密码，就登录成功了</li></ul><p><img src="http://qiniu.xueshiming.cn/clipboard3.png" alt="填写自己的用户名"></p><p>然后可以  修改用户名密码：<br>useradd fisherman &amp;&amp; echo 123456 | passwd --stdin fisherman</p><p>fisherman–自己的用户名：<br>mark</p>]]></content>
+      
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>前端国际化探索(二)</title>
       <link href="/2019/03/10/%E5%89%8D%E7%AB%AF%E5%9B%BD%E9%99%85%E5%8C%96%E6%96%B9%E6%A1%88%E6%8E%A2%E7%B4%A2(%E4%BA%8C)/"/>
       <url>/2019/03/10/%E5%89%8D%E7%AB%AF%E5%9B%BD%E9%99%85%E5%8C%96%E6%96%B9%E6%A1%88%E6%8E%A2%E7%B4%A2(%E4%BA%8C)/</url>
@@ -318,27 +339,6 @@
     </entry>
     
     <entry>
-      <title>上手捣鼓linux命令(更新)</title>
-      <link href="/2017/11/22/Linux/"/>
-      <url>/2017/11/22/Linux/</url>
-      <content type="html"><![CDATA[<blockquote><p>最近在将博客换成了https协议，并将自己小程序后台部署到了云服务器上，期间学习到了很多东西，下面便一一悉知</p></blockquote><p><strong>tips：</strong></p><ul><li><p>每次nginx配置完时，需要<figure class="highlight plain"><figcaption><span>nginx restart``` 或```service nginx start```重启</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- ```sudo chmod 777 /etc/nginx/myssl```在scp上传文件夹时候需要设置文件夹可写权限,我干脆权限设置最高(有些粗暴哈哈😀)</span><br><span class="line">- 找端口杀进程： ```lsof -i:9981``` 找到该端口的```pId: 22463``` ,然后```kill -9 22463``` </span><br><span class="line">- 查找```nginx``` ```log``` 文件查看报错信息```/var/log/nginx</span><br></pre></td></tr></table></figure></p></li><li><p>用screen保持项目在服务器上长久运行 <a href="https://www.jianshu.com/p/b24f597c0561" target="_blank" rel="noopener">戳这儿</a></p></li><li><p>保持ssh连接不断开</p></li></ul><figure class="highlight vim"><figcaption><span>/etc/ssh/sshd_config``` 添加：```ClientAliveInterva 120```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">```ClientAliveCountMax <span class="number">720</span>```重启sshd服务：```systemctl restart sshd</span><br></pre></td></tr></table></figure><blockquote><p>第一句意思是服务端每间隔120s会向客户端发送一个空数据包，第二句表示服务器最大会发送720次,120*720=24小时，24小时期间连接是不会断开的</p></blockquote><p>围绕每个tips，我将展开学习其中的所以然。</p><h5 id="2018-01-22">2018-01-22</h5><p>在windows下，下载jdk-8u25-linux-64.tar.gz<br>Xshell5p.exe  用来访问远程面板</p><ol><li>在windows下面下好 tar.gz</li><li>上传文件 rz</li><li>解压文件 tar -xzvf jdk-8u25-linux-x64.tar.gz</li><li>进入当前用户目录  cd home/fisherman</li><li>vi .bash -profile  编辑文件<br>’JAVA_HOME=&quot;/home/fisherman/jdk1.8.0_25&quot;<br>CLASSPATH=&quot;$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib&quot;<br>PATH=&quot;$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOMR/bin&quot;</li><li>:wq退出</li><li>source .bash_profile 命令生效</li><li>java -version 查询java版本</li></ol><p>linux相关命令：</p><p>eg:</p><ol><li>压缩文件：</li></ol><p>tar zcvf secu.tar.gz tt</p><p>将文件压缩到tt目录</p><ol start="2"><li>每天一个linux命令：</li></ol><p><a href="https://www.cnblogs.com/peida/archive/2012/12/05/2803591.html" target="_blank" rel="noopener">https://www.cnblogs.com/peida/archive/2012/12/05/2803591.html</a></p><ul><li><p>vim 中翻页：向上查找和向下查找字符串的命令是</p><ul><li>j --向下</li><li>k-- 向上</li><li>h–向左</li><li>l–向右</li><li>ctrlb–向上移动一屏</li><li>ctrlf–向下移动一屏</li><li>上下左右箭头也可以</li></ul></li><li><p>启动linuxshell的时候，stdin.stdout,stderr,三个文件描述符会自动打开，他们的值分别是：标准输入，标准输出、标准错误</p></li><li><p>为脚本程序添加执行权限的命令及参数：chmod a+x filename</p></li><li><p>用八进制表示权限：</p><ul><li><p>r–4 w–2  x–1</p><p>eg::<br>r–r--r--   444</p></li></ul><p>drw------   600</p></li><li><p>对权限的参考博文：<br><a href="https://blog.csdn.net/sinat_35209943/article/details/52449743" target="_blank" rel="noopener">https://blog.csdn.net/sinat_35209943/article/details/52449743</a><br>一 、 xshell 连到 远程服务器</p></li></ul><p><img src="http://qiniu.xueshiming.cn/clipboard.png" alt="连接远程服务器"></p><ul><li>输入远程服务器的ip：</li></ul><p><img src="http://qiniu.xueshiming.cn/clipboard2.png" alt="服务器ip"></p><ul><li>输入用户名和密码，就登录成功了</li></ul><p><img src="http://qiniu.xueshiming.cn/clipboard3.png" alt="填写自己的用户名"></p><p>然后可以  修改用户名密码：<br>useradd fisherman &amp;&amp; echo 123456 | passwd --stdin fisherman</p><p>fisherman–自己的用户名：<br>mark</p>]]></content>
-      
-      <categories>
-          
-          <category> 技巧 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Linux </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>你不知道的React</title>
       <link href="/2017/11/22/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84React/"/>
       <url>/2017/11/22/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84React/</url>
@@ -444,10 +444,10 @@
     </entry>
     
     <entry>
-      <title>Mysql decimal类型与decimal长度用法详解</title>
-      <link href="/2017/10/15/Mysql%20decimal%E7%B1%BB%E5%9E%8B%E4%B8%8Edecimal%E9%95%BF%E5%BA%A6%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/"/>
-      <url>/2017/10/15/Mysql%20decimal%E7%B1%BB%E5%9E%8B%E4%B8%8Edecimal%E9%95%BF%E5%BA%A6%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/</url>
-      <content type="html"><![CDATA[<h5 id="float-double-decimal三者的区别介绍">float,double,decimal三者的区别介绍</h5><a id="more"></a><p>float:浮点型，含字节数为4，32bit，数值范围为-3.4E38~3.4E38（7个有效位）<br>double:双精度实型，含字节数为8，64bit数值范围-1.7E308~1.7E308（15个有效位）<br>decimal:数字型，128bit，不存在精度损失，常用于银行帐目计算。（28个有效位）</p><h5 id="按存储的范围进行排序">按存储的范围进行排序</h5><p>float（real）<br>double<br>decimal（numeric）</p><h5 id="decimal的详细介绍">decimal的详细介绍</h5><p>decimal(a,b)</p><h5 id="参数说明">参数说明</h5><p>a指定指定小数点左边和右边可以存储的十进制数字的最大个数，最大精度38。<br>b指定小数点右边可以存储的十进制数字的最大个数。小数位数必须是从 0 到 a之间的值。默认小数位数是 0。</p><h5 id="备注">备注</h5><p>DECIMAL数据类型用于要求非常高的精确度的计算中，这些类型允许指定数值的精确度和计数方法作为选择参数。精确度在这里是指为这个值保存的有效数字的总个数，而计数方法表示小数点后数字的个数。例如，语句DECIMAL (5,2)规定了存储的值将不会超过5位数字，开且小数点后面有2位数字。</p><h5 id="实例">实例</h5><blockquote><p>float f = 345.98756f;–结果显示为345.9876，只显示7个有效位，对最后一位数四舍五入。<br>double d=345.975423578631442d;–结果显示为345.975423578631，只显示15个有效位，对最后一位四舍五入。<br>–注：float和double的相乘操作，数字溢出不会报错，会有精度的损失。<br>decimal dd=345.545454879…–可以支持28位，对最后一位四舍五入。<br>–：当对decimal类型进行操作时，数值会因溢出而报错。</p></blockquote><h5 id="总结">总结</h5><p>数值存储范围越小的精度越高，存储数值范围越大，精度就越不准确，如果存储正常金额的情况下，使用money，好处在于可以存储不指定的小数点位数的数值，比较真实。如果对于既要求精度，又固定小数点位数的数值存储，采用decimal（numeric），优点在于可以自定义小数点位数，精度高。如特殊情况，如数值范围巨大只能用float（real）类型了，此类型一般不提倡使用</p><p>链接(<a href="https://blog.csdn.net/zhanghao143lina/article/details/53816884" target="_blank" rel="noopener">https://blog.csdn.net/zhanghao143lina/article/details/53816884</a>)<br>mysql数据类型(<a href="https://www.cnblogs.com/zbseoag/archive/2013/03/19/2970004.html" target="_blank" rel="noopener">https://www.cnblogs.com/zbseoag/archive/2013/03/19/2970004.html</a>)</p>]]></content>
+      <title>String s1 = new String(&quot;abc&quot;)和String s2 = &quot;abc&quot;的区别</title>
+      <link href="/2017/10/15/String%E7%9B%B8%E5%85%B3/"/>
+      <url>/2017/10/15/String%E7%9B%B8%E5%85%B3/</url>
+      <content type="html"><![CDATA[<h5 id="今天在看jvm的时候突然想到这样一个问题-即">今天在看JVM的时候突然想到这样一个问题，即</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String s1 = new String(&quot;abc&quot;);</span><br><span class="line">String s2 = &quot;abc&quot;;</span><br><span class="line"></span><br><span class="line">System.out.println(s1 == s2);//答案是false</span><br></pre></td></tr></table></figure><p>问题有两个：</p><p>String s2 = “abc”时发生了什么？<br>String s1 = new String(“abc”）时又做了什么？<br>第二个问题是比较好回答的，根据官方文档的解释：</p><a id="more"></a><p>当我们在jdk1.6中讨论时，常量池放在方法区中。（jdk1.7中常量池放在堆内存中，jdk1.8放在元空间里面，和堆相对独立，所以导致string的intern方法因为以上变化在不同版本会有不同表现。）</p><blockquote><p>new String(“abc”);<br>Initializes a newly created String object so that it represents the same sequence of characters as the argument; in other words, the newly created string is a copy of the argument string. Unless an explicit copy of original is needed, use of this constructor is unnecessary since Strings are immutable.</p></blockquote><p>简单解释一下：</p><blockquote><p>初始化一个新创建的String对象，换句话说，新创建的字符串是参数字符串的一个副本。除非确实需要一份副本，否则这种方法是不必要的，因为String是不可变的</p></blockquote><p>这句话实际上透露出两个意思，</p><p>在编译器编译的时候，当编译器注意到参数为字符串常量时，即将字符串作为常量放在class文件中的常量区，并在类加载时放入运行时常量池中。<br>在new操作符被调用时，在java堆中创建一个新的对象，然后对象的内容为常量池里面对应字符串的一个拷贝。<br>而在String s2 = “abc”被编译的时候，先检查class文件中是否包含该字符串常量，如果包含，直接返回常量池中的对象。</p><p>因此，在调用new操作时，对象始终存在于堆中，而直接字符串赋值时对象实际上是存在于常量池中的，<br>所以比较结果肯定是false</p><p>String s = new String(“hello”);</p><h5 id="generally-speaking">Generally speaking,</h5><ul><li>jdk1.6中: 首先&quot;hello&quot;字符串对象保存在 方法区的字符串常量池中， 在虚拟机栈中开辟空间 用来存放String 类型的变量s，在堆中开辟空间<br>存放 s 引用的对象，然后将常量池中的“hello” 拷贝一个副本给堆中的String。</li><li>jdk1.7中:首先&quot;hello&quot;字符串对象保存在堆内存的字符串常量池中<ul><li>1】在栈中开辟空间存放 s</li><li>2】在堆中开辟空间存放新建的String 对象&quot;hello&quot;</li><li>3】引用s指向堆中新建的String对象“hello”。</li></ul></li></ul><p>参考文章1、（<a href="https://blog.csdn.net/weixin_35663229/article/details/52796157?locationNum=15%EF%BC%89" target="_blank" rel="noopener">https://blog.csdn.net/weixin_35663229/article/details/52796157?locationNum=15）</a><br>参考文章2、（<a href="https://blog.csdn.net/u010644448/article/details/51980370%EF%BC%89" target="_blank" rel="noopener">https://blog.csdn.net/u010644448/article/details/51980370）</a></p>]]></content>
       
       <categories>
           
@@ -465,10 +465,10 @@
     </entry>
     
     <entry>
-      <title>String s1 = new String(&quot;abc&quot;)和String s2 = &quot;abc&quot;的区别</title>
-      <link href="/2017/10/15/String%E7%9B%B8%E5%85%B3/"/>
-      <url>/2017/10/15/String%E7%9B%B8%E5%85%B3/</url>
-      <content type="html"><![CDATA[<h5 id="今天在看jvm的时候突然想到这样一个问题-即">今天在看JVM的时候突然想到这样一个问题，即</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String s1 = new String(&quot;abc&quot;);</span><br><span class="line">String s2 = &quot;abc&quot;;</span><br><span class="line"></span><br><span class="line">System.out.println(s1 == s2);//答案是false</span><br></pre></td></tr></table></figure><p>问题有两个：</p><p>String s2 = “abc”时发生了什么？<br>String s1 = new String(“abc”）时又做了什么？<br>第二个问题是比较好回答的，根据官方文档的解释：</p><a id="more"></a><p>当我们在jdk1.6中讨论时，常量池放在方法区中。（jdk1.7中常量池放在堆内存中，jdk1.8放在元空间里面，和堆相对独立，所以导致string的intern方法因为以上变化在不同版本会有不同表现。）</p><blockquote><p>new String(“abc”);<br>Initializes a newly created String object so that it represents the same sequence of characters as the argument; in other words, the newly created string is a copy of the argument string. Unless an explicit copy of original is needed, use of this constructor is unnecessary since Strings are immutable.</p></blockquote><p>简单解释一下：</p><blockquote><p>初始化一个新创建的String对象，换句话说，新创建的字符串是参数字符串的一个副本。除非确实需要一份副本，否则这种方法是不必要的，因为String是不可变的</p></blockquote><p>这句话实际上透露出两个意思，</p><p>在编译器编译的时候，当编译器注意到参数为字符串常量时，即将字符串作为常量放在class文件中的常量区，并在类加载时放入运行时常量池中。<br>在new操作符被调用时，在java堆中创建一个新的对象，然后对象的内容为常量池里面对应字符串的一个拷贝。<br>而在String s2 = “abc”被编译的时候，先检查class文件中是否包含该字符串常量，如果包含，直接返回常量池中的对象。</p><p>因此，在调用new操作时，对象始终存在于堆中，而直接字符串赋值时对象实际上是存在于常量池中的，<br>所以比较结果肯定是false</p><p>String s = new String(“hello”);</p><h5 id="generally-speaking">Generally speaking,</h5><ul><li>jdk1.6中: 首先&quot;hello&quot;字符串对象保存在 方法区的字符串常量池中， 在虚拟机栈中开辟空间 用来存放String 类型的变量s，在堆中开辟空间<br>存放 s 引用的对象，然后将常量池中的“hello” 拷贝一个副本给堆中的String。</li><li>jdk1.7中:首先&quot;hello&quot;字符串对象保存在堆内存的字符串常量池中<ul><li>1】在栈中开辟空间存放 s</li><li>2】在堆中开辟空间存放新建的String 对象&quot;hello&quot;</li><li>3】引用s指向堆中新建的String对象“hello”。</li></ul></li></ul><p>参考文章1、（<a href="https://blog.csdn.net/weixin_35663229/article/details/52796157?locationNum=15%EF%BC%89" target="_blank" rel="noopener">https://blog.csdn.net/weixin_35663229/article/details/52796157?locationNum=15）</a><br>参考文章2、（<a href="https://blog.csdn.net/u010644448/article/details/51980370%EF%BC%89" target="_blank" rel="noopener">https://blog.csdn.net/u010644448/article/details/51980370）</a></p>]]></content>
+      <title>Mysql decimal类型与decimal长度用法详解</title>
+      <link href="/2017/10/15/Mysql%20decimal%E7%B1%BB%E5%9E%8B%E4%B8%8Edecimal%E9%95%BF%E5%BA%A6%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/"/>
+      <url>/2017/10/15/Mysql%20decimal%E7%B1%BB%E5%9E%8B%E4%B8%8Edecimal%E9%95%BF%E5%BA%A6%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<h5 id="float-double-decimal三者的区别介绍">float,double,decimal三者的区别介绍</h5><a id="more"></a><p>float:浮点型，含字节数为4，32bit，数值范围为-3.4E38~3.4E38（7个有效位）<br>double:双精度实型，含字节数为8，64bit数值范围-1.7E308~1.7E308（15个有效位）<br>decimal:数字型，128bit，不存在精度损失，常用于银行帐目计算。（28个有效位）</p><h5 id="按存储的范围进行排序">按存储的范围进行排序</h5><p>float（real）<br>double<br>decimal（numeric）</p><h5 id="decimal的详细介绍">decimal的详细介绍</h5><p>decimal(a,b)</p><h5 id="参数说明">参数说明</h5><p>a指定指定小数点左边和右边可以存储的十进制数字的最大个数，最大精度38。<br>b指定小数点右边可以存储的十进制数字的最大个数。小数位数必须是从 0 到 a之间的值。默认小数位数是 0。</p><h5 id="备注">备注</h5><p>DECIMAL数据类型用于要求非常高的精确度的计算中，这些类型允许指定数值的精确度和计数方法作为选择参数。精确度在这里是指为这个值保存的有效数字的总个数，而计数方法表示小数点后数字的个数。例如，语句DECIMAL (5,2)规定了存储的值将不会超过5位数字，开且小数点后面有2位数字。</p><h5 id="实例">实例</h5><blockquote><p>float f = 345.98756f;–结果显示为345.9876，只显示7个有效位，对最后一位数四舍五入。<br>double d=345.975423578631442d;–结果显示为345.975423578631，只显示15个有效位，对最后一位四舍五入。<br>–注：float和double的相乘操作，数字溢出不会报错，会有精度的损失。<br>decimal dd=345.545454879…–可以支持28位，对最后一位四舍五入。<br>–：当对decimal类型进行操作时，数值会因溢出而报错。</p></blockquote><h5 id="总结">总结</h5><p>数值存储范围越小的精度越高，存储数值范围越大，精度就越不准确，如果存储正常金额的情况下，使用money，好处在于可以存储不指定的小数点位数的数值，比较真实。如果对于既要求精度，又固定小数点位数的数值存储，采用decimal（numeric），优点在于可以自定义小数点位数，精度高。如特殊情况，如数值范围巨大只能用float（real）类型了，此类型一般不提倡使用</p><p>链接(<a href="https://blog.csdn.net/zhanghao143lina/article/details/53816884" target="_blank" rel="noopener">https://blog.csdn.net/zhanghao143lina/article/details/53816884</a>)<br>mysql数据类型(<a href="https://www.cnblogs.com/zbseoag/archive/2013/03/19/2970004.html" target="_blank" rel="noopener">https://www.cnblogs.com/zbseoag/archive/2013/03/19/2970004.html</a>)</p>]]></content>
       
       <categories>
           
@@ -507,27 +507,6 @@
     </entry>
     
     <entry>
-      <title>盒子模型</title>
-      <link href="/2017/09/02/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/"/>
-      <url>/2017/09/02/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/</url>
-      <content type="html"><![CDATA[<p>今天来聊聊box-sizing</p><p>盒模型：<br>当你设置了元素的宽度，实际展现的元素超出你的设置：<br>这是因为元素的边框和内边距会撑开元素。看下面的例子，<br>两个相同宽度的元素显示的实际宽度却不一样。</p><p><img src="http://qiniu.xueshiming.cn/%E5%AD%A6%E4%B9%A0CSS%E5%B8%83%E5%B1%8001.png" alt="代码"></p><p><img src="http://qiniu.xueshiming.cn/%E5%AD%A6%E4%B9%A0CSS%E5%B8%83%E5%B1%8002.png" alt="我小一些"></p><p><img src="http://qiniu.xueshiming.cn/%E5%AD%A6%E4%B9%A0CSS%E5%B8%83%E5%B1%8003.png" alt="我大一些"></p><p>以前有一个代代相传的解决方案是通过数学计算。CSS开发者需要用比他们实际想要的宽度小一点的宽度，需要减去内边距和边框的宽度。<br>值得庆幸是你不需要再这么做了…</p><p>Box-sizing:</p><p>人们慢慢地意识到传统的盒子模型不直接，所以他们新增了一个叫做box-sizing</p><p>的css属性。当你设置一个元素为box-sizings: border-box;时此元素的内边距和边框不会再增加它的宽度。<br>这里有一个与前一页相同的例子，唯一的区别是两个元素都设置了box-sizing：border-box;</p><p><img src="http://qiniu.xueshiming.cn/%E5%AD%A6%E4%B9%A0CSS%E5%B8%83%E5%B1%8004.png" alt="boxSize代码"></p><p>效果：</p><p><img src="http://qiniu.xueshiming.cn/%E5%AD%A6%E4%B9%A0CSS%E5%B8%83%E5%B1%8005.png" alt="效果"><br>既然没有比这更好的方法，一些CSS开发者想要页面上的元素都有如此的表现。所以开发者们，都把以下代码放在他们的页面上：</p><p><img src="http://qiniu.xueshiming.cn/%E5%AD%A6%E4%B9%A0CSS%E5%B8%83%E5%B1%8006.png" alt="直观的方式"></p><p>这样可以确保所有的元素都会用这种更直观的方式排版。</p><p>不过box-sizing是个很新的属性，目前你还应该像上面例子中那样使用 -webkit-<br>和-moz- 前缀。  这可以这个启用特定浏览器实验中的特性。同时记住它是支持IE8+的</p>]]></content>
-      
-      <categories>
-          
-          <category> 技巧 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> CSS </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>听罗胖聊天</title>
       <link href="/2017/09/02/%E5%90%AC%E7%BD%97%E8%83%96%E8%81%8A%E5%A4%A9/"/>
       <url>/2017/09/02/%E5%90%AC%E7%BD%97%E8%83%96%E8%81%8A%E5%A4%A9/</url>
@@ -543,6 +522,27 @@
         <tags>
             
             <tag> 思想 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>盒子模型</title>
+      <link href="/2017/09/02/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/"/>
+      <url>/2017/09/02/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/</url>
+      <content type="html"><![CDATA[<p>今天来聊聊box-sizing</p><p>盒模型：<br>当你设置了元素的宽度，实际展现的元素超出你的设置：<br>这是因为元素的边框和内边距会撑开元素。看下面的例子，<br>两个相同宽度的元素显示的实际宽度却不一样。</p><p><img src="http://qiniu.xueshiming.cn/%E5%AD%A6%E4%B9%A0CSS%E5%B8%83%E5%B1%8001.png" alt="代码"></p><p><img src="http://qiniu.xueshiming.cn/%E5%AD%A6%E4%B9%A0CSS%E5%B8%83%E5%B1%8002.png" alt="我小一些"></p><p><img src="http://qiniu.xueshiming.cn/%E5%AD%A6%E4%B9%A0CSS%E5%B8%83%E5%B1%8003.png" alt="我大一些"></p><p>以前有一个代代相传的解决方案是通过数学计算。CSS开发者需要用比他们实际想要的宽度小一点的宽度，需要减去内边距和边框的宽度。<br>值得庆幸是你不需要再这么做了…</p><p>Box-sizing:</p><p>人们慢慢地意识到传统的盒子模型不直接，所以他们新增了一个叫做box-sizing</p><p>的css属性。当你设置一个元素为box-sizings: border-box;时此元素的内边距和边框不会再增加它的宽度。<br>这里有一个与前一页相同的例子，唯一的区别是两个元素都设置了box-sizing：border-box;</p><p><img src="http://qiniu.xueshiming.cn/%E5%AD%A6%E4%B9%A0CSS%E5%B8%83%E5%B1%8004.png" alt="boxSize代码"></p><p>效果：</p><p><img src="http://qiniu.xueshiming.cn/%E5%AD%A6%E4%B9%A0CSS%E5%B8%83%E5%B1%8005.png" alt="效果"><br>既然没有比这更好的方法，一些CSS开发者想要页面上的元素都有如此的表现。所以开发者们，都把以下代码放在他们的页面上：</p><p><img src="http://qiniu.xueshiming.cn/%E5%AD%A6%E4%B9%A0CSS%E5%B8%83%E5%B1%8006.png" alt="直观的方式"></p><p>这样可以确保所有的元素都会用这种更直观的方式排版。</p><p>不过box-sizing是个很新的属性，目前你还应该像上面例子中那样使用 -webkit-<br>和-moz- 前缀。  这可以这个启用特定浏览器实验中的特性。同时记住它是支持IE8+的</p>]]></content>
+      
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CSS </tag>
             
         </tags>
       
