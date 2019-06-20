@@ -153,91 +153,65 @@
 <a id="more"></a>
 <p><strong>tips：</strong></p>
 <h4 id="nginx配置">nginx配置</h4>
-<ul>
-<li>
-<p>每次nginx配置完时，需要</p>
-<figure class="highlight plain"><figcaption><span>nginx restart```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">或</span><br><span class="line">```service nginx start</span><br></pre></td></tr></table></figure>
-<p>来重启nginx服务</p>
-<p>拓展：updating</p>
-</li>
-</ul>
-<h4 id="改写文件权限">改写文件权限</h4>
-  <figure class="highlight plain"><figcaption><span>chmod 777</span><a href="/etc/nginx/myssl```">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  在scp上传文件夹时候需要设置文件夹可写权限</span><br><span class="line"></span><br><span class="line">  我干脆权限设置最高(有些粗暴哈哈😀，但是不可取)</span><br><span class="line"></span><br><span class="line">  拓展：updating</span><br><span class="line"></span><br><span class="line">#### 找端口杀进程</span><br><span class="line"></span><br><span class="line">  这个问题我们经常遇到，但是想用的时候老是忘记，</span><br><span class="line">  ```lsof -i:9981``` 查找到 9981 端口对应的 ```pId: 22463</span><br></pre></td></tr></table></figure>
-<p>然后<figure class="highlight plain"><figcaption><span>-9 22463```，就可以了。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  拓展：updating</span><br><span class="line"></span><br><span class="line">#### 查看nginx的报错原因</span><br><span class="line"></span><br><span class="line">   查找```nginx``` ```log``` 文件查看报错信息```/var/log/nginx</span><br></pre></td></tr></table></figure></p>
+<p>每次nginx配置完时，都需要 <figure class="highlight plain"><figcaption><span>nginx restart``` 或 ```service nginx start```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">来重启nginx服务</span><br><span class="line">  </span><br><span class="line">拓展：updating</span><br><span class="line"></span><br><span class="line">#### 改写文件权限</span><br><span class="line"></span><br><span class="line">```sudo chmod 777 /etc/nginx/myssl``` ，在scp上传文件夹时候需要设置文件夹可写权限</span><br><span class="line"></span><br><span class="line">我干脆权限设置最高(有些粗暴哈哈😀，但是不可取)</span><br><span class="line"></span><br><span class="line">拓展：updating</span><br><span class="line"></span><br><span class="line">#### 找端口杀进程</span><br><span class="line"></span><br><span class="line">这个问题我们经常遇到，但是想用的时候总是忘记，</span><br><span class="line"></span><br><span class="line">```lsof -i:9981``` 查找到 9981 端口对应的 ```pId: 22463</span><br></pre></td></tr></table></figure></p>
+<p>然后<figure class="highlight plain"><figcaption><span>-9 22463```，就可以了。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">拓展：updating</span><br><span class="line"></span><br><span class="line">#### 查看nginx的报错原因</span><br><span class="line"></span><br><span class="line">查找 ```nginx```  ```log``` 文件查看报错信息  ```/var/log/nginx</span><br></pre></td></tr></table></figure></p>
 <h4 id="使项目持久运行在服务器上">使项目持久运行在服务器上</h4>
-<p>用screen保持项目在服务器上长久运行<br>
-<a href="https://www.jianshu.com/p/b24f597c0561" target="_blank" rel="noopener">戳这儿</a></p>
+<p>用screen保持项目在服务器上长久运行</p>
+<p><a href="https://www.jianshu.com/p/b24f597c0561" target="_blank" rel="noopener">戳这儿</a></p>
 <p>拓展：updating</p>
 <h4 id="保持ssh连接不断开">保持ssh连接不断开</h4>
 <p>经常遇到终端断开了ssh远程链接，然后终端卡顿，很是头疼</p>
-   <figure class="highlight vim"><figcaption><span>/etc/ssh/sshd_config``` 添加：</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">```ClientAliveInterva <span class="number">120</span></span><br></pre></td></tr></table></figure>
-   <figure class="highlight plain"><figcaption><span>720```重启sshd服务：</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">```systemctl restart sshd</span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><figcaption><span>/etc/ssh/sshd_config```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">添加：</span><br><span class="line"></span><br><span class="line">```ClientAliveInterva <span class="number">120</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>720```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">重启sshd服务：</span><br><span class="line"></span><br><span class="line">```systemctl restart sshd</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>第一句意思是服务端每间隔120s会向客户端发送一个空数据包，第二句表示服务器最大会发送720次,120*720=24小时，24小时期间连接是不会断开的</p>
 </blockquote>
-<h5 id="2018-01-22">2018-01-22</h5>
-<blockquote>
-<p>在windows下，下载<figure class="highlight plain"><figcaption><span>使用Xshell5p.exe 用来访问远程面板</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 在windows下面下好 tar.gz</span><br><span class="line">2. 上传文件 rz</span><br><span class="line">3. 解压文件 tar -xzvf jdk-8u25-linux-x64.tar.gz</span><br><span class="line">4. 进入当前用户目录  cd home/fisherman</span><br><span class="line">5. vi .bash -profile  编辑文件</span><br></pre></td></tr></table></figure></p>
-</blockquote>
+<h4 id="2018-01-22">2018-01-22</h4>
+<p>在windows下，下载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">使用Xshell5p.exe 用来访问远程面板</span><br><span class="line"></span><br><span class="line">1. 在windows下面下好 tar.gz</span><br><span class="line">2. 上传文件 rz</span><br><span class="line">3. 解压文件 tar -xzvf jdk-8u25-linux-x64.tar.gz</span><br><span class="line">4. 进入当前用户目录  cd home/fisherman</span><br><span class="line">5. vi .bash -profile  编辑文件</span><br></pre></td></tr></table></figure>
 <p>'JAVA_HOME=&quot;/home/fisherman/jdk1.8.0_25&quot;<br>
 CLASSPATH=&quot;$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib&quot;<br>
 PATH=&quot;$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOMR/bin&quot;</p>
-<pre><code>6. :wq退出
-7. source .bash_profile 命令生效
-8. java -version 查询java版本
-
-linux相关命令：
-
-eg:
-1. 压缩文件：
-
-tar zcvf secu.tar.gz tt
-
-将文件压缩到tt目录
-
-2. 每天一个linux命令：
-
-https://www.cnblogs.com/peida/archive/2012/12/05/2803591.html
-
-  - vim 中翻页：向上查找和向下查找字符串的命令是
-    - j --向下
-    - k-- 向上
-    - h--向左
-    - l--向右
-    - ctrlb--向上移动一屏
-    - ctrlf--向下移动一屏
-    - 上下左右箭头也可以
-  - 启动linuxshell的时候，stdin.stdout,stderr,三个文件描述符会自动打开，他们的值分别是：标准输入，标准输出、标准错误
-  - 为脚本程序添加执行权限的命令及参数：chmod a+x filename
-  - 用八进制表示权限：
-    - r--4 w--2  x--1
-
-         eg::
-    r--r--r--   444
-
-     drw------   600
-  - 对权限的参考博文：
-     https://blog.csdn.net/sinat_35209943/article/details/52449743
-一 、 xshell 连到 远程服务器
-
-![连接远程服务器](http://qiniu.xueshiming.cn/clipboard.png)
-
-- 输入远程服务器的ip：
-
-![服务器ip](http://qiniu.xueshiming.cn/clipboard2.png)
-
-
-- 输入用户名和密码，就登录成功了
-
-![填写自己的用户名](http://qiniu.xueshiming.cn/clipboard3.png)
-
-  然后可以  修改用户名密码：
-  useradd fisherman &amp;&amp; echo 123456 | passwd --stdin fisherman
-
-  fisherman--自己的用户名：
-   mark
-</code></pre>
-</section>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">6. :wq退出</span><br><span class="line">7. source .bash_profile 命令生效</span><br><span class="line">8. java -version 查询java版本</span><br><span class="line"></span><br><span class="line">linux相关命令：</span><br><span class="line"></span><br><span class="line">- 压缩文件：</span><br><span class="line"></span><br><span class="line">```tar zcvf secu.tar.gz tt</span><br></pre></td></tr></table></figure>
+<p>将文件压缩到tt目录</p>
+<ul>
+<li>每天一个linux命令：</li>
+</ul>
+<p><a href="https://www.cnblogs.com/peida/archive/2012/12/05/2803591.html" target="_blank" rel="noopener">叮</a></p>
+<ul>
+<li>vim 中翻页：</li>
+</ul>
+<p>向上查找和向下查找字符串的命令是</p>
+<blockquote>
+<p>j–向下<br>
+k-- 向上<br>
+h–向左<br>
+l–向右<br>
+ctrlb–向上移动一屏<br>
+ctrlf–向下移动一屏<br>
+上下左右箭头也可以</p>
+</blockquote>
+<ul>
+<li>启动linuxshell的时候，stdin.stdout,stderr,三个文件描述符会自动打开，他们的值分别是：标准输入，标准输出、标准错误</li>
+<li>为脚本程序添加执行权限的命令及参数：chmod a+x filename</li>
+<li>用八进制表示权限：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">r--4 w--2  x--1</span><br><span class="line">r--r--r--   444</span><br><span class="line">drw------   600</span><br></pre></td></tr></table></figure>
+<ul>
+<li>对权限的参考博文：</li>
+</ul>
+<p><a href="https://blog.csdn.net/sinat_35209943/article/details/52449743" target="_blank" rel="noopener">传送门</a></p>
+<h4 id="xshell-连到-远程服务器">xshell 连到 远程服务器</h4>
+<p><img src="http://qiniu.xueshiming.cn/clipboard.png" alt="连接远程服务器"></p>
+<ul>
+<li>输入远程服务器的ip：</li>
+</ul>
+<p><img src="http://qiniu.xueshiming.cn/clipboard2.png" alt="服务器ip"></p>
+<ul>
+<li>输入用户名和密码，就登录成功了</li>
+</ul>
+<p><img src="http://qiniu.xueshiming.cn/clipboard3.png" alt="填写自己的用户名"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">然后可以  修改用户名密码：</span><br><span class="line">useradd fisherman &amp;&amp; echo 123456 | passwd --stdin fisherman</span><br><span class="line">fisherman--自己的用户名：mark</span><br></pre></td></tr></table></figure></section>
     <!-- Tags START -->
     
       <div class="tags">
@@ -307,7 +281,7 @@ https://www.cnblogs.com/peida/archive/2012/12/05/2803591.html
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#nginx配置"><span class="toc-nav-text">nginx配置</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#改写文件权限"><span class="toc-nav-text">改写文件权限</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#使项目持久运行在服务器上"><span class="toc-nav-text">使项目持久运行在服务器上</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#保持ssh连接不断开"><span class="toc-nav-text">保持ssh连接不断开</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#2018-01-22"><span class="toc-nav-text">2018-01-22</span></a></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#nginx配置"><span class="toc-nav-text">nginx配置</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#使项目持久运行在服务器上"><span class="toc-nav-text">使项目持久运行在服务器上</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#保持ssh连接不断开"><span class="toc-nav-text">保持ssh连接不断开</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2018-01-22"><span class="toc-nav-text">2018-01-22</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#xshell-连到-远程服务器"><span class="toc-nav-text">xshell 连到 远程服务器</span></a></li></ol>
     
   </div>
 </aside>
