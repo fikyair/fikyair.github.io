@@ -178,7 +178,7 @@
 <blockquote>
 <p>第一句意思是服务端每间隔120s会向客户端发送一个空数据包，第二句表示服务器最大会发送720次,120*720=24小时，24小时期间连接是不会断开的</p>
 </blockquote>
-<h4 id="2018-01-22">2018-01-22</h4>
+<h4 id="2017-11-22">2017-11-22</h4>
 <p>在windows下，下载<code>jdk-8u25-linux-64.tar.gz</code></p>
 <p>使用<code>Xshell5p.exe</code>用来访问远程面板</p>
 <ol>
@@ -189,9 +189,9 @@
 <li>vi .bash -profile  编辑文件</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CLASSPATH=&quot;$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib&quot;</span><br><span class="line">PATH=&quot;$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOMR/bin&quot;</span><br></pre></td></tr></table></figure>
-<p>:wq退出</p>
-<p>source .bash_profile 命令生效</p>
-<p>java -version 查询java版本</p>
+<p><code>:wq!</code>退出</p>
+<p><code>source .bash_profile</code>命令生效</p>
+<p><code>java -version</code> 查询java版本</p>
 <p>linux相关命令：</p>
 <ul>
 <li>压缩文件：</li>
@@ -208,19 +208,19 @@
 </ul>
 <p>向上查找和向下查找字符串的命令是</p>
 <blockquote>
-<p>j–向下<br>
-k-- 向上<br>
-h–向左<br>
-l–向右<br>
-ctrlb–向上移动一屏<br>
-ctrlf–向下移动一屏<br>
+<p>j-向下<br>
+k-向上<br>
+h-向左<br>
+l-向右<br>
+ctrlb-向上移动一屏<br>
+ctrlf-向下移动一屏<br>
 上下左右箭头也可以</p>
 </blockquote>
-<ul>
+<ol>
 <li>启动linuxshell的时候，stdin.stdout,stderr,三个文件描述符会自动打开，他们的值分别是：标准输入，标准输出、标准错误</li>
 <li>为脚本程序添加执行权限的命令及参数：chmod a+x filename</li>
 <li>用八进制表示权限：</li>
-</ul>
+</ol>
 <figure class="highlight plain"><figcaption><span>w--2  x--1</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">r--r--r--   444</span><br><span class="line">drw------   600</span><br></pre></td></tr></table></figure>
 <ul>
 <li>对权限的参考博文：</li>
@@ -307,7 +307,7 @@ ctrlf–向下移动一屏<br>
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#nginx配置"><span class="toc-nav-text">nginx配置</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#改写文件权限"><span class="toc-nav-text">改写文件权限</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#找端口杀进程"><span class="toc-nav-text">找端口杀进程</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#查看nginx的报错原因"><span class="toc-nav-text">查看nginx的报错原因</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#使项目持久运行在服务器上"><span class="toc-nav-text">使项目持久运行在服务器上</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#保持ssh连接不断开"><span class="toc-nav-text">保持ssh连接不断开</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2018-01-22"><span class="toc-nav-text">2018-01-22</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#xshell-连到-远程服务器"><span class="toc-nav-text">xshell 连到 远程服务器</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#nginx配置"><span class="toc-nav-text">nginx配置</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#改写文件权限"><span class="toc-nav-text">改写文件权限</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#找端口杀进程"><span class="toc-nav-text">找端口杀进程</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#查看nginx的报错原因"><span class="toc-nav-text">查看nginx的报错原因</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#使项目持久运行在服务器上"><span class="toc-nav-text">使项目持久运行在服务器上</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#保持ssh连接不断开"><span class="toc-nav-text">保持ssh连接不断开</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2017-11-22"><span class="toc-nav-text">2017-11-22</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#xshell-连到-远程服务器"><span class="toc-nav-text">xshell 连到 远程服务器</span></a></li></ol>
     
   </div>
 </aside>
