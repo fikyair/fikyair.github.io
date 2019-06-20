@@ -201,28 +201,27 @@
 <li>
 <p><code>tar zcvf secu.tar.gz tt</code>将文件压缩到tt目录</p>
 </li>
-<li>
-<p>启动linuxshell的时候，stdin.stdout,stderr,三个文件描述符会自动打开，他们的值分别是：标准输入，标准输出、标准错误</p>
-</li>
-<li>
-<p>为脚本程序添加执行权限的命令及参数：chmod a+x filename</p>
-</li>
-<li>
-<p>用八进制表示权限：</p>
-</li>
+</ol>
+<ol start="10">
+<li>启动<code>linuxshell</code>的时候，<code>stdin</code>,<code>stdout</code>,<code>stderr</code>,三个文件描述符会自动打开，他们的值分别是：标准输入，标准输出、标准错误</li>
+<li>为脚本程序添加执行权限的命令及参数：chmod a+x filename</li>
+<li>用八进制表示权限：</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">r--4 w--2  x--1</span><br><span class="line">r--r--r--   444</span><br><span class="line">drw------   600</span><br></pre></td></tr></table></figure>
 <h4 id="xshell-连到-远程服务器">xshell 连到 远程服务器</h4>
 <p><img src="http://qiniu.xueshiming.cn/clipboard.png" alt="连接远程服务器"></p>
-<ul>
+<ol>
 <li>输入远程服务器的ip：</li>
-</ul>
+</ol>
 <p><img src="http://qiniu.xueshiming.cn/clipboard2.png" alt="服务器ip"></p>
-<ul>
+<ol start="2">
 <li>输入用户名和密码，就登录成功了</li>
-</ul>
+</ol>
 <p><img src="http://qiniu.xueshiming.cn/clipboard3.png" alt="填写自己的用户名"></p>
-<figure class="highlight plain"><figcaption><span>修改用户名密码：</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useradd fisherman &amp;&amp; echo 123456 | passwd --stdin fisherman</span><br><span class="line">fisherman--自己的用户名：mark</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>然后可以修改用户名密码</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useradd fisherman &amp;&amp; echo 123456 | passwd --stdin fisherman</span><br><span class="line">fisherman--自己的用户名：mark</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>每天一个linux命令：<a href="https://www.cnblogs.com/peida/archive/2012/12/05/2803591.html" target="_blank" rel="noopener">叮</a><br>
 对权限的参考: <a href="https://blog.csdn.net/sinat_35209943/article/details/52449743" target="_blank" rel="noopener">传送门</a></p>
