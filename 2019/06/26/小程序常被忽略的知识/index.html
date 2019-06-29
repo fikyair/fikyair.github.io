@@ -165,25 +165,25 @@
 所以元素频繁切换的话，使用<code>hidden</code></p>
 <h4 id="wxml支持文件引用">wxml支持文件引用</h4>
 <p><code>import</code>： 只能引用我们定义模板文件的模板内容块</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/6/26/16b91aa538eae850?w=1244&amp;h=256&amp;f=png&amp;s=208573" alt=""><br>
+<p><img src="http://qiniu.xueshiming.cn/1" alt=""><br>
 作用域的概念：只能引用目标文件定义的<code>template</code>模板，如果目标文件内嵌套了其他模板，是不会被引用的，避免了引用模板死循环的问题</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/6/26/16b91aac1f25e325?w=1240&amp;h=394&amp;f=png&amp;s=303158" alt=""><br>
+<p><img src="http://qiniu.xueshiming.cn/2" alt=""><br>
 <code>include</code> : 把目标 文件内除了模板代码块外的 所有代码都引入，相当于拷贝到了<code>include</code>位置这里</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/6/26/16b91ab2b15d271e?w=1240&amp;h=334&amp;f=png&amp;s=223402" alt=""></p>
+<p><img src="http://qiniu.xueshiming.cn/3" alt=""></p>
 <h4 id="wxss和css对比">Wxss和css对比</h4>
-<p><img src="https://user-gold-cdn.xitu.io/2019/6/26/16b91ac0d6bb30db?w=1132&amp;h=590&amp;f=png&amp;s=328693" alt=""></p>
+<p><img src="http://qiniu.xueshiming.cn/4" alt=""></p>
 <blockquote>
 <p>尺寸单位rpx</p>
 </blockquote>
 <p>先了解几个概念：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/6/26/16b91ac48db15d6b?w=1216&amp;h=576&amp;f=png&amp;s=344358" alt=""></p>
+<p><img src="http://qiniu.xueshiming.cn/5" alt=""></p>
 <ul>
 <li><code>设备像素</code>： 设备能控制的显示的最小物理单位<br>
 这个最小物理单位是屏幕上一个个点，点是固定不变的</li>
 <li><code>CSS像素</code>：外部编程的概念，css代码中使用的逻辑像素</li>
 <li><code>PPI/DPI</code>：每英寸拥有的像素数目</li>
 </ul>
-<p><img src="https://user-gold-cdn.xitu.io/2019/6/26/16b91ad801f66adf?w=864&amp;h=310&amp;f=png&amp;s=81238" alt=""></p>
+<p><img src="http://qiniu.xueshiming.cn/6" alt=""></p>
 <ul>
 <li><code>DPR</code>：手机的某一方向上设备像素和css像素之比</li>
 </ul>
@@ -205,7 +205,7 @@
 <p>选择器</p>
 </blockquote>
 <p><strong>优先级</strong></p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/6/26/16b91b0181fff39c?w=550&amp;h=385&amp;f=png&amp;s=90308" alt=""><br>
+<p><img src="http://qiniu.xueshiming.cn/7" alt=""><br>
 一般想要修改他人插件样式的时候使用<code>!import</code></p>
 <hr>
 <h3 id="小程序运行机制">小程序运行机制</h3>
@@ -231,7 +231,7 @@
 <hr>
 <h3 id="小程序加载机制：">小程序加载机制：</h3>
 <p>小程序的启动流程图里面：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/6/26/16b91a7f88f7b72e?w=1408&amp;h=716&amp;f=png&amp;s=217997" alt=""><br>
+<p><img src="http://qiniu.xueshiming.cn/8" alt=""><br>
 左侧的部分是在启动的时候，微信客户端里面的视图层和逻辑层一些交互逻辑以及数据缓存的存取操作，在小程序启动的时候，会向<code>cdn</code>请求最新代码包，第一次启动必须等到代码包下载完毕，注入到<code>webView</code>容器内执行之后，才能看到小程序页面，所以在网络不好的情况下，我们会感觉到页面打开比较慢，客户端会帮我们把代码包缓存到本地，当我们下一次启动的时候，我们会从 <code>cdn</code> 请求是否有最新版本的代码包。</p>
 <hr>
 <h3 id="小程序应用和页面的生命周期：">小程序应用和页面的生命周期：</h3>
@@ -254,10 +254,10 @@
 如果关闭当前页，会触发<code>onUnload</code></p>
 <p>负责页面视图的<code>view</code>线程和处理数据的服务以及服务的服务线程，<code>AppService</code>，<br>
 协同完成生命周期周期调用</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/6/26/16b91a8d3f4f3009?w=1242&amp;h=624&amp;f=png&amp;s=417079" alt=""></p>
+<p><img src="http://qiniu.xueshiming.cn/9" alt=""></p>
 <hr>
 <h3 id="小程序事件模型">小程序事件模型</h3>
-<p><img src="https://user-gold-cdn.xitu.io/2019/6/26/16b91a94f8971cce?w=1230&amp;h=546&amp;f=png&amp;s=371450" alt=""></p>
+<p><img src="http://qiniu.xueshiming.cn/10" alt=""></p>
 <h5 id="1-事件捕获阶段">1. 事件捕获阶段</h5>
 <p>绑定的事件从最外层节点向下传递到目标节点元素，依次检查，所经过的节点是否绑定了同一事件类型的监听回调函数，如果有则执行对应的事件回调函数</p>
 <h5 id="2-事件处理阶段">2. 事件处理阶段</h5>
@@ -267,7 +267,7 @@
 <p><code>target</code>属性： 触发事件的当前组件<br>
 <code>currentTarget</code>属性： 触发事件的根源组件</p>
 <p><code>eg:</code> 如果有外层<code>view</code>还有个里层<code>view</code>嵌套，都通过<code>bind</code>绑定了点击事件，<code>target</code>为外层<code>view</code>组件的事件对象,<code>currentTarget</code>为底层<code>view</code>组件的事件对象</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/6/26/16b918c12620e133?w=415&amp;h=166&amp;f=png&amp;s=44278" alt=""></p>
+<p><img src="http://qiniu.xueshiming.cn/11" alt=""></p>
 <ul>
 <li><code>type</code> 触发事件的触发类型</li>
 <li><code>timestamp</code> 触发事件的时间戳</li>
