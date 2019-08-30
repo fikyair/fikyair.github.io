@@ -158,9 +158,9 @@ previous, current, index, array，之前值，当前值，索引，数组本身�
 <li>initialValue：可选，表示初始值，如果指定initialValue，则作为初始时previous的值，如果缺省，数组得第一个元素为previous值，第二个元素为current。</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1, 2, 3, 4, 5];</span><br><span class="line">var sum = arr.reduce(function(previous, current, index, array)&#123;</span><br><span class="line">return previous + current;</span><br><span class="line">&#125;);</span><br><span class="line">console.log(sum); // 15</span><br><span class="line"></span><br><span class="line">过程展开如下：</span><br><span class="line">// 初始：</span><br><span class="line">previous = initialValue = 1, current = 2;</span><br><span class="line">// 第一次迭代 之后</span><br><span class="line">previous = 1 + 2 = 3, current = 3;//current 向后移动一个元素</span><br><span class="line">// 第二次迭代之后</span><br><span class="line">previous = 3 + 3 = 6, current = 4;</span><br><span class="line">// 第三次迭代之后</span><br><span class="line">previous = 6 + 4 = 10, current = 5;</span><br><span class="line">// 第四次迭代之后</span><br><span class="line">previous = 10 + 5 = 15 ,current = undefined// 没有了，退出，返回15；</span><br></pre></td></tr></table></figure>
-<p>拓展：reduceRight()<br>
-和reduce类似，只不过从数组结尾开始，从右向左迭代。</p>
-<p>应用：</p>
+<h4 id="拓展：reduceright">拓展：reduceRight()</h4>
+<p>和reduce类似，只不过从数组结尾开始，从右向左迭代。</p>
+<h4 id="应用：">应用：</h4>
 <ul>
 <li>json数组去重</li>
 </ul>
@@ -246,7 +246,7 @@ previous, current, index, array，之前值，当前值，索引，数组本身�
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#reduce"><span class="toc-nav-text">reduce ( )</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#reduce"><span class="toc-nav-text">reduce ( )</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#拓展：reduceright"><span class="toc-nav-text">拓展：reduceRight()</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#应用："><span class="toc-nav-text">应用：</span></a>
     
   </div>
 </aside>
