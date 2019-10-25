@@ -10,7 +10,7 @@
   
   <title>
     
-      节流与防抖 | Ignite
+      react中props和state有什么区别? | Ignite
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -138,8 +138,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>节流与防抖</h2>
-  <p class="post-date">2019-09-17</p>
+  <h2>react中props和state有什么区别?</h2>
+  <p class="post-date">2019-10-25</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -147,14 +147,39 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"></section>
+    <section class="markdown-content"><blockquote>
+<p>props和state之间的确切区别是什么？理解它们的工作原理相当容易，尤其是在上下文中查看时，但是从概念上理解它们也有些困难。一开始令人困惑，因为它们都具有抽象术语，并且它们的值看起来相同，但是它们也具有不同的作用。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="setstate-实际做了什么？">setState 实际做了什么？</h3>
+<p><code>setState()</code>会对一个组件的 state 对象安排一次更新。当 <code>state</code> 改变了，该组件就会重新渲染。</p>
+<h3 id="state-和-props-之间的区别是什么？">state 和 props 之间的区别是什么？</h3>
+<p><code>props（“properties” 的缩写）</code>和 <code>state</code> 都是普通的 <code>JavaScript</code> 对象。它们都是用来保存信息的，这些信息可以控制组件的渲染输出，而它们的一个重要的不同点就是：<code>props</code> 是传递给组件的（类似于函数的形参），而 <code>state</code> 是在组件内被组件自己管理的（类似于在一个函数内声明的变量）。</p>
+<h3 id="为什么-setstate-给了我一个错误的值？">为什么 setState 给了我一个错误的值？</h3>
+<p>在 <code>React</code> 中，<code>this.props</code> 和 <code>this.state</code> 都代表着已经被渲染了的值，即当前屏幕上显示的值。</p>
+<p>调用 <code>setState</code> 其实是异步的 —— 不要指望在调用 <code>setState</code> 之后，<code>this.state</code> 会立即映射为新的值。如果你需要基于当前的 <code>state</code> 来计算出新的值，那你应该传递一个函数，而不是一个对象（详情见下文）。</p>
+<p>代码不会像预期那样运行的示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">incrementCount() &#123;</span><br><span class="line">  // 注意：这样 *不会* 像预期的那样工作。</span><br><span class="line">  this.setState(&#123;count: this.state.count + 1&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">handleSomething() &#123;</span><br><span class="line">  // 假设 `this.state.count` 从 0 开始。</span><br><span class="line">  this.incrementCount();</span><br><span class="line">  this.incrementCount();</span><br><span class="line">  this.incrementCount();</span><br><span class="line">  // 当 React 重新渲染该组件时，`this.state.count` 会变为 1，而不是你期望的 3。</span><br><span class="line"></span><br><span class="line">  // 这是因为上面的 `incrementCount()` 函数是从 `this.state.count` 中读取数据的，</span><br><span class="line">  // 但是 React 不会更新 `this.state.count`，直到该组件被重新渲染。</span><br><span class="line">  // 所以最终 `incrementCount()` 每次读取 `this.state.count` 的值都是 0，并将它设为 1。</span><br><span class="line"></span><br><span class="line">  // 问题的修复参见下面的说明。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>那么应该如何更新那些依赖于当前的 <code>state</code> 的 <code>state</code> 呢？</p>
+</blockquote>
+<p>给 <code>setState</code> 传递一个函数，而不是一个对象，就可以确保每次的调用都是使用最新版的 <code>state</code>。</p>
+<blockquote>
+<p>给 setState 传递一个对象与传递一个函数的区别是什么？</p>
+</blockquote>
+<p>传递一个函数可以让你在函数内访问到当前的 <code>state</code> 的值。因为 <code>setState</code> 的调用是分批的，所以你可以链式地进行更新，并确保它们是一个建立在另一个之上的，这样才不会发生冲突：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">incrementCount() &#123;</span><br><span class="line">  this.setState((state) =&gt; &#123;</span><br><span class="line">    // 重要：在更新的时候读取 `state`，而不是 `this.state`。</span><br><span class="line">    return &#123;count: state.count + 1&#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">handleSomething() &#123;</span><br><span class="line">  // 假设 `this.state.count` 从 0 开始。</span><br><span class="line">  this.incrementCount();</span><br><span class="line">  this.incrementCount();</span><br><span class="line">  this.incrementCount();</span><br><span class="line"></span><br><span class="line">  // 如果你现在在这里读取 `this.state.count`，它还是会为 0。</span><br><span class="line">  // 但是，当 React 重新渲染该组件时，它会变为 3。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="setstate-什么时候是异步的？">setState 什么时候是异步的？</h3>
+<p>目前，在事件处理函数内部的 <code>setState</code> 是异步的。（V16.10）</p>
+<p>例如，如果 <code>Parent</code> 和 <code>Child</code> 在同一个 <code>click</code> 事件中都调用了 <code>setState</code> ，这样就可以确保 <code>Child</code> <code>不会被重新渲染两次。取而代之的是，React</code> 会将该 <code>state</code> “冲洗” 到浏览器事件结束的时候，再统一地进行更新。这种机制可以在大型应用中得到很好的性能提升</p>
+</section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#JavaScript" >
-    <span class="tag-code">JavaScript</span>
+  <a href="/tags#React" >
+    <span class="tag-code">React</span>
   </a>
 
       </div>
@@ -165,20 +190,13 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2019/08/25/神奇的reduce/">
+      <a class="nav-left" href="/2019/09/17/节流与防抖/">
         <span class="nav-arrow">← </span>
         
-          神奇的reduce
+          节流与防抖
         
       </a>
     
-    
-      <a class="nav-right" href="/2019/10/25/react中props和state有什么区别？/">
-        
-          react中props和state有什么区别?
-        
-        <span class="nav-arrow"> →</span>
-      </a>
     
   </div>
 
@@ -224,7 +242,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="nav">none</ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#setstate-实际做了什么？"><span class="toc-nav-text">setState 实际做了什么？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#state-和-props-之间的区别是什么？"><span class="toc-nav-text">state 和 props 之间的区别是什么？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#为什么-setstate-给了我一个错误的值？"><span class="toc-nav-text">为什么 setState 给了我一个错误的值？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#setstate-什么时候是异步的？"><span class="toc-nav-text">setState 什么时候是异步的？</span></a></li></ol>
     
   </div>
 </aside>
@@ -234,7 +252,7 @@
 
 <script>
   (function () {
-    var url = 'http://xueshiming.cn/2019/09/17/节流与防抖/';
+    var url = 'http://xueshiming.cn/2019/10/25/react中props和state有什么区别？/';
     var banner = 'undefined'
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -290,7 +308,7 @@
     var gitmentConfig = "Ignite";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "节流与防抖",
+        id: "react中props和state有什么区别?",
         owner: "Ignite",
         repo: "fikyair.github.io",
         oauth: {
@@ -318,7 +336,7 @@
 <script>
   var disqus_shortname = 'https-xueshiming-cn';
   
-  var disqus_url = 'http://xueshiming.cn/2019/09/17/节流与防抖/';
+  var disqus_url = 'http://xueshiming.cn/2019/10/25/react中props和state有什么区别？/';
   
   (function(){
     var dsq = document.createElement('script');
