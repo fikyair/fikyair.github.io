@@ -154,7 +154,21 @@
 <h3 id="setstate-实际做了什么？">setState 实际做了什么？</h3>
 <p><code>setState()</code>会对一个组件的 state 对象安排一次更新。当 <code>state</code> 改变了，该组件就会重新渲染。</p>
 <h3 id="state-和-props-之间的区别是什么？">state 和 props 之间的区别是什么？</h3>
-<p><code>props（“properties” 的缩写）</code>和 <code>state</code> 都是普通的 <code>JavaScript</code> 对象。它们都是用来保存信息的，这些信息可以控制组件的渲染输出，而它们的一个重要的不同点就是：<code>props</code> 是传递给组件的（类似于函数的形参），而 <code>state</code> 是在组件内被组件自己管理的（类似于在一个函数内声明的变量）。</p>
+<p><code>props（“properties” 的缩写）</code>和 <code>state</code> 都是普通的 <code>JavaScript</code> 对象。它们都是用来保存信息的，这些信息可以控制组件的渲染输出，而它们的一个重要的不同点就是：</p>
+<ul>
+<li>
+<p><code>props</code> 是传递给组件的（类似于函数的形参），而 <code>state</code> 是在组件内被组件自己管理的（类似于在一个函数内声明的变量）。</p>
+</li>
+<li>
+<p><code>props</code> 是不可修改的，所有 <code>React</code> 组件都必须像纯函数一样保护它们的 <code>props</code> 不被更改。 由于 <code>props</code> 是传入的，并且它们不能更改，因此我们可以将任何仅使用 <code>props</code> 的 <code>React</code> 组件视为 <code>pureComponent</code>，也就是说，在相同的输入下，它将始终呈现相同的输出。</p>
+</li>
+<li>
+<p><code>state</code> 是在组件中创建的，一般在 <code>constructor</code>中初始化 <code>state</code></p>
+</li>
+<li>
+<p><code>state</code> 是多变的、可以修改，每次<code>setState</code>都异步更新的。</p>
+</li>
+</ul>
 <h3 id="为什么-setstate-给了我一个错误的值？">为什么 setState 给了我一个错误的值？</h3>
 <p>在 <code>React</code> 中，<code>this.props</code> 和 <code>this.state</code> 都代表着已经被渲染了的值，即当前屏幕上显示的值。</p>
 <p>调用 <code>setState</code> 其实是异步的 —— 不要指望在调用 <code>setState</code> 之后，<code>this.state</code> 会立即映射为新的值。如果你需要基于当前的 <code>state</code> 来计算出新的值，那你应该传递一个函数，而不是一个对象（详情见下文）。</p>
