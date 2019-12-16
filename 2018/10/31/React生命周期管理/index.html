@@ -245,6 +245,7 @@
 componentWillReceiveProps（ getDerivedStateFromProps + componentDidUpdate ） 等生命周期方法在下个主版本中会被废弃?<br>
 根据这份<a href="https://github.com/reactjs/rfcs/blob/master/text/0006-static-lifecycle-methods.md" target="_blank" rel="noopener">RFC</a>，是的，这些生命周期方法被认为是不安全的，在React16中被重命名为 UNSAFE_componentWillMount，UNSAFE_componentWillUpdate，UNSAFE_componentWillReceiveProps，而在更下个大版本中他们会被废弃。详见<a href="https://reactjs.org/blog/2018/03/29/react-v-16-3.html" target="_blank" rel="noopener">React 16.3版本发布公告</a>。</p>
 <p><a href="https://www.html.cn/qa/react/14367.html" target="_blank" rel="noopener">为什么废弃</a>？从上面的生命周期的图中可以看出，被废弃的三个函数都是在render之前，因为fiber的出现，很可能因为高优先级任务的出现而打断现有任务导致它们会被执行多次。</p>
+<p><a href="https://juejin.im/post/5ae6cd96f265da0b9c106931" target="_blank" rel="noopener">React v16.3 版本新生命周期函数浅析及升级方案</a></p>
 <h3 id="总结">总结</h3>
 <p>总结一下，以上讲的这些生命周期都有自己存在的意义，但在 React 使用过程中我们最常用到的生命周期函数是如下几个:</p>
 <ul>
