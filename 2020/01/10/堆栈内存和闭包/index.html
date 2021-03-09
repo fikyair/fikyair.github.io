@@ -10,7 +10,7 @@
   
   <title>
     
-      react中props和state有什么区别? | Ignite
+      堆栈内存和闭包 | Ignite
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -138,8 +138,8 @@
 </header>
 
     <div id="article-banner">
-  <h2>react中props和state有什么区别?</h2>
-  <p class="post-date">2019-10-25</p>
+  <h2>堆栈内存和闭包</h2>
+  <p class="post-date">2020-01-10</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -147,53 +147,69 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><blockquote>
-<p>props和state之间的确切区别是什么？理解它们的工作原理相当容易，尤其是在上下文中查看时，但是从概念上理解它们也有些困难。一开始令人困惑，因为它们都具有抽象术语，并且它们的值看起来相同，但是它们也具有不同的作用。</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="setstate-实际做了什么？">setState 实际做了什么？</h3>
-<p><code>setState()</code>会对一个组件的 state 对象安排一次更新。当 <code>state</code> 改变了，该组件就会重新渲染。</p>
-<h3 id="state-和-props-之间的区别是什么？">state 和 props 之间的区别是什么？</h3>
-<p><code>props（“properties” 的缩写）</code>和 <code>state</code> 都是普通的 <code>JavaScript</code> 对象。它们都是用来保存信息的，这些信息可以控制组件的渲染输出，而它们的一个重要的不同点就是：</p>
+    <section class="markdown-content"><h2 id="ecstack">ECStack</h2>
+<pre><code>&gt;当我们浏览器加载页面的时候，浏览器会形成一个能够供代码执行的环境 ，叫 ECStack （栈内存）
+</code></pre>
+<h2 id="ec">EC</h2>
+<pre><code>&gt;Execution Context: 包括 全局执行上下文，函数执行上下文，`Eval` 函数执行上下文（指的是运行在 `eval` 函数中的代码，很少用而且不建议使用）
+</code></pre>
+<h2 id="ec-g">EC(G)</h2>
+<pre><code>&gt;Execution Global：全局执行上下文，只有一个，浏览器中的全局对象（GO）就是 window 对象，this 指向这个全局对象
+</code></pre>
+<h2 id="go">GO</h2>
+<pre><code>&gt;Global Object：全局对象
+</code></pre>
+<h2 id="ao">AO</h2>
+<pre><code>&gt;Activation Object: 活动对象
+</code></pre>
+<h2 id="vo">VO</h2>
+<pre><code>&gt;Variable object 变量对象
+</code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params">y</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> x = <span class="number">2</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">B</span>(<span class="params">z</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(x +y +z)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> B</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> C = A(<span class="number">2</span>);</span><br><span class="line">C(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="闭包的形成">闭包的形成</h2>
+<p>1、当我们浏览器加载页面的时候，浏览器会形成一个能够供代码执行的环境 ，叫 <code>ECStack(执行栈)</code><br>
+然后在一个 <code>EC(GLOBAL)</code> 全局执行上下文中创建 GO 全局对象 并且 进栈执行，压入栈底。</p>
+<p>2、在 <code>EC(GLOBAL)</code> 中 创建 <code>VO(G)</code>：<br>
+当遇到一个函数 <code>A</code> 声明时：保存函数变量<br>
+然后创建一个堆，将函数体内代码当做代码字符串你存储起来<br>
+初始化当前函数作用域 <code>[[scope]]</code> 为 所在（EC）上下文中的变量对象 VO/AO</p>
+<p>3、当 <code>A</code> 执行的时候，形成一个函数执行上下文 <code>EC(A)</code>，<code>EC(A)</code> 中包含一个 <code>AO(A)</code>，<br>
+压缩到栈 <code>ECStack</code> 里执行，<br>
+初始化内置实参集合 <code>arguments</code>，创建形参变量并赋值，变量提升<br>
+初始化 <code>this</code> 指向<br>
+初始化 <code>[[scopeChain]]:&lt;VO(G)&gt;</code></p>
+<p>4、初始化内置实参集合 <code>arguments</code>，创建形参变量并赋值<br>
+在 EC(A函数) 中遇到 A中 B函数的声明，就再创建一个堆，指向 B 函数，<br>
+<code>B[[scope]] = AO(A)</code></p>
+<p>因为 B 执行的返回值 赋值给了 C，全局变量 C 占用了 <code>EC(A)</code> 中B的堆，<br>
+A函数 所以不能出栈， <code>EC(A)</code> 不能释放，这就形成了闭包</p>
+<p>5、C 函数执行，形成 <code>EC(C)</code>, this 指向 window, <code>[[scopeChain]: AO(A)]</code></p>
+<p>形成作用域链：  AO(A) -&gt; VO(G) -&gt; GO</p>
+<h2 id="闭包的形成总结">闭包的形成总结</h2>
+<p>1、函数在创建的时候：</p>
 <ul>
-<li>
-<p><code>props</code> 是传递给组件的（类似于函数的形参），而 <code>state</code> 是在组件内被组件自己管理的（类似于在一个函数内声明的变量）。</p>
-</li>
-<li>
-<p><code>props</code> 是不可修改的，所有 <code>React</code> 组件都必须像纯函数一样保护它们的 <code>props</code> 不被更改。 由于 <code>props</code> 是传入的，并且它们不能更改，因此我们可以将任何仅使用 <code>props</code> 的 <code>React</code> 组件视为 <code>pureComponent</code>，也就是说，在相同的输入下，它将始终呈现相同的输出。</p>
-</li>
-<li>
-<p><code>state</code> 是在组件中创建的，一般在 <code>constructor</code>中初始化 <code>state</code></p>
-</li>
-<li>
-<p><code>state</code> 是多变的、可以修改，每次<code>setState</code>都异步更新的。</p>
+<li>创建一个堆（将函数体内的代码当做代码字符串存储起来 和  对应的键值对{length: 形参个数，name: 函数名，prototype: 原型}）</li>
+<li>初始化当前函数作用域[[scope]] = 所在（EC）上下文中的变量对象VO/AO</li>
+</ul>
+<p>2、函数执行的时候：</p>
+<ul>
+<li>创建一个新的执行上下文EC(压缩到栈ECStack里执行)</li>
+<li>初始化 this 指向</li>
+<li>初始化作用域链 <code>[[scopeChain]]:&lt;xxx&gt;</code></li>
+<li>创建AO变量对象来存储变量
+<ul>
+<li><code>==&gt; arguments ==&gt; 形参 ==&gt; 代码执行</code></li>
+</ul>
 </li>
 </ul>
-<h3 id="为什么-setstate-给了我一个错误的值？">为什么 setState 给了我一个错误的值？</h3>
-<p>在 <code>React</code> 中，<code>this.props</code> 和 <code>this.state</code> 都代表着已经被渲染了的值，即当前屏幕上显示的值。</p>
-<p>调用 <code>setState</code> 其实是异步的 —— 不要指望在调用 <code>setState</code> 之后，<code>this.state</code> 会立即映射为新的值。如果你需要基于当前的 <code>state</code> 来计算出新的值，那你应该传递一个函数，而不是一个对象（详情见下文）。</p>
-<p>代码不会像预期那样运行的示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">incrementCount() &#123;</span><br><span class="line">  // 注意：这样 *不会* 像预期的那样工作。</span><br><span class="line">  this.setState(&#123;count: this.state.count + 1&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">handleSomething() &#123;</span><br><span class="line">  // 假设 `this.state.count` 从 0 开始。</span><br><span class="line">  this.incrementCount();</span><br><span class="line">  this.incrementCount();</span><br><span class="line">  this.incrementCount();</span><br><span class="line">  // 当 React 重新渲染该组件时，`this.state.count` 会变为 1，而不是你期望的 3。</span><br><span class="line"></span><br><span class="line">  // 这是因为上面的 `incrementCount()` 函数是从 `this.state.count` 中读取数据的，</span><br><span class="line">  // 但是 React 不会更新 `this.state.count`，直到该组件被重新渲染。</span><br><span class="line">  // 所以最终 `incrementCount()` 每次读取 `this.state.count` 的值都是 0，并将它设为 1。</span><br><span class="line"></span><br><span class="line">  // 问题的修复参见下面的说明。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>那么应该如何更新那些依赖于当前的 <code>state</code> 的 <code>state</code> 呢？</p>
-</blockquote>
-<p>给 <code>setState</code> 传递一个函数，而不是一个对象，就可以确保每次的调用都是使用最新版的 <code>state</code>。</p>
-<blockquote>
-<p>给 setState 传递一个对象与传递一个函数的区别是什么？</p>
-</blockquote>
-<p>传递一个函数可以让你在函数内访问到当前的 <code>state</code> 的值。因为 <code>setState</code> 的调用是分批的，所以你可以链式地进行更新，并确保它们是一个建立在另一个之上的，这样才不会发生冲突：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">incrementCount() &#123;</span><br><span class="line">  this.setState((state) =&gt; &#123;</span><br><span class="line">    // 重要：在更新的时候读取 `state`，而不是 `this.state`。</span><br><span class="line">    return &#123;count: state.count + 1&#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">handleSomething() &#123;</span><br><span class="line">  // 假设 `this.state.count` 从 0 开始。</span><br><span class="line">  this.incrementCount();</span><br><span class="line">  this.incrementCount();</span><br><span class="line">  this.incrementCount();</span><br><span class="line"></span><br><span class="line">  // 如果你现在在这里读取 `this.state.count`，它还是会为 0。</span><br><span class="line">  // 但是，当 React 重新渲染该组件时，它会变为 3。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="setstate-什么时候是异步的？">setState 什么时候是异步的？</h3>
-<p>目前，在事件处理函数内部的 <code>setState</code> 是异步的。（V16.10）</p>
-<p>例如，如果 <code>Parent</code> 和 <code>Child</code> 在同一个 <code>click</code> 事件中都调用了 <code>setState</code> ，这样就可以确保 <code>Child</code> 不会被重新渲染两次。取而代之的是，<code>React</code> 会将该 <code>state</code> 等到浏览器事件结束的时候，再统一地进行更新。这种机制可以在大型应用中得到很好的性能提升</p>
 </section>
     <!-- Tags START -->
     
       <div class="tags">
         <span>Tags:</span>
         
-  <a href="/tags#React" >
-    <span class="tag-code">React</span>
+  <a href="/tags#JS" >
+    <span class="tag-code">JS</span>
   </a>
 
       </div>
@@ -204,17 +220,17 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2019/08/25/神奇的reduce/">
+      <a class="nav-left" href="/2019/10/25/react中props和state有什么区别？/">
         <span class="nav-arrow">← </span>
         
-          神奇的reduce
+          react中props和state有什么区别?
         
       </a>
     
     
-      <a class="nav-right" href="/2020/01/10/堆栈内存和闭包/">
+      <a class="nav-right" href="/2020/01/14/浏览器渲染基本原理解析/">
         
-          堆栈内存和闭包
+          浏览器渲染基本原理解析
         
         <span class="nav-arrow"> →</span>
       </a>
@@ -263,7 +279,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#setstate-实际做了什么？"><span class="toc-nav-text">setState 实际做了什么？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#state-和-props-之间的区别是什么？"><span class="toc-nav-text">state 和 props 之间的区别是什么？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#为什么-setstate-给了我一个错误的值？"><span class="toc-nav-text">为什么 setState 给了我一个错误的值？</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#setstate-什么时候是异步的？"><span class="toc-nav-text">setState 什么时候是异步的？</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ecstack"><span class="toc-nav-text">ECStack</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ec"><span class="toc-nav-text">EC</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ec-g"><span class="toc-nav-text">EC(G)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#go"><span class="toc-nav-text">GO</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ao"><span class="toc-nav-text">AO</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#vo"><span class="toc-nav-text">VO</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#闭包的形成"><span class="toc-nav-text">闭包的形成</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#闭包的形成总结"><span class="toc-nav-text">闭包的形成总结</span></a></li></ol>
     
   </div>
 </aside>
@@ -273,7 +289,7 @@
 
 <script>
   (function () {
-    var url = 'http://xueshiming.cn/2019/10/25/react中props和state有什么区别？/';
+    var url = 'http://xueshiming.cn/2020/01/10/堆栈内存和闭包/';
     var banner = 'undefined'
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -329,7 +345,7 @@
     var gitmentConfig = "Ignite";
     if (gitmentConfig !== 'undefined') {
       var gitment = new Gitment({
-        id: "react中props和state有什么区别?",
+        id: "堆栈内存和闭包",
         owner: "Ignite",
         repo: "fikyair.github.io",
         oauth: {
@@ -357,7 +373,7 @@
 <script>
   var disqus_shortname = 'https-xueshiming-cn';
   
-  var disqus_url = 'http://xueshiming.cn/2019/10/25/react中props和state有什么区别？/';
+  var disqus_url = 'http://xueshiming.cn/2020/01/10/堆栈内存和闭包/';
   
   (function(){
     var dsq = document.createElement('script');

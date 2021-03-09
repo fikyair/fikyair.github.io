@@ -192,6 +192,27 @@
     </entry>
     
     <entry>
+      <title>堆栈内存和闭包</title>
+      <link href="/2020/01/10/%E5%A0%86%E6%A0%88%E5%86%85%E5%AD%98%E5%92%8C%E9%97%AD%E5%8C%85/"/>
+      <url>/2020/01/10/%E5%A0%86%E6%A0%88%E5%86%85%E5%AD%98%E5%92%8C%E9%97%AD%E5%8C%85/</url>
+      <content type="html"><![CDATA[<h2 id="ecstack">ECStack</h2><pre><code>&gt;当我们浏览器加载页面的时候，浏览器会形成一个能够供代码执行的环境 ，叫 ECStack （栈内存）</code></pre><h2 id="ec">EC</h2><pre><code>&gt;Execution Context: 包括 全局执行上下文，函数执行上下文，`Eval` 函数执行上下文（指的是运行在 `eval` 函数中的代码，很少用而且不建议使用）</code></pre><h2 id="ec-g">EC(G)</h2><pre><code>&gt;Execution Global：全局执行上下文，只有一个，浏览器中的全局对象（GO）就是 window 对象，this 指向这个全局对象</code></pre><h2 id="go">GO</h2><pre><code>&gt;Global Object：全局对象</code></pre><h2 id="ao">AO</h2><pre><code>&gt;Activation Object: 活动对象</code></pre><h2 id="vo">VO</h2><pre><code>&gt;Variable object 变量对象</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params">y</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> x = <span class="number">2</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">B</span>(<span class="params">z</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(x +y +z)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> B</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> C = A(<span class="number">2</span>);</span><br><span class="line">C(<span class="number">3</span>);</span><br></pre></td></tr></table></figure><h2 id="闭包的形成">闭包的形成</h2><p>1、当我们浏览器加载页面的时候，浏览器会形成一个能够供代码执行的环境 ，叫 <code>ECStack(执行栈)</code><br>然后在一个 <code>EC(GLOBAL)</code> 全局执行上下文中创建 GO 全局对象 并且 进栈执行，压入栈底。</p><p>2、在 <code>EC(GLOBAL)</code> 中 创建 <code>VO(G)</code>：<br>当遇到一个函数 <code>A</code> 声明时：保存函数变量<br>然后创建一个堆，将函数体内代码当做代码字符串你存储起来<br>初始化当前函数作用域 <code>[[scope]]</code> 为 所在（EC）上下文中的变量对象 VO/AO</p><p>3、当 <code>A</code> 执行的时候，形成一个函数执行上下文 <code>EC(A)</code>，<code>EC(A)</code> 中包含一个 <code>AO(A)</code>，<br>压缩到栈 <code>ECStack</code> 里执行，<br>初始化内置实参集合 <code>arguments</code>，创建形参变量并赋值，变量提升<br>初始化 <code>this</code> 指向<br>初始化 <code>[[scopeChain]]:&lt;VO(G)&gt;</code></p><p>4、初始化内置实参集合 <code>arguments</code>，创建形参变量并赋值<br>在 EC(A函数) 中遇到 A中 B函数的声明，就再创建一个堆，指向 B 函数，<br><code>B[[scope]] = AO(A)</code></p><p>因为 B 执行的返回值 赋值给了 C，全局变量 C 占用了 <code>EC(A)</code> 中B的堆，<br>A函数 所以不能出栈， <code>EC(A)</code> 不能释放，这就形成了闭包</p><p>5、C 函数执行，形成 <code>EC(C)</code>, this 指向 window, <code>[[scopeChain]: AO(A)]</code></p><p>形成作用域链：  AO(A) -&gt; VO(G) -&gt; GO</p><h2 id="闭包的形成总结">闭包的形成总结</h2><p>1、函数在创建的时候：</p><ul><li>创建一个堆（将函数体内的代码当做代码字符串存储起来 和  对应的键值对{length: 形参个数，name: 函数名，prototype: 原型}）</li><li>初始化当前函数作用域[[scope]] = 所在（EC）上下文中的变量对象VO/AO</li></ul><p>2、函数执行的时候：</p><ul><li>创建一个新的执行上下文EC(压缩到栈ECStack里执行)</li><li>初始化 this 指向</li><li>初始化作用域链 <code>[[scopeChain]]:&lt;xxx&gt;</code></li><li>创建AO变量对象来存储变量<ul><li><code>==&gt; arguments ==&gt; 形参 ==&gt; 代码执行</code></li></ul></li></ul>]]></content>
+      
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>react中props和state有什么区别?</title>
       <link href="/2019/10/25/react%E4%B8%ADprops%E5%92%8Cstate%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F/"/>
       <url>/2019/10/25/react%E4%B8%ADprops%E5%92%8Cstate%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F/</url>
