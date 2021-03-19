@@ -152,42 +152,74 @@
     var url = 'http://xueshiming.cn/project/index.html';
     $('#article-banner').geopattern(url);
     $('.header').removeClass('fixed-header')
-    $.ajax({
-      headers: {
-        Accept: 'application/vnd.github.v3.raw'
-      },
-      type: 'get',
-      url: 'https://api.github.com/users/fikyair/repos',
-      success: function (data) {
-        var repos = data.sort(function(a, b) {
-          return (b.stargazers_count - a.stargazers_count)
-        }).slice(0, 6)
-        var cardHtml = repos.map(function(item) {
-          var description = item.description || ""
-          if (description.replace(/[\u0391-\uFFE5]/g, "aa").length > 72) {
-            description = description.slice(0, 72) + '...'
-          }
-          return (
-            '<section class="project-card">' + 
-              '<a class="card-wrap" href="'+ item.html_url +'" target="_blank">' +
-                '<div class="card-header" data-name="'+ item.name +'"></div>' +
-                '<h3 class="card-title">' + item.name + '</h3>' +
-                '<p class="card-description">' + description + '</p>' +
-                '<div class="card-footer">' +
-                  '<span><i class="fa fa-star"></i>'+ item.stargazers_count +'</span>' +
-                  '<span><i class="fa fa-code-fork"></i>' + item.forks_count +'</span>' +
-                '</div>' +
-              '</a>' +
-            '</section>'
-          )
-        }).join('')
-        $('#all-project').html(cardHtml)
-        $('.card-header').each(function() {
-          var name = $(this).data('name');
-          $(this).geopattern(name);
-        })
+    var page = 2 // need to set according to your repos amount(defalut page = 1 and per_page = 30)
+    var datas = []
+    for (var i = 1; i <= page; i ++) {
+      $.ajax({
+        headers: {
+          Accept: 'application/vnd.github.v3.raw'
+        },
+        type: 'get',
+        async: false, // 同步
+        url: 'https://api.github.com/users/fikyair/repos?page='+i,
+        success: function (data) {
+          datas = datas.concat(data)
+        }
+      })
+    }
+    function mycmp(a, b){ // compare two repos
+      if(b.stargazers_count > a.stargazers_count) {
+        return 1
       }
-    });
+      if(b.stargazers_count == a.stargazers_count) {
+        if(b.forks_count > a.forks_count) {
+          return 1
+        }
+        if(b.forks_count == a.forks_count) {
+          return b.name > a.name
+        }
+      }
+      return -1
+    }
+    var repo_names = [] // if empty use default sort, or list the repos specified
+    function myfilter(element, index, arra) {
+      if(repo_names.length != 0) {
+          if($.inArray(element.name, repo_names) >= 0) {
+            return true
+          }
+          return false
+      }
+      if(element.fork) { // filter repos that forked
+        return false
+      }
+      return true
+    }
+    var repos = datas.sort(mycmp).filter(myfilter).slice(0, 6)
+ 
+    var cardHtml = repos.map(function(item) {
+      var description = item.description || ""
+      if (description.replace(/[\u0391-\uFFE5]/g, "aa").length > 72) {
+        description = description.slice(0, 72) + '...'
+      }
+      return (
+        '<section class="project-card">' + 
+          '<a class="card-wrap" href="'+ item.html_url +'" target="_blank">' +
+            '<div class="card-header" data-name="'+ item.name +'"></div>' +
+            '<h3 class="card-title">' + item.name + '</h3>' +
+            '<p class="card-description">' + description + '</p>' +
+            '<div class="card-footer">' +
+              '<span><i class="fa fa-star"></i>'+ item.stargazers_count +'</span>' +
+              '<span><i class="fa fa-code-fork"></i>' + item.forks_count +'</span>' +
+            '</div>' +
+          '</a>' +
+        '</section>'
+      )
+    }).join('')
+    $('#all-project').html(cardHtml)
+    $('.card-header').each(function() {
+      var name = $(this).data('name');
+      $(this).geopattern(name);
+    })
   })()
 </script>
     <div class="scroll-top">
