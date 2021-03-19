@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Ignite&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      Ignite
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+  
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Ignite</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link active">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link mobile-active">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <main class="app-body">
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2020/01/10/堆栈内存和闭包/">堆栈内存和闭包</a>
+      </h2>
+      <p class="article-date">2020年1月10日</p>
+      
+        
+  <a href="/tags#JavaScript" >
+    <span class="tag-code">JavaScript</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          ECStack
+&gt;当我们浏览器加载页面的时候，浏览器会形成一个能够供代码执行的环境 ，叫 ECStack （栈内存）
+
+EC
+&gt;Execution Context: 包括 全局执行上下文，函数执行上下文，`Eval` 函数执行上下文（指的是运行在 `eval` 函数中的代码，很少 ...
+        
+      </div>
+      <a class="more" href="/2020/01/10/堆栈内存和闭包/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/10/25/react中props和state有什么区别？/">react中props和state有什么区别?</a>
+      </h2>
+      <p class="article-date">2019年10月25日</p>
+      
+        
+  <a href="/tags#React" >
+    <span class="tag-code">React</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <blockquote>
+<p>props和state之间的确切区别是什么？理解它们的工作原理相当容易，尤其是在上下文中查看时，但是从概念上理解它们也有些困难。一开始令人困惑，因为它们都具有抽象术语，并且它们的值看起来相同，但是它们也具有不同的作用。</p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2019/10/25/react中props和state有什么区别？/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/08/25/神奇的reduce/">神奇的reduce</a>
+      </h2>
+      <p class="article-date">2019年8月25日</p>
+      
+        
+  <a href="/tags#JavaScript" >
+    <span class="tag-code">JavaScript</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <h5 id="none"></h5>
+<blockquote>
+<p>reduce ( ) 这个函数有些复杂，不知到怎么描述好，直接看例子吧：</p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2019/08/25/神奇的reduce/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/06/26/小程序常被忽略的知识/">小程序常被忽略的知识</a>
+      </h2>
+      <p class="article-date">2019年6月26日</p>
+      
+        
+  <a href="/tags#小程序" >
+    <span class="tag-code">小程序</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <blockquote>
+<p>在开发小程序的同时，也别忘记去理解一些原理性和细节性的问题，因为这是我们提升的关键。<strong>to be an engineer, not a coder.</strong></p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2019/06/26/小程序常被忽略的知识/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/06/20/Linux/">上手捣鼓linux命令系列(更新)</a>
+      </h2>
+      <p class="article-date">2019年6月20日</p>
+      
+        
+  <a href="/tags#Linux" >
+    <span class="tag-code">Linux</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <blockquote>
+<p>最近将博客换成了https协议，并将自己小程序后台部署到了我的ubuntu服务器上，期间学习到了很多东西，下面便一一悉知</p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2019/06/20/Linux/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/03/10/前端国际化方案探索(二)/">前端国际化探索(二)</a>
+      </h2>
+      <p class="article-date">2019年3月10日</p>
+      
+        
+  <a href="/tags#React" >
+    <span class="tag-code">React</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <blockquote>
+<p>在这里我继续思考整理汇总一下国际化方案，后续可以针对一些重要的点进行突破和落地。</p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2019/03/10/前端国际化方案探索(二)/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/01/20/前端国际化方案探索(一)/">前端国际化探索(一)</a>
+      </h2>
+      <p class="article-date">2019年1月20日</p>
+      
+        
+  <a href="/tags#React" >
+    <span class="tag-code">React</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <blockquote>
+<p>对于海外的业务需求，我们期望能让客户有一个良好的用户体验，因此前端需要适配国际化。</p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2019/01/20/前端国际化方案探索(一)/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2018/10/31/React生命周期管理/">React 生命周期管理</a>
+      </h2>
+      <p class="article-date">2018年10月31日</p>
+      
+        
+  <a href="/tags#React" >
+    <span class="tag-code">React</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <blockquote>
+<p>你有没有遇到过这样的问题: setState应该写在哪里？我们应该什么时候去获取后台的数据？怎样减少页面不必要的渲染？带着问题我们一起来回顾一下React生命周期那些知识点</p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2018/10/31/React生命周期管理/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2018/10/18/小程序探险指南（一）/">小程序探险指南（一）</a>
+      </h2>
+      <p class="article-date">2018年10月18日</p>
+      
+        
+  <a href="/tags#小程序" >
+    <span class="tag-code">小程序</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <blockquote>
+<p>终于有时间去详细了解一下小程序了，下面我们就从HelloWorld开始，走近小程序，一探究竟。</p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2018/10/18/小程序探险指南（一）/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2018/09/19/Symbol对象/">Symbol对象</a>
+      </h2>
+      <p class="article-date">2018年9月19日</p>
+      
+        
+  <a href="/tags#JavaScript" >
+    <span class="tag-code">JavaScript</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <blockquote>
+<p>称符号对象，是es2015(也就是es6)中新添加的数据类型。通过Symbol()可以得到一个唯一的值，所以这个值很适合做标识符。</p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2018/09/19/Symbol对象/">Read more</a>
+    </article>
+  
+
+  
+    <div class="guide-pager">
+  
+    <a href="/"><span class="page-arrow">← </span>Prev</a>
+  
+  
+    <a href="/page/3/">Next<span class="page-arrow"> →</span></a>
+  
+</div>
+  
+</main>
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2021 | Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+  </body>
+</html>
