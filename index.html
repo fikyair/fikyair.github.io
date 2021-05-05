@@ -164,7 +164,7 @@
   
     <article class="article-card">
       <h2 class="article-head">
-        <a href="/2021/02/10/React源码系列之Fiber/">「React 源码系列之」Fiber</a>
+        <a href="/2021/02/10/SetState/">React 中的 SetState</a>
       </h2>
       <p class="article-date">2021年2月10日</p>
       
@@ -176,10 +176,38 @@
       
       <div class="article-summary">
         
-          
+          setState
+开发版还未发布
+1、异步模式，或者说并发模式，不管在哪里更新都会合并。
+现在的稳定版
+2、同步模式，用了 batchUpdate 就会批量更新，不用就是同步更新。
+为什么在事件处理函数中和生命周r期函数中是批量的呢，因为调用了 batchUpdate
+
         
       </div>
-      <a class="more" href="/2021/02/10/React源码系列之Fiber/">Read more</a>
+      <a class="more" href="/2021/02/10/SetState/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2021/02/10/React 之 Fiber 架构/">React 之 Fiber 架构</a>
+      </h2>
+      <p class="article-date">2021年2月10日</p>
+      
+        
+  <a href="/tags#React" >
+    <span class="tag-code">React</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <blockquote>
+<p>之前看过一个在 React Summit 上分享的一个视频（原文 <code>7 Lessons to Outlive React</code> ），从宏观上阐释了 React 近年来处于前端框架浪潮之巅的主要原因，其架构和设计理念很可能是今后各种大前端框架的主要参考（如 Flutter），其实 React 之于其他前端框架很像苹果之于诸 OEM 安卓厂商，性能并不是最好的，但生态强大且质量高，旨在依随自己的理念不断的进化自己，而不是与“友商”一味的竞争各种跑分。所以若了解了 React 的架构思想，将对今后的学习和工作有着很大的帮助。</p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2021/02/10/React 之 Fiber 架构/">Read more</a>
     </article>
   
     <article class="article-card">
@@ -334,28 +362,6 @@ EC
         
       </div>
       <a class="more" href="/2020/01/10/堆栈内存和闭包/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2019/10/25/react中props和state有什么区别？/">react中props和state有什么区别?</a>
-      </h2>
-      <p class="article-date">2019年10月25日</p>
-      
-        
-  <a href="/tags#React" >
-    <span class="tag-code">React</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          <blockquote>
-<p>props和state之间的确切区别是什么？理解它们的工作原理相当容易，尤其是在上下文中查看时，但是从概念上理解它们也有些困难。一开始令人困惑，因为它们都具有抽象术语，并且它们的值看起来相同，但是它们也具有不同的作用。</p>
-</blockquote>
-        
-      </div>
-      <a class="more" href="/2019/10/25/react中props和state有什么区别？/">Read more</a>
     </article>
   
 

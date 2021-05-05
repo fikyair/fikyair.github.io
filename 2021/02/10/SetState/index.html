@@ -10,7 +10,7 @@
   
   <title>
     
-      「React 源码系列之」Fiber | Ignite
+      React 中的 SetState | Ignite
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -141,7 +141,7 @@
 </header>
 
     <div id="article-banner">
-  <h2>「React 源码系列之」Fiber</h2>
+  <h2>React 中的 SetState</h2>
   <p class="post-date">2021-02-10</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
@@ -150,7 +150,13 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"></section>
+    <section class="markdown-content"><p>setState<br>
+开发版还未发布<br>
+1、异步模式，或者说并发模式，不管在哪里更新都会合并。</p>
+<p>现在的稳定版<br>
+2、同步模式，用了 batchUpdate 就会批量更新，不用就是同步更新。<br>
+为什么在事件处理函数中和生命周r期函数中是批量的呢，因为调用了 batchUpdate</p>
+</section>
     <!-- Tags START -->
     
       <div class="tags">
@@ -168,10 +174,10 @@
   <div class="nav-container">
     <!-- reverse left and right to put prev and next in a more logic postition -->
     
-      <a class="nav-left" href="/2021/01/20/浅析Redux中间件/">
+      <a class="nav-left" href="/2021/02/10/React 之 Fiber 架构/">
         <span class="nav-arrow">← </span>
         
-          浅析 Redux 中间件
+          React 之 Fiber 架构
         
       </a>
     
@@ -237,7 +243,7 @@
 
 <script>
   (function () {
-    var url = 'http://xueshiming.cn/2021/02/10/React源码系列之Fiber/';
+    var url = 'http://xueshiming.cn/2021/02/10/SetState/';
     var banner = 'undefined'
     if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
       $('#article-banner').css({
@@ -300,7 +306,7 @@
   <script>
     var disqus_shortname = 'https-xueshiming-cn';
     
-    var disqus_url = 'http://xueshiming.cn/2021/02/10/React源码系列之Fiber/';
+    var disqus_url = 'http://xueshiming.cn/2021/02/10/SetState/';
     
     (function(){
       var dsq = document.createElement('script');
