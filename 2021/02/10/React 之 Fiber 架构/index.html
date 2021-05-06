@@ -220,7 +220,7 @@
 <blockquote>
 <p>因为 requestIdleCallback 目前 safari 和 ie 都不支持，react 为了兼容，使用 messageChannel + requestAnimationFrame 模拟一个 requestIdleCallBack，MessageChannel 将帧长直接固定为5ms。也就是说，MessageChannel实现中，任务每次只会执行5ms，之后便会立即释放主线程，把剩余任务安排到下一次事件循环。</p>
 </blockquote>
-<p><img src="http://qiniu.xueshiming.cn/requestIdleCallback.jpeg" alt="requestIdleCallback"></p>
+<p><img src="http://qiniu.xueshiming.cn/requestCallBack.jpeg" alt="requestIdleCallback"></p>
 <p>帧长稳定这样做有如下好处：</p>
 <ul>
 <li>帧长稳定，rAF实现基于rAF回调的执行时间来计算帧长，是非常不稳定的，因为浏览器的帧数会因为各种因素产生波动，导致帧长存在很大误差。</li>
