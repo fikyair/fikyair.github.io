@@ -210,7 +210,7 @@
 <li><code>JavaScript</code> 执行 <code>Javascript</code> 引擎和页面渲染引擎在同一个渲染线程，GUI渲染和 <code>Javascript</code> 执行两者是互斥的</li>
 <li>如果某个任务执行时间过长，浏览器会推迟渲染</li>
 </ul>
-<p><img src="http://qiniu.xueshiming.cn/frame.jpeg" alt="一帧"></p>
+<p><img src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/frame.jpeg" alt="一帧"></p>
 <h3 id="requestidlecallback">requestIdleCallback</h3>
 <ul>
 <li>我们希望快速响应用户，让用户觉得够快，不能阻塞用户的交互</li>
@@ -220,7 +220,7 @@
 <blockquote>
 <p>因为 requestIdleCallback 目前 safari 和 ie 都不支持，react 为了兼容，使用 messageChannel + requestAnimationFrame 模拟一个 requestIdleCallBack，MessageChannel 将帧长直接固定为5ms。也就是说，MessageChannel实现中，任务每次只会执行5ms，之后便会立即释放主线程，把剩余任务安排到下一次事件循环。</p>
 </blockquote>
-<p><img src="http://qiniu.xueshiming.cn/requestCallBack.jpeg" alt="requestIdleCallback"></p>
+<p><img src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/requestCallBack.jpeg" alt="requestIdleCallback"></p>
 <p>帧长稳定这样做有如下好处：</p>
 <ul>
 <li>帧长稳定，rAF实现基于rAF回调的执行时间来计算帧长，是非常不稳定的，因为浏览器的帧数会因为各种因素产生波动，导致帧长存在很大误差。</li>
@@ -230,7 +230,7 @@
 <ol>
 <li>Fiber是一个执行单元,每次执行完一个执行单元, React 就会检查现在还剩多少时间，如果没有时间就将控制权让出去</li>
 </ol>
-<p><img src="http://qiniu.xueshiming.cn/fiber%E6%98%AF%E4%B8%80%E4%B8%AA%E6%89%A7%E8%A1%8C%E5%8D%95%E5%85%83.jpeg" alt="Fiber是一个执行单元"></p>
+<p><img src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/fiber.jpeg" alt="Fiber是一个执行单元"></p>
 <ol start="2">
 <li>从编码角度来看，一个 fiber 就是一个 <code>JavaScript</code> 对象，是一种数据结构</li>
 </ol>
@@ -301,7 +301,7 @@
 <h2 id="fiber-更新过程">Fiber 更新过程</h2>
 <p>React 把组件更新分为两个阶段：</p>
 <ul>
-<li>render/reconciliation 协调阶段(可中断/异步)：通过 Diff 算法找出所有节点变更，例如节点新增、删除、属性变更等等, 获得需要更新的节点信息，对应早期版本的 Diff 过程。</li>
+<li>render/reconciliation 协调阶段(可中断/异步)：通过 Diff 算法找出所有节点变更，例如节点新增、删除、属性变更等等, 获得需要更新的节点信息，对应早期版本的 Diff 过程。 <code>render阶段的工作是在内存中进行</code>，为什么要在内存中进行，<a href="https://react.iamkasong.com/process/doubleBuffer.html#%E4%BB%80%E4%B9%88%E6%98%AF-%E5%8F%8C%E7%BC%93%E5%AD%98" target="_blank" rel="noopener">了解双缓冲</a></li>
 <li>commit 提交阶段(不可中断/同步)：将需要更新的节点一次过批量更新，对应早期版本的 patch 过程。</li>
 </ul>
 <h3 id="reconciliation-阶段">reconciliation 阶段</h3>
@@ -313,19 +313,41 @@
 <li><code>beginWork</code> : 根据传入的 Fiber 节点，创建新的 Fiber 节点，</li>
 </ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">performUnitOfWork</span>(<span class="params">currentFiber</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// beginWork会沿着子树一直更新，每次都会返回当前节点的child。</span></span><br><span class="line">    <span class="comment">// 就算有多个child也只会返回第一个。那么沿着树的结构到达叶子节点的时候，</span></span><br><span class="line">    <span class="comment">// 已经没有child了，所以beginWork返回null。如果返回null的话，就会调用 completeUnitOfWork (这段是在另一篇博客中看到)</span></span><br><span class="line">    beginWork(currentFiber);<span class="comment">//开    // 调用beginWork()更新当前任务节点  ②</span></span><br><span class="line">    <span class="keyword">if</span> (currentFiber.child) &#123;</span><br><span class="line">        <span class="keyword">return</span> currentFiber.child;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (currentFiber) &#123;</span><br><span class="line">        completeUnitOfWork(currentFiber);<span class="comment">//没有儿子让自己完成</span></span><br><span class="line">        <span class="keyword">if</span> (currentFiber.sibling) &#123;<span class="comment">//看有没有弟弟</span></span><br><span class="line">            <span class="keyword">return</span> currentFiber.sibling;<span class="comment">//有弟弟返回弟弟</span></span><br><span class="line">        &#125;</span><br><span class="line">        currentFiber = currentFiber.return;<span class="comment">//找父亲然后让父亲完成</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>流程图</p>
+</blockquote>
+<p><img src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/20210210-beginWork.png" alt="beginWork"></p>
 <ol start="3">
-<li>根据当前的父Fiber 和虚拟 DOM 通过深度优先遍历（先序遍历）构建 Fiber树</li>
+<li>根据当前的父 Fiber 和虚拟 DOM 通过深度优先遍历（先序遍历）构建 Fiber树</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">beginWork</span>(<span class="params">workInProgress</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'beginWork'</span>,workInProgress.key);</span><br><span class="line">    <span class="keyword">let</span> nextChildren = workInProgress.props.children;</span><br><span class="line">    <span class="keyword">return</span> reconcileChildren(workInProgress,nextChildren);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="http://qiniu.xueshiming.cn/0AF207B7-9EE2-46D2-A00B-9E384CE525D5.jpeg" alt="reconcileChildren"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">beginWork</span>(<span class="params">workInProgress</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> nextChildren = workInProgress.props.children;</span><br><span class="line">    <span class="keyword">return</span> reconcileChildren(workInProgress,nextChildren);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/recocileChildren.jpeg" alt="reconcileChildren"></p>
 <ol start="4">
+<li>completeUnitOfWork 中的 completeWork</li>
+</ol>
+<p>本段引用自：<a href="https://react.iamkasong.com/process/completeWork.html#effectlist" target="_blank" rel="noopener">effectlist</a></p>
+<p>还有一个问题：作为DOM操作的依据，commit阶段需要找到所有有effectTag的Fiber节点并依次执行effectTag对应操作。难道需要在commit阶段再遍历一次Fiber树寻找effectTag !== null的Fiber节点么？</p>
+<p>这显然是很低效的。</p>
+<p>在 completeWork 的上层函数completeUnitOfWork中，每个执行完completeWork且存在effectTag的Fiber节点会被保存在一条被称为effectList的单向链表中。</p>
+<p>effectList中第一个Fiber节点保存在fiber.firstEffect，最后一个元素保存在fiber.lastEffect。</p>
+<p>类似 appendAllChildren，在“归”阶段(对 fiber 树由下到上后续遍历)，所有有effectTag的Fiber节点都会被追加在effectList中，最终形成一条以rootFiber.firstEffect为起点的单向链表。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">                       nextEffect         nextEffect</span><br><span class="line">rootFiber.firstEffect -----------&gt; fiber -----------&gt; fiber</span><br></pre></td></tr></table></figure>
+<p>这样，在commit阶段只需要遍历effectList就能执行所有effect了。</p>
+<p>借用React团队成员Dan Abramov的话：effectList相较于Fiber树，就像圣诞树上挂的那一串彩灯。</p>
+<ol start="5">
 <li>如果当前fiber树已经更新到叶子节点了，则调用 <code>completeUnitOfWork</code> 更新</li>
 </ol>
 <p>一个 Fiber 节点在结束的时候要创建真实的 dom 元素，挂载到 stateNode 上面。</p>
-<p>然后根据 workInProgress.tag，在完成工作的单元的时候要判断当前的fiber节点有没有对应的DOM操作，收集有副作用的 fiber，然后组成 <code>effect list</code>。每个有副作用的 fiber 有两个属性 <code>firstEffect</code> 指向第一个有副作用的子 <code>fiber lastEffect</code> 指最后一个有副作用子Fiber</p>
+<p>然后根据 workInProgress.tag，在完成工作的单元的时候要判断当前的fiber节点有没有对应的DOM操作，收集有副作用的 fiber，然后组成 <code>effect list</code>。</p>
+<p><code>effect list</code> 每个有副作用的 fiber 有两个属性 <code>firstEffect</code> 指向第一个有副作用的子 <code>fiber lastEffect</code> 指最后一个有副作用子Fiber</p>
 <p><code>effect list</code> 用来标识哪个节点需要 添加，修改，或删除操作。</p>
-<p><img src="http://qiniu.xueshiming.cn/ACC8891A-BA21-421C-86DA-DBDB00B0615B.jpeg" alt="EffectList"></p>
+<p><img src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/effectList.jpeg" alt="EffectList"></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">completeUnitOfWork</span>(<span class="params">workInProgress</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'completeUnitOfWork'</span>,workInProgress.key);</span><br><span class="line">  <span class="keyword">let</span> stateNode;<span class="comment">// 真实DOM</span></span><br><span class="line">  <span class="keyword">switch</span>(workInProgress.tag)&#123;</span><br><span class="line">      <span class="keyword">case</span> TAG_HOST:</span><br><span class="line">          stateNode = createStateNode(workInProgress);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  makeEffectList(workInProgress);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>流程图</p>
+</blockquote>
+<p><img src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/20210210-completeWork.png" alt="completeWork"></p>
+<p>至此，render阶段全部工作完成。在performSyncWorkOnRoot函数中fiberRootNode被传递给commitRoot方法，开启commit阶段工作流程</p>
 <h3 id="commit-阶段">commit 阶段</h3>
 <p>commit 阶段的主要工作（即 Renderer 的工作流程）分为三部分：</p>
 <ul>
@@ -339,6 +361,7 @@
 <p><a href="https://segmentfault.com/a/1190000023573713" target="_blank" rel="noopener">React Fiber 源码解析</a></p>
 <p><a href="https://segmentfault.com/a/1190000039189408" target="_blank" rel="noopener">浅谈对 React Fiber 的理解</a></p>
 <p><a href="http://kmanong.top/kmn/qxw/form/article?id=72482&amp;cate=85" target="_blank" rel="noopener">React Fiber架构</a></p>
+<p><a href="https://react.iamkasong.com/" target="_blank" rel="noopener">React 技术揭秘</a></p>
 <!--
 题外
 setState
