@@ -304,6 +304,12 @@
 <li>render/reconciliation 协调阶段(可中断/异步)：通过 Diff 算法找出所有节点变更，例如节点新增、删除、属性变更等等, 获得需要更新的节点信息，对应早期版本的 Diff 过程。 <code>render阶段的工作是在内存中进行</code>，为什么要在内存中进行，<a href="https://react.iamkasong.com/process/doubleBuffer.html#%E4%BB%80%E4%B9%88%E6%98%AF-%E5%8F%8C%E7%BC%93%E5%AD%98" target="_blank" rel="noopener">了解双缓冲</a></li>
 <li>commit 提交阶段(不可中断/同步)：将需要更新的节点一次过批量更新，对应早期版本的 patch 过程。</li>
 </ul>
+<h3 id="主要有以下几个方法">主要有以下几个方法</h3>
+<p>workLoop：performUnitOfWork( beginWork （reconcileChildren） + completeWork ) + commitRoot</p>
+<p>beginWork: 传入当前Fiber节点，创建子Fiber节点</p>
+<p>reconcileChildren：分两种情况：mount，update 下文细说。执行 DOM 操作的具体类型就保存在 fiber.effectTag 中</p>
+<p>completeWork：在上一个节点完成后，对他进行一个收尾工作，给有 effectTag 的节点执行对应操作。</p>
+<p>commitRoot：提交阶段执行</p>
 <h3 id="reconciliation-阶段">reconciliation 阶段</h3>
 <ol>
 <li>从 <code>workLoop</code> 开始生成 Fiber 树，每生成一个 Fiber 节点，都会把控制钱交给主线程，看看有没有优先级更高的任务，有的话先执行高优任务。   在 workLoop 中的 <code>performUnitOfWork</code> 展示一个工作单元的具体操作。</li>
@@ -355,8 +361,52 @@
 <li>mutation 阶段，这个阶段负责 DOM 节点的渲染。在渲染过程中，会遍历 effectList，根据 flags（effectTag）的不同，执行不同的 DOM 操作。</li>
 <li>layout 阶段，这个阶段处理 DOM 渲染完毕之后的收尾逻辑。比如调用 componentDidMount/componentDidUpdate，调用 useLayoutEffect 钩子函数的回调等。除了这些之外，它还会把 fiberRoot 的 current 指针指向 workInProgress Fiber 树。</li>
 </ul>
-<h2 id="双缓冲">双缓冲</h2>
-<h2 id="需补充图片">需补充图片</h2>
+<h2 id="双缓冲-double-buffering">双缓冲(Double buffering)</h2>
+<ol>
+<li>什么是“双缓冲”</li>
+</ol>
+<p>当我们用 <code>canvas</code> 绘制动画，每一帧绘制前都会调用 <code>ctx.clearRect</code> 清除上一帧的画面。</p>
+<p>如果当前帧画面计算量比较大，导致清除上一帧画面到绘制当前帧画面之间有较长间隙，就会出现白屏。</p>
+<p>为了解决这个问题，我们可以在内存中绘制当前帧动画，绘制完毕后直接用当前帧替换上一帧画面，由于省去了两帧替换间的计算时间，不会出现从白屏到出现画面的闪烁情况。</p>
+<p>这种在内存中构建并直接替换的技术叫做双缓冲。</p>
+<p>React使用“双缓冲”来完成Fiber树的构建与替换——对应着DOM树的创建与更新</p>
+<ol start="2">
+<li>双缓冲 Fiber 树</li>
+</ol>
+<p>在React中最多会同时存在两棵Fiber树。当前屏幕上显示内容对应的Fiber树称为current Fiber树，正在内存中构建的Fiber树称为workInProgress Fiber树。</p>
+<p>current Fiber树中的Fiber节点被称为current fiber，workInProgress Fiber树中的Fiber节点被称为workInProgress fiber，他们通过alternate属性连接。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">currentFiber.alternate === workInProgressFiber;</span><br><span class="line">workInProgressFiber.alternate === currentFiber;</span><br></pre></td></tr></table></figure>
+<p>React应用的根节点通过使current指针在不同Fiber树的rootFiber间切换来完成current Fiber树指向的切换。</p>
+<p>即当workInProgress Fiber树构建完成交给Renderer渲染在页面上后，应用根节点的current指针指向workInProgress Fiber树，此时workInProgress Fiber树就变为current Fiber树。</p>
+<p>每次状态更新都会产生新的 workInProgress Fiber树，通过current与workInProgress的替换，完成DOM更新。</p>
+<h2 id="current-fiber-树和-workinprogress-fiber-树">current Fiber 树和 workInProgress Fiber 树</h2>
+<p><strong>current Fiber Tree：当前渲染好的树</strong></p>
+<p><strong>workInProgress Fiber Tree: 正在构建的树</strong></p>
+<h3 id="第一次渲染的期间">第一次渲染的期间</h3>
+<p>页面中还没有挂载任何 DOM，所以没有 current 树，</p>
+<p>当进入 render 阶段 ，根据组件返回的 vdom 在内存中依次创建 Fiber 节点并连接在一起构建 Fiber 树，</p>
+<p>被称为 workInProgress Fiber 树，然后在 commit 阶段渲染到页面，workInProgress Fiber 树替换为 current Fiber 树。</p>
+<h3 id="更新的时候">更新的时候</h3>
+<p>第二次渲染期间，又会经历新的 <code>render</code> 和 <code>commit</code> 阶段。并构建一棵新的 <code>workInProgress Fiber</code> 树</p>
+<p>这一次，<code>workInProgress Fiber</code> 的创建可以复用 current Fiber 树对应的节点数据 。</p>
+<p>(这个决定是否复用的过程就是 Diff 算法，下篇细述)</p>
+<p><code>workInProgress Fiber</code> 树在 <code>render</code> 阶段完成构建后进入commit阶段渲染到页面上。渲染完毕后，<code>workInProgress Fiber</code> 树变为current Fiber 树</p>
+<p><code>workInProgress.alternate</code> 指向 <code>current</code></p>
+<p><code>workInProgressRoot</code> 的 <code>props.children</code> 是 vdom 元素</p>
+<p>在 <code>reconcileChildren()</code> 中，通过 <code>current === null ? mount : update</code>  区分</p>
+<ul>
+<li>
+<p>第一次渲染对于 <code>mount</code> 的组件，他会创建新的子 <code>Fiber</code> 节点，方法名叫：<code>mountChildFibers</code>，（不生成 <code>effectTag</code>，那如何首次渲染？<a href="https://react.iamkasong.com/process/beginWork.html#effecttag" target="_blank" rel="noopener">答案</a>)</p>
+</li>
+<li>
+<p>更新的组件，对于 <code>update</code> 的组件，他会将当前组件与该组件在上次更新时对应的 <code>Fiber</code> 节点比较（也就是俗称的 <code>Diff</code> 算法），</p>
+<p>将比较的结果生成新 <code>Fiber</code> 节点，方法名叫：<code>reconcileChildFibers</code>，生成的Fiber节点带上 <code>effectTag</code> 属性</p>
+<p>不论走哪个逻辑，最终他会生成新的子 <code>Fiber</code> 节点并赋值给 <code>workInProgress.child</code>，作为本次 <code>beginWork</code> 返回值</p>
+<p>并作为下次 <code>performUnitOfWork</code> 执行时 <code>workInProgress</code> 的传参。</p>
+</li>
+</ul>
+<p>拿已经渲染的 <code>current Fiber</code> 和 <code>workInProgress vdom</code> 做对比（diff），更新节点，然后把</p>
+<p><code>vdom</code> 转化成 <code>fiber</code>，意思是一边 <code>diff</code> 一边构建新 <code>fiber</code></p>
 <h2 id="参考">参考</h2>
 <p><a href="https://segmentfault.com/a/1190000023573713" target="_blank" rel="noopener">React Fiber 源码解析</a></p>
 <p><a href="https://segmentfault.com/a/1190000039189408" target="_blank" rel="noopener">浅谈对 React Fiber 的理解</a></p>
@@ -439,7 +489,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-text">从react代码库的三种模式说起</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#react-设计理念"><span class="toc-nav-text">React 设计理念</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#出现性能瓶颈"><span class="toc-nav-text">出现性能瓶颈</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#屏幕刷新率"><span class="toc-nav-text">屏幕刷新率</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#帧"><span class="toc-nav-text">帧</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#requestidlecallback"><span class="toc-nav-text">requestIdleCallback</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#fiber是什么"><span class="toc-nav-text">Fiber是什么</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#fiber-如何解决问题的"><span class="toc-nav-text">Fiber 如何解决问题的</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#fiber-实现原理"><span class="toc-nav-text">Fiber 实现原理</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#渲染流程即fiber架构核心"><span class="toc-nav-text">渲染流程即Fiber架构核心</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#scheduler-调度器"><span class="toc-nav-text">Scheduler 调度器</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#reconciler-协调器"><span class="toc-nav-text">Reconciler 协调器</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#renderer-渲染器"><span class="toc-nav-text">Renderer 渲染器</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#fiber-更新过程"><span class="toc-nav-text">Fiber 更新过程</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#reconciliation-阶段"><span class="toc-nav-text">reconciliation 阶段</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#commit-阶段"><span class="toc-nav-text">commit 阶段</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#双缓冲"><span class="toc-nav-text">双缓冲</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#需补充图片"><span class="toc-nav-text">需补充图片</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#参考"><span class="toc-nav-text">参考</span></a></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#undefined"><span class="toc-nav-text">从react代码库的三种模式说起</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#react-设计理念"><span class="toc-nav-text">React 设计理念</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#出现性能瓶颈"><span class="toc-nav-text">出现性能瓶颈</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#屏幕刷新率"><span class="toc-nav-text">屏幕刷新率</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#帧"><span class="toc-nav-text">帧</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#requestidlecallback"><span class="toc-nav-text">requestIdleCallback</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#fiber是什么"><span class="toc-nav-text">Fiber是什么</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#fiber-如何解决问题的"><span class="toc-nav-text">Fiber 如何解决问题的</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#fiber-实现原理"><span class="toc-nav-text">Fiber 实现原理</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#渲染流程即fiber架构核心"><span class="toc-nav-text">渲染流程即Fiber架构核心</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#scheduler-调度器"><span class="toc-nav-text">Scheduler 调度器</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#reconciler-协调器"><span class="toc-nav-text">Reconciler 协调器</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#renderer-渲染器"><span class="toc-nav-text">Renderer 渲染器</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#fiber-更新过程"><span class="toc-nav-text">Fiber 更新过程</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#主要有以下几个方法"><span class="toc-nav-text">主要有以下几个方法</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#reconciliation-阶段"><span class="toc-nav-text">reconciliation 阶段</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#commit-阶段"><span class="toc-nav-text">commit 阶段</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#双缓冲-double-buffering"><span class="toc-nav-text">双缓冲(Double buffering)</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#current-fiber-树和-workinprogress-fiber-树"><span class="toc-nav-text">current Fiber 树和 workInProgress Fiber 树</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#第一次渲染的期间"><span class="toc-nav-text">第一次渲染的期间</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#更新的时候"><span class="toc-nav-text">更新的时候</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#参考"><span class="toc-nav-text">参考</span></a></li></ol></li></ol>
     
   </div>
 </aside>
