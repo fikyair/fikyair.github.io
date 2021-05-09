@@ -241,14 +241,12 @@ type 和 key 都一样 A 能复用，更新 A 就可以，</li>
 </ol>
 <p>然后比较第二个元素，Key 不一样，则马上跳出第一轮循环，进入第二轮循环</p>
 <ol start="2">
-<li>
-<p>第二轮循环</p>
-<p>新建 map： key 就是元素的 key，值就是老的 fiber 节点</p>
-<p>let map = {‘B’:B,‘C’:C,‘D’<img class="emoji" draggable="false" alt="😄" src="https://twemoji.maxcdn.com/2/72x72/1f604.png">,‘E’:E,‘F’:F};</p>
-<p>每当处理完一个节点，就从 map 中删除，</p>
-<p>等新的 JSX 数组遍历完之后，<code>map = {'D':D,'F':F}</code>，把 map 里面的 Fiber 节点全部标记为 <code>Deletion</code>，也就是 D 和 F ;</p>
-</li>
+<li>第二轮循环</li>
 </ol>
+<p>新建 map： key 就是元素的 key，值就是老的 fiber 节点 <code>let map = {'B':B,'C':C,'D':D,'E':E,'F':F};</code><br>
+<img class="emoji" draggable="false" alt="😄" src="https://twemoji.maxcdn.com/2/72x72/1f604.png">,<br>
+每当处理完一个节点，就从 map 中删除，<br>
+等新的 JSX 数组遍历完之后，<code>map = {'D':D,'F':F}</code>，把 map 里面的 Fiber 节点全部标记为 <code>Deletion</code>，也就是 D 和 F ;</p>
 <p>继续遍历新的节点</p>
 <ul>
 <li>
