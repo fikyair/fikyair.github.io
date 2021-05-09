@@ -150,7 +150,10 @@
 <main class="app-body flex-box">
   <!-- Article START -->
   <article class="post-article">
-    <section class="markdown-content"><h2 id="dom-diff算法">DOM-DIFF算法</h2>
+    <section class="markdown-content"><blockquote>
+<p>标准的 <code>DOM-DIFF</code> 算法时间复杂度是 <code>O(n^3)</code>，显然性能在某些情况下是无法达到要求的，<code>Facebook</code> 工程师将将其时间复杂度降到了 <code>O(n)</code>。本文通过不同的 <code>case</code> 来对其思想做一个进一步的整合</p>
+</blockquote>
+<h2 id="dom-diff算法">DOM-DIFF算法</h2>
 <p>在 <code>React17+</code> 中 <code>DOM-DIFF</code> 就是根据老的 <code>fiber树</code> 和最新的 <code>JSX</code> 对比生成新的 <code>fiber树</code> 的过程</p>
 <p>一般来说，一个老的树变成一个新的树，算法实现的时间复杂度是 O(n^3)，性能较差</p>
 <h3 id="react优化原则">React优化原则</h3>

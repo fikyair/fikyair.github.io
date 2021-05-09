@@ -156,12 +156,11 @@
       
       <div class="article-summary">
         
-          DOM-DIFF算法
-在 React17+ 中 DOM-DIFF 就是根据老的 fiber树 和最新的 JSX 对比生成新的 fiber树 的过程
-一般来说，一个老的树变成一个新的树，算法实现的时间复杂度是 O(n^3)，性能较差
-React优化原则
+          
+标准的 DOM-DIFF 算法时间复杂度是 O(n^3)，显然性能在某些情况下是无法达到要求的，Facebook 工程师将将其时间复杂度降到了 O(n)。本文通过不同的 case 来对其思想做一个进一步的整合
 
-只对同级节点进行对比，如果 DOM 节 ...
+DOM-DIFF算法
+在 React17+ 中 DOM-DIFF 就是根据老的 ...
         
       </div>
       <a class="more" href="/2021/04/02/React 之 DomDIff/">Read more</a>
