@@ -168,7 +168,7 @@
 <li>Blocking Mode：同步地进行Reconcile Fiber，Reconcile任务不能被打断，会执行到底</li>
 <li>Concurrent Mode：“并发地”进行Reconcile Fiber，Reconcile任务可以被打断</li>
 </ul>
-<p>更多细节请看?：<a href="https://reactjs.org/docs/concurrent-mode-adoption.html#why-so-many-modes" target="_blank" rel="noopener">详细区别</a></p>
+<p>更多细节请看?：<a href="https://zh-hans.reactjs.org/docs/concurrent-mode-adoption.html#migration-step-blocking-mode" target="_blank" rel="noopener">详细区别</a></p>
 <p>注意，<code>Concurrent Mode</code> 所谓的并发，只是一种假象，跟多线程并发完全不一样。多线程并发是多个 Task 跑在多个线程中，这是真正意义上的并发。而 <code>Concurrent Mode</code> 的并发是指多个 Tas k跑在同一个主线程（JS主线程）中，只不过每个 Task 都可以不断在“运行”和“暂停”两种状态之间切换，从而给用户造成了一种 Task 并发执行的假象。这其实跟 CPU 的执行原理一样，这就叫 时间分片（Time Slicing）。</p>
 <p>因此，现在我们通过npm i react所安装的包使用ReactDOM.render(…)所创建的React应用的状态是这样的：</p>
 <ul>
