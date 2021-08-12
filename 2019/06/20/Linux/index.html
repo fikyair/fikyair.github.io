@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Ignite&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs, ignite blog,">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      上手捣鼓linux命令系列(更新) | Ignite
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+  
+  
+    <script src="/js/local-search.js"></script>
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Ignite</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>上手捣鼓linux命令系列(更新)</h2>
+  <p class="post-date">2019-06-20</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><blockquote>
+<p>最近将博客换成了https协议，并将自己小程序后台部署到了我的ubuntu服务器上，期间学习到了很多东西，下面便一一悉知</p>
+</blockquote>
+<a id="more"></a>
+<p><strong>tips：</strong></p>
+<h4 id="nginx配置">nginx配置</h4>
+<p>每次<code>nginx</code>配置完时，都需要<code>service nginx restart</code>或<code>service nginx start</code>来重启<code>nginx</code>服务</p>
+<p>拓展：关于<code>nginx</code>更多的信息，updating…</p>
+<h4 id="改写文件权限">改写文件权限</h4>
+<p><code>sudo chmod 777 /etc/nginx/myssl</code>,在scp上传文件夹时候需要设置文件夹可写权限,</p>
+<p>我干脆权限设置最高(有些粗暴哈哈😀，但是不可取)</p>
+<p>拓展：updating…</p>
+<h4 id="找端口杀进程">找端口杀进程</h4>
+<p>这个问题我们经常遇到，但是想用的时候总是忘记，<code>lsof -i:9981</code>查找到 <code>9981</code> 端口对应的<br>
+<code>pId: 22463</code>然后<code>kill -9 22463</code>就可以了。</p>
+<p>拓展：updating…</p>
+<h4 id="查看nginx的报错原因">查看nginx的报错原因</h4>
+<p>查找<code>nginx</code>的日志文件,查看<code>log</code>文件获取报错信息<code>/var/log/nginx</code></p>
+<h4 id="使项目持久运行在服务器上">使项目持久运行在服务器上</h4>
+<p>用screen保持项目在服务器上长久运行<a href="https://www.jianshu.com/p/b24f597c0561" target="_blank" rel="noopener">戳这儿</a></p>
+<p>拓展：updating…</p>
+<h4 id="保持ssh连接不断开">保持ssh连接不断开</h4>
+<p>经常遇到终端断开了ssh远程链接，然后终端卡顿，很是头疼<code>/etc/ssh/sshd_config</code>,添加：<br>
+<code>ClientAliveInterva 120</code></p>
+<p><code>ClientAliveCountMax 720</code></p>
+<p>重启sshd服务：</p>
+<p><code>systemctl restart sshd</code></p>
+<blockquote>
+<p>第一句意思是服务端每间隔120s会向客户端发送一个空数据包，第二句表示服务器最大会发送720次,120*720=24小时，24小时期间连接是不会断开的</p>
+</blockquote>
+<h4 id="2017-11-22-更新">2017-11-22 更新</h4>
+<p>在windows下，下载<code>jdk-8u25-linux-64.tar.gz</code></p>
+<p>使用<code>Xshell5p.exe</code>用来访问远程面板</p>
+<ol>
+<li>在windows下面下好 tar.gz</li>
+<li>上传文件 rz</li>
+<li>解压文件 tar -xzvf jdk-8u25-linux-x64.tar.gz</li>
+<li>进入当前用户目录  cd home/fisherman</li>
+<li>vi .bash -profile  编辑文件</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CLASSPATH=&quot;$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib&quot;</span><br><span class="line">PATH=&quot;$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOMR/bin&quot;</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>
+<p><code>:wq!</code>退出</p>
+</li>
+<li>
+<p><code>source .bash_profile</code>命令生效</p>
+</li>
+<li>
+<p><code>java -version</code> 查询java版本</p>
+</li>
+<li>
+<p><code>tar zcvf secu.tar.gz tt</code>将文件压缩到tt目录</p>
+</li>
+<li>
+<p>启动<code>linuxshell</code>的时候，<code>stdin</code>,<code>stdout</code>,<code>stderr</code>,三个文件描述符会自动打开，他们的值分别是：标准输入，标准输出、标准错误</p>
+</li>
+<li>
+<p>为脚本程序添加执行权限的命令及参数：chmod a+x filename</p>
+</li>
+<li>
+<p>用八进制表示权限：</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">r--4 w--2  x--1</span><br><span class="line">r--r--r--   444</span><br><span class="line">drw------   600</span><br></pre></td></tr></table></figure>
+<h4 id="xshell-连到-远程服务器">xshell 连到 远程服务器</h4>
+<p><img src="http://qiniu.xueshiming.cn/clipboard.png" alt="连接远程服务器"></p>
+<ol>
+<li>输入远程服务器的ip：</li>
+</ol>
+<p><img src="http://qiniu.xueshiming.cn/clipboard2.png" alt="服务器ip"></p>
+<ol start="2">
+<li>输入用户名和密码，就登录成功了</li>
+</ol>
+<p><img src="http://qiniu.xueshiming.cn/clipboard3.png" alt="填写自己的用户名"></p>
+<ol start="3">
+<li>然后可以修改用户名密码</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useradd fisherman &amp;&amp; echo 123456 | passwd --stdin fisherman</span><br><span class="line">fisherman--自己的用户名：mark</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>每天一个linux命令：<a href="https://www.cnblogs.com/peida/archive/2012/12/05/2803591.html" target="_blank" rel="noopener">叮</a><br>
+对权限的参考: <a href="https://blog.csdn.net/sinat_35209943/article/details/52449743" target="_blank" rel="noopener">传送门</a></p>
+</blockquote>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#Linux" >
+    <span class="tag-code">Linux</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/03/10/前端国际化方案探索(二)/">
+        <span class="nav-arrow">← </span>
+        
+          前端国际化探索(二)
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/06/26/小程序常被忽略的知识/">
+        
+          小程序常被忽略的知识
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Disqus START -->
+      <div id="disqus_thread"></div>
+      <!-- Disqus END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#nginx配置"><span class="toc-nav-text">nginx配置</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#改写文件权限"><span class="toc-nav-text">改写文件权限</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#找端口杀进程"><span class="toc-nav-text">找端口杀进程</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#查看nginx的报错原因"><span class="toc-nav-text">查看nginx的报错原因</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#使项目持久运行在服务器上"><span class="toc-nav-text">使项目持久运行在服务器上</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#保持ssh连接不断开"><span class="toc-nav-text">保持ssh连接不断开</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2017-11-22-更新"><span class="toc-nav-text">2017-11-22 更新</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#xshell-连到-远程服务器"><span class="toc-nav-text">xshell 连到 远程服务器</span></a></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://xueshiming.cn/2019/06/20/Linux/';
+    var banner = 'undefined'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', '/css/images/error_icon.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+
+
+  <script>
+    var disqus_shortname = 'https-xueshiming-cn';
+    
+    var disqus_url = 'http://xueshiming.cn/2019/06/20/Linux/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//go.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2021 | <a href="http://beian.miit.gov.cn" target="_blank">津ICP备17005329号</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+
+  </body>
+</html>

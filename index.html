@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Ignite&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs, ignite blog,">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      Ignite
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+  
+  
+    <script src="/js/local-search.js"></script>
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>Ignite</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link active">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link mobile-active">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <main class="app-body">
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2021/05/09/React 之 dom-diff/">React 之 dom-diff</a>
+      </h2>
+      <p class="article-date">2021年5月9日</p>
+      
+        
+  <a href="/tags#React" >
+    <span class="tag-code">React</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <blockquote>
+<p>标准的 <code>dom-diff</code> 算法时间复杂度是 <code>O(n^3)</code>，显然性能在某些情况下是无法达到要求的，<code>Facebook</code> 工程师将其时间复杂度降到了 <code>O(n)</code>。本文通过不同的 <code>case</code> 来对其思想做进一步的整合。</p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2021/05/09/React 之 dom-diff/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2021/05/08/React 之 Fiber 架构/">React 之 Fiber 架构</a>
+      </h2>
+      <p class="article-date">2021年5月8日</p>
+      
+        
+  <a href="/tags#React" >
+    <span class="tag-code">React</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <blockquote>
+<p>之前看过一个在 React Summit 上分享的一个视频（原文 <code>7 Lessons to Outlive React</code> ），从宏观上阐释了 React 近年来处于前端框架浪潮之巅的主要原因，其架构和设计理念很可能是今后各种大前端框架的主要参考（如 Flutter），其实 React 之于其他前端框架很像苹果之于诸 OEM 安卓厂商，性能并不是最好的，但生态强大且质量高，旨在依随自己的理念不断的进化自己，而不是与“友商”一味的竞争各种跑分。所以若了解了 React 的架构思想，将对今后的学习和工作有着很大的帮助。</p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2021/05/08/React 之 Fiber 架构/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2021/02/23/Babel 原理之AST/">「Babel 原理之」AST</a>
+      </h2>
+      <p class="article-date">2021年2月23日</p>
+      
+        
+  <a href="/tags#Babel" >
+    <span class="tag-code">Babel</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          
+        
+      </div>
+      <a class="more" href="/2021/02/23/Babel 原理之AST/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2021/02/10/SetState/">React 中的 SetState</a>
+      </h2>
+      <p class="article-date">2021年2月10日</p>
+      
+        
+  <a href="/tags#React" >
+    <span class="tag-code">React</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          setState
+开发版还未发布
+1、异步模式，或者说并发模式，不管在哪里更新都会合并。
+现在的稳定版
+2、同步模式，用了 batchUpdate 就会批量更新，不用就是同步更新。
+为什么在事件处理函数中和生命周r期函数中是批量的呢，因为调用了 batchUpdate
+
+        
+      </div>
+      <a class="more" href="/2021/02/10/SetState/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2021/01/20/浅析Redux中间件/">浅析 Redux 中间件</a>
+      </h2>
+      <p class="article-date">2021年1月20日</p>
+      
+        
+  <a href="/tags#React" >
+    <span class="tag-code">React</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          
+        
+      </div>
+      <a class="more" href="/2021/01/20/浅析Redux中间件/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2020/12/14/Webpack源码系列之TreeShaking/">「Webpack 源码系列之」TreeShaking</a>
+      </h2>
+      <p class="article-date">2020年12月14日</p>
+      
+        
+  <a href="/tags#Webpack" >
+    <span class="tag-code">Webpack</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <blockquote>
+<p>正在更新中 …</p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2020/12/14/Webpack源码系列之TreeShaking/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2020/11/20/Webpack源码系列之HMR/">「Webpack 源码系列之」HMR</a>
+      </h2>
+      <p class="article-date">2020年11月20日</p>
+      
+        
+  <a href="/tags#Webpack" >
+    <span class="tag-code">Webpack</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <blockquote>
+<p>正在更新中 …</p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2020/11/20/Webpack源码系列之HMR/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2020/10/12/Webpack源码系列之工作流/">「Webpack 源码系列之」工作流</a>
+      </h2>
+      <p class="article-date">2020年10月12日</p>
+      
+        
+  <a href="/tags#Webpack" >
+    <span class="tag-code">Webpack</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <blockquote>
+<p>目前的 <code>webpack4</code> 的源码已经十分庞大，学习起来的成本也十分昂贵。下面我们通过调试 <code>webpack</code>，了解其内部工作流程，揭秘它工作原理，最终实现一个简易版 <code>webpack</code>。</p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2020/10/12/Webpack源码系列之工作流/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2020/10/09/Webpack源码系列之调试/">「Webpack 源码系列之」调试</a>
+      </h2>
+      <p class="article-date">2020年10月9日</p>
+      
+        
+  <a href="/tags#Webpack" >
+    <span class="tag-code">Webpack</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <blockquote>
+<p>学习一个工具或者库的源码之前，需要对一个库有一个基本的认识，比如源码的结构，还有如何调试，属于一个前提条件。而 webpack 是我即 react 之后，希望通读的一个工具库，其实在团队中，自己需要去完成一些技术的指标，而相应的技术储备是必不可少的。就前端工程化而言，webpack 是避不开的一条路。所以在阅读源码的同时，希望能收获更广阔的技术视野，以及之后遇到这个东西的时候，知道其原理。</p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2020/10/09/Webpack源码系列之调试/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2020/01/14/浏览器渲染基本原理解析/">浏览器渲染基本原理解析</a>
+      </h2>
+      <p class="article-date">2020年1月14日</p>
+      
+        
+  <a href="/tags#JavaScript" >
+    <span class="tag-code">JavaScript</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <blockquote>
+<p>大多数设备的刷新频率是60Hz，也就说是浏览器对每一帧画面的渲染工作要在16ms内完成,超出这个时间，页面的渲染就会出现卡顿现象，影响用户体验。前端的用户体验给了前端直观的印象，因此对B/S架构的开发人员来说，熟悉浏览器的内部执行原理显得尤为重要。</p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2020/01/14/浏览器渲染基本原理解析/">Read more</a>
+    </article>
+  
+
+  
+    <div class="guide-pager">
+  
+    <a class="unvisible" href="/"><span class="page-arrow">←</span> Prev</a>
+  
+  
+    <a href="/page/2/">Next<span class="page-arrow"> →</span></a>
+  
+</div>
+  
+</main>
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2021 | <a href="http://beian.miit.gov.cn" target="_blank">津ICP备17005329号</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+
+  </body>
+</html>
