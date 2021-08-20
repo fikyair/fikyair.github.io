@@ -173,17 +173,17 @@
   </div>
 </header>
 
-    <div id="article-banner">
+    <div id="article-banner" style="background-image: url(https://blog-1253646934.cos.ap-beijing.myqcloud.com/projects.jpg)">
   <h2>Projects</h2>
-  <p class="post-date">GitHub Open Source Projects</p>
+  <p class="post-date">开源项目</p>
 </div>
 <main class="app-body project-app">
   <div class="card-container" id="all-project"></div>
 </main>
 <script>
   (function() {
-    var url = 'http://xueshiming.cn/project/index.html';
-    $('#article-banner').geopattern(url);
+    // var url = 'http://xueshiming.cn/project/index.html';
+    // $('#article-banner').geopattern(url);
     $('.header').removeClass('fixed-header')
     var page = 2 // need to set according to your repos amount(defalut page = 1 and per_page = 30)
     var datas = []
