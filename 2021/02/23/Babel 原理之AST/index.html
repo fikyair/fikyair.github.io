@@ -231,11 +231,18 @@
 <h3 id="file-comment">File &amp; Comment</h3>
 <p>babel 的 AST 最外层节点是 File</p>
 <ul>
-<li>program 最重要的节点，存放整个程序代码的节点</li>
-<li>comments 用于存放整个文件的所有的注释节点</li>
-<li>tokens 用于存放parser词法分析的结果</li>
+<li><code>program</code> 最重要的节点，存放整个程序代码的节点</li>
+<li><code>comments</code> 用于存放整个文件的所有的注释节点</li>
+<li><code>tokens</code> 用于存放parser词法分析的结果</li>
 </ul>
 <p>注释分为块注释和行内注释，对应 CommentBlock 和 CommentLine 节点</p>
+<h3 id="program-directive">Program &amp; directive</h3>
+<p>program 是代表整个程序的节点，有如下重要属性</p>
+<ul>
+<li><code>sourceType</code>: 表示文件代码的类型，有 module 和 script 两种，一般都是module。不同的类型下，有些节点是不允许出现的，比如在script类型下，代码中不能出现 import 和 - export 的语法。</li>
+<li><code>body</code> 属性代表程序体，存放 statement 数组，就是具体执行的语句的集合。</li>
+<li><code>directives</code> 存放 Directive 节点数组，比如 <code>&quot;use strict&quot;</code> 这种指令会使用 Directive 节点表示。</li>
+</ul>
 </section>
     <!-- Tags START -->
     
@@ -313,7 +320,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#babel-用途"><span class="toc-nav-text">babel 用途</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#转译-esnext-typescript-flow-等到目标环境支持的-js"><span class="toc-nav-text">转译 esnext、typescript、flow 等到目标环境支持的 js</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#一些特定用途的代码转换"><span class="toc-nav-text">一些特定用途的代码转换</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#代码静态分析"><span class="toc-nav-text">代码静态分析</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#babel-的编译流程"><span class="toc-nav-text">babel 的编译流程</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ast-介绍"><span class="toc-nav-text">AST 介绍</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ast-的公共属性"><span class="toc-nav-text">AST 的公共属性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ast-可视化查看工具"><span class="toc-nav-text">AST 可视化查看工具</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#常见的-ast-节点"><span class="toc-nav-text">常见的 AST 节点</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#file-comment"><span class="toc-nav-text">File &amp; Comment</span></a></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#babel-用途"><span class="toc-nav-text">babel 用途</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#转译-esnext-typescript-flow-等到目标环境支持的-js"><span class="toc-nav-text">转译 esnext、typescript、flow 等到目标环境支持的 js</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#一些特定用途的代码转换"><span class="toc-nav-text">一些特定用途的代码转换</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#代码静态分析"><span class="toc-nav-text">代码静态分析</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#babel-的编译流程"><span class="toc-nav-text">babel 的编译流程</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ast-介绍"><span class="toc-nav-text">AST 介绍</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ast-的公共属性"><span class="toc-nav-text">AST 的公共属性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ast-可视化查看工具"><span class="toc-nav-text">AST 可视化查看工具</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#常见的-ast-节点"><span class="toc-nav-text">常见的 AST 节点</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#file-comment"><span class="toc-nav-text">File &amp; Comment</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#program-directive"><span class="toc-nav-text">Program &amp; directive</span></a></li></ol></li></ol>
     
   </div>
 </aside>
@@ -450,7 +457,7 @@
 <script src="/js/script.js"></script>
 
   <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1629646163403')
+  navigator.serviceWorker.register('/sw.js?t=1629646465973')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }
