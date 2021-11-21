@@ -32,7 +32,7 @@ var precacheUrls = [];
 
   precacheUrls.push('/2021/02/10/SetState/');
 
-  precacheUrls.push('/2021/01/20/浅析Redux中间件/');
+  precacheUrls.push('/2020/10/12/Webpack源码系列之工作流/');
 
 toolbox.precache(precacheUrls);
 toolbox.options = {"networkTimeoutSeconds":5};

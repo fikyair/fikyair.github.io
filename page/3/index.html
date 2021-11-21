@@ -177,74 +177,6 @@
   
     <article class="article-card">
       <h2 class="article-head">
-        <a href="/2018/08/23/React高阶组件(repost)/">React 高阶组件(repost)</a>
-      </h2>
-      <p class="article-date">2018年8月23日</p>
-      
-        
-  <a href="/tags#React" >
-    <span class="tag-code">React</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          <h3 id="前言">前言</h3>
-<blockquote>
-<p>本文代码浅显易懂，思想深入实用。此属于react进阶用法，如果还不是很了解react，建议从文档开始看起。</p>
-</blockquote>
-        
-      </div>
-      <a class="more" href="/2018/08/23/React高阶组件(repost)/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2018/07/01/Say Hi/">Say Hi</a>
-      </h2>
-      <p class="article-date">2018年7月1日</p>
-      
-        
-  <a href="/tags#思想" >
-    <span class="tag-code">思想</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          <img src="http://qiniu.xueshiming.cn/weget.jpg" width="600" hegiht="400" align="center">
-Say hi
-<!-- .emoji{
-  height: 1.2em;
-} -->
-        
-      </div>
-      <a class="more" href="/2018/07/01/Say Hi/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2018/06/14/思忖/">思忖</a>
-      </h2>
-      <p class="article-date">2018年6月14日</p>
-      
-        
-  <a href="/tags#诗" >
-    <span class="tag-code">诗</span>
-  </a>
-
-      
-      <div class="article-summary">
-        
-          <img src="http://qiniu.xueshiming.cn/%E6%80%9D%E5%BF%96.jpg" width="600" hegiht="400" align="center">
-<p>思忖</p>
-        
-      </div>
-      <a class="more" href="/2018/06/14/思忖/">Read more</a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
         <a href="/2018/03/10/React和Redux数据流向/">React和Redux数据流向</a>
       </h2>
       <p class="article-date">2018年3月10日</p>
@@ -433,6 +365,91 @@ git push origin master 的意思就是，上传本地当前分支代码到master
       <a class="more" href="/2017/12/01/Git（一）/">Read more</a>
     </article>
   
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2017/11/22/你不知道的React/">你不知道的React</a>
+      </h2>
+      <p class="article-date">2017年11月22日</p>
+      
+        
+  <a href="/tags#React" >
+    <span class="tag-code">React</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <p>这几天正在学习React，有空记录一下！<br>
+比如：</p>
+<h5 id="export和export-default">export和export default</h5>
+<p>一般我们在定义了一个组件之后，为了复用，需要将它导出以提供给其他页面使用。<br>
+组件导出的关键字是:</p>
+<blockquote>
+<p>exprot default</p>
+</blockquote>
+<p>没有加default时，例如：</p>
+<blockquote>
+<p>export class Template{}</p>
+</blockquote>
+<p>当然，你可以在单个js文件里声明多个组件，例如Templates.js</p>
+<blockquote>
+<p>export class Template{}<br>
+export class AnotherTemplate{}</p>
+</blockquote>
+<p>这样在其他文件引用时，需要使用{}符号，且名称必须和class名称一样，like this：</p>
+<blockquote>
+<p>import {Template,AnotherTemplate} from ‘./components/Templates’;</p>
+</blockquote>
+<p>而加default时，例如：</p>
+        
+      </div>
+      <a class="more" href="/2017/11/22/你不知道的React/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2017/10/27/MySQL中MAX函数与Group By一起使用的注意事项/">MySQL中MAX函数与Group By一起使用的注意事项</a>
+      </h2>
+      <p class="article-date">2017年10月27日</p>
+      
+        
+  <a href="/tags#Mysql" >
+    <span class="tag-code">Mysql</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select * from  test;  </span><br><span class="line">+----+-------+------+-------+  </span><br><span class="line">| id | name  | age  | class |  </span><br><span class="line">+----+-------+------+-------+  </span><br><span class="line">|  1 | qiu   |   22 |     1 |   </span><br><span class="line">|  2 | liu   |   42 |     1 |   </span><br><span class="line">|  4 | zheng |   20 |     2 |   </span><br><span class="line">|  3 | qian  |   20 |     2 |   </span><br><span class="line">|  0 | wang  |   11 |     3 |   </span><br><span class="line">|  6 | li    |   33 |     3 |   </span><br><span class="line">+----+-------+------+-------+  </span><br><span class="line">6 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+        
+      </div>
+      <a class="more" href="/2017/10/27/MySQL中MAX函数与Group By一起使用的注意事项/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2017/10/19/Sleep和Wait的区别/">Sleep和Wait的区别</a>
+      </h2>
+      <p class="article-date">2017年10月19日</p>
+      
+        
+  <a href="/tags#Java" >
+    <span class="tag-code">Java</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <ol>
+<li>Java中sleep和wait的区别<br>
+① 这两个方法来自不同的类分别是，sleep来自Thread类，和wait来自Object类。<br>
+sleep是Thread的静态类方法，谁调用的谁去睡觉，即使在a线程里调用b的sleep方法，实际上还是a去睡觉，要让b线程睡觉要在b的代码中调用sleep。</li>
+</ol>
+        
+      </div>
+      <a class="more" href="/2017/10/19/Sleep和Wait的区别/">Read more</a>
+    </article>
+  
 
   
     <div class="guide-pager">
@@ -499,7 +516,7 @@ git push origin master 的意思就是，上传本地当前分支代码到master
 <script src="/js/script.js"></script>
 
   <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1629646954908')
+  navigator.serviceWorker.register('/sw.js?t=1637484587345')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }
