@@ -24,15 +24,15 @@ var precacheUrls = [];
 
   precacheUrls.push('/');
 
-  precacheUrls.push('/2021/05/09/React 之 dom-diff/');
-
   precacheUrls.push('/2021/05/08/React 之 Fiber 架构/');
-
-  precacheUrls.push('/2021/02/23/Babel 原理之AST/');
 
   precacheUrls.push('/2021/02/10/SetState/');
 
   precacheUrls.push('/2020/10/12/Webpack源码系列之工作流/');
+
+  precacheUrls.push('/2020/10/09/Webpack源码系列之调试/');
+
+  precacheUrls.push('/2020/01/14/浏览器渲染基本原理解析/');
 
 toolbox.precache(precacheUrls);
 toolbox.options = {"networkTimeoutSeconds":5};
