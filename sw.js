@@ -26,13 +26,13 @@ var precacheUrls = [];
 
   precacheUrls.push('/2021/05/08/React 之 Fiber 架构/');
 
-  precacheUrls.push('/2021/02/10/SetState/');
-
   precacheUrls.push('/2020/10/12/Webpack源码系列之工作流/');
 
   precacheUrls.push('/2020/10/09/Webpack源码系列之调试/');
 
   precacheUrls.push('/2020/01/14/浏览器渲染基本原理解析/');
+
+  precacheUrls.push('/2019/10/25/react中props和state有什么区别？/');
 
 toolbox.precache(precacheUrls);
 toolbox.options = {"networkTimeoutSeconds":5};
