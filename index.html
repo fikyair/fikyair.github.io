@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+  <head><link rel=manifest href=/manifest.json>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fikyair&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs, fikyair blog,">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      fikyair
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+  
+  
+    <script src="/js/local-search.js"></script>
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>fikyair</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link active">主页</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">项目</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">关于</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link mobile-active">主页</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">标签</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">归档</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">项目</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">关于</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <main class="app-body">
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2021/05/08/React 之 Fiber 架构/">React 之 Fiber 架构</a>
+      </h2>
+      <p class="article-date">2021年5月8日</p>
+      
+        
+  <a href="/tags#React" >
+    <span class="tag-code">React</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <blockquote>
+<p>之前看过一个在 React Summit 上分享的一个视频（原文 <code>7 Lessons to Outlive React</code> ），从宏观上阐释了 React 近年来处于前端框架浪潮之巅的主要原因，其架构和设计理念很可能是今后各种大前端框架的主要参考（如 Flutter），其实 React 之于其他前端框架很像苹果之于诸 OEM 安卓厂商，性能并不是最好的，但生态强大且质量高，旨在依随自己的理念不断的进化自己，而不是与“友商”一味的竞争各种跑分。所以若了解了 React 的架构思想，将对今后的学习和工作有着很大的帮助。</p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2021/05/08/React 之 Fiber 架构/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2021/02/23/Babel 原理之AST/">Babel 原理</a>
+      </h2>
+      <p class="article-date">2021年2月23日</p>
+      
+        
+  <a href="/tags#Babel" >
+    <span class="tag-code">Babel</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <blockquote>
+<p>Babel 的前身是 6to5 q这个库，顾名思义是 es6 转 es5，但是后来随着 es 标准的演进，有了 es7、es8 等，6to5 的名字已经不合适了，所以改名为 babel.</p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2021/02/23/Babel 原理之AST/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2020/10/12/Webpack源码系列之工作流/">「Webpack 源码系列之」工作流</a>
+      </h2>
+      <p class="article-date">2020年10月12日</p>
+      
+        
+  <a href="/tags#Webpack" >
+    <span class="tag-code">Webpack</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <blockquote>
+<p>目前的 <code>webpack4</code> 的源码已经十分庞大，学习起来的成本也十分昂贵。下面我们通过调试 <code>webpack</code>，了解其内部工作流程，揭秘它工作原理，最终实现一个简易版 <code>webpack</code>。</p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2020/10/12/Webpack源码系列之工作流/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2020/10/09/Webpack源码系列之调试/">「Webpack 源码系列之」调试</a>
+      </h2>
+      <p class="article-date">2020年10月9日</p>
+      
+        
+  <a href="/tags#Webpack" >
+    <span class="tag-code">Webpack</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <blockquote>
+<p>学习一个工具或者库的源码之前，需要对一个库有一个基本的认识，比如源码的结构，还有如何调试，属于一个前提条件。而 webpack 是我即 react 之后，希望通读的一个工具库，其实在团队中，自己需要去完成一些技术的指标，而相应的技术储备是必不可少的。就前端工程化而言，webpack 是避不开的一条路。所以在阅读源码的同时，希望能收获更广阔的技术视野，以及之后遇到这个东西的时候，知道其原理。</p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2020/10/09/Webpack源码系列之调试/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2020/01/14/浏览器渲染基本原理解析/">浏览器渲染基本原理解析</a>
+      </h2>
+      <p class="article-date">2020年1月14日</p>
+      
+        
+  <a href="/tags#JavaScript" >
+    <span class="tag-code">JavaScript</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <blockquote>
+<p>大多数设备的刷新频率是60Hz，也就说是浏览器对每一帧画面的渲染工作要在16ms内完成,超出这个时间，页面的渲染就会出现卡顿现象，影响用户体验。前端的用户体验给了前端直观的印象，因此对B/S架构的开发人员来说，熟悉浏览器的内部执行原理显得尤为重要。</p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2020/01/14/浏览器渲染基本原理解析/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/10/25/react中props和state有什么区别？/">react中props和state有什么区别?</a>
+      </h2>
+      <p class="article-date">2019年10月25日</p>
+      
+        
+  <a href="/tags#React" >
+    <span class="tag-code">React</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <blockquote>
+<p>props和state之间的确切区别是什么？理解它们的工作原理相当容易，尤其是在上下文中查看时，但是从概念上理解它们也有些困难。一开始令人困惑，因为它们都具有抽象术语，并且它们的值看起来相同，但是它们也具有不同的作用。</p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2019/10/25/react中props和state有什么区别？/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/06/26/小程序常被忽略的知识/">小程序常被忽略的知识</a>
+      </h2>
+      <p class="article-date">2019年6月26日</p>
+      
+        
+  <a href="/tags#小程序" >
+    <span class="tag-code">小程序</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <blockquote>
+<p>在开发小程序的同时，也别忘记去理解一些原理性和细节性的问题，因为这是我们提升的关键。<strong>to be an engineer, not a coder.</strong></p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2019/06/26/小程序常被忽略的知识/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/06/20/Linux/">上手捣鼓linux命令系列(更新)</a>
+      </h2>
+      <p class="article-date">2019年6月20日</p>
+      
+        
+  <a href="/tags#Linux" >
+    <span class="tag-code">Linux</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <blockquote>
+<p>最近将博客换成了https协议，并将自己小程序后台部署到了我的ubuntu服务器上，期间学习到了很多东西，下面便一一悉知</p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2019/06/20/Linux/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/03/10/前端国际化方案探索(二)/">前端国际化探索(二)</a>
+      </h2>
+      <p class="article-date">2019年3月10日</p>
+      
+        
+  <a href="/tags#React" >
+    <span class="tag-code">React</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <blockquote>
+<p>在这里我继续思考整理汇总一下国际化方案，后续可以针对一些重要的点进行突破和落地。</p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2019/03/10/前端国际化方案探索(二)/">Read more</a>
+    </article>
+  
+    <article class="article-card">
+      <h2 class="article-head">
+        <a href="/2019/01/20/前端国际化方案探索(一)/">前端国际化探索(一)</a>
+      </h2>
+      <p class="article-date">2019年1月20日</p>
+      
+        
+  <a href="/tags#React" >
+    <span class="tag-code">React</span>
+  </a>
+
+      
+      <div class="article-summary">
+        
+          <blockquote>
+<p>对于海外的业务需求，我们期望能让客户有一个良好的用户体验，因此前端需要适配国际化。</p>
+</blockquote>
+        
+      </div>
+      <a class="more" href="/2019/01/20/前端国际化方案探索(一)/">Read more</a>
+    </article>
+  
+
+  
+    <div class="guide-pager">
+  
+    <a class="unvisible" href="/"><span class="page-arrow">←</span> Prev</a>
+  
+  
+    <a href="/page/2/">Next<span class="page-arrow"> →</span></a>
+  
+</div>
+  
+</main>
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2022 | <a href="http://beian.miit.gov.cn" target="_blank">津ICP备17005329号</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+
+  <script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1653012700141')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>
