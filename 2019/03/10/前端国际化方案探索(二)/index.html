@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+  <head><link rel=manifest href=/manifest.json>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fikyair&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs, fikyair blog,">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      前端国际化探索(二) | fikyair
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+  
+  
+    <script src="/js/local-search.js"></script>
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>fikyair</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">主页</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">项目</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">关于</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">主页</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">标签</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">归档</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">项目</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">关于</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>前端国际化探索(二)</h2>
+  <p class="post-date">2019-03-10</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><blockquote>
+<p>在这里我继续思考整理汇总一下国际化方案，后续可以针对一些重要的点进行突破和落地。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="国际化的目的">国际化的目的</h3>
+<p>简单的说一个国外网站被你打开却以为是国内公司开的，那么这个网站的国际化就做的非常成功。</p>
+<p>所以国际化的目的就是：让各个地区的人都能感受到这个网站像本地的网站一样，亲切、易用。</p>
+<p>然而这个目标很难实现，在做调研的时候，亚马逊属于国际化比较好的网站，开设分站并在主要几个国家都有专门的运营团队等，然而让普通人打开这个中国亚马逊，还是能感受到与淘宝、京东的不同。</p>
+<p>即便是无法完全实现目标，我们仍然可以用技术以较低成本来尽可能改善体验，因此还是有一定的价值来探索这个</p>
+<h3 id="国际化的流程和步骤">国际化的流程和步骤</h3>
+<p>一个其他地区的人访问我们的网页，然后最终得到一个国际化友好的网页，这个过程发生了什么？这个过程有哪些问题和解决方案？下面就来整条链路的梳理一下。</p>
+<ul>
+<li>入口 URL 附带相关参数。</li>
+<li>通过 IP 地址进行判断。</li>
+</ul>
+<p>第一种方法适用于引导页进行跳转，使用范围比较小。<br>
+初次访问的判断方法最好是 IP 判断的方式进行。<br>
+后端也有相关接口，初次访问的人可以用这种方式进行粗略的定位，因为 IP 肯定会有误差。</p>
+<h3 id="记录-cookie-并提供用户切换地区-语言的功能">记录 Cookie 并提供用户切换地区、语言的功能</h3>
+<p>访问之后，我们可以粗略拿到该用户所在的地区，因此可以回写一个 Cookie 来保存当前用户的一些信息，通常比较重要的信息有：</p>
+<ul>
+<li>地区</li>
+<li>语言</li>
+<li>货币</li>
+</ul>
+<p>这几个信息组合就可以，共同确定唯一的一个信息，所以我起了个名字叫『唯一地区语言定位串』。但是目前缺乏一套一致的数据规范，因此会产生一些问题：</p>
+<ul>
+<li>地区是按国家维度区分还是按区域？香港是表示为 HK 还是 CN？</li>
+<li>语言按照什么维度区分？用什么表示？繁体和简体都属于中文，只用中文区分？chinese 和 zh-cn 用哪种表示？</li>
+</ul>
+<p>这些信息如果没有一套规范和列表，很难进行统一和推广，如果没有在一开始就全集团统一确定下来，后期就会像 GBK、UTF-8 这样的编码问题一样，后患无穷。</p>
+<h3 id="针对特定区域进行国际化处理">针对特定区域进行国际化处理</h3>
+<p>获取信息只是第一步，下面轮到我们进行国际化处理了。</p>
+<p>国际化的处理主要分为两部分：</p>
+<ul>
+<li>页面内容改变</li>
+<li>页面交互样式改变<br>
+按照当地的习惯设计视觉、展示当地的语言的内容等，基本就是国际化处理的核心。这块也是最复杂最有挑战性的部分。</li>
+</ul>
+<h3 id="文本内容改变">文本内容改变</h3>
+<p>固定文案的处理比较简单，最常见的方法就是创建一个映射表，用一个标记来表示该文案，然后不同区域下读取不同的文案内容即可。</p>
+<p>现在市场上也有非常多类似的工具可以帮你简化这些操作，比如 i18next 等。</p>
+<p>比较麻烦的是动态数据这块，就拿淘宝业务举例，就是各种商品数据，比如标题等信息。这些信息怎么进行本地化语言转换就是一个需要突破的问题。即便是看似最简单的繁简体转换，也没有那么简单。有些香港、台湾的惯用语等，并不是单个汉字转成繁体就可以的。更具体的细节可以点击这里。</p>
+<p>由于目前在考虑做英文站，需要大量英文数据，后端也有考虑批量翻译商品数据直接存入数据库的方式来处理。但这种翻译不够完善，最大的缺陷在于无法对图片的内容翻译。一个淘宝商品详情承载最大信息量的不是商品标题等，而是商品的图片。卖家往往通过在商品图片上打字来介绍这个商品，所以这种批量转换只能在搜索和 SEO 方面能有所价值。对于真实成交和本地化的体验可能没有非常大的效果。</p>
+<p>既然商品信息都是卖家提交的，那国际化的内容，能否让卖家自行提交、编辑？这或许是一个最好的突破口，提供给卖家多语言的编辑入口，赋能想要发展国外业务的卖家，在搜索排名上也会更倾向于这些本地化做的好的商家。这样既解决了本地化内容的问题，又促进了卖家的成交，还带给了买家愉快的购物体验。</p>
+<p>更进一步，让淘宝真的只是作为一个交易平台，在当地推广，让本地人开店把商品卖给本地人，建立本地商品库，那是更好的一种方案了。</p>
+<p>除了商品数据之外，还有一个非常重要不可忽视的就是价格信息。包括货币表示符号、货币单位、价格映射，也是一块比较大的挑战。而稍有差池则会引起强烈的不满。比如类似人民币的这种货币符号，跟日元等比较像，如果没有表述清楚可能会产生一些误解。</p>
+<h3 id="图片内容改变">图片内容改变</h3>
+<p>拿淘宝首页来举例。商品图片内容改变的挑战已经在在上面列出来了，所以不再赘述。本节所说的图片是由视觉做的，然后由我们进行控制的图片，比如首焦图：</p>
+<p><img src="http://qiniu.xueshiming.cn/%E9%A6%96%E7%84%A6%E5%9B%BE.jpg" alt="首焦图"></p>
+<p>这种图片的多语言、国际化我们应该怎么处理呢？马上就可以想到：让视觉在做的时候，把相关文案、视觉换一下，做成多张图片就好了，然后由技术进行定向切换图片地址实现。</p>
+<p>但跟淘海外支持视觉讨论了下，并没有这么简单。如果要做好一个国际化的突破，是需要非常细致的做，并不是简单的文案转换即可，视觉都要有变化。对于十分重要的场景（双十一等）这样的投入也是值得的。而日常的一些需求，如果这样做就会十分的浪费资源，投入跟产出比比较低。</p>
+<p>他介绍了一种更方便实现的思路，希望可以通过技术手段来解决掉这个问题。顺着他描述的需求的原型，我补充了一些更细节的技术实现思路，在这里简单介绍下。</p>
+<p>首先活动图片其实是有一些共性的，比如下图：<br>
+<img src="http://qiniu.xueshiming.cn/TB19dcGLVXXXXXYXXXXXXXXXXXX-578-384.jpg" alt="性冷淡风"><br>
+基本元素就几个：宣传文案、利益点、辅助图片等。其实很容易形成规范固定下来，比如设计时就放这几个元素，然后基于这几个元素设计一张底图，约定好几个文案元素的位置、大小、字体等，然后由运营填写文案。我们的技术工具可以自动把文案翻译并合并到图片上生成多张多语言的图片。然后当请求这个图片时，会自动根据地区进行返回。实在不行也可以手动填写进去，进行定向投放。</p>
+<p>再到后面，甚至都不需要视觉资源。运营想要一个活动，利用现有的模板，从高质量图片库中取出辅助图片，放上去定下位置，填下文案就可以了。</p>
+<p>这样就可以减少人力资源的投入，也可以很好的实现图片的国际化处理，极大的提高了效率。</p>
+<h3 id="交互样式改变">交互样式改变</h3>
+<p>对于样式、交互的国际化，马上想到的应该是通过给 body 加『唯一地区语言定位串』相关联的 class 来实现定制。这样也有问题，就是与浏览器强绑定，无法实现跨端复用。当你的内容用在 Native 或者没有 body 标签的地方，就没法用了。</p>
+<p>如果用这样一套方案，有两个点需要着重考虑：</p>
+<p>根据语系和习惯来定制 class，而不是语言。比如英文和德语都是字母，他们的样式个性化就有共通性，而不需要定义多个 class 重复编写规则，产生冗余代码。<br>
+样式是用来适配内容而不是约束内容。中文内容翻译成英文，长度势必会增长，从而产生错位。这就需要在视觉时就要思考到溢出要怎么处理。可以像响应式布局那样流动起来，样式用来适配内容，而不是固定死约束内容展示。<br>
+后端的处理在这里会有比较大的优势，就 Midway 而言，可以根据上面解析出来的『唯一地区语言定位串』直接映射到某个区域的 xtpl 模板，实现非常灵活的改变。</p>
+<h3 id="国际化的部署服务器">国际化的部署服务器</h3>
+<p>终于到了最后一步，服务器部署国际化。国内的网络都变幻莫测，更别提国外连到国内服务器的网速了。所以我们的服务器也要进行国际化部署。这样就依靠阿里云多造（租）点机房了。</p>
+<p>但并不是所有应用都能迁移到国外，有些核心数据还是要在国内机房。那么这么远距离的链接、数据沟通、应用部署又带来非常多的、不可预知的挑战。</p>
+<h3 id="最后">最后</h3>
+<p>整个过程中，除了上面描述的那些问题和挑战，目前我能想到的还有两个：</p>
+<ul>
+<li>文件编码</li>
+<li>内容不准确性的修正和个性化需要投入的人力成本</li>
+</ul>
+<p>目前淘宝由于历史原因还有一些应用是 GBK 编码，GBK 编码显然不能用于国际化、全球化，特殊语言的国家访问看下来全是『口口口口口口口口口口口口口口口口』。或许这也是一个契机，就像升级 https 那样，推动整个集团去 GBK。</p>
+<p>内容和个性化始终需要人力，我们如何能利用技术进一步提高效率解决人力问题？这也是一个挑战。</p>
+<h3 id="附：国际化方案探索脑图">附：国际化方案探索脑图</h3>
+<p><img src="http://qiniu.xueshiming.cn/%E5%9B%BD%E9%99%85%E5%8C%96%E8%84%91%E5%9B%BE.jpg" alt="国际化探索脑图"></p>
+<p>摘自：<a href="https://taobaofed.org/blog/2016/03/21/internationalization/" target="_blank" rel="noopener">国际化探索</a></p>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#React" >
+    <span class="tag-code">React</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2019/01/20/前端国际化方案探索(一)/">
+        <span class="nav-arrow">← </span>
+        
+          前端国际化探索(一)
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/06/20/Linux/">
+        
+          上手捣鼓linux命令系列(更新)
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Disqus START -->
+      <div id="disqus_thread"></div>
+      <!-- Disqus END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#国际化的目的"><span class="toc-nav-text">国际化的目的</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#国际化的流程和步骤"><span class="toc-nav-text">国际化的流程和步骤</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#记录-cookie-并提供用户切换地区-语言的功能"><span class="toc-nav-text">记录 Cookie 并提供用户切换地区、语言的功能</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#针对特定区域进行国际化处理"><span class="toc-nav-text">针对特定区域进行国际化处理</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#文本内容改变"><span class="toc-nav-text">文本内容改变</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#图片内容改变"><span class="toc-nav-text">图片内容改变</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#交互样式改变"><span class="toc-nav-text">交互样式改变</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#国际化的部署服务器"><span class="toc-nav-text">国际化的部署服务器</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#最后"><span class="toc-nav-text">最后</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#附：国际化方案探索脑图"><span class="toc-nav-text">附：国际化方案探索脑图</span></a></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://xueshiming.cn/2019/03/10/前端国际化方案探索(二)/';
+    var banner = 'undefined'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', '/css/images/error_icon.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+
+
+  <script>
+    var disqus_shortname = 'https-xueshiming-cn';
+    
+    var disqus_url = 'https://xueshiming.cn/2019/03/10/前端国际化方案探索(二)/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//go.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2022 | <a href="http://beian.miit.gov.cn" target="_blank">津ICP备17005329号</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+
+  <script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1653703904086')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>

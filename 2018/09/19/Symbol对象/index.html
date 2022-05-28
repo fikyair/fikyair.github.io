@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+  <head><link rel=manifest href=/manifest.json>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fikyair&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs, fikyair blog,">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      Symbol对象 | fikyair
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+  
+  
+    <script src="/js/local-search.js"></script>
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>fikyair</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">主页</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">项目</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">关于</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">主页</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">标签</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">归档</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">项目</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">关于</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>Symbol对象</h2>
+  <p class="post-date">2018-09-19</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><blockquote>
+<p>称符号对象，是es2015(也就是es6)中新添加的数据类型。通过Symbol()可以得到一个唯一的值，所以这个值很适合做标识符。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="概念">概念</h3>
+<p>Symbol() function 返回一个类型为symbol的值，Symbol有静态属性，原型上也有methods，但是缺少constructor，所以你不能<code>new Symbol()</code>来执行；</p>
+<blockquote>
+<p>引用官方翻译，符号是一种特殊的、不可变的数据类型，它可以作为对象属性的标识符使用。符号对象是一个对的符号原始数据类型的隐式对象包装器。</p>
+</blockquote>
+<ul>
+<li>类型</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let sym = Symbol(); // Symbol中参数为字符串，用来描述。</span><br><span class="line">console.log(typeof sym); //&quot;symbol&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>唯一性</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const sym1 = Symbol(&apos;abc&apos;);</span><br><span class="line">const sym2 = Symbol(&apos;cba&apos;);</span><br><span class="line">console.log(sym1,sym2); //Symbol(abc) Symbol(cba)</span><br><span class="line">//参数的作用就是描述，便于调试</span><br><span class="line">console.log(sym1.toString()) //&apos;Symbol(abc)&apos;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>new关键字</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const sym = new Symbol(); // TypeError</span><br></pre></td></tr></table></figure>
+<h3 id="获取symbol类型值的三种方式">获取symbol类型值的三种方式</h3>
+<ul>
+<li>通过Symbol对象</li>
+</ul>
+<blockquote>
+<p>也就是前面说的  let sym = Symbol();得到一个为一个的symbol值</p>
+</blockquote>
+<ul>
+<li>Symbol.for(string)</li>
+</ul>
+<blockquote>
+<p>可以注册一个symbol，再次调用Symbol.for(string)会得到这个symbol值，区别于Symbol()是唯一的</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let sym = Symbol(&apos;abc&apos;);</span><br><span class="line">const sym1 = Symbol.for(&apos;abc&apos;);</span><br><span class="line">console.log(sym === sym1); //false</span><br><span class="line">console.log(sym1 === Symbol.for(&apos;abc&apos;)); //true</span><br></pre></td></tr></table></figure>
+<p>-Symbol.iterator</p>
+<blockquote>
+<p>这个比较特别，得到的也是symbol类型的值，是es6中提出用到对象中，被for…of遍历所用，下面将进行详细介绍。</p>
+</blockquote>
+<p>由于这个值是标准规范提出，用于每个object中，所以应该是固定的值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(Symbol.iterator === Symbol.iterator); //true</span><br></pre></td></tr></table></figure>
+<h3 id="用途">用途</h3>
+<blockquote>
+<p>在我看来，symbol更多是应用于es6规范中，由于它的值唯一的特性，可以解决变量名，属性名冲突的问题，并切Symbol提出了一些属性和方法，用于过渡以及实现一些特殊的用途，比如对象的迭代器，instanceof的拓展等等。</p>
+</blockquote>
+<ul>
+<li>栗子。像我们项目中大量的使用常量定义字符串，尤其是react+redux的项目中，我觉得用Symbol就不错。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const GETLIST_SUCCESS = Symbol(&apos;get-list-success&apos;);</span><br><span class="line"></span><br><span class="line">const getList = () =&gt; dispatch(&#123;</span><br><span class="line">   type: GETLIST_SUCCESS</span><br><span class="line"> &#125;</span><br><span class="line">)</span><br><span class="line">const list = function(state = &#123;&#125;, action) &#123;</span><br><span class="line">  switch(action.type):</span><br><span class="line">    case GETLIST_SUCCESS:</span><br><span class="line">      // code</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>我这里只是举一个例子，这种标识性的Symbol可以用的地方。大家可以不必关注redux。</p>
+</blockquote>
+<ul>
+<li>另外，Symbol值可以做为对象的key值，这样就能保证不会出现同名的属性名，防止对象属性被覆盖。下面我们将介绍Symbol作为属性名的写法。</li>
+</ul>
+<h3 id="作为对象的key">作为对象的key</h3>
+<ul>
+<li>对象[]方括号的形式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const obj = &#123;&#125;</span><br><span class="line">const sym = Symbol();</span><br><span class="line">obj[sym] = &apos;syj&apos;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>对象内部定义</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const sym = Symbol();</span><br><span class="line"></span><br><span class="line">const obj = &#123;</span><br><span class="line">  [sym]: &apos;syj&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过Object.defineProperty定义</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const sym = Symbol();</span><br><span class="line">const obj = Object.defineProperty(&#123;&#125;, sym, &#123;</span><br><span class="line">  enumerable: true, //可枚举</span><br><span class="line">  writable: true,  //可赋值运算符改变</span><br><span class="line">  configurable: true, //可改变，可删除</span><br><span class="line">  value: &apos;syj&apos;</span><br><span class="line"> &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意，symbol作为属性名不能通过 . 的形式添加。</p>
+</blockquote>
+<p>通过上述三种方式，我们就可以向对象添加key不会重复的symbol值了。意味着我们可以创建非字符串类型的属性名称，以防止使用常规手段来探查这些名称。</p>
+<ul>
+<li>symbol类型的key的遍历</li>
+</ul>
+<blockquote>
+<p>当我们用symbol设置了对象的key以后，他是不会被之前的for…in，Object.keys()遍历出来的，需要用Object.getOwnPropertySymbols()获取，得到一个所有这个对象中的symbol属性名的数组。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const sym1 = Symbol(&apos;1&apos;);</span><br><span class="line">const sym2 = Symbol(&apos;2&apos;);</span><br><span class="line">const obj = &#123;</span><br><span class="line">  [sym1]: &apos;syj&apos;,</span><br><span class="line">  [sym2]: &apos;fy&apos;</span><br><span class="line">&#125;</span><br><span class="line">const ary = Object.getOwnPropertySymbols(obj);</span><br><span class="line">console.log(ary); //[ Symbol(1), Symbol(2) ]</span><br></pre></td></tr></table></figure>
+<h3 id="内置的symbol值">内置的Symbol值</h3>
+<ul>
+<li>对象[]方括号的形式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const obj = &#123;&#125;</span><br><span class="line">const sym = Symbol();</span><br><span class="line">obj[sym] = &apos;syj&apos;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>对象内部定义</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const sym = Symbol();</span><br><span class="line"></span><br><span class="line">const obj = &#123;</span><br><span class="line">  [sym]: &apos;syj&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过Object.defineProperty定义</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const sym = Symbol();</span><br><span class="line">const obj = Object.defineProperty(&#123;&#125;, sym, &#123;</span><br><span class="line">  enumerable: true, //可枚举</span><br><span class="line">  writable: true,  //可赋值运算符改变</span><br><span class="line">  configurable: true, //可改变，可删除</span><br><span class="line">  value: &apos;syj&apos;</span><br><span class="line"> &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意，symbol作为属性名不能通过 <figure class="highlight plain"><figcaption><span>``` 的形式添加。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">通过上述三种方式，我们就可以向对象添加key不会重复的symbol值了。意味着我们可以创建非字符串类型的属性名称，以防止使用常规手段来探查这些名称。</span><br><span class="line"></span><br><span class="line">- symbol类型的key的遍历</span><br><span class="line"></span><br><span class="line">&gt;当我们用symbol设置了对象的key以后，他是不会被之前的for...in，Object.keys()遍历出来的，需要用Object.getOwnPropertySymbols()获取，得到一个所有这个对象中的symbol属性名的数组。</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>const sym1 = Symbol(‘1’);<br>
+const sym2 = Symbol(‘2’);<br>
+const obj = {<br>
+[sym1]: ‘syj’,<br>
+[sym2]: ‘fy’<br>
+}<br>
+const ary = Object.getOwnPropertySymbols(obj);<br>
+console.log(ary); //[ Symbol(1), Symbol(2) ]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 内置的Symbol值</span><br><span class="line"></span><br><span class="line">&gt;JavaScript内建的一些在 ECMAScript 5 之前没有暴露给开发者的符号，它们代表语言的内部行为。</span><br><span class="line"></span><br><span class="line">- Symbol.iterator属性</span><br><span class="line"></span><br><span class="line">我觉得是最重要的属性，它的提出使对象可以使用迭代器遍历，之前只有Array,String等，这种内置Symbol.iterator属性的可以使用迭代器。ECMAScript旨在使JS中使用一种方法,比如for...of就可以遍历序列数据，不需要关注它内部的数据结构。其实就是JS往C,JAVA语言靠拢的趋势吧。</span><br><span class="line">为了避免此部分过于重，我们后面会专门研究迭代器和生成器。</span><br><span class="line"></span><br><span class="line">- Symbol.hasInstance</span><br><span class="line"></span><br><span class="line">&gt;之前我们用instanceof的时候，比如```a instaceof A```其实就是调用的A对象中的Symbol.hasInstance属性，它指向一个内部方法，现在es6拓展出来，我们可以自己定义啦。</span><br><span class="line"></span><br><span class="line">先看看下面的代码，猜想输出什么？</span><br></pre></td></tr></table></figure>
+<p>class MyClass{<br>
+static <a href="num">Symbol.hasInstance</a> {<br>
+return num % 2 === 0<br>
+}</p>
+<p><a href="num">Symbol.hasInstance</a> {<br>
+return num % 2 === 0<br>
+}<br>
+}<br>
+console.log(1 instanceof MyClass); // 序号(1)<br>
+console.log(2 instanceof MyClass); // 序号(2)<br>
+console.log(2 instanceof new MyClass()); // 序号(3)</p>
+<p>const obj = {<br>
+<a href="obj">Symbol.hasInstance</a> {<br>
+return num % 2 === 0<br>
+}<br>
+}<br>
+console.log(1 instanceof obj);// 序号(4)</p>
+<pre><code>
+序号(1) MyClass类上有静态方法[Symbol.hasInstance], 1被当做参数传入function，返回结果false。 序号(2)同理,true。
+序号(3) 后面是实例化的对象，通过原型链查找到原型上[Symbol.hasInstance]，然后传入2执行，true。序号(4)是普通对象内部存在这个方法，执行返回false。
+</code></pre>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#JavaScript" >
+    <span class="tag-code">JavaScript</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2018/07/01/Say Hi/">
+        <span class="nav-arrow">← </span>
+        
+          Say Hi
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2018/10/18/小程序探险指南（一）/">
+        
+          小程序探险指南（一）
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Disqus START -->
+      <div id="disqus_thread"></div>
+      <!-- Disqus END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#概念"><span class="toc-nav-text">概念</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#获取symbol类型值的三种方式"><span class="toc-nav-text">获取symbol类型值的三种方式</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#用途"><span class="toc-nav-text">用途</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#作为对象的key"><span class="toc-nav-text">作为对象的key</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#内置的symbol值"><span class="toc-nav-text">内置的Symbol值</span></a></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://xueshiming.cn/2018/09/19/Symbol对象/';
+    var banner = 'undefined'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', '/css/images/error_icon.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+
+
+  <script>
+    var disqus_shortname = 'https-xueshiming-cn';
+    
+    var disqus_url = 'https://xueshiming.cn/2018/09/19/Symbol对象/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//go.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2022 | <a href="http://beian.miit.gov.cn" target="_blank">津ICP备17005329号</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+
+  <script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1653703904086')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>
