@@ -190,7 +190,7 @@
 <h2 id="1-浏览器主要组成与浏览器线程">1. 浏览器主要组成与浏览器线程</h2>
 <h3 id="1-1-浏览器组件">1.1 浏览器组件</h3>
 <p>浏览器大体上由以下几个组件组成，各个浏览器可能有一点不同。</p>
-<p><img src="http://qiniu.xueshiming.cn/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BB%84%E4%BB%B6.png" alt="浏览器组件"></p>
+<p><img src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BB%84%E4%BB%B6.png" alt="浏览器组件"></p>
 <ul>
 <li><strong>界面控件</strong> – 包括地址栏，前进后退，书签菜单等窗口上除了网页显示区域以外的部分</li>
 <li><strong>浏览器引擎</strong> – 查询与操作渲染引擎的接口</li>
@@ -220,9 +220,9 @@
 <h2 id="2-渲染过程">2. 渲染过程</h2>
 <h3 id="2-1-渲染流程">2.1 渲染流程</h3>
 <p>用户请求的HTML文本(text/html)通过浏览器的网络层到达渲染引擎后，渲染工作开始。每次通常渲染不会超过8K的数据块，其中基础的渲染流程图：</p>
-<p><img src="http://qiniu.xueshiming.cn/%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B.png" alt="浏览器渲染流程"></p>
+<p><img src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B.png" alt="浏览器渲染流程"></p>
 <p>webkit引擎渲染的详细流程，其他引擎渲染流程稍有不同：</p>
-<p><img src="http://qiniu.xueshiming.cn/webkit%E5%BC%95%E6%93%8E%E6%B8%B2%E6%9F%93.png" alt="webkit引擎渲染"></p>
+<p><img src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/webkit%E5%BC%95%E6%93%8E%E6%B8%B2%E6%9F%93.png" alt="webkit引擎渲染"></p>
 <p>渲染流程有四个主要步骤：</p>
 <ul>
 <li><strong>解析HTML生成DOM树</strong> - 渲染引擎首先解析 HTML 文档，生成 DOM 树</li>
@@ -241,7 +241,7 @@
 <h4 id="3-dom树与render树">3. DOM树与Render树</h4>
 <p>DOM对象类型很丰富，什么head、title、div，而Render树相对来说就比较单一了，毕竟它的职责就是为了以后的显示渲染用嘛。Render树的每一个节点我们叫它渲染器renderer。</p>
 <p>一棵Render树大概是酱紫，左边是DOM树，右边是Render树：</p>
-<p><img src="http://qiniu.xueshiming.cn/render%E6%A0%91.png" alt="Render树"></p>
+<p><img src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/render%E6%A0%91.png" alt="Render树"></p>
 <p>从上图我们可以看出，renderer与DOM元素是相对应的，但并不是一一对应，有些DOM元素没有对应的renderer，而有些DOM元素却对应了好几个renderer，对应多个renderer的情况是普遍存在的，就是为了解决一个renderer描述不清楚如何显示出来的问题，譬如有下拉列表的select元素，我们就需要三个renderer：一个用于显示区域，一个用于下拉列表框，还有一个用于按钮。</p>
 <p>另外，renderer与DOM元素的位置也可能是不一样的。那些添加了 <code>float</code> 或者 <code>position:absolute</code> 的元素，因为它们脱离了正常的文档流，构造Render树的时候会针对它们实际的位置进行构造。</p>
 <h4 id="4-布局与绘制">4. 布局与绘制</h4>
@@ -323,7 +323,7 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span>&gt;</span><span class="javascript"><span class="built_in">console</span>.log(<span class="string">"1"</span>)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">defer</span>&gt;</span><span class="javascript"><span class="built_in">console</span>.log(<span class="string">"2"</span>)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"><span class="built_in">console</span>.log(<span class="string">"3"</span>)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>上面脚本会按需输出 1 2 3，故，下面两节讨论的内容都是针对设置了 src 属性的 script 标签。</p>
 <p>先放个熟悉的图~</p>
-<p><img src="http://qiniu.xueshiming.cn/%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90%E6%A1%88%E4%BE%8B.png" alt="代码解析案例"></p>
+<p><img src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90%E6%A1%88%E4%BE%8B.png" alt="代码解析案例"></p>
 <p>蓝色线代表网络读取，红色线代表执行时间，这俩都是针对脚本的；绿色线代表 HTML 解析。</p>
 <h4 id="defer">defer</h4>
 <p>defer 属性表示延迟执行引入 JavaScript，即 JavaScript 加载时 HTML 并未停止解析，这两个过程是并行的。整个 document 解析完毕且 defer-script 也加载完成之后（这两件事情的顺序无关），会执行所有由 defer-script 加载的 JavaScript 代码，再触发 DOMContentLoaded(初始的 HTML 文档被完全加载和解析完成之后触发，无需等待样式表图像和子框架的完成加载) 事件 。</p>
@@ -366,7 +366,7 @@
 <li><strong>动画实现使用 <code>requestAnimationFrame</code></strong></li>
 </ul>
 <p>setTimeout(callback)和setInterval(callback)无法保证callback函数的执行时机，很可能在帧结束的时候执行，从而导致丢帧，如下图：</p>
-<p><img src="http://qiniu.xueshiming.cn/%E4%B8%A2%E5%B8%A7.png" alt="丢帧"></p>
+<p><img src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/%E4%B8%A2%E5%B8%A7.png" alt="丢帧"></p>
 <p><code>requestAnimationFrame(callback)</code> 可以保证callback函数在每帧动画开始的时候执行。注意：jQuery3.0.0以前版本的animate函数就是用setTimeout来实现动画，可以通过jquery-requestAnimationFrame这个补丁来用requestAnimationFrame替代setTimeout。</p>
 <ul>
 <li><strong>长耗时的JS代码放到Web Workers中执行</strong></li>
@@ -712,7 +712,7 @@
 <script src="/js/script.js"></script>
 
   <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1653703904086')
+  navigator.serviceWorker.register('/sw.js?t=1656992425842')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }

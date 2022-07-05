@@ -219,14 +219,14 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. 引入核心模块</span></span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>);</span><br><span class="line"><span class="comment">//2. 加载配置文件</span></span><br><span class="line"><span class="keyword">const</span> webpackOptions = <span class="built_in">require</span>(<span class="string">"./webpack.config"</span>);  </span><br><span class="line"><span class="comment">//3. 执行 webpack 得到编译对象 compiler ，它是核心的编译对象</span></span><br><span class="line"><span class="keyword">const</span> compiler = webpack(webpackOptions);</span><br><span class="line"><span class="keyword">debugger</span></span><br><span class="line">compiler.run(<span class="function">(<span class="params">err, stats</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 编译完成之后执行回调</span></span><br><span class="line">  <span class="built_in">console</span>.log(err);</span><br><span class="line">  <span class="comment">// stats 是编译结果的描述对象</span></span><br><span class="line">  <span class="built_in">console</span>.log(</span><br><span class="line">    <span class="built_in">JSON</span>.stringify(stats.toJson(&#123; <span class="comment">// webpack 都是数组  webpack 5 都是 set</span></span><br><span class="line">      entries: <span class="literal">true</span>,<span class="comment">// 入口 entryPoints </span></span><br><span class="line">      chunks: <span class="literal">false</span>,<span class="comment">// 代码块 [main]</span></span><br><span class="line">      modules: <span class="literal">false</span>,<span class="comment">// 模块 ['./src/index.js','./src/title.js']</span></span><br><span class="line">      assets: <span class="literal">false</span>,<span class="comment">// 本次产出的资源 [main.js]</span></span><br><span class="line">    &#125;), <span class="literal">null</span>, <span class="number">2</span>)</span><br><span class="line">  );</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>启动调试按钮，进入调试界面。</p>
 <p>调试界面：</p>
-<p><img src="http://qiniu.xueshiming.cn/vscode%E8%B0%83%E8%AF%95.png" alt="VsCode调试"></p>
+<p><img src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/vscode%E8%B0%83%E8%AF%95.png" alt="VsCode调试"></p>
 <h2 id="chrome-devtools-调试">Chrome DevTools 调试</h2>
 <p>我们也可以用 Chrome 来调试代码</p>
 <p><code>node --inspect index.js</code></p>
 <p>然后打开 <code>chrome://inspect</code></p>
 <p>点击 <code>Open dedicated DevTools for Node</code></p>
 <p>调试界面：</p>
-<p><img src="http://qiniu.xueshiming.cn/DevTools%E8%B0%83%E8%AF%95.png" alt="DevTools调试"></p>
+<p><img src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/DevTools%E8%B0%83%E8%AF%95.png" alt="DevTools调试"></p>
 <h2 id="总结">总结</h2>
 <p>关于调试：调试技巧在平常的工作中也是可以用到的，由于前端会偏向于交互的特性，所以 <code>console.log</code> 这些我会很常用，但是向<code>debug</code> 这些，当接触 <code>node</code> 之后，会发现比 <code>console.log</code> 实用太多了。所以，这边文章中的调试方式，可适用于大部分场景。</p>
 </section>
@@ -443,7 +443,7 @@
 <script src="/js/script.js"></script>
 
   <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js?t=1653703904086')
+  navigator.serviceWorker.register('/sw.js?t=1656992425842')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }
