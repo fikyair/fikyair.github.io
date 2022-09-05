@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+  <head><link rel=manifest href=/manifest.json>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fikyair&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs, fikyair blog,">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      React 之 dom-diff | 渔人露
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+  
+  
+    <script src="/js/local-search.js"></script>
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>渔人露</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">主页</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">项目</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">关于</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">主页</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">标签</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">归档</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">项目</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">关于</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>React 之 dom-diff</h2>
+  <p class="post-date">2021-05-09</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><blockquote>
+<p>标准的 <code>dom-diff</code> 算法时间复杂度是 <code>O(n^3)</code>，显然性能在某些情况下是无法达到要求的，<code>Facebook</code> 工程师将其时间复杂度降到了 <code>O(n)</code>。本文通过不同的 <code>case</code> 来对其思想做进一步的整合。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="dom-diff算法">DOM-DIFF算法</h2>
+<p>在 <code>React17+</code> 中 <code>DOM-DIFF</code> 就是根据老的 <code>fiber树</code> 和最新的 <code>JSX</code> 对比生成新的 <code>fiber树</code> 的过程</p>
+<p>一般来说，一个老的树变成一个新的树，算法实现的时间复杂度是 O(n^3)，性能较差</p>
+<h3 id="react优化原则">React优化原则</h3>
+<ul>
+<li>只对同级节点进行对比，如果 DOM 节点跨层级移动，则 React 不会复用</li>
+<li>不同类型 type 的元素会产出不同的结构，会销毁老结构，创建新结构</li>
+<li>可以通过 key 标识移动的元素</li>
+</ul>
+<h3 id="单节点">单节点</h3>
+<ul>
+<li>如果新的节点只有一个的话</li>
+</ul>
+<p><img src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/singleFiber.jpeg" alt="singleFiber"></p>
+<h4 id="case-1">case 1</h4>
+<p>新旧节点 type不同，如果节点没有写 key，key 就是索引 （key=“0”）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>h1<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>    在调和阶段，需要把这个老节点标记为删除</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">/*************/</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>h2<span class="tag">&lt;/<span class="name">h2</span>&gt;</span>    生成新的 fiber 节点并标记为插入</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在 commit 阶段，remove h1，appendChild h2</p>
+<h4 id="case-2">case 2</h4>
+<p>新旧节点 type 和 key 都不一样</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">key</span>=<span class="string">"h1"</span>&gt;</span>h1<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">key</span>=<span class="string">"h2"</span>&gt;</span>h2<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">key</span>=<span class="string">"h3"</span>&gt;</span>h3<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">key</span>=<span class="string">"h4"</span>&gt;</span>h4<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">/*************/</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">key</span>=<span class="string">"h2"</span>&gt;</span>h2<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>只需 h1 标记为删除<br>
+h3 h4 标记为删除</p>
+<h4 id="case-3">case 3</h4>
+<p>type和key都相同</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">key</span>=<span class="string">"h1"</span>&gt;</span>h1<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">/*************/</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">key</span>=<span class="string">"h1"</span>&gt;</span>h1-new<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果对比后发现新老节点一样的，那么会复用老节点，复用老节点的DOM元素和Fiber对象</p>
+<p>再看属性有无变更，如果有变化，则会把此Fiber节点标准为更新</p>
+<p><code>h1.innerHTML = 'h1-new';</code></p>
+<h4 id="case-4">case 4</h4>
+<p>key 相同但是 type 不同，直接删除所有老节点</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">key</span>=<span class="string">"h1"</span>&gt;</span>h1<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">key</span>=<span class="string">"h2"</span>&gt;</span>h2<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">/*************/</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">key</span>=<span class="string">"h1"</span>&gt;</span>p<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果key相同，但是type不同，则不再进行后续对比了，</p>
+<p>直接把老的节点全部删除</p>
+<p>插入新节点即可</p>
+<h3 id="多节点">多节点</h3>
+<ul>
+<li>如果新的节点有多个节点的话</li>
+<li>节点有可能更新、删除、新增</li>
+<li>多节点的时候会经历二轮遍历</li>
+<li>第一轮遍历主要是处理节点的更新,更新包括属性和类型的更新</li>
+<li>第二轮遍历主要处理节点的新增、删除和移动</li>
+<li>移动时的原则是尽量少量的移动，如果必须有一个要动，新地位高的不动，新地位低的动</li>
+</ul>
+<p>如果新的节点有多个的话<br>
+我们经过二轮遍历</p>
+<ol>
+<li>
+<p>第一轮处理更新的情况 属性和类型 type 的更新，更新或者说保持，不变的频率会比较高，<br>
+若处理 删除/移动 的话，节点的位置会有变化，不利于 diff</p>
+</li>
+<li>
+<p>第二轮处理新增 删除  移动 的情况</p>
+</li>
+</ol>
+<h4 id="case1">case1</h4>
+<p>一一对比，都可复用，只需更新</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"A"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"B"</span>&gt;</span>B<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"C"</span>&gt;</span>C<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"D"</span>&gt;</span>D<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">/*************/</span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"A"</span>&gt;</span>A-new<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"B"</span>&gt;</span>B-new<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"C"</span>&gt;</span>C-new<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"D"</span>&gt;</span>D-new<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>最后会得到一个操作步骤：</p>
+<ol>
+<li>更新A</li>
+<li>更新B</li>
+<li>更新C</li>
+<li>更新D</li>
+</ol>
+<h4 id="case2">case2</h4>
+<p>一一对比，key 相同，type 不同，删除老的，添新的</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"A"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"B"</span>&gt;</span>B<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"C"</span>&gt;</span>C<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"D"</span>&gt;</span>D<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">/*************/</span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"A"</span>&gt;</span>A-new<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"B"</span>&gt;</span>B-new<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"C"</span>&gt;</span>C-new<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"D"</span>&gt;</span>D-new<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>删除老 li A<br>
+插入 div A<br>
+更新 B 更新 C 更新 D</p>
+<h4 id="case3">case3</h4>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"A"</span>&gt;</span>A<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"B"</span>&gt;</span>B<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"C"</span>&gt;</span>C<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"D"</span>&gt;</span>D<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">/*************/</span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"A"</span>&gt;</span>A-new<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"C"</span>&gt;</span>C-new<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"D"</span>&gt;</span>D-new<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"B"</span>&gt;</span>B-new<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>更新A</p>
+<p>key 不一样，说明可能有位置变化</p>
+<p><strong>如果第一轮遍历的时候，发现 key 不一样，则立刻跳出第一轮循环</strong></p>
+<p>下面详细说一下：</p>
+<p>在 react 源码中，每个操作都有一个标识，称之为 Effect.Tag</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> Placement = <span class="comment">/*             */</span> <span class="number">0b0000000000010</span>  --&gt;<span class="number">2</span>  插入操作</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> Update = <span class="comment">/*                */</span> <span class="number">0b0000000000100</span>  --&gt;<span class="number">4</span>  替换操作</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> PlacementAndUpdate = <span class="comment">/*    */</span> <span class="number">0b0000000000110</span>  --&gt;<span class="number">6</span>  更新操作</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> Deletion = <span class="comment">/*              */</span> <span class="number">0b0000000001000</span>  --&gt;<span class="number">8</span>  删除操作</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"A"</span> &gt;</span>A<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"B"</span> &gt;</span>B<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"C"</span> &gt;</span>C<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"D"</span> &gt;</span>D<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"E"</span> &gt;</span>E<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"F"</span> &gt;</span>F<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>更新为：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"A"</span> &gt;</span>A-new<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"C"</span> &gt;</span>C-new<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"E"</span> &gt;</span>E-new<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"B"</span> &gt;</span>B-new<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"G"</span> &gt;</span>G<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>lasPlacedIndex</code> 最后放置的老的节点的挂载的索引位置</p>
+<p><code>oldIndex</code> 节点在老集合中的索引位置</p>
+<p><code>newIndex</code> 节点在新集合中的索引位置</p>
+<ol>
+<li>
+<p>第一轮循环<br>
+type 和 key 都一样 A 能复用，更新 A 就可以，<br>
+然后比较第二个元素，Key 不一样，则马上跳出第一轮循环，进入第二轮循环</p>
+</li>
+<li>
+<p>第二轮循环<br>
+新建 map： key 就是元素的 key，值就是老的 fiber 节点 <code>let map = {'B':B,'C':C,'D':D,'E':E,'F':F};</code><br>
+每当处理完一个节点，就从 map 中删除，<br>
+等新的 JSX 数组遍历完之后，<code>map = {'D':D,'F':F}</code>，把 map 里面的 Fiber 节点全部标记为 <code>Deletion</code>，也就是 D 和 F ;</p>
+</li>
+</ol>
+<p>继续遍历新的节点</p>
+<ul>
+<li>
+<p>当遍历到 C 的时候，从 老的集合 中找，是否能找到 C</p>
+<p>发现找到了，C 的 (oldIndex = 2) &gt; (lastPlacedIndex = 0)</p>
+<p>C 的位置不需要移动。effectTag 标记为 <code>Update</code>，另外从 map 中删除 C，因为 C 可以复用</p>
+<p>lastPlacedIndex = 2，2 就是 C 在老集合中的位置 oldIndex</p>
+</li>
+<li>
+<p>当遍历到 E 的时候，从 老的集合 中找，是否能找到 E</p>
+<p>发现找到了，E 在老集合中的位置 (oldIndex = 4) &gt; (lastPlacedIndex = 2)</p>
+<p>E 的位置不需要移动，effectTag 标记为 <code>Update</code></p>
+<p>lastPlacedIndex = 4，4 就是 E 在老集合中的位置 oldIndex</p>
+</li>
+<li>
+<p>当遍历到 B 的时候，从 老的集合 中找，是否能找到 B</p>
+<p>发现找到了，B 在老集合中的位置 (oldIndex = 1) &lt; (lastPlacedIndex = 4)，</p>
+<p>辛苦挪动下位置（因为 B 在新的集合中的位置比较靠后）</p>
+<p>B 向后移动到 E 的后面，effectTag 标记为 <code>PlacementAndUpdate</code></p>
+</li>
+<li>
+<p>当遍历到 G 的时候，从 老的集合 中找，是否能找到 G</p>
+<p>没有找到，effectTag 标记为 <code>Placement</code></p>
+</li>
+<li>
+<p>发现 map 集合中还有 D 和 F，但新的集合中没有 D 和 F，effectTag 标记为 <code>Deletion</code></p>
+</li>
+</ul>
+<p>在 commit 阶段，先执行 Deletion 标记的操作，再执行其他操作。为什么？</p>
+<p>diff 阶段可以暂停，没有时间片了就交还控制权。</p>
+<p><img src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/diff%E7%AE%97%E6%B3%95.jpeg" alt="diff算法"></p>
+<h4 id="case4">case4</h4>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"A"</span> &gt;</span>A<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"B"</span> &gt;</span>B<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"C"</span> &gt;</span>C<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"D"</span> &gt;</span>D<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>更新为：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"D"</span> &gt;</span>D-new<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"A"</span> &gt;</span>A-new<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"B"</span> &gt;</span>B-new<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"C"</span> &gt;</span>C-new<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">// 之前</span><br><span class="line">abcd</span><br><span class="line"></span><br><span class="line">// 之后</span><br><span class="line">dabc</span><br><span class="line"></span><br><span class="line">===第一轮遍历开始===</span><br><span class="line">d（之后）vs a（之前）  </span><br><span class="line">key改变，不能复用，跳出遍历</span><br><span class="line">===第一轮遍历结束===</span><br><span class="line"></span><br><span class="line">===第二轮遍历开始===</span><br><span class="line">newChildren === dabc，没用完，不需要执行删除旧节点</span><br><span class="line">oldFiber === abcd，没用完，不需要执行插入新节点</span><br><span class="line"></span><br><span class="line">将剩余oldFiber（abcd）保存为map</span><br><span class="line"></span><br><span class="line">继续遍历剩余newChildren</span><br><span class="line"></span><br><span class="line">// 当前oldFiber：abcd</span><br><span class="line">// 当前newChildren dabc</span><br><span class="line"></span><br><span class="line">key === d 在 oldFiber中存在</span><br><span class="line">const oldIndex = d（之前）.index;</span><br><span class="line">此时 oldIndex === 3; // 之前节点为 abcd，所以d.index === 3</span><br><span class="line">比较 oldIndex 与 lastPlacedIndex;</span><br><span class="line">oldIndex 3 &gt; lastPlacedIndex 0</span><br><span class="line">则 lastPlacedIndex = 3;</span><br><span class="line">d节点位置不变</span><br><span class="line"></span><br><span class="line">继续遍历剩余newChildren</span><br><span class="line"></span><br><span class="line">// 当前oldFiber：abc</span><br><span class="line">// 当前newChildren abc</span><br><span class="line"></span><br><span class="line">key === a 在 oldFiber中存在</span><br><span class="line">const oldIndex = a（之前）.index; // 之前节点为 abcd，所以a.index === 0</span><br><span class="line">此时 oldIndex === 0;</span><br><span class="line">比较 oldIndex 与 lastPlacedIndex;</span><br><span class="line">oldIndex 0 &lt; lastPlacedIndex 3</span><br><span class="line">则 a节点需要向右移动</span><br><span class="line"></span><br><span class="line">继续遍历剩余newChildren</span><br><span class="line"></span><br><span class="line">// 当前oldFiber：bc</span><br><span class="line">// 当前newChildren bc</span><br><span class="line"></span><br><span class="line">key === b 在 oldFiber中存在</span><br><span class="line">const oldIndex = b（之前）.index; // 之前节点为 abcd，所以b.index === 1</span><br><span class="line">此时 oldIndex === 1;</span><br><span class="line">比较 oldIndex 与 lastPlacedIndex;</span><br><span class="line">oldIndex 1 &lt; lastPlacedIndex 3</span><br><span class="line">则 b节点需要向右移动</span><br><span class="line"></span><br><span class="line">继续遍历剩余newChildren</span><br><span class="line"></span><br><span class="line">// 当前oldFiber：c</span><br><span class="line">// 当前newChildren c</span><br><span class="line"></span><br><span class="line">key === c 在 oldFiber中存在</span><br><span class="line">const oldIndex = c（之前）.index; // 之前节点为 abcd，所以c.index === 2</span><br><span class="line">此时 oldIndex === 2;</span><br><span class="line">比较 oldIndex 与 lastPlacedIndex;</span><br><span class="line">oldIndex 2 &lt; lastPlacedIndex 3</span><br><span class="line">则 c节点需要向右移动</span><br><span class="line"></span><br><span class="line">===第二轮遍历结束===</span><br></pre></td></tr></table></figure>
+<p>可以看到，我们以为从 <code>abcd</code> 变为 <code>dabc</code>，只需要将 <code>d</code> 移动到前面。</p>
+<p>但实际上 <code>React</code> 保持 <code>d</code> 不变，将 <code>abc</code> 分别移动到了 <code>d</code> 的后面。</p>
+<p>从这点可以看出，考虑性能，我们要尽量减少将节点从后面移动到前面的操作。</p>
+<h3 id="为什么不要用索引作为key">为什么不要用索引作为key</h3>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"A"</span> &gt;</span>A<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"B"</span> &gt;</span>B<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"C"</span> &gt;</span>C<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"D"</span> &gt;</span>D<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line">更新为</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"B"</span> &gt;</span>B<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"C"</span> &gt;</span>C<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"D"</span> &gt;</span>D<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">"A"</span> &gt;</span>A<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果用索引对比的话</p>
+<p>A-B<br>
+B-C<br>
+C-D<br>
+D-A</p>
+<p>删除所有老 DOM，全部添加新 DOM</p>
+<p>如果用 key 来比较，只需移动 A 到最后就行了。</p>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#React" >
+    <span class="tag-code">React</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2021/05/08/React 之 Fiber 架构/">
+        <span class="nav-arrow">← </span>
+        
+          React 之 Fiber 架构
+        
+      </a>
+    
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Disqus START -->
+      <div id="disqus_thread"></div>
+      <!-- Disqus END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#dom-diff算法"><span class="toc-nav-text">DOM-DIFF算法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#react优化原则"><span class="toc-nav-text">React优化原则</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#单节点"><span class="toc-nav-text">单节点</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#case-1"><span class="toc-nav-text">case 1</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#case-2"><span class="toc-nav-text">case 2</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#case-3"><span class="toc-nav-text">case 3</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#case-4"><span class="toc-nav-text">case 4</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#多节点"><span class="toc-nav-text">多节点</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#case1"><span class="toc-nav-text">case1</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#case2"><span class="toc-nav-text">case2</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#case3"><span class="toc-nav-text">case3</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#case4"><span class="toc-nav-text">case4</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#为什么不要用索引作为key"><span class="toc-nav-text">为什么不要用索引作为key</span></a></li></ol></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://xueshiming.cn/2021/05/09/React 之 dom-diff/';
+    var banner = 'undefined'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', '/css/images/error_icon.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+
+
+  <script>
+    var disqus_shortname = 'https-xueshiming-cn';
+    
+    var disqus_url = 'https://xueshiming.cn/2021/05/09/React 之 dom-diff/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//go.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2022 | <a href="http://beian.miit.gov.cn" target="_blank">津ICP备17005329号</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+
+  <script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1662353781579')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>

@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+  <head><link rel=manifest href=/manifest.json>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fikyair&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs, fikyair blog,">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      前端国际化探索(一) | 渔人露
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+  
+  
+    <script src="/js/local-search.js"></script>
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>渔人露</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">主页</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">项目</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">关于</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">主页</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">标签</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">归档</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">项目</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">关于</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>前端国际化探索(一)</h2>
+  <p class="post-date">2019-01-20</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><blockquote>
+<p>对于海外的业务需求，我们期望能让客户有一个良好的用户体验，因此前端需要适配国际化。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="面临的挑战">面临的挑战</h3>
+<p>乍一听，这个海外项目需求并没有什么特别的地方，似乎就多了一个国际化适配。但细细一想，事情可没这么简单，前端开发面临了很多新的问题。下面梳理一下国际化开发中通常会面临的挑战：</p>
+<ul>
+<li>
+<p>页面文案全部可配置 需要配置的文案大致有四种：label、placeholder、字段校验提示信息、超链接。<br>
+<img src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/%E9%9D%A2%E4%B8%B4%E7%9A%84%E6%8C%91%E6%88%981.jpg" alt="页面文案配置"></p>
+</li>
+<li>
+<p>页面文案样式处理 文案样式需要特别注意，不同语言的文字，可能会有不同的表现。例如下面两张图所示：</p>
+<ul>
+<li>英语（页面样式正常）<br>
+<img src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/%E9%9D%A2%E4%B8%B4%E7%9A%84%E6%8C%91%E6%88%982.jpg" alt="英文"></li>
+<li>土耳其语（页面样式异常）<br>
+<img src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/%E9%9D%A2%E4%B8%B4%E7%9A%84%E6%8C%91%E6%88%983.jpg" alt="土耳其语"></li>
+</ul>
+</li>
+<li>
+<p>日期、数字格式处理 页面上展示日期或数量的地方，也是需要做国际化适配。</p>
+</li>
+<li>
+<p>LTR／RTL 很多中东国家的语言习惯都是 RTL，可以尝试使用 direction 和 transform 来解决。</p>
+</li>
+<li>
+<p>图片（banner）国际化 如果你想把国际化做的足够精细，那么图片国际化也是需要考虑的。</p>
+</li>
+<li>
+<p>第三方 UI 组件 如果使用了第三方 UI 组件，如：elementUI、ant design UI 等，这些 UI 框架通常都宣称支持国际化，但支持的国际化语言数量有限，并不一定能满足业务需求。</p>
+</li>
+<li>
+<p>前端开发工作量和后期维护成本激增 大量的文案需要被提取出来，被提取出来的文案最终会被合并到一个文件中去，如：en-US.json。这些工作如果通过手工完成，那么工作量会是非常巨大的。</p>
+</li>
+</ul>
+<h3 id="国际化文案的处理思路">国际化文案的处理思路</h3>
+<p>以上列举出了很多挑战，但实际上“页面文案处理”才是最主要的矛盾，因为它直接导致前端开发工作量和维护成本的激增。<br>
+下面我们重点来讨论文案处理思路，其实从实现国际化的角度来看，jQuery、Vue、React 等都只是载体而已，实现思路都是相通的，因此国际化文案处理与具体的技术框架并不耦合。</p>
+<p>一般我们会使用两种比较流行的国际化方案：<a href="https://github.com/yahoo/react-intl" target="_blank" rel="noopener">react-intl</a>、<a href="https://github.com/alibaba/react-intl-universal" target="_blank" rel="noopener">react-intl-universal</a>，下面，我来做一个对比：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th style="text-align:center">react-intl</th>
+<th style="text-align:center">react-intl-universal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>切换不刷新页面</td>
+<td style="text-align:center">优</td>
+<td style="text-align:center">劣</td>
+</tr>
+<tr>
+<td>js文件支持(重要)</td>
+<td style="text-align:center">劣</td>
+<td style="text-align:center">优</td>
+</tr>
+<tr>
+<td>名词单双数，默认值，html</td>
+<td style="text-align:center">优</td>
+<td style="text-align:center">优</td>
+</tr>
+<tr>
+<td>无破坏性</td>
+<td style="text-align:center">劣(装饰器的代码实现会改变ref)</td>
+<td style="text-align:center">优</td>
+</tr>
+</tbody>
+</table>
+<p>react-intl只支持在jsx文件的内容中使用，但是由于项目配置化编程的缘故，很多中文是写在js对象中的。react-intl不支持在普通js对象中使用，很不方便。而且他的装饰器实现会改变组件的ref。他唯一的好处是他的切换不需要刷新页面，不过这种低频的操作刷新页面倒也无妨。</p>
+<p>接下来将会抛出几种国际化文案处理思路，每种思路对生产力和生产关系的要求有高有低，姑且将其分别对应为石器时期、青铜时期、黄金时期。</p>
+<h4 id="石器时期">石器时期</h4>
+<p>传统的国际化开发流程：前端开发到一定阶段，将文案提取到资源文件（通常为  en-US.json），然后将资源文件发送给翻译团队，翻译团队翻译出各国语言版本的文案，每种语言对应一个资源文件，最后将这些资源文件发回给前端开发人员，前端开发人员更新到自己本地。如下图所示：<br>
+<img src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/%E7%9F%B3%E5%99%A8%E6%97%B6%E4%BB%A31.jpg" alt="图"></p>
+<ul>
+<li>适用场景</li>
+</ul>
+<ol>
+<li>页面上要提取的文案不多</li>
+<li>支持的国际化语言较少，比如：只需要支持中文和英文</li>
+<li>项目需求较固定，后期只做简单维护，不会新增大的需求</li>
+</ol>
+<ul>
+<li>
+<p>分析<br>
+这是国际化开发的基本流程，“前端开发”和“翻译团队”是必不可少的两个节点，但它们相互之间依赖的太重。“提取文案”的过程本质上是在重复劳动，因此可以考虑由程序来完成。</p>
+</li>
+<li>
+<p>代码示例</p>
+<p>App.js</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; IntlProvider, FormattedMessage &#125; <span class="keyword">from</span> <span class="string">'react-intl'</span>;</span><br><span class="line"><span class="keyword">import</span> qs <span class="keyword">from</span> <span class="string">'querystring'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> logo <span class="keyword">from</span> <span class="string">'./logo.svg'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'./App.css'</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> DEFAULT_MESSAGES <span class="keyword">from</span> <span class="string">'./i18n/en-US.json'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> DEFAULT_LOCALE = <span class="string">'en-US'</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  state = &#123;</span><br><span class="line"> messages: DEFAULT_MESSAGES,</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  componentWillMount() &#123;</span><br><span class="line"> <span class="keyword">const</span> search = <span class="built_in">window</span>.location.search.slice(<span class="number">1</span>);</span><br><span class="line"> <span class="keyword">const</span> params = qs.parse(search);</span><br><span class="line"> <span class="keyword">const</span> locale = params.locale || DEFAULT_LOCALE;</span><br><span class="line"> <span class="keyword">const</span> messages = <span class="built_in">require</span>(<span class="string">`./i18n/<span class="subst">$&#123;locale&#125;</span>.json`</span>);</span><br><span class="line"> <span class="keyword">debugger</span>;</span><br><span class="line"> <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">   messages,</span><br><span class="line"> &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line"> <span class="keyword">const</span> &#123; messages &#125; = <span class="keyword">this</span>.state;</span><br><span class="line"> <span class="keyword">return</span> (</span><br><span class="line">   &lt;IntlProvider locale=<span class="string">"en"</span> messages=&#123;messages&#125;&gt;</span><br><span class="line">  &lt;div className=<span class="string">"App"</span>&gt;</span><br><span class="line">    &lt;header className=<span class="string">"App-header"</span>&gt;</span><br><span class="line">   &lt;img src=&#123;logo&#125; className=<span class="string">"App-logo"</span> alt=<span class="string">"logo"</span> /&gt;</span><br><span class="line">   &lt;p&gt;</span><br><span class="line">     &lt;FormattedMessage</span><br><span class="line">    id=<span class="string">"welcome"</span></span><br><span class="line">    defaultMessage=&#123;<span class="string">`Hello world!`</span>&#125;</span><br><span class="line">     /&gt;</span><br><span class="line">   &lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">   &lt;a</span></span><br><span class="line"><span class="regexp">     className="App-link"</span></span><br><span class="line"><span class="regexp">     href="/</span>?locale=zh-CN<span class="string">"</span></span><br><span class="line"><span class="string">     rel="</span>noopener noreferrer<span class="string">"</span></span><br><span class="line"><span class="string">   &gt;</span></span><br><span class="line"><span class="string">     zh-CN</span></span><br><span class="line"><span class="string">   &lt;/a&gt;</span></span><br><span class="line"><span class="string">   &lt;a</span></span><br><span class="line"><span class="string">     className="</span>App-link<span class="string">"</span></span><br><span class="line"><span class="string">     href="</span>/?locale=en-US<span class="string">"</span></span><br><span class="line"><span class="string">     rel="</span>noopener noreferrer<span class="string">"</span></span><br><span class="line"><span class="string">   &gt;</span></span><br><span class="line"><span class="string">     en-US</span></span><br><span class="line"><span class="string">   &lt;/a&gt;</span></span><br><span class="line"><span class="string">    &lt;/header&gt;</span></span><br><span class="line"><span class="string">  &lt;/div&gt;</span></span><br><span class="line"><span class="string">   &lt;/IntlProvider&gt;</span></span><br><span class="line"><span class="string"> );</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">export default App;</span></span><br></pre></td></tr></table></figure>
+<p>en-US.json</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> <span class="string">"welcome"</span>: <span class="string">"Hello world!"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="青铜时期">青铜时期</h4>
+<p>前面分析了“提取文案”的过程本质上是在重复劳动，那我们看看有没有办法进行改进。我们可以先对比一下“无国际化需求”和“有国际化需求”时的前端开发流程。如图所示：</p>
+<p><img src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/%E9%9D%92%E9%93%9C%E6%97%B6%E6%9C%9F1.jpg" alt="图"></p>
+<p>可以看出右边多了三个过程：</p>
+<ol>
+<li>将文案提取为变量</li>
+<li>为变量命名，要合乎其场景</li>
+<li>将变量和文案信息存到资源文件</li>
+</ol>
+<p>这里我们提出一个期望或愿景：希望能像开发普通业务一样去开发有国际化需求的业务！</p>
+<p>为了达成这一愿景，我们需要有一个工具：它能够扫描指定的文件，并能识别出文件中的字符串，然后能根据字符串的含义生成变量名，并用变量表达式替换掉原来的字符串，最后能够将提取出来的变量自动追加到资源文件中。</p>
+<p>如何实现这样的工具？我们可以用 Babel 将js文件解析为一颗语法树，然后遍历并找出字符串节点，接下来调用 Google Cloud Translation API 将字符串翻译为英文，并以此作为变量名得到变量表达式，最后用变量表达式替换掉原来的文本即可。如下图所示：</p>
+<p><img src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/%E9%9D%92%E9%93%9C%E6%97%B6%E6%9C%9F2.jpg" alt="图"></p>
+<p>幸运的是，<a href="https://github.com/ProtoTeam/i18n-pick" target="_blank" rel="noopener">i18n-pick</a> 已经有那么点味道了~</p>
+<p><img src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/%E9%9D%92%E9%93%9C%E6%97%B6%E6%9C%9F3.jpg" alt="图"></p>
+<ul>
+<li>分析 这是站在开发层面，对前端开发体验和开发效率提出的改进办法，<strong>将重复的事情交给程序去完成。</strong></li>
+</ul>
+<h4 id="黄金时期">黄金时期</h4>
+<p>有了石器时期的生产方式作为铺垫，我们可以在此基础上继续做改进。既然“前端开发”和“翻译团队”之间依赖的太重，那我们可以在中间加一个节点“文案配置平台”。前端将提取的文案直接上传到“文案配置平台”，翻译团队直接在“文案配置平台”上进行文案翻译，前端直接从“文案配置平台”获取翻译后的最新文案。</p>
+<p><img src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/%E9%BB%84%E9%87%91%E6%97%B6%E4%BB%A3.jpg" alt="图"></p>
+<ul>
+<li>
+<p>文案配置平台应当具备的基本能力</p>
+<ol>
+<li>面向前端开发人员：文案录入、输出</li>
+<li>面向翻译团队：文案翻译、发布</li>
+<li>其他：文案版本控制</li>
+</ol>
+</li>
+<li>
+<p>适用场景</p>
+<ol>
+<li>有大量的国际化业务需求</li>
+<li>希望将其沉淀为通用能力平台，提升业务开发效率</li>
+</ol>
+</li>
+<li>
+<p>分析<br>
+这是从架构层面对国际化开发方式进行优化和提效，一般大的互联网公司因为其自身业务的复杂度，都早已沉淀出很多的通用能力平台。</p>
+</li>
+</ul>
+<h3 id="总结">总结</h3>
+<p>以上每种思路都有各自适用的场景，实际生产中需要从开发成本、开发体验、后期维护、能力沉淀等多维度进行考虑。这篇文章旨在抛砖引玉打开思路，各位看官可以将自己的思路抛出来一起讨论。</p>
+<h3 id="参考">参考</h3>
+<ul>
+<li><a href="https://www.w3.org/standards/webdesign/i18n" target="_blank" rel="noopener">Internationalization</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/47864242" target="_blank" rel="noopener">国际化 - 通用 LTR/RTL 布局解决方案</a></li>
+<li><a href="https://github.com/ProtoTeam/i18n-pick" target="_blank" rel="noopener">i18n-pick</a></li>
+<li><a href="https://github.com/brigand/babel-plugin-handbook/blob/master/translations/zh-Hans/README.md#visitors" target="_blank" rel="noopener">Babel 插件开发指南</a></li>
+<li><a href="https://github.com/googleapis/nodejs-translate" target="_blank" rel="noopener">Google Cloud Translation API: Node.js Client</a></li>
+</ul>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#React" >
+    <span class="tag-code">React</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2018/10/31/React生命周期管理/">
+        <span class="nav-arrow">← </span>
+        
+          React 生命周期管理
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/03/10/前端国际化方案探索(二)/">
+        
+          前端国际化探索(二)
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Disqus START -->
+      <div id="disqus_thread"></div>
+      <!-- Disqus END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#面临的挑战"><span class="toc-nav-text">面临的挑战</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#国际化文案的处理思路"><span class="toc-nav-text">国际化文案的处理思路</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#石器时期"><span class="toc-nav-text">石器时期</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#青铜时期"><span class="toc-nav-text">青铜时期</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#黄金时期"><span class="toc-nav-text">黄金时期</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#总结"><span class="toc-nav-text">总结</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#参考"><span class="toc-nav-text">参考</span></a></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://xueshiming.cn/2019/01/20/前端国际化方案探索(一)/';
+    var banner = 'undefined'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', '/css/images/error_icon.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+
+
+  <script>
+    var disqus_shortname = 'https-xueshiming-cn';
+    
+    var disqus_url = 'https://xueshiming.cn/2019/01/20/前端国际化方案探索(一)/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//go.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2022 | <a href="http://beian.miit.gov.cn" target="_blank">津ICP备17005329号</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+
+  <script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1662353781579')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html>
+  <head><link rel=manifest href=/manifest.json>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fikyair&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs, fikyair blog,">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      Babel 原理 | 渔人露
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+  
+  
+    <script src="/js/local-search.js"></script>
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>渔人露</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">主页</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">项目</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">关于</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">主页</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">标签</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">归档</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">项目</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">关于</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>Babel 原理</h2>
+  <p class="post-date">2021-02-23</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><blockquote>
+<p>Babel 的前身是 6to5 q这个库，顾名思义是 es6 转 es5，但是后来随着 es 标准的演进，有了 es7、es8 等，6to5 的名字已经不合适了，所以改名为 babel.</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="babel-用途">babel 用途</h2>
+<h3 id="转译-esnext-typescript-flow-等到目标环境支持的-js">转译 esnext、typescript、flow 等到目标环境支持的 js</h3>
+<p>用来把代码中的 esnext 的新的语法、typescript和flow 的语法转成基于目标环境支持的语法的实现。并且还可以把目标环境不支持的 api 进行 polyfill。</p>
+<h3 id="一些特定用途的代码转换">一些特定用途的代码转换</h3>
+<p>babel 是一个转译器，暴露了很多 api，用这些 api 可以完成代码到 AST 的 parse，AST 的转换，以及目标代码的生成。开发者可以用它来来完成一些特定用途的转换，比如函数插桩(函数中自动插入一些代码，例如埋点代码)、自动国际化等。</p>
+<h3 id="代码静态分析">代码静态分析</h3>
+<p>除了进行转换后生成目标代码之外，也同样可以用于分析代码的信息，进行一些检查</p>
+<ul>
+<li>linter 工具就是分析 AST 的结构，对代码规范进行检查。</li>
+<li>api 文档自动生成工具，可以提取源码中的注释，然后生成文档。</li>
+<li>type checker 会根据从 AST 中提取的或者推导的类型信息，对 AST 进行类型是否一致的检查，从而减少运行时因类型导致的错误。</li>
+<li>压缩混淆工具，这个也是分析代码结构，进行删除死代码、变量名混淆、常量折叠等各种编译优化，生成体积更小、性能更优的代码。</li>
+<li>js 解释器，除了对 AST 进行各种信息的提取和检查以外，我们还可以直接解释执行 AST。</li>
+</ul>
+<h2 id="babel-的编译流程">babel 的编译流程</h2>
+<ul>
+<li>一般编译器（Compiler）是指高级语言到低级语言的转换工具。特殊的，高级语言到高级语言的转换工具，被叫做转换编译器，简称转译器（Transpiler）。</li>
+<li>babel 就是一个 Javascript <code>Transpiler</code>。</li>
+<li>parse:通过 parser 把源码转成抽象语法树(AST)</li>
+<li>transform:遍历 AST，调用各种 transform 插件对 AST 进行增删改</li>
+<li>generate:把转换后的 AST 打印成目标代码，并生成 sourcemap</li>
+</ul>
+<h2 id="ast-介绍">AST 介绍</h2>
+<p>babel 编译的第一步是把源码 parse 成抽象语法树 AST （Abstract Syntax Tree），后续对这个 AST 进行转换。（之所以叫抽象语法树是因为省略掉了源码中的分隔符、空格、colon、comma、semicolon等内容）</p>
+<p>AST 也是有标准的，JS parser 的 AST 大多是 <a href="https://hub.fastgit.org/estree/estree" target="_blank" rel="noopener">estree</a> 标准，从 SpiderMonkey 的 AST 标准扩展而来。babel 的整个编译流程都是围绕 AST 来的，这一节我们来学一下 AST。</p>
+<p>@babel/parser：babel parser 叫 babylon，是基于 acorn 实现的，扩展了很多语法，可以支持 es next(现在支持到 es2020)、jsx、flow、typescript 等语法的解析，其中 jsx、flow、typescript 这些非标准的语法的解析需要指定语法插件。</p>
+<p>熟悉了 AST，也就是知道转译器和 JS 引擎是怎么理解代码的，对深入掌握 Javascript 也有很大的好处。</p>
+<h2 id="ast-的公共属性">AST 的公共属性</h2>
+<p>每种 AST 都有自己的属性，但是它们也有一些公共属性：</p>
+<ul>
+<li><code>type</code>：AST 节点的类型</li>
+<li><code>start</code>、<code>end</code>：start 和 end 代表该节点对应的源码字符串的开始和结束下标，不区分行列。</li>
+<li><code>loc</code>：是一个对象，有 line 和 column 属性分别记录开始和结束行列号。</li>
+<li><code>leadingComments</code>、<code>innerComments</code>、<code>trailingComments</code>：表示开始的注释、中间的注释、结尾的注释，因为每个 AST 节点中都可能存在注释，而且可能在开始、中间、结束这三种位置，通过这三个属性来记录和 Comment 的关联。</li>
+<li><code>extra</code>：记录一些额外的信息，用于处理一些特殊情况。</li>
+</ul>
+<h2 id="ast-可视化查看工具">AST 可视化查看工具</h2>
+<p>当然，我们并不需要记什么内容对应什么 AST 节点，可以通过 <a href="https://astexplorer.net/" target="_blank" rel="noopener">axtexplorer.net</a> 这个网站来直观的查看。</p>
+<p>这个网站可以查看代码 parse 以后的结果，但是如果想查看全部的 AST 可以在 babel parser 仓库里的 AST <a href="https://github.com/babel/babel/blob/main/packages/babel-parser/ast/spec.md" target="_blank" rel="noopener">文档</a> 里查，或者直接去看 @babel/types 的 <a href="https://github.com/babel/babel/blob/main/packages/babel-types/src/ast-types/generated/index.ts" target="_blank" rel="noopener">typescript 类型定义</a>。</p>
+<h2 id="常见的-ast-节点">常见的 AST 节点</h2>
+<p>AST 是对源码的抽象，字面量、标识符、表达式、语句、模块语法、class 语法都有各自的 AST。</p>
+<h3 id="file-comment">File &amp; Comment</h3>
+<p>babel 的 AST 最外层节点是 File</p>
+<ul>
+<li><code>program</code> 最重要的节点，存放整个程序代码的节点</li>
+<li><code>comments</code> 用于存放整个文件的所有的注释节点</li>
+<li><code>tokens</code> 用于存放parser词法分析的结果</li>
+</ul>
+<p>注释分为块注释和行内注释，对应 CommentBlock 和 CommentLine 节点</p>
+<h3 id="program-directive">Program &amp; directive</h3>
+<p>program 是代表整个程序的节点，有如下重要属性</p>
+<ul>
+<li><code>sourceType</code>: 表示文件代码的类型，有 module 和 script 两种，一般都是module。不同的类型下，有些节点是不允许出现的，比如在script类型下，代码中不能出现 import 和 - export 的语法。</li>
+<li><code>body</code> 属性代表程序体，存放 statement 数组，就是具体执行的语句的集合。</li>
+<li><code>directives</code> 存放 Directive 节点数组，比如 <code>&quot;use strict&quot;</code> 这种指令会使用 Directive 节点表示。</li>
+</ul>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#Babel" >
+    <span class="tag-code">Babel</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2020/10/12/Webpack源码系列之工作流/">
+        <span class="nav-arrow">← </span>
+        
+          「Webpack 源码系列之」工作流
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2021/05/08/React 之 Fiber 架构/">
+        
+          React 之 Fiber 架构
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Disqus START -->
+      <div id="disqus_thread"></div>
+      <!-- Disqus END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#babel-用途"><span class="toc-nav-text">babel 用途</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#转译-esnext-typescript-flow-等到目标环境支持的-js"><span class="toc-nav-text">转译 esnext、typescript、flow 等到目标环境支持的 js</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#一些特定用途的代码转换"><span class="toc-nav-text">一些特定用途的代码转换</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#代码静态分析"><span class="toc-nav-text">代码静态分析</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#babel-的编译流程"><span class="toc-nav-text">babel 的编译流程</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ast-介绍"><span class="toc-nav-text">AST 介绍</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ast-的公共属性"><span class="toc-nav-text">AST 的公共属性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#ast-可视化查看工具"><span class="toc-nav-text">AST 可视化查看工具</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#常见的-ast-节点"><span class="toc-nav-text">常见的 AST 节点</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#file-comment"><span class="toc-nav-text">File &amp; Comment</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#program-directive"><span class="toc-nav-text">Program &amp; directive</span></a></li></ol></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://xueshiming.cn/2021/02/23/Babel 原理之AST/';
+    var banner = 'undefined'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', '/css/images/error_icon.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+
+
+  <script>
+    var disqus_shortname = 'https-xueshiming-cn';
+    
+    var disqus_url = 'https://xueshiming.cn/2021/02/23/Babel 原理之AST/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//go.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2022 | <a href="http://beian.miit.gov.cn" target="_blank">津ICP备17005329号</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+
+  <script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1662353781579')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>

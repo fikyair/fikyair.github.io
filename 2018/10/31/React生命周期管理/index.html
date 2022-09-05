@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+  <head><link rel=manifest href=/manifest.json>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="fikyair&#39;s blog">
+  <meta name="keyword" content="hexo-theme, vuejs, fikyair blog,">
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      React 生命周期管理 | 渔人露
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  
+    <script src="/js/qrious.js"></script>
+  
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+  
+  
+    <script src="/js/local-search.js"></script>
+
+</head>
+<div class="wechat-share">
+  <img src="/css/images/logo.png" />
+</div>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>渔人露</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">主页</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">标签</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">项目</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">关于</a>
+          
+        </li>
+      
+      
+        <li class="menu-item menu-item-search right-list">
+    <a role="button" class="popup-trigger">
+        <i class="fa fa-search fa-fw"></i>
+    </a>
+</li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">主页</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">标签</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">归档</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">项目</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">关于</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+    
+      <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+            <span class="search-icon">
+                <i class="fa fa-search"></i>
+            </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocapitalize="off"
+                    placeholder="Please enter your keyword(s) to search." spellcheck="false"
+                    type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+    
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>React 生命周期管理</h2>
+  <p class="post-date">2018-10-31</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><blockquote>
+<p>你有没有遇到过这样的问题: setState应该写在哪里？我们应该什么时候去获取后台的数据？怎样减少页面不必要的渲染？带着问题我们一起来回顾一下React生命周期那些知识点</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="生命周期">生命周期</h2>
+<p>我们先看下面的图建立一个React组件生命周期的直观认识，图为React 16的生命周期，总的来说React组件的生命周期分为三个部分: <code>挂载(Mounting)</code> ，<code>更新(Updating)</code> 和 <code>卸载(Unmounting)</code> ，React16 多出来一个componentDidCatch() 函数用于捕捉错误。知道什么时候去使用哪些生命周期函数对于掌握和理解React是非常重要的，你可以看到这些生命周期函数有一定的规律，比如在某件事情发生之前调用的会用xxxWillxxx，而在这之后发生的会用xxxDidxxx。</p>
+<p><img src="https://blog-1253646934.cos.ap-beijing.myqcloud.com/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png" alt="code"></p>
+<p>接下来我们就这三个阶段分别介绍一下各个生命周期函数，详细的生命周期函数解释可以看官方文档  <a href="https://reactjs.org/docs/react-component.html" target="_blank" rel="noopener">React.Component</a></p>
+<h3 id="挂载-4个">挂载（4个）</h3>
+<blockquote>
+<p>当组件实例创建并插入 DOM 时，其生命周期调用顺序如下：</p>
+</blockquote>
+<ul>
+<li><a href="https://reactjs.org/docs/react-component.html#constructor" target="_blank" rel="noopener">constructor()</a></li>
+<li><a href="https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops" target="_blank" rel="noopener">static getDerivedStateFromProps()</a></li>
+<li><a href="https://reactjs.org/docs/react-component.html#render" target="_blank" rel="noopener">render()</a></li>
+<li><a href="https://reactjs.org/docs/react-component.html#componentdidmount" target="_blank" rel="noopener">componentDidMount()</a></li>
+</ul>
+<h4 id="constructor-props">constructor(props)</h4>
+<ul>
+<li>如果不初始化 state 或不进行方法绑定， 则不需要为 React 组件实现构造函数。在 React 组件挂载之前，会调用他的构造函数。再为 React.Component 子类 实现构造函数时，需要首先调用 super(props)，否则，this.props 在构造函数中出现未定义的 bug。</li>
+<li>构造函数主要是初始化 <strong>state</strong> 和为 <strong>事件处理函数</strong> 绑定实例。</li>
+<li>在 constructor 内不要调用 <strong>setState()</strong>，也不要做任何订阅。</li>
+</ul>
+<p>一个示例 constructor 实现如下:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">  <span class="keyword">super</span>(props);</span><br><span class="line">  <span class="keyword">this</span>.state = &#123;</span><br><span class="line">    color: <span class="string">'#fff'</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">this</span>.handleClick = <span class="keyword">this</span>.handleClick.bind(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果你不需要初始化状态也不需要绑定handle函数的this，那么你可以不实现constructor函数，由默认实现代替。</p>
+<h4 id="static-getderivedstatefromprops-props-state">static getDerivedStateFromProps(props, state)</h4>
+<p>这个函数会在每次渲染前都调用，让组件在 props 变化时更新 state ，返回null则说明不需要更新state。</p>
+<p>该方法主要用来替代 componentWillReceiveProps 方法，willReceiveProp s经常被误用，导致了一些问题，因此在新版本中被标记为unsafe。以<a href="https://juejin.im/post/5abf4a09f265da237719899d" target="_blank" rel="noopener">掘金</a>上的🌰为例，componentWillReceiveProps的常见用法如下，根据传进来的属性值判断是否要load新的数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleComponent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  state = &#123;</span><br><span class="line">    isScrollingDown: <span class="literal">false</span>,</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  componentWillReceiveProps(nextProps) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.props.currentRow !== nextProps.currentRow) &#123;</span><br><span class="line"></span><br><span class="line">      &lt;!-- 检测到变化后更新状态、并请求数据 --&gt;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">        isScrollingDown: nextProps.currentRow &gt; <span class="keyword">this</span>.props.currentRow,</span><br><span class="line">      &#125;);</span><br><span class="line">      <span class="keyword">this</span>.loadAsyncData()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  loadAsyncData() &#123;<span class="comment">/* ... */</span>&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但这个方法的一个问题是外部组件多次频繁更新传入多次不同的 props，而该组件将这些更新 batch 后仅仅触发单次自己的更新，这种写法会导致不必要的异步请求，相比下来getDerivedStateFromProps 配合componentDidUpdate 的写法如下:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleComponent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  state = &#123;</span><br><span class="line">    isScrollingDown: <span class="literal">false</span>,</span><br><span class="line">    lastRow: <span class="literal">null</span>,</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> getDerivedStateFromProps(nextProps, prevState) &#123;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 不再提供 prevProps 的获取方式 --&gt;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (nextProps.currentRow !== prevState.lastRow) &#123;</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">        isScrollingDown: nextProps.currentRow &gt; prevState.lastRow,</span><br><span class="line">        lastRow: nextProps.currentRow,</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 默认不改动 state --&gt;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidUpdate() &#123;</span><br><span class="line"></span><br><span class="line">     &lt;!-- 仅在更新触发后请求数据 --&gt;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.loadAsyncData()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  loadAsyncData() &#123;<span class="comment">/* ... */</span>&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种方式只在更新触发后请求数据，相比下来更节省资源。</p>
+<blockquote>
+<p>注意 getDerivedStateFromProps 是一个 static 方法，意味着拿不到实例的 this</p>
+</blockquote>
+<h4 id="render">render()</h4>
+<blockquote>
+<p>该方法在一个 React 组件中是必须实现的</p>
+</blockquote>
+<p>这是 React 组件的核心方法，用于根据状态 state 和属性 props 渲染一个 React 组件。我们应该保持该方法的纯洁性，这会让我们的组件更易于理解，只要 state 和 props 不变，每次调用 render 返回的结果应当相同，所以 <strong>请不要在render方法中改变组件状态，也不要在在这个方法中和浏览器直接交互。</strong></p>
+<h4 id="componentdidmount">componentDidMount()</h4>
+<p>componentDidMount 方法会在 render 方法之后立即被调用，该方法在整个 React 生命周期中<strong>只会被调用一次</strong>。React 的组件树是一个树形结构，此时你可以认为这个组件以及他下面的所有子组件都已经渲染完了，所以在这个方法中你可以调用和真实DOM相关的操作了。有些组件的启动工作是依赖 DOM 的，例如动画的启动。</p>
+<p>这个方法是比较适合添加订阅的地方。如果添加了订阅，请不要忘记在 componentWillUnmount() 里取消订阅</p>
+<p>我们可以在 componentDidMount() 里直接调用 setState()。它将触发额外渲染，但此渲染会发生在浏览器更新屏幕之前。如此保证了即使在 render() 两次调用的情况下，用户也不会看到中间状态。请谨慎使用该模式，因为它会导致性能问题。通常，你应该在 constructor() 中初始化 state。如果你的渲染依赖于 DOM 节点的大小或位置，比如实现 modals 等情况下，你可以使用此方式处理。</p>
+<p>下面的代码演示了如何在componentDidMount加载数据并设置状态:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">componentDidMount() &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(<span class="string">'componentDidMount'</span>);</span><br><span class="line">   fetch(<span class="string">"https://api.github.com/search/repositories?q=language:java&amp;sort=stars"</span>)</span><br><span class="line">     .then(<span class="function"><span class="params">res</span> =&gt;</span> res.json())</span><br><span class="line">     .then(<span class="function">(<span class="params">result</span>) =&gt;</span> &#123;</span><br><span class="line">         <span class="keyword">this</span>.setState(&#123; <span class="comment">// 触发render</span></span><br><span class="line">           items: result.items</span><br><span class="line">         &#125;);</span><br><span class="line">       &#125;)</span><br><span class="line">     .catch(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123; <span class="built_in">console</span>.log(error)&#125;);</span><br><span class="line">   <span class="comment">// this.setState(&#123;color: xxx&#125;) // 不要这样做</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="更新-5个">更新（5个）</h3>
+<blockquote>
+<p>当组件的 props 和 state 发生变化的时候会触发更新</p>
+</blockquote>
+<ul>
+<li><a href="https://zh-hans.reactjs.org/docs/react-component.html#static-getderivedstatefromprops" target="_blank" rel="noopener">static getDerivedStateFromProps()</a>  上文已描述，不赘述</li>
+<li><a href="https://zh-hans.reactjs.org/docs/react-component.html#shouldcomponentupdate" target="_blank" rel="noopener">shouldComponentUpdate()</a></li>
+<li><a href="https://reactjs.org/docs/react-component.html#render" target="_blank" rel="noopener">render()</a> 上文已描述，不赘述</li>
+<li><a href="https://reactjs.org/docs/react-component.html#getsnapshotbeforeupdate" target="_blank" rel="noopener">getSnapshotBeforeUpdate()</a></li>
+<li><a href="https://reactjs.org/docs/react-component.html#componentdidupdate" target="_blank" rel="noopener">componentDidUpdate()</a></li>
+</ul>
+<h4 id="shouldcomponentupdate-nextprops-nextstate">shouldComponentUpdate(nextProps, nextState)</h4>
+<p>你可以用这个方法来告诉React是否要进行下一次render()，默认这个函数放回 true，即每次更新状态和属性的时候都进行组件更新。注意这个函数如果返回false并不会导致子组件也不更新。</p>
+<p>这个钩子函数一般不需要实现, 如果你的组件性能比较差或者渲染比较耗时，你可以考虑使 React.PureComponent 重新实现该组件，PureComponent 默认实现了一个版本的shouldComponentUpdate 会进行 state 和 props 的比较。当然如果你有自信，可以自己实现比较 nextProps 和 nextState 是否发生了改变。</p>
+<p>该函数通常是优化性能的紧急出口，是个大招，不要轻易用，如果要用可以参考<a href="https://github.com/camsong/blog/issues/3" target="_blank" rel="noopener">Immutable 详解及 React 中实践</a> .</p>
+<h4 id="getsnapshotbeforeupdate-prevprops-prevstate">getSnapshotBeforeUpdate(prevProps, prevState)</h4>
+<p>该方法的触发时间为 update 发生的时候，在 render 之后 dom 渲染之前返回一个值，此生命周期的任何返回值将作为参数传递，作为 componentDidUpdate 的第三个参数。该函数与 componentDidUpdate 一起使用可以取代 componentWillUpdate 的所有功能，比如以下是官方的例子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ScrollingList</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.listRef = React.createRef();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  getSnapshotBeforeUpdate(prevProps, prevState) &#123;</span><br><span class="line">    <span class="comment">// 我们是否在 list 中添加新的 items ？</span></span><br><span class="line">    <span class="comment">// 捕获滚动​​位置以便我们稍后调整滚动位置。</span></span><br><span class="line">    <span class="keyword">if</span> (prevProps.list.length &lt; <span class="keyword">this</span>.props.list.length) &#123;</span><br><span class="line">      <span class="keyword">const</span> list = <span class="keyword">this</span>.listRef.current;</span><br><span class="line">      <span class="keyword">return</span> list.scrollHeight - list.scrollTop;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidUpdate(prevProps, prevState, snapshot) &#123;</span><br><span class="line">    <span class="comment">// 如果我们 snapshot 有值，说明我们刚刚添加了新的 items，</span></span><br><span class="line">    <span class="comment">// 调整滚动位置使得这些新 items 不会将旧的 items 推出视图。</span></span><br><span class="line">    <span class="comment">//（这里的 snapshot 是 getSnapshotBeforeUpdate 的返回值）</span></span><br><span class="line">    <span class="keyword">if</span> (snapshot !== <span class="literal">null</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> list = <span class="keyword">this</span>.listRef.current;</span><br><span class="line">      list.scrollTop = list.scrollHeight - snapshot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;div ref=&#123;<span class="keyword">this</span>.listRef&#125;&gt;&#123;<span class="comment">/* ...contents... */</span>&#125;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>在上述示例中，重点是从 getSnapshotBeforeUpdate 读取 scrollHeight 属性，<br>
+因为 “render” 阶段生命周期（如 render）和<br>
+“commit” 阶段生命周期（如 getSnapshotBeforeUpdate 和 componentDidUpdate）之间可能存在延迟。</p>
+<h4 id="componentdidupdate-prevprops-prevstate-snapshot">componentDidUpdate(prevProps, prevState, snapshot)</h4>
+<p>该方法会在更新后会被立即调用。首次渲染不会执行此方法。</p>
+<p>当组件更新后，可以在此处对 DOM 进行操作。如果你对更新前后的 props 进行了比较，也可以选择在此处进行网络请求。（例如，当 props 未发生变化时，则不会执行网络请求）。</p>
+<p>如果组件实现了 getSnapshotBeforeUpdate() 生命周期（不常用），则它的返回值将作为 componentDidUpdate() 的第三个参数 “snapshot” 参数传递。否则此参数将为 undefined。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">componentDidUpdate(prevProps) &#123;</span><br><span class="line">  <span class="keyword">if</span>(prevProps.myProps !== <span class="keyword">this</span>.props.myProp) &#123;</span><br><span class="line">    <span class="comment">// 典型用法（不要忘记比较 props）：</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.props.userID !== prevProps.userID) &#123;</span><br><span class="line">        <span class="keyword">this</span>.fetchData(<span class="keyword">this</span>.props.userID);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注意：如果 shouldComponentUpdate() 返回值为 false，则不会调用 componentDidUpdate()。</strong></p>
+<h3 id="卸载-1个">卸载（1个）</h3>
+<p>卸载期间是指组件被从DOM树中移除时，调用的相关方法为:</p>
+<ul>
+<li><a href="https://zh-hans.reactjs.org/docs/react-component.html#componentwillunmount" target="_blank" rel="noopener">componentWillUnmount()</a></li>
+</ul>
+<h4 id="componentwillunmount">componentWillUnmount()</h4>
+<p>该方法会在组件被卸载之前被调用。你可以在这个函数中进行相关清理工作，比如删除定时器之类的，取消网络请求或清除在 componentDidMount() 中创建的订阅等</p>
+<p>下面给个示例代码:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">componentWillUnmount() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'componentWillUnmount'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 清除timer</span></span><br><span class="line">    clearInterval(<span class="keyword">this</span>.timerID1);</span><br><span class="line">    clearTimeout(<span class="keyword">this</span>.timerID2);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 关闭socket</span></span><br><span class="line">    <span class="keyword">this</span>.myWebsocket.close();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 取消消息订阅...</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="错误捕获">错误捕获</h3>
+<p>React16中新增了一个生命周期函数:</p>
+<ul>
+<li><a href="https://reactjs.org/docs/react-component.html#componentdidcatch" target="_blank" rel="noopener">componentDidCatch()</a></li>
+</ul>
+<h4 id="componentdidcatch-error-info">componentDidCatch(error, info)</h4>
+<p>在 react 组件中如果产生的错误没有被捕获会被抛给上层组件，如果上层也不处理的话就会抛到顶层导致浏览器白屏错误，在 React16 中我们可以实现这个方法来捕获子组件产生的错误，然后在父组件中妥善处理，比如搞个弹层通知用户网页崩溃等。</p>
+<p>在这个函数中请只进行错误恢复相关的处理，不要做其他流程控制方面的操作。比如:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ErrorBoundary</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123; <span class="attr">hasError</span>: <span class="literal">false</span> &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> getDerivedStateFromError(error) &#123;</span><br><span class="line">    <span class="comment">// 更新 state 使下一次渲染可以显示降级 UI</span></span><br><span class="line">    <span class="keyword">return</span> &#123; <span class="attr">hasError</span>: <span class="literal">true</span> &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentDidCatch(error, info) &#123;</span><br><span class="line">    <span class="comment">// "组件堆栈" 例子:</span></span><br><span class="line">    <span class="comment">//   in ComponentThatThrows (created by App)</span></span><br><span class="line">    <span class="comment">//   in ErrorBoundary (created by App)</span></span><br><span class="line">    <span class="comment">//   in div (created by App)</span></span><br><span class="line">    <span class="comment">//   in App</span></span><br><span class="line">    logComponentStackToMyService(info.componentStack);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.state.hasError) &#123;</span><br><span class="line">      <span class="comment">// 你可以渲染任何自定义的降级 UI</span></span><br><span class="line">      <span class="keyword">return</span> &lt;h1&gt;Something went wrong.&lt;/h1&gt;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.props.children;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="react16中的生命周期函数变化">React16中的生命周期函数变化</h3>
+<p>componentWillMount(直接在 componentDidMount 中即可)，componentWillUpdate( componentDidUpdate + getSnapshotBeforeUpdate ),<br>
+componentWillReceiveProps（ getDerivedStateFromProps + componentDidUpdate ） 等生命周期方法在下个主版本中会被废弃?<br>
+根据这份<a href="https://github.com/reactjs/rfcs/blob/master/text/0006-static-lifecycle-methods.md" target="_blank" rel="noopener">RFC</a>，是的，这些生命周期方法被认为是不安全的，在React16中被重命名为 UNSAFE_componentWillMount，UNSAFE_componentWillUpdate，UNSAFE_componentWillReceiveProps，而在更下个大版本中他们会被废弃。详见<a href="https://reactjs.org/blog/2018/03/29/react-v-16-3.html" target="_blank" rel="noopener">React 16.3版本发布公告</a>。</p>
+<p><a href="https://www.html.cn/qa/react/14367.html" target="_blank" rel="noopener">为什么废弃</a>？从上面的生命周期的图中可以看出，被废弃的三个函数都是在render之前，因为fiber的出现，很可能因为高优先级任务的出现而打断现有任务导致它们会被执行多次。</p>
+<p><a href="https://juejin.im/post/5ae6cd96f265da0b9c106931" target="_blank" rel="noopener">React v16.3 版本新生命周期函数浅析及升级方案</a></p>
+<h3 id="总结">总结</h3>
+<p>总结一下，以上讲的这些生命周期都有自己存在的意义，但在 React 使用过程中我们最常用到的生命周期函数是如下几个:</p>
+<ul>
+<li>constructor: 初始化状态，进行函数绑定</li>
+<li>componentDidMount: 进行DOM操作，进行异步调用初始化页面</li>
+<li>componentWillReceiveProps: 根据props更新状态</li>
+<li>componentWillUnmount: 清理组件定时器，网络请求或者相关订阅等<br>
+其他的逻辑一般和用户的操作有关(各种handleClickXXXX），当然需要用到其他生命周期函数可以按需正确使用。如果阅读文章过程中遇到问题欢迎评论进行修正。</li>
+</ul>
+</section>
+    <!-- Tags START -->
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <a href="/tags#React" >
+    <span class="tag-code">React</span>
+  </a>
+
+      </div>
+    
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2018/10/18/小程序探险指南（一）/">
+        <span class="nav-arrow">← </span>
+        
+          小程序探险指南（一）
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2019/01/20/前端国际化方案探索(一)/">
+        
+          前端国际化探索(一)
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div>
+    
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    <!-- 二维码 END -->
+    
+      <!-- Disqus START -->
+      <div id="disqus_thread"></div>
+      <!-- Disqus END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#生命周期"><span class="toc-nav-text">生命周期</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#挂载-4个"><span class="toc-nav-text">挂载（4个）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#constructor-props"><span class="toc-nav-text">constructor(props)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#static-getderivedstatefromprops-props-state"><span class="toc-nav-text">static getDerivedStateFromProps(props, state)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#render"><span class="toc-nav-text">render()</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#componentdidmount"><span class="toc-nav-text">componentDidMount()</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#更新-5个"><span class="toc-nav-text">更新（5个）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#shouldcomponentupdate-nextprops-nextstate"><span class="toc-nav-text">shouldComponentUpdate(nextProps, nextState)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#getsnapshotbeforeupdate-prevprops-prevstate"><span class="toc-nav-text">getSnapshotBeforeUpdate(prevProps, prevState)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#componentdidupdate-prevprops-prevstate-snapshot"><span class="toc-nav-text">componentDidUpdate(prevProps, prevState, snapshot)</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#卸载-1个"><span class="toc-nav-text">卸载（1个）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#componentwillunmount"><span class="toc-nav-text">componentWillUnmount()</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#错误捕获"><span class="toc-nav-text">错误捕获</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#componentdidcatch-error-info"><span class="toc-nav-text">componentDidCatch(error, info)</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#react16中的生命周期函数变化"><span class="toc-nav-text">React16中的生命周期函数变化</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#总结"><span class="toc-nav-text">总结</span></a></li></ol></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'https://xueshiming.cn/2018/10/31/React生命周期管理/';
+    var banner = 'undefined'
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', '/css/images/error_icon.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== '/css/images/error_icon.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+
+
+  <script>
+    var disqus_shortname = 'https-xueshiming-cn';
+    
+    var disqus_url = 'https://xueshiming.cn/2018/10/31/React生命周期管理/';
+    
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//go.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2022 | <a href="http://beian.miit.gov.cn" target="_blank">津ICP备17005329号</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      hljs.configure({useBR: true});
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+
+  <script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js?t=1662353781579')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+</html>
